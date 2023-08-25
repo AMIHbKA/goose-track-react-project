@@ -6,6 +6,8 @@ import InterSemiBold from './fonts/Inter/Inter-SemiBold.woff2';
 import InterBold from './fonts/Inter/Inter-Bold.woff2';
 import PoppinsRegular from './fonts/Poppins/Poppins-Regular.woff2';
 import PoppinsMedium from './fonts/Poppins/Poppins-Medium.woff2';
+import CoolveticaRegular from './fonts/Coolvetica/Coolvetica-Regular.woff2';
+import CoolveticaItalic from './fonts/Coolvetica/Coolvetica-Italic.woff2';
 
 export const GlobalStyle = createGlobalStyle`
 @font-face {
@@ -48,8 +50,23 @@ font-display: fallback;
   font-weight: 400;
   src: url(${PoppinsRegular}) format('woff2');
   font-display: fallback;
-
 }
+
+@font-face {
+  font-family: 'Coolvetica';
+  font-weight: 400;
+  src: url(${CoolveticaRegular}) format('woff2');
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Coolvetica';
+  font-weight: 400;
+  font-style: italic;
+  src: url(${CoolveticaItalic}) format('woff2');
+  font-display: fallback;
+}
+
 html {
 
   .no-scroll {
