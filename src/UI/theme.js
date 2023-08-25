@@ -16,11 +16,13 @@ const commonStyles = {
     mediumPriorotyBack: '#fcf0d4',
     highPriorityBack: '#ffd2dd',
     monthDayButtonBorder: 'rgb(62 133 243 / 0.2)',
+    hoverState: '#2b78ef',
   },
 };
 
 export const darkTheme = {
   colors: {
+    ...commonStyles.colors,
     mainBack: '#171820',
     secondBack: DARK_GRAYISH_BLUE,
     border: 'rgb(255 255 255 / 0.15)',
@@ -43,6 +45,7 @@ export const darkTheme = {
 
 export const lightTheme = {
   colors: {
+    ...commonStyles.colors,
     mainBack: LIGHT_GRAYISH_BLUE,
     secondBack: 'rgb(52 52 52 / 0.8)',
     border: LIGHT_GRAYISH_BLUE,
