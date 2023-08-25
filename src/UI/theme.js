@@ -6,6 +6,16 @@ const DARK_GRAYISH_BLUE = '#21222c';
 const LIGHT_GRAYISH_BLUE = 'rgb(220 227 229 / 0.8)';
 
 const commonStyles = {
+  breakpoints: {
+    m: '375px',
+    preL: '549px',
+    l: '550px',
+    preTablet: '767px',
+    tablet: '768px',
+    laptop: '1024px',
+    laptopL: '1400px',
+    laptopXl: '2560px',
+  },
   colors: {
     primary: '#3e85f3',
     choosenStar: '#ffac33',
@@ -16,11 +26,14 @@ const commonStyles = {
     mediumPriorotyBack: '#fcf0d4',
     highPriorityBack: '#ffd2dd',
     monthDayButtonBorder: 'rgb(62 133 243 / 0.2)',
+    hoverState: '#2b78ef',
   },
 };
 
 export const darkTheme = {
+  ...commonStyles,
   colors: {
+    ...commonStyles.colors,
     mainBack: '#171820',
     secondBack: DARK_GRAYISH_BLUE,
     border: 'rgb(255 255 255 / 0.15)',
@@ -42,7 +55,9 @@ export const darkTheme = {
 };
 
 export const lightTheme = {
+  ...commonStyles,
   colors: {
+    ...commonStyles.colors,
     mainBack: LIGHT_GRAYISH_BLUE,
     secondBack: 'rgb(52 52 52 / 0.8)',
     border: LIGHT_GRAYISH_BLUE,
