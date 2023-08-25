@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/goose-track-react-project/static/css/main.b5320759.css",
+    "main.js": "/goose-track-react-project/static/js/main.bca7529f.js",
+    "index.html": "/goose-track-react-project/index.html",
+    "main.b5320759.css.map": "/goose-track-react-project/static/css/main.b5320759.css.map",
+    "main.bca7529f.js.map": "/goose-track-react-project/static/js/main.bca7529f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b5320759.css",
+    "static/js/main.bca7529f.js"
+  ]
+}
