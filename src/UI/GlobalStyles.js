@@ -19,6 +19,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  background: ${props => props.theme.colors.mainBack};
+  color: ${props => props.theme.colors.mainText};
+  transition: .3s ease;
+ }
+
 img {
   display: block;
   max-width: 100%;
