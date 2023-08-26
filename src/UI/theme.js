@@ -7,13 +7,14 @@ const LIGHT_GRAYISH_BLUE = 'rgb(220 227 229 / 0.8)';
 
 const commonStyles = {
   breakpoints: {
+    preM: '374px',
     m: '375px',
     preL: '549px',
     l: '550px',
     preTablet: '767px',
     tablet: '768px',
     laptop: '1024px',
-    laptopL: '1400px',
+    laptopL: '1440px',
     laptopXl: '2560px',
   },
   colors: {
