@@ -53,6 +53,9 @@ export const darkTheme = {
     monthDayButtonBorder: 'rgb(62 133 243 / 0.2)',
     addTaskBack: commonStyles.colors.primary,
   },
+  statistics: {
+    backgroundColor: DARK_GRAYISH_BLUE,
+  },
 };
 
 export const lightTheme = {
@@ -74,5 +77,8 @@ export const lightTheme = {
     monthDayButtonActiveText: commonStyles.colors.primary,
     monthDayButtonDefaultBack: LIGHT_BLUE,
     addTaskBack: LIGHT_BLUE,
+  },
+  statistics: {
+    backgroundColor: LIGHT_COLOR,
   },
 };

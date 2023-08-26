@@ -1,8 +1,10 @@
 import { ThemeProvider } from 'styled-components';
-import { useState } from 'react';
+import { useState, lazy } from 'react';
 import { GlobalStyle, lightTheme, darkTheme } from 'UI';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from 'components';
+
+const StatisticsPage = lazy(() => import('../pages/StatisticsPage'));
 
 export const App = () => {
   const [theme, setTheme] = useState('light');
@@ -27,7 +29,7 @@ export const App = () => {
               element={<div>ChoosedMonth</div>}
             />
           </Route>
-          <Route path="/statistics" element={<div>StatisticsPage</div>} />
+          <Route path="/statistics" element={<StatisticsPage />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
