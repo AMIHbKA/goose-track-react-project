@@ -239,7 +239,7 @@ export const MenuIcon = ({ size = 32, stroke = '#000', ...props }) => {
       <path
         fill="none"
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.3529"
         stroke={stroke}
