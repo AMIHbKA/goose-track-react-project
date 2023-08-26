@@ -3,6 +3,7 @@ import {
   StatisticsPageHead,
   StatisticsPageLegend,
 } from 'components/StatisticsPage/StatisticsPageStyled';
+import StatisticsChart from 'components/StatisticsPage/StatisticsChart/StatisticsChart';
 
 const StatisticsPage = () => {
   return (
@@ -14,6 +15,7 @@ const StatisticsPage = () => {
           <li>By Month</li>
         </StatisticsPageLegend>
       </StatisticsPageHead>
+      <StatisticsChart />
     </StatisticsPageContainer>
   );
 };

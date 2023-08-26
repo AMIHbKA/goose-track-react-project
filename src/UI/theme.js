@@ -54,7 +54,11 @@ export const darkTheme = {
     addTaskBack: commonStyles.colors.primary,
   },
   statistics: {
+    linesColor: 'rgb(227 243 255 / 0.15)',
+    linesWidth: '0.8px',
+    borderColor: LIGHT_BLUE,
     backgroundColor: DARK_GRAYISH_BLUE,
+    chartTextColor: LIGHT_COLOR,
   },
 };
 
@@ -79,6 +83,9 @@ export const lightTheme = {
     addTaskBack: LIGHT_BLUE,
   },
   statistics: {
+    linesColor: '#e3f3ff',
+    linesWidth: '1px',
     backgroundColor: LIGHT_COLOR,
+    chartTextColor: '#343434',
   },
 };

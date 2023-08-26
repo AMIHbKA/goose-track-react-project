@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StatisticsPageContainer = styled.div`
+export const StatisticsPageContainer = styled.section`
   padding: 28px 14px;
 
   height: 100%;
@@ -9,11 +9,11 @@ export const StatisticsPageContainer = styled.div`
 
   background-color: ${({ theme }) => theme.statistics.backgroundColor};
 
-  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
     padding: 132px 32px;
   }
 
-  @media (min-width: ${props => props.theme.breakpoints.laptop}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
     padding: 134px 113px;
   }
 `;
@@ -26,14 +26,14 @@ export const StatisticsPageHead = styled.div`
 
   margin-bottom: 40px;
 
-  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
     flex-direction: row;
     justify-content: space-between;
 
     padding: 0 32px;
   }
 
-  @media (min-width: ${props => props.theme.breakpoints.laptop}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
     padding: 0 40px;
   }
 `;

@@ -2,7 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 24px;
+
   margin-inline: auto;
+
+  height: 100%;
   max-width: ${props => props.theme.breakpoints.laptopL};
 
   ${props => props.flex && `display: flex;`}
