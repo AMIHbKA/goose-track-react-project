@@ -59,8 +59,8 @@ export const lightTheme = {
   ...commonStyles,
   colors: {
     ...commonStyles.colors,
-    mainBack: LIGHT_GRAYISH_BLUE,
-    secondBack: 'rgb(52 52 52 / 0.8)',
+    mainBack: '#f7f6f9',
+    secondBack: LIGHT_COLOR,
     border: LIGHT_GRAYISH_BLUE,
     mainText: '#343434',
     secondText: LIGHT_GREY,
