@@ -1,11 +1,16 @@
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
 import { MenuIcon, MoonIcon, SunIcon } from 'UI';
-import { Container } from 'components';
+import { Container, Modal } from 'components';
 import { Button, Header, IconsButton, UserInfo } from './Layout.styled';
 
 export const Layout = ({ currentTheme, switchTheme }) => {
+  const [showModal, setShowModal] = useState(false);
+  const onShowModal = () => {
+    setShowModal(s => !s);
+  };
+
   return (
     <>
       <Header>
@@ -38,7 +43,21 @@ export const Layout = ({ currentTheme, switchTheme }) => {
             }
           </IconsButton>
           <div style={{ display: 'flex', gap: 24 }}>
-            <Button>Feedback</Button>
+            <Button onClick={onShowModal}>Feedback</Button>
+            {showModal && (
+              <Modal onActive={onShowModal}>
+                <div
+                  style={{
+                    height: 250,
+                    aspectRatio: 4 / 3,
+                    border: '1px solid black',
+                    borderRadius: 5,
+                  }}
+                >
+                  Modalka
+                </div>
+              </Modal>
+            )}
             <UserInfo>
               <IconsButton onClick={switchTheme} aria-label="Switch Theme">
                 {currentTheme === 'light' ? (
