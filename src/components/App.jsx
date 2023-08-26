@@ -2,6 +2,8 @@ import { ThemeProvider } from 'styled-components';
 import { useState } from 'react';
 import { GlobalStyle, lightTheme, darkTheme } from 'UI';
 import { MainPage } from 'pages/MainPage';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { Layout } from 'components';
 
 export const App = () => {
   const [theme, setTheme] = useState('light');
@@ -12,9 +14,25 @@ export const App = () => {
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyle />
-      <div>React homework template</div>
       <button onClick={switchTheme}>Switch Theme</button>
-      <MainPage />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<MainPage />} />
+          <Route path="/login" element={<div>LoginPage</div>} />
+          <Route path="/register" element={<div>RegisterPage</div>} />
+          <Route path="/account" element={<div>AccountPage</div>} />
+          <Route path="/calendar" element={<div>CalendarPage</div>}>
+            <Route path="day/:currentDay" element={<div>ChoosedDay</div>} />
+            <Route
+              path="month/:currentDate"
+              element={<div>ChoosedMonth</div>}
+            />
+          </Route>
+          <Route path="/statistics" element={<div>StatisticsPage</div>} />
+
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Route>
+      </Routes>
     </ThemeProvider>
   );
 };
