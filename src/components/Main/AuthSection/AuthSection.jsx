@@ -22,12 +22,12 @@ export const AuthSection = () => {
         </LogoTitle>
       </Logo>
       <nav>
-        <LoginLink>
+        <LoginLink to="/login">
           <LoginLinkText>Log in</LoginLinkText>
 
-          <LogInIcon />
+          <LogInIcon stroke="#3E85F3" width="18" height="18" />
         </LoginLink>
-        <SignLink>Sign up</SignLink>
+        <SignLink to="/signup">Sign up</SignLink>
       </nav>
     </Header>
   );
