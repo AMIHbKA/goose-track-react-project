@@ -1,26 +1,31 @@
-export const ArrowCircleBrokenRightIcon = ({ size = 32, stroke = '#000' }) => {
+export const ArrowCircleBrokenRightIcon = ({
+  size = 32,
+  stroke = '#000',
+  ...props
+}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 32 32"
+      {...props}
     >
       <path
         fill="none"
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke-miterlimit="4"
-        stroke-width="2.6"
+        strokeLinejoin="round"
+        sstrokeLinecap="round"
+        strokeMiterlimit="4"
+        strokeWidth="2.6"
         stroke={stroke}
         d="M4.45 9.334c2.348-4.014 6.638-6.667 11.548-6.667 7.364 0 13.334 5.97 13.334 13.334s-5.97 13.334-13.334 13.334c-4.909 0-9.199-2.653-11.514-6.604l-0.034-0.063"
       ></path>
       <path
         fill="none"
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke-miterlimit="4"
-        stroke-width="2.6"
+        strokeLinejoin="round"
+        sstrokeLinecap="round"
+        strokeMiterlimit="4"
+        strokeWidth="2.6"
         stroke={stroke}
         d="M16 21.334l5.334-5.334-5.334-5.334M2.666 16h18.668"
       ></path>
@@ -28,7 +33,11 @@ export const ArrowCircleBrokenRightIcon = ({ size = 32, stroke = '#000' }) => {
   );
 };
 
-export const CalendarCheckIcon = ({ size = 24, stroke = '#84828A' }) => {
+export const CalendarCheckIcon = ({
+  size = 24,
+  stroke = '#84828A',
+  ...props
+}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -36,26 +45,32 @@ export const CalendarCheckIcon = ({ size = 24, stroke = '#84828A' }) => {
       height={size}
       viewBox="0 0 24 24"
       fill="none"
+      {...props}
     >
       <path
         d="M21 10H3M21 12.5V8.8C21 7.11984 21 6.27976 20.673 5.63803C20.3854 5.07354 19.9265 4.6146 19.362 4.32698C18.7202 4 17.8802 4 16.2 4H7.8C6.11984 4 5.27976 4 4.63803 4.32698C4.07354 4.6146 3.6146 5.07354 3.32698 5.63803C3 6.27976 3 7.11984 3 8.8V17.2C3 18.8802 3 19.7202 3.32698 20.362C3.6146 20.9265 4.07354 21.3854 4.63803 21.673C5.27976 22 6.11984 22 7.8 22H12M16 2V6M8 2V6M14.5 19L16.5 21L21 16.5"
         stroke={stroke}
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        sstrokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
 };
 
-export const ChartIcon = ({ size = 32, fill = '#000', opacity = '0.5' }) => {
+export const ChartIcon = ({
+  size = 32,
+  fill = '#000',
+  opacity = '0.5',
+  ...props
+}) => {
   return (
     <svg
-      version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 32 32"
+      {...props}
     >
       <title>chart</title>
       <path
@@ -67,44 +82,44 @@ export const ChartIcon = ({ size = 32, fill = '#000', opacity = '0.5' }) => {
   );
 };
 
-export const ChevronLeftIcon = ({ size = 24, stroke = '#000' }) => {
+export const ChevronLeftIcon = ({ size = 24, stroke = '#000', ...props }) => {
   return (
     <svg
-      version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 32 32"
+      {...props}
     >
       <title>chevron-left</title>
       <path
         fill="none"
         stroke={stroke}
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke-miterlimit="4"
-        stroke-width="2.6667"
+        strokeLinejoin="round"
+        sstrokeLinecap="round"
+        strokeMiterlimit="4"
+        strokeWidth="2.6667"
         d="M20 24l-8-8 8-8"
       ></path>
     </svg>
   );
 };
 
-export const ChevronRightIcon = ({ size = 24, stroke = '#000' }) => {
+export const ChevronRightIcon = ({ size = 24, stroke = '#000', ...props }) => {
   return (
     <svg
-      version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 32 32"
+      {...props}
     >
       <path
         fill="none"
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke-miterlimit="4"
-        stroke-width="2.6667"
+        strokeLinejoin="round"
+        sstrokeLinecap="round"
+        strokeMiterlimit="4"
+        strokeWidth="2.6667"
         stroke={stroke}
         d="M12 24l8-8-8-8"
       ></path>
@@ -112,36 +127,36 @@ export const ChevronRightIcon = ({ size = 24, stroke = '#000' }) => {
   );
 };
 
-export const CloseIcon = ({ size = 24, stroke = '#000' }) => {
+export const CloseIcon = ({ size = 24, ...props }) => {
   return (
     <svg
-      version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 32 32"
+      {...props}
     >
       <path
-        fill="none"
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke-miterlimit="4"
-        stroke-width="2.3529"
-        stroke={stroke}
+        // fill="none"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+        strokeMiterlimit="4"
+        strokeWidth="2.3529"
+        // stroke={stroke}
         d="M24 8l-16 16M8 8l16 16"
       ></path>
     </svg>
   );
 };
 
-export const DoneIcon = ({ size = 32, fill = '#3cbc81' }) => {
+export const DoneIcon = ({ size = 32, fill = '#3cbc81', ...props }) => {
   return (
     <svg
-      version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 32 32"
+      {...props}
     >
       <path
         fill={fill}
@@ -151,14 +166,14 @@ export const DoneIcon = ({ size = 32, fill = '#3cbc81' }) => {
   );
 };
 
-export const ErrorIcon = ({ size = 32, fill = '#e74a3b' }) => {
+export const ErrorIcon = ({ size = 32, fill = '#e74a3b', ...props }) => {
   return (
     <svg
-      version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 32 32"
+      {...props}
     >
       <path
         fill={fill}
@@ -168,65 +183,65 @@ export const ErrorIcon = ({ size = 32, fill = '#e74a3b' }) => {
   );
 };
 
-export const LogInIcon = ({ size = 32, stroke = '#fff' }) => {
+export const LogInIcon = ({ size = 32, stroke = '#fff', ...props }) => {
   return (
     <svg
-      version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 32 32"
+      {...props}
     >
       <path
         fill="none"
         stroke={stroke}
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke-miterlimit="4"
-        stroke-width="3.2"
+        strokeLinejoin="round"
+        sstrokeLinecap="round"
+        strokeMiterlimit="4"
+        strokeWidth="3.2"
         d="M20 4h1.6c2.24 0 3.36 0 4.216 0.435 0.756 0.391 1.357 0.992 1.737 1.726l0.011 0.022c0.437 0.856 0.437 1.976 0.437 4.216v11.2c0 2.24 0 3.36-0.437 4.216-0.391 0.756-0.992 1.356-1.725 1.737l-0.022 0.011c-0.856 0.437-1.976 0.437-4.216 0.437h-1.6M13.333 9.333l6.667 6.667M20 16l-6.667 6.667M20 16h-16"
       ></path>
     </svg>
   );
 };
 
-export const LogOutIcon = ({ size = 32, stroke = '#fff' }) => {
+export const LogOutIcon = ({ size = 32, stroke = '#fff', ...props }) => {
   return (
     <svg
-      version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 32 32"
+      {...props}
     >
       <path
         fill="none"
         stroke={stroke}
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke-miterlimit="4"
-        stroke-width="3.2"
+        strokeLinejoin="round"
+        sstrokeLinecap="round"
+        strokeMiterlimit="4"
+        strokeWidth="3.2"
         d="M21.333 22.667l6.667-6.667M28 16l-6.667-6.667M28 16h-16M12 4h-1.6c-2.24 0-3.36 0-4.216 0.435-0.756 0.391-1.358 0.992-1.738 1.727l-0.011 0.022c-0.435 0.856-0.435 1.976-0.435 4.216v11.2c0 2.24 0 3.36 0.435 4.216 0.391 0.756 0.992 1.357 1.726 1.737l0.022 0.011c0.856 0.437 1.976 0.437 4.216 0.437h1.6"
       ></path>
     </svg>
   );
 };
 
-export const MenuIcon = ({ size = 32, stroke = '#000' }) => {
+export const MenuIcon = ({ size = 32, stroke = '#000', ...props }) => {
   return (
     <svg
-      version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 32 32"
+      {...props}
     >
       <path
         fill="none"
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke-miterlimit="4"
-        stroke-width="2.3529"
+        strokeLinejoin="round"
+        sstrokeLinecap="round"
+        strokeMiterlimit="4"
+        strokeWidth="2.3529"
         stroke={stroke}
         d="M4 16h24M4 8h24M4 24h24"
       ></path>
@@ -234,14 +249,14 @@ export const MenuIcon = ({ size = 32, stroke = '#000' }) => {
   );
 };
 
-export const MoonIcon = ({ size = 32, fill = '#3e85f3' }) => {
+export const MoonIcon = ({ size = 32, fill = '#3e85f3', ...props }) => {
   return (
     <svg
-      version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 32 32"
+      {...props}
     >
       <path
         fill={fill}
@@ -251,21 +266,21 @@ export const MoonIcon = ({ size = 32, fill = '#3e85f3' }) => {
   );
 };
 
-export const PencilIcon = ({ size = 32, stroke = '#000' }) => {
+export const PencilIcon = ({ size = 32, stroke = '#000', ...props }) => {
   return (
     <svg
-      version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 32 32"
+      {...props}
     >
       <path
         fill="none"
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke-miterlimit="4"
-        stroke-width="2.6"
+        strokeLinejoin="round"
+        sstrokeLinecap="round"
+        strokeMiterlimit="4"
+        strokeWidth="2.6"
         stroke={stroke}
         d="M3.334 28.666l7.4-2.846c0.472-0.18 0.708-0.272 0.93-0.392 0.196-0.104 0.384-0.226 0.56-0.364 0.2-0.154 0.378-0.332 0.736-0.69l15.040-15.040c0.703-0.686 1.138-1.642 1.138-2.7 0-2.083-1.689-3.772-3.772-3.772-1.058 0-2.014 0.436-2.699 1.137l-15.041 15.041c-0.243 0.23-0.468 0.47-0.679 0.723l-0.011 0.013c-0.138 0.176-0.26 0.364-0.364 0.56-0.12 0.22-0.21 0.46-0.392 0.932l-2.846 7.4zM3.334 28.666l2.744-7.134c0.196-0.51 0.294-0.766 0.462-0.882 0.106-0.075 0.238-0.12 0.381-0.12 0.044 0 0.087 0.004 0.129 0.012l-0.004-0.001c0.2 0.040 0.394 0.232 0.78 0.62l3.014 3.010c0.386 0.388 0.58 0.58 0.62 0.782 0.008 0.038 0.012 0.081 0.012 0.125 0 0.143-0.045 0.275-0.121 0.383l0.001-0.002c-0.118 0.168-0.374 0.266-0.884 0.462l-7.134 2.744z"
       ></path>
@@ -273,43 +288,43 @@ export const PencilIcon = ({ size = 32, stroke = '#000' }) => {
   );
 };
 
-export const PlusIcon = ({ size = 32, stroke = '#fff' }) => {
+export const PlusIcon = ({ size = 32, stroke = '#fff', ...props }) => {
   return (
     <svg
-      version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 32 32"
+      {...props}
     >
       <path
         fill="none"
         stroke={stroke}
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke-miterlimit="4"
-        stroke-width="3.5556"
+        strokeLinejoin="round"
+        sstrokeLinecap="round"
+        strokeMiterlimit="4"
+        strokeWidth="3.5556"
         d="M16 6.667v18.667M6.667 16h18.667"
       ></path>
     </svg>
   );
 };
 
-export const PlusCircleIcon = ({ size = 32, stroke = '#000' }) => {
+export const PlusCircleIcon = ({ size = 32, stroke = '#000', ...props }) => {
   return (
     <svg
-      version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 32 32"
+      {...props}
     >
       <path
         fill="none"
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke-miterlimit="4"
-        stroke-width="2.6667"
+        strokeLinejoin="round"
+        sstrokeLinecap="round"
+        strokeMiterlimit="4"
+        strokeWidth="2.6667"
         stroke={stroke}
         d="M16 10.667v10.667M10.667 16h10.667M29.333 16c0 7.364-5.969 13.333-13.333 13.333s-13.333-5.969-13.333-13.333 5.969-13.333 13.333-13.333 13.333 5.969 13.333 13.333z"
       ></path>
@@ -317,14 +332,14 @@ export const PlusCircleIcon = ({ size = 32, stroke = '#000' }) => {
   );
 };
 
-export const SunIcon = ({ size = 32, fill = '#3e85f3' }) => {
+export const SunIcon = ({ size = 32, fill = '#3e85f3', ...props }) => {
   return (
     <svg
-      version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 32 32"
+      {...props}
     >
       <path
         fill={fill}
@@ -334,21 +349,21 @@ export const SunIcon = ({ size = 32, fill = '#3e85f3' }) => {
   );
 };
 
-export const TrashIcon = ({ size = 32, stroke = '#000' }) => {
+export const TrashIcon = ({ size = 32, stroke = '#000', ...props }) => {
   return (
     <svg
-      version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 32 32"
+      {...props}
     >
       <path
         fill="none"
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke-miterlimit="4"
-        stroke-width="2.6"
+        strokeLinejoin="round"
+        sstrokeLinecap="round"
+        strokeMiterlimit="4"
+        strokeWidth="2.6"
         stroke={stroke}
         d="M12 4h8M4 8h24M6.666 8l0.8 12.018c0.15 2.23 0.224 3.346 0.59 4.242 0.673 1.625 1.992 2.868 3.628 3.424l0.042 0.012c0.92 0.304 2.038 0.304 4.274 0.304v0c2.236 0 3.354 0 4.272-0.304 1.679-0.568 2.999-1.81 3.657-3.396l0.015-0.040c0.364-0.896 0.44-2.012 0.588-4.242l0.8-12.018"
       ></path>
@@ -356,36 +371,41 @@ export const TrashIcon = ({ size = 32, stroke = '#000' }) => {
   );
 };
 
-export const TrashIcon2 = ({ size = 32, stroke = '#ea3d65' }) => {
+export const TrashIcon2 = ({ size = 32, stroke = '#ea3d65', ...props }) => {
   return (
     <svg
-      version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 32 32"
+      {...props}
     >
       <path
         fill="none"
         stroke={stroke}
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke-miterlimit="4"
-        stroke-width="3"
+        strokeLinejoin="round"
+        sstrokeLinecap="round"
+        strokeMiterlimit="4"
+        strokeWidth="3"
         d="M4 8h24M25.334 8v18.666c0 1.474-1.195 2.668-2.668 2.668v0h-13.332c-0.001 0-0.001 0-0.002 0-1.472 0-2.666-1.194-2.666-2.666 0-0.001 0-0.001 0-0.002v0-18.666M10.666 8v-2.666c0-0.001 0-0.001 0-0.002 0-1.472 1.194-2.666 2.666-2.666 0.001 0 0.001 0 0.002 0h5.332c1.474 0 2.668 1.195 2.668 2.668v0 2.666M13.334 14.666v8M18.666 14.666v8"
       ></path>
     </svg>
   );
 };
 
-export const UserIcon = ({ size = 32, fill = '#fff', opacity = '0.18' }) => {
+export const UserIcon = ({
+  size = 32,
+  fill = '#fff',
+  opacity = '0.18',
+  ...props
+}) => {
   return (
     <svg
-      version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 32 32"
+      {...props}
     >
       <path
         fill={fill}
@@ -396,22 +416,22 @@ export const UserIcon = ({ size = 32, fill = '#fff', opacity = '0.18' }) => {
   );
 };
 
-export const UserCheckIcon = ({ size = 32, stroke = '#84828a' }) => {
+export const UserCheckIcon = ({ size = 32, stroke = '#84828a', ...props }) => {
   return (
     <svg
-      version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 32 32"
+      {...props}
     >
       <path
         fill="none"
         stroke={stroke}
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke-miterlimit="4"
-        stroke-width="2.6667"
+        strokeLinejoin="round"
+        sstrokeLinecap="round"
+        strokeMiterlimit="4"
+        strokeWidth="2.6667"
         d="M21.333 24l2.667 2.667 5.333-5.333M16 20.667h-6c-1.861 0-2.791 0-3.548 0.229-1.708 0.529-3.026 1.848-3.546 3.518l-0.010 0.038c-0.229 0.757-0.229 1.687-0.229 3.548v0M13.333 16c3.314 0 6-2.686 6-6s-2.686-6-6-6v0c-3.314 0-6 2.686-6 6s2.686 6 6 6v0z"
       ></path>
     </svg>
