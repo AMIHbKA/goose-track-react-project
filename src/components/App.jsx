@@ -9,7 +9,6 @@ export const App = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light');
   };
 
-  console.log(lightTheme);
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyle />

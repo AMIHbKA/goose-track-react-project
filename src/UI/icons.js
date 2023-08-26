@@ -168,7 +168,7 @@ export const ErrorIcon = ({ size = 32, fill = '#e74a3b' }) => {
   );
 };
 
-export const LogInIcon = ({ size = 32, stroke = '#fff' }) => {
+export const LogInIcon = ({ size = 18, stroke = '#3e85f3' }) => {
   return (
     <svg
       version="1.1"

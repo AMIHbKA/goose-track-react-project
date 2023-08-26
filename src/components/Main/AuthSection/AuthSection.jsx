@@ -1,25 +1,33 @@
 import { LogInIcon } from 'UI';
-import { Link } from 'react-router-dom';
-import { Header, Logo, LogoImg } from './AuthSection.styled';
+import {
+  Header,
+  Logo,
+  LogoImg,
+  LogoTitle,
+  LoginLink,
+  SignLink,
+  LoginLinkText,
+} from './AuthSection.styled';
 
 export const AuthSection = () => {
   return (
     <Header>
-      <Logo href="">
+      <Logo href="/goose-track-react-project">
         <LogoImg
           src={require('../../../UI/icons/goose-mobile.png')}
           alt="logo-img"
         />
-        <strong style={{ fontFamily: 'Coolvetica', fontWeight: 'normal' }}>
+        <LogoTitle>
           G<i>oo</i>seTrack
-        </strong>
+        </LogoTitle>
       </Logo>
       <nav>
-        <Link>
-          Log in
+        <LoginLink>
+          <LoginLinkText>Log in</LoginLinkText>
+
           <LogInIcon />
-        </Link>
-        <Link>Sign up</Link>
+        </LoginLink>
+        <SignLink>Sign up</SignLink>
       </nav>
     </Header>
   );
