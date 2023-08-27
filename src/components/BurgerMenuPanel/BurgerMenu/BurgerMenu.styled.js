@@ -17,15 +17,22 @@ export const Overlay = styled.div`
 `;
 
 export const BurgerMenuStyled = styled.div`
-  outline: 1px solid darkcyan;
-  background-color: aqua;
-  max-width: 225px;
-  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* outline: 1px solid darkcyan; */
+  background-color: ${props => props.theme.colors.secondBack};
+  width: 225px;
+  height: 100vh;
 
   padding: 24px 20px;
   opacity: 0;
   transform: translateX(-100px);
   transition: opacity 0.5s ease, transform 0.3s ease;
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    width: 289px;
+  }
 
   &.menu-open {
     opacity: 1;
