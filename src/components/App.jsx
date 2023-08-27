@@ -4,6 +4,8 @@ import { GlobalStyle, lightTheme, darkTheme } from 'UI';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from 'components';
 
+const RegisterPage = lazy(() => import('../pages/RegisterPage'));
+const LoginPage = lazy(() => import('../pages/LoginPage'));
 const StatisticsPage = lazy(() => import('../pages/StatisticsPage'));
 
 export const App = () => {
@@ -19,8 +21,8 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<div>MainPage</div>} />
-          <Route path="/login" element={<div>LoginPage</div>} />
-          <Route path="/register" element={<div>RegisterPage</div>} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
           <Route path="/account" element={<div>AccountPage</div>} />
           <Route path="/calendar" element={<div>CalendarPage</div>}>
             <Route path="day/:currentDay" element={<div>ChoosedDay</div>} />

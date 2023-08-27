@@ -4,3 +4,4 @@ export { Container } from './Containter/Containter';
 export { Layout } from './Layout/Layout';
 export { App } from './App';
 export { Modal } from './Modal/Modal';
+export { Input } from './Forms/Input/Input';
