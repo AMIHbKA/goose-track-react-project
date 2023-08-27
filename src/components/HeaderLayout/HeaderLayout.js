@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { MediaQuery } from 'react-responsive';
 
 import { MenuIcon, MoonIcon, SunIcon } from 'UI';
 import { Modal } from 'components';
@@ -15,7 +14,6 @@ import {
   UserPhoto,
 } from './HeaderLayoutStyled';
 import { BurgerMenuPanel } from 'components/BurgerMenuPanel/BurgerMenuPanel';
-import { lightBlue } from '@mui/material/colors';
 
 export const HeaderLayout = ({ currentTheme, switchTheme }) => {
   const [showModal, setShowModal] = useState(false);
