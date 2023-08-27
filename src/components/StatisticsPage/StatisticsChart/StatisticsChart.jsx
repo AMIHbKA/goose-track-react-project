@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import {
   BarChart,
   Bar,
@@ -118,6 +118,6 @@ const StatisticsChart = props => {
   );
 };
 
-StatisticsChart.propTypes = {};
+// StatisticsChart.propTypes = {};
 
 export default StatisticsChart;
