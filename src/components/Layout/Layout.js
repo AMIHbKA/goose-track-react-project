@@ -1,11 +1,20 @@
-import { Container } from 'components';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
-export const Layout = () => {
+import { Container } from 'components';
+import { HeaderLayout } from 'components/HeaderLayout/HeaderLayout';
+
+export const Layout = ({ currentTheme, switchTheme }) => {
   return (
     <>
-      <main>
+      <HeaderLayout currentTheme={currentTheme} switchTheme={switchTheme} />
+      <main
+        style={{
+          paddingRight: 20,
+          paddingLeft: 20,
+          paddingBottom: 20,
+        }}
+      >
         <Container outline>
           <Suspense fallback={null}>
             <Outlet />
