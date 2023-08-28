@@ -29,7 +29,7 @@ export const AuthSection = () => {
             media="(min-width: 375px)"
             srcSet={`${logoGooseMob}, ${logoGooseMob2x} 2x,`}
           />
-          <img src={`${logoGooseMob}`} alt="logo-image" />
+          <img src={`${logoGooseMob}`} alt="logo" />
         </LogoImg>
         <LogoTitle>
           G<i>oo</i>seTrack
