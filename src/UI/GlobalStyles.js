@@ -6,6 +6,8 @@ import InterSemiBold from './fonts/Inter/Inter-SemiBold.woff2';
 import InterBold from './fonts/Inter/Inter-Bold.woff2';
 import PoppinsRegular from './fonts/Poppins/Poppins-Regular.woff2';
 import PoppinsMedium from './fonts/Poppins/Poppins-Medium.woff2';
+import CoolveticaRegular from './fonts/Coolvetica/Coolvetica-Regular.woff2';
+import CoolveticaItalic from './fonts/Coolvetica/Coolvetica-Italic.woff2';
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -29,53 +31,52 @@ export const GlobalStyle = createGlobalStyle`
     font-display: fallback;
   }
 
-  @font-face {
-    font-family: 'Inter';
-    src: url(${InterRegular}) format('woff2');
-    font-weight: 400;
-    font-display: fallback;
-  }
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 400;
+  src: url(${PoppinsRegular}) format('woff2');
+  font-display: fallback;
+}
 
-  @font-face {
-    font-family: 'Poppins';
-    font-weight: 500;
-    src: url(${PoppinsMedium}) format('woff2');
-    font-display: fallback;
-  }
+@font-face {
+  font-family: 'Coolvetica';
+  font-weight: 400;
+  src: url(${CoolveticaRegular}) format('woff2');
+  font-display: fallback;
+}
 
-  @font-face {
-    font-family: 'Poppins';
-    font-weight: 400;
-    src: url(${PoppinsRegular}) format('woff2');
-    font-display: fallback;
+@font-face {
+  font-family: 'Coolvetica';
+  font-weight: 400;
+  font-style: italic;
+  src: url(${CoolveticaItalic}) format('woff2');
+  font-display: fallback;
+}
 
-  }
-
-  html {
-
+html {
     .no-scroll {
       overflow-y: hidden;
     }
   }
 
-  body {
-    margin: 0;
-    font-family: Inter, sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: normal;
-    color: ${props => props.theme.colors.mainText};
-    background: ${props => props.theme.colors.mainBack};
-    transition: .3s ease;
-  }
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: normal;
+  color: ${props => props.theme.colors.mainText};
+  background: ${props => props.theme.colors.mainBack};
+  transition: .3s ease;
+}
 
-  img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-  }
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 
-  ul, li, p, h1, h2, h3, h4 ,h5, h6 {
+ul, ol, li, p, h1, h2, h3, h4 ,h5, h6 {
     margin: 0;
     padding: 0;
   }

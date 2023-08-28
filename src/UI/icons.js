@@ -14,7 +14,7 @@ export const ArrowCircleBrokenRightIcon = ({
       <path
         fill="none"
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6"
         stroke={stroke}
@@ -23,7 +23,7 @@ export const ArrowCircleBrokenRightIcon = ({
       <path
         fill="none"
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6"
         stroke={stroke}
@@ -96,7 +96,7 @@ export const ChevronLeftIcon = ({ size = 24, stroke = '#000', ...props }) => {
         fill="none"
         stroke={stroke}
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6667"
         d="M20 24l-8-8 8-8"
@@ -117,7 +117,7 @@ export const ChevronRightIcon = ({ size = 24, stroke = '#000', ...props }) => {
       <path
         fill="none"
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6667"
         stroke={stroke}
@@ -196,7 +196,7 @@ export const LogInIcon = ({ size = 32, stroke = '#fff', ...props }) => {
         fill="none"
         stroke={stroke}
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="3.2"
         d="M20 4h1.6c2.24 0 3.36 0 4.216 0.435 0.756 0.391 1.357 0.992 1.737 1.726l0.011 0.022c0.437 0.856 0.437 1.976 0.437 4.216v11.2c0 2.24 0 3.36-0.437 4.216-0.391 0.756-0.992 1.356-1.725 1.737l-0.022 0.011c-0.856 0.437-1.976 0.437-4.216 0.437h-1.6M13.333 9.333l6.667 6.667M20 16l-6.667 6.667M20 16h-16"
@@ -278,7 +278,7 @@ export const PencilIcon = ({ size = 32, stroke = '#000', ...props }) => {
       <path
         fill="none"
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6"
         stroke={stroke}
@@ -301,7 +301,7 @@ export const PlusIcon = ({ size = 32, stroke = '#fff', ...props }) => {
         fill="none"
         stroke={stroke}
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="3.5556"
         d="M16 6.667v18.667M6.667 16h18.667"
@@ -322,7 +322,7 @@ export const PlusCircleIcon = ({ size = 32, stroke = '#000', ...props }) => {
       <path
         fill="none"
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6667"
         stroke={stroke}
@@ -361,7 +361,7 @@ export const TrashIcon = ({ size = 32, stroke = '#000', ...props }) => {
       <path
         fill="none"
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6"
         stroke={stroke}
@@ -384,7 +384,7 @@ export const TrashIcon2 = ({ size = 32, stroke = '#ea3d65', ...props }) => {
         fill="none"
         stroke={stroke}
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="3"
         d="M4 8h24M25.334 8v18.666c0 1.474-1.195 2.668-2.668 2.668v0h-13.332c-0.001 0-0.001 0-0.002 0-1.472 0-2.666-1.194-2.666-2.666 0-0.001 0-0.001 0-0.002v0-18.666M10.666 8v-2.666c0-0.001 0-0.001 0-0.002 0-1.472 1.194-2.666 2.666-2.666 0.001 0 0.001 0 0.002 0h5.332c1.474 0 2.668 1.195 2.668 2.668v0 2.666M13.334 14.666v8M18.666 14.666v8"
@@ -434,6 +434,54 @@ export const UserCheckIcon = ({ size = 32, stroke = '#84828a', ...props }) => {
         strokeWidth="2.6667"
         d="M21.333 24l2.667 2.667 5.333-5.333M16 20.667h-6c-1.861 0-2.791 0-3.548 0.229-1.708 0.529-3.026 1.848-3.546 3.518l-0.010 0.038c-0.229 0.757-0.229 1.687-0.229 3.548v0M13.333 16c3.314 0 6-2.686 6-6s-2.686-6-6-6v0c-3.314 0-6 2.686-6 6s2.686 6 6 6v0z"
       ></path>
+    </svg>
+  );
+};
+
+export const StarIcon = ({ ...props }) => {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path d="M10.8241 14C10.6578 14 10.4922 13.9466 10.3498 13.8403L7.00009 11.3293L3.65039 13.8403C3.51161 13.9447 3.34483 14.0005 3.17386 13.9999C3.00289 13.9993 2.83648 13.9422 2.69839 13.8369C2.56018 13.7321 2.45708 13.5845 2.40378 13.4149C2.35048 13.2454 2.34969 13.0626 2.40151 12.8925L3.6508 8.67793L0.331167 6.23275C0.193589 6.12662 0.0914162 5.97796 0.0390997 5.8078C-0.0132167 5.63764 -0.0130282 5.45459 0.0396388 5.28455C0.0927213 5.11492 0.195461 4.96702 0.333337 4.86175C0.471213 4.75648 0.637253 4.69916 0.807989 4.6979L4.91945 4.69144L6.22844 0.58142C6.28246 0.412106 6.38607 0.264848 6.5246 0.160499C6.66312 0.0561503 6.82954 0 7.00029 0C7.17104 0 7.33746 0.0561503 7.47599 0.160499C7.61451 0.264848 7.71812 0.412106 7.77214 0.58142L9.0589 4.69144L13.1914 4.6979C13.3623 4.69891 13.5286 4.75619 13.6666 4.86162C13.8046 4.96705 13.9073 5.11526 13.9602 5.2852C14.013 5.45513 14.0133 5.63815 13.9609 5.80825C13.9086 5.97835 13.8063 6.12688 13.6686 6.23275L10.349 8.67793L11.5982 12.8925C11.6502 13.0625 11.6495 13.2453 11.5963 13.4149C11.543 13.5844 11.44 13.7321 11.3018 13.8369C11.1633 13.9431 10.9959 14.0002 10.8241 14Z" />
+    </svg>
+  );
+};
+
+export const RightArrow = () => {
+  return (
+    <svg
+      width="39"
+      height="6"
+      viewBox="0 0 39 6"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M33.865 1.10971L35.7445 2.38771L0 2.38871L0 3.38871L35.5205 3.38771L33.75 4.40522L34.248 5.27222L38.3225 2.93122L34.4275 0.282713L33.865 1.10971Z"
+        fill="#111111"
+      />
+    </svg>
+  );
+};
+
+export const LeftArrow = () => {
+  return (
+    <svg
+      width="39"
+      height="6"
+      viewBox="0 0 39 6"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5.03685 4.66763L3.15734 3.38963L38.9019 3.38863V2.38863L3.38134 2.38963L5.15184 1.37213L4.65384 0.505127L0.579338 2.84613L4.47435 5.49463L5.03685 4.66763Z"
+        fill="#111111"
+      />
     </svg>
   );
 };

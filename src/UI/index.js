@@ -21,4 +21,7 @@ export {
   TrashIcon2,
   UserIcon,
   UserCheckIcon,
+  StarIcon,
+  RightArrow,
+  LeftArrow,
 } from './icons';
