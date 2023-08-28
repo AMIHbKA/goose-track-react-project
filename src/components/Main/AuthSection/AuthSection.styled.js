@@ -9,17 +9,30 @@ export const Header = styled.header`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: ${props => props.theme.breakpoints.laptopL}) {
+    padding: 187px 200px 200px;
+  }
 `;
 
 export const Logo = styled.a`
   display: inline-block;
   margin-bottom: 32px;
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    margin-bottom: 40px;
+  }
 `;
 
-export const LogoImg = styled.img`
+export const LogoImg = styled.picture`
+  display: block;
   width: 142px;
   height: 142px;
   margin: 0 auto;
+
+  img {
+    width: 100%;
+  }
 `;
 
 export const LogoTitle = styled.strong`
@@ -28,6 +41,21 @@ export const LogoTitle = styled.strong`
   font-size: 44px;
   color: #fff;
   line-height: calc(48 / 44);
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    font-size: 100px;
+    line-height: calc(130 / 100);
+  }
+`;
+
+export const LinkContainer = styled.nav`
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
 `;
 
 export const LoginLink = styled(Link)`
@@ -39,6 +67,10 @@ export const LoginLink = styled(Link)`
   color: #3e85f3;
   background-color: #fff;
   margin-bottom: 16px;
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    margin-bottom: 0;
+  }
 `;
 
 export const LoginLinkText = styled.span`

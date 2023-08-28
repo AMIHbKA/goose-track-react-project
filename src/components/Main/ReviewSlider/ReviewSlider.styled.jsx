@@ -1,9 +1,17 @@
 import styled from 'styled-components';
 import { StarIcon, LeftArrow } from 'UI';
 
-export const Rewiews = styled.footer`
+export const Rewiews = styled.section`
   background-color: #fff;
   padding: 0 20px 86px;
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    padding: 0 94px 127px;
+    min-width: 580px;
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints.laptopL}) {
+  }
 `;
 
 export const Title = styled.p`
@@ -14,13 +22,30 @@ export const Title = styled.p`
   font-weight: bold;
   text-align: center;
   margin-bottom: 40px;
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    margin-bottom: 50px;
+  }
 `;
 
 export const Container = styled.div`
+  margin-bottom: 30px;
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    margin-bottom: 45px;
+  }
+`;
+
+export const TestimonialCard = styled.div`
   border: 1px solid rgba(0, 0, 0, 10%);
   border-radius: 8px;
   padding: 24px;
-  margin-bottom: 30px;
+  height: 100%;
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    padding: 32px;
+    width: inherit;
+  }
 `;
 
 export const Thumb = styled.div`
@@ -37,7 +62,10 @@ export const PepleImg = styled.img`
 export const RewiewText = styled.div`
   color: rgba(0, 0, 0, 70%);
   line-height: calc(18 / 14);
-  letter-spacing: 0.05;
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    padding: 0 0 18px 68px;
+  }
 `;
 
 export const PeopleName = styled.b`
@@ -66,9 +94,13 @@ export const RatingStarIcon = styled(StarIcon)``;
 
 export const ArrowContainer = styled.div`
   display: flex;
-  /* text-align: center; */
   justify-content: center;
   gap: 25px;
+`;
+
+export const StyledButton = styled.button`
+  background-color: transparent;
+  border: none;
 `;
 
 export const StyledLeftArrow = styled(LeftArrow)`

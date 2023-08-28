@@ -1,4 +1,10 @@
+import React from 'react';
 import { LogInIcon } from 'UI';
+import logoGooseMob from '../../../UI/images/goose-mob.png';
+import logoGooseMob2x from '../../../UI/images/goose-mob@2x.png';
+import logoGooseTab from '../../../UI/images/goose-tab.png';
+import logoGooseTab2x from '../../../UI/images/goose-tab@2x.png';
+
 import {
   Header,
   Logo,
@@ -7,28 +13,36 @@ import {
   LoginLink,
   SignLink,
   LoginLinkText,
+  LinkContainer,
 } from './AuthSection.styled';
 
 export const AuthSection = () => {
   return (
     <Header>
       <Logo href="/goose-track-react-project">
-        <LogoImg
-          src={require('../../../UI/icons/goose-mobile.png')}
-          alt="logo-img"
-        />
+        <LogoImg>
+          <source
+            media="(min-width: 768px)"
+            srcSet={`${logoGooseTab}, ${logoGooseTab2x} 2x`}
+          />
+          <source
+            media="(min-width: 375px)"
+            srcSet={`${logoGooseMob}, ${logoGooseMob2x} 2x,`}
+          />
+          <img src={`${logoGooseMob}`} alt="logo-image" />
+        </LogoImg>
         <LogoTitle>
           G<i>oo</i>seTrack
         </LogoTitle>
       </Logo>
-      <nav>
+      <LinkContainer>
         <LoginLink to="/login">
           <LoginLinkText>Log in</LoginLinkText>
 
           <LogInIcon stroke="#3E85F3" width="18" height="18" />
         </LoginLink>
         <SignLink to="/signup">Sign up</SignLink>
-      </nav>
+      </LinkContainer>
     </Header>
   );
 };
