@@ -34,36 +34,44 @@ export const RegisterForm = () => {
           }, 400);
         }}
       >
-        <Form>
-          <FormFields>
-            <Input
-              name="name"
-              label="Name"
-              type="text"
-              placeholder="Enter your name"
-              maxw="450px"
-              minw="280px"
-            />
+        {({ touched, errors }) => (
+          <Form>
+            <FormFields>
+              <Input
+                name="name"
+                label="Name"
+                type="text"
+                placeholder="Enter your name"
+                maxw="450px"
+                minw="280px"
+                error={errors.name}
+                touched={touched.name}
+              />
 
-            <Input
-              name="email"
-              label="Email Address"
-              type="email"
-              placeholder="Enter email"
-              maxw="450px"
-              minw="280px"
-            />
-            <Input
-              name="password"
-              label="Password"
-              type="password"
-              placeholder="Enter Password"
-              maxw="450px"
-              minw="280px"
-            />
-          </FormFields>
-          <button type="submit">Submit</button>
-        </Form>
+              <Input
+                name="email"
+                label="Email Address"
+                type="email"
+                placeholder="Enter email"
+                maxw="450px"
+                minw="280px"
+                error={errors.email}
+                touched={touched.email}
+              />
+              <Input
+                name="password"
+                label="Password"
+                type="password"
+                placeholder="Enter Password"
+                maxw="450px"
+                minw="280px"
+                error={errors.password}
+                touched={touched.password}
+              />
+            </FormFields>
+            <button type="submit">Submit</button>
+          </Form>
+        )}
       </Formik>
     </FormContainer>
   );

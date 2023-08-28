@@ -12,12 +12,13 @@ export const Input = ({
   minh,
   w,
   h,
-
+  error,
+  touched,
   ...props
 }) => {
-  // const valid = errors && touched;
+  const valid = !error && touched;
 
-  // console.log(name, 'touched:', touched, 'errors:', errors);
+  console.log(name, 'touched:', touched, 'error:', error);
   return (
     <>
       <Label htmlFor={name}>
@@ -34,6 +35,7 @@ export const Input = ({
           {...props}
         />
         {showErrors && <ErrorMessage name={name} />}
+        {valid && <div>It's Ok</div>}
       </Label>
     </>
   );
