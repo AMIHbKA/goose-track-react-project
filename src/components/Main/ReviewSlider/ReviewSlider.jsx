@@ -1,11 +1,10 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-// import people from '../../../utilities/data';
 import { RightArrow } from 'UI';
 import {
   Rewiews,
@@ -23,28 +22,11 @@ import {
   TestimonialCard,
   StyledButton,
 } from './ReviewSlider.styled';
+import { getReviews } from 'utilities';
 
-import { Navigation } from 'swiper/modules';
-
-import axios from 'axios';
-
-const instance = axios.create({
-  baseURL: 'https://goose-track-backend-odyh.onrender.com',
-});
-
-const getReviews = async () => {
-  try {
-    const response = await instance.get('/reviews');
-    console.log(response);
-    return response.data.data;
-  } catch (error) {
-    console.log(error);
-    return [];
-  }
-};
-
-export const ReviewSlider = ({ response }) => {
+export const ReviewSlider = () => {
   const [people, setPeople] = useState([]);
+  const maxStars = 5;
 
   useEffect(() => {
     async function fetchReviews() {
@@ -55,7 +37,7 @@ export const ReviewSlider = ({ response }) => {
   }, []);
 
   return (
-    <>
+    <Suspense fallback={<div>Loading...</div>}>
       <Rewiews>
         <Title>rewiews</Title>
         <Container>
@@ -68,12 +50,15 @@ export const ReviewSlider = ({ response }) => {
                 spaceBetween: 20,
               },
             }}
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             navigation={{
               prevEl: '.swiper-button-prev',
               nextEl: '.swiper-button-next',
             }}
-            autoplay={{ delay: 3000 }}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
             className="mySwiper"
           >
             {people.map(person => {
@@ -90,11 +75,12 @@ export const ReviewSlider = ({ response }) => {
                       <Wrapper>
                         <PeopleName>{name}</PeopleName>
                         <Rating>
-                          <RatingStarIcon />
-                          <RatingStarIcon />
-                          <RatingStarIcon />
-                          <RatingStarIcon />
-                          <RatingStarIcon fill="#CEC9C1" />
+                          {[...Array(maxStars)].map((_, index) => (
+                            <RatingStarIcon
+                              key={index}
+                              fill={index < stars ? '#ffac33' : '#CEC9C1'}
+                            />
+                          ))}
                         </Rating>
                       </Wrapper>
                     </Thumb>
@@ -114,6 +100,6 @@ export const ReviewSlider = ({ response }) => {
           </StyledButton>
         </ArrowContainer>
       </Rewiews>
-    </>
+    </Suspense>
   );
 };

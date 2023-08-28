@@ -75,7 +75,6 @@ export const PeopleName = styled.b`
 export const Rating = styled.div`
   display: flex;
   gap: 10px;
-  fill: #ffac33;
 `;
 
 export const Item = styled.li`
@@ -90,7 +89,10 @@ export const Wrapper = styled.div`
   gap: 13px;
 `;
 
-export const RatingStarIcon = styled(StarIcon)``;
+export const RatingStarIcon = styled(StarIcon)`
+  width: 14px;
+  height: 14px;
+`;
 
 export const ArrowContainer = styled.div`
   display: flex;

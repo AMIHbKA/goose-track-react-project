@@ -1,4 +1,15 @@
 import React from 'react';
+import {
+  MainContent,
+  OderedList,
+  OderedListItem,
+  Title,
+  TextName,
+  TextDescription,
+  OderedListContent,
+  StyledImg,
+} from './Description.styled';
+
 import calendarMob from '../../../UI/images/calendar-mob.jpg';
 import calendarMob2x from '../../../UI/images/calendar-mob@2x.jpg';
 import calendarTab from '../../../UI/images/calendar-tab.jpg';
@@ -20,17 +31,6 @@ import allInOneTab2x from '../../../UI/images/all-in-one-tab@2x.jpg';
 import allInOneDes from '../../../UI/images/all-in-one-des.jpg';
 import allInOneDes2x from '../../../UI/images/all-in-one-des@2x.jpg';
 
-import {
-  MainContent,
-  OderedList,
-  OderedListItem,
-  Title,
-  TextName,
-  TextDescription,
-  OderedListContent,
-  StyledImg,
-} from './Description.styled';
-
 export const Description = () => {
   return (
     <MainContent>
@@ -46,20 +46,6 @@ export const Description = () => {
             </TextDescription>
           </OderedListContent>
           <StyledImg>
-            {/* <source
-              media="(min-width: 375px)"
-              srcSet={`${calendarMob}, ${calendarMob2x} 2x`}
-            />
-            <source
-              media="(min-width: 768px)"
-              srcSet={`${calendarTab}, ${calendarTab2x} 2x`}
-            />
-            <source
-              media="(min-width: 1024x)"
-              srcSet={`${calendarDes}, ${calendarDes2x} 2x`}
-            />
-            <img src={`${calendarMob}`} alt="calendar-img" /> */}
-
             <source
               media="(max-width: 767px)"
               srcSet={`${calendarMob}, ${calendarMob2x} 2x`}
