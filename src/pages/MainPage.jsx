@@ -1,5 +1,5 @@
 import { Modal } from 'components';
-import { FeedbackModal } from 'components/FeedbackModal/FeedbackModal';
+import { FeedbackModal } from 'components/HeaderLayout/FeedbackModal/FeedbackModal';
 import { AuthSection, Description, ReviewSlider } from 'components/Main';
 import React from 'react';
 
@@ -7,9 +7,9 @@ export const MainPage = () => {
   return (
     <>
       <AuthSection />
-      <Modal>
+      {/* <Modal>
         <FeedbackModal />
-      </Modal>
+      </Modal> */}
       <Description />
       <ReviewSlider />
     </>

@@ -4,6 +4,7 @@ import { Rating } from 'react-simple-star-rating';
 import {
   ButtonContainer,
   CancelButton,
+  DeleteButton,
   EditButton,
   LabelText,
   ModalContainer,
@@ -39,9 +40,9 @@ export const FeedbackModal = () => {
           <EditButton>
             <PencilIcon />
           </EditButton>
-          <button>
+          <DeleteButton>
             <TrashIcon2 />
-          </button>
+          </DeleteButton>
         </div>
         <ReviewInput placeholder="Enter text" />
       </ReviewContainer>

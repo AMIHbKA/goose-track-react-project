@@ -26,6 +26,18 @@ export const EditButton = styled.button`
   border-radius: 50%;
   width: 30px;
   height: 30px;
+  border: none;
+  background-color: #e3f3ff;
+`;
+
+// export const StyledPencilIcon
+
+export const DeleteButton = styled.button`
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: rgb(234 61 101 / 0.2);
 `;
 
 export const ReviewInput = styled.input`

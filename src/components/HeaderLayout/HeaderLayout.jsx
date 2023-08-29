@@ -14,6 +14,7 @@ import {
   UserPhoto,
 } from './HeaderLayoutStyled';
 import { BurgerMenuPanel } from 'components/BurgerMenuPanel/BurgerMenuPanel';
+import { FeedbackModal } from './FeedbackModal/FeedbackModal';
 
 export const HeaderLayout = ({ currentTheme, switchTheme }) => {
   const [showModal, setShowModal] = useState(false);
@@ -28,6 +29,7 @@ export const HeaderLayout = ({ currentTheme, switchTheme }) => {
     setBurgerMenuOpen(false);
   };
   const onShowModal = () => {
+    console.log(1);
     setShowModal(s => !s);
   };
 
@@ -63,24 +65,21 @@ export const HeaderLayout = ({ currentTheme, switchTheme }) => {
           </MenuIconStyled>
 
           <UserPanel>
-            <FeedBackButtonStyled
-              padonShowModal={onShowModal}
-              boxShadow={false}
-            >
+            <FeedBackButtonStyled onClick={onShowModal} boxShadow={false}>
               Feedback
             </FeedBackButtonStyled>
             {showModal && (
               <Modal onActive={onShowModal}>
-                <div
+                {/* <div
                   style={{
                     height: 250,
                     aspectRatio: 4 / 3,
                     border: '1px solid black',
                     borderRadius: 5,
                   }}
-                >
-                  Modalka
-                </div>
+                > */}
+                <FeedbackModal />
+                {/* </div> */}
               </Modal>
             )}
             <UserInfo>
