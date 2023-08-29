@@ -60,6 +60,10 @@ export const darkTheme = {
     backgroundColor: DARK_GRAYISH_BLUE,
     chartTextColor: LIGHT_COLOR,
   },
+  choosedMonth: {
+    borderColor: 'rgb(255 255 255 / 0.15)',
+    dateBackground: '#22232D',
+  },
 };
 
 export const lightTheme = {
@@ -87,5 +91,9 @@ export const lightTheme = {
     linesWidth: '1px',
     backgroundColor: LIGHT_COLOR,
     chartTextColor: '#343434',
+  },
+  choosedMonth: {
+    borderColor: 'rgba(220, 227, 229, 0.5)',
+    dateBackground: LIGHT_COLOR,
   },
 };

@@ -4,6 +4,7 @@ import { GlobalStyle, lightTheme, darkTheme } from 'UI';
 import { MainPage } from 'pages/MainPage';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from 'components';
+import { ChoosedMonth } from './Calendar/ChoosedMonth/ChoosedMonth';
 
 const StatisticsPage = lazy(() => import('../pages/StatisticsPage'));
 
@@ -25,7 +26,7 @@ export const App = () => {
           <Route path="/login" element={<div>LoginPage</div>} />
           <Route path="/register" element={<div>RegisterPage</div>} />
           <Route path="/account" element={<div>AccountPage</div>} />
-          <Route path="/calendar" element={<div>CalendarPage</div>}>
+          <Route path="/calendar" element={<ChoosedMonth />}>
             <Route path="day/:currentDay" element={<div>ChoosedDay</div>} />
             <Route
               path="month/:currentDate"
