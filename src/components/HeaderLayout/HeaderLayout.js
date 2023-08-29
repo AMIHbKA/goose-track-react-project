@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { MenuIcon, MoonIcon, SunIcon } from 'UI';
 import { Modal } from 'components';
@@ -8,18 +8,21 @@ import {
   HeaderPanel,
   IconsButton,
   MenuIconStyled,
+  PageTitle,
   UserInfo,
   UserName,
   UserPanel,
   UserPhoto,
 } from './HeaderLayoutStyled';
-import { BurgerMenuPanel } from 'components/BurgerMenuPanel/BurgerMenuPanel';
+import { BurgerMenu } from 'components/BurgerMenu/BurgerMenu';
+import { MenuPanel } from 'components/MenuPanel/MenuPanel';
+import { useWindowWidth } from 'hooks/useWindowWidth';
 
 export const HeaderLayout = ({ currentTheme, switchTheme }) => {
   const [showModal, setShowModal] = useState(false);
   const [isBurgerMenuOpen, setBurgerMenuOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  console.log(windowWidth);
+  const windowWidth = useWindowWidth();
+
   const showBurgerMenu = () => {
     setBurgerMenuOpen(true);
   };
@@ -31,42 +34,30 @@ export const HeaderLayout = ({ currentTheme, switchTheme }) => {
     setShowModal(s => !s);
   };
 
-  useEffect(() => {
-    // Обработчик события изменения размера окна
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    // Добавляем обработчик события при монтировании компонента
-    window.addEventListener('resize', handleResize);
-
-    // Убираем обработчик события при размонтировании компонента
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
   return (
     <>
       <Header>
-        {isBurgerMenuOpen && (
-          <BurgerMenuPanel closeBurgerMenu={closeBurgerMenu} />
+        {windowWidth < 1024 && isBurgerMenuOpen && (
+          <BurgerMenu onActive={closeBurgerMenu}>
+            <MenuPanel closeBurgerMenu={closeBurgerMenu} />
+          </BurgerMenu>
         )}
+
         <HeaderPanel>
-          <MenuIconStyled onClick={showBurgerMenu}>
-            {
-              <MenuIcon
-                size={24}
-                stroke={currentTheme === 'light' ? '#343434' : 'white'}
-              />
-            }
-          </MenuIconStyled>
+          {windowWidth >= 1024 && <PageTitle>Page Title</PageTitle>}
+          {windowWidth < 1024 && (
+            <MenuIconStyled onClick={showBurgerMenu}>
+              {
+                <MenuIcon
+                  size={24}
+                  stroke={currentTheme === 'light' ? '#343434' : 'white'}
+                />
+              }
+            </MenuIconStyled>
+          )}
 
           <UserPanel>
-            <FeedBackButtonStyled
-              padonShowModal={onShowModal}
-              boxShadow={false}
-            >
+            <FeedBackButtonStyled onClick={onShowModal} boxShadow={false}>
               Feedback
             </FeedBackButtonStyled>
             {showModal && (
