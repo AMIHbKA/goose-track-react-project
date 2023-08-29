@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { Input } from 'components';
+import { Input, AuthButton } from 'components';
 import { FormFields, FormHeader, FormContainer } from 'UI/CommonStyles';
 
 const registerSchema = Yup.object({
@@ -16,10 +16,6 @@ const registerSchema = Yup.object({
 });
 
 export const RegisterForm = () => {
-  const handleChange = (name, value) => {
-    return registerSchema.fields[name].isValidSync(value);
-  };
-
   return (
     <FormContainer>
       <FormHeader>Sign Up</FormHeader>
@@ -43,7 +39,6 @@ export const RegisterForm = () => {
                 type="text"
                 placeholder="Enter your name"
                 maxw="450px"
-                minw="280px"
                 error={errors.name}
                 touched={touched.name}
               />
@@ -54,7 +49,6 @@ export const RegisterForm = () => {
                 type="email"
                 placeholder="Enter email"
                 maxw="450px"
-                minw="280px"
                 error={errors.email}
                 touched={touched.email}
               />
@@ -64,12 +58,13 @@ export const RegisterForm = () => {
                 type="password"
                 placeholder="Enter Password"
                 maxw="450px"
-                minw="280px"
                 error={errors.password}
                 touched={touched.password}
               />
             </FormFields>
-            <button type="submit">Submit</button>
+            <AuthButton type="submit" mt="32px">
+              Sign Up
+            </AuthButton>
           </Form>
         )}
       </Formik>

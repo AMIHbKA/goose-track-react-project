@@ -149,7 +149,7 @@ export const CloseIcon = ({ size = 24, ...props }) => {
   );
 };
 
-export const DoneIcon = ({ size = 32, fill = '#3cbc81', ...props }) => {
+export const DoneIcon = ({ size = 24, fill = '#3cbc81', ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -166,7 +166,7 @@ export const DoneIcon = ({ size = 32, fill = '#3cbc81', ...props }) => {
   );
 };
 
-export const ErrorIcon = ({ size = 32, fill = '#e74a3b', ...props }) => {
+export const ErrorIcon = ({ size = 24, fill = '#e74a3b', ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

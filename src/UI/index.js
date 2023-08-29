@@ -1,3 +1,11 @@
+export {
+  CommonInfoStringStyles,
+  FormContainer,
+  FormFields,
+  FormHeader,
+  authButtonIcon,
+} from './CommonStyles';
+
 export { GlobalStyle } from './GlobalStyles';
 export { lightTheme, darkTheme } from './theme';
 export {

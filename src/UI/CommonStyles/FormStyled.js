@@ -10,7 +10,7 @@ export const FormContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 32px;
-  outline: 1px solid red;
+  outline: 1px solid blue;
 
   border-radius: 8px;
   background: #fff;
@@ -19,9 +19,10 @@ export const FormContainer = styled.div`
 export const FormFields = styled.div`
   display: flex;
   flex-direction: column;
-  /* align-items: flex-start; */
+  /* width: 100%; */
+  max-width: 10000px;
   gap: 24px;
-  outline: 1px solid red;
+  outline: 1px solid green;
 `;
 
 export const FormHeader = styled.h2`

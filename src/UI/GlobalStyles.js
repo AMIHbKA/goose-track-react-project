@@ -52,7 +52,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   html {
-
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
     .no-scroll {
       overflow-y: hidden;
     }
@@ -60,9 +62,6 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0;
-    font-family: Inter, sans-serif;
-    font-weight: 500;
-    font-size: 14px;
     line-height: normal;
     color: ${props => props.theme.colors.mainText};
     background: ${props => props.theme.colors.mainBack};
@@ -94,5 +93,13 @@ export const GlobalStyle = createGlobalStyle`
 
   body>div, main {
     height: 100%;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  form {
+    width: 100%;
   }
 `;

@@ -1,5 +1,7 @@
 import { ErrorMessage, Field } from 'formik';
 import styled from 'styled-components';
+import { ValidMessage } from '../ValidMessage/ValidMessage';
+import { CommonInfoStringStyles, DoneIcon, ErrorIcon } from 'UI';
 
 export const Input = ({
   name,
@@ -17,25 +19,35 @@ export const Input = ({
   ...props
 }) => {
   const valid = !error && touched;
-
-  console.log(name, 'touched:', touched, 'error:', error);
+  const actualClass = `${valid ? 'valid' : ''} ${error ? 'invalid' : ''}`;
   return (
     <>
-      <Label htmlFor={name}>
+      <Label htmlFor={name} className={actualClass}>
         {label}
-        <FieldStyled
-          name={name}
-          type={type}
-          w={w}
-          h={h}
-          maxw={maxw}
-          minw={minw}
-          maxh={maxh}
-          minh={minh}
-          {...props}
-        />
-        {showErrors && <ErrorMessage name={name} />}
-        {valid && <div>It's Ok</div>}
+        <div className="input__Wrapper">
+          {valid && <DoneIcon className="input__icon" />}
+          {error && <ErrorIcon className="input__icon" />}
+          <FieldStyled
+            className={actualClass}
+            name={name}
+            type={type}
+            w={w}
+            h={h}
+            maxw={maxw}
+            minw={minw}
+            maxh={maxh}
+            minh={minh}
+            {...props}
+          />
+        </div>
+        {showErrors && (
+          <ErrorMessage
+            name={name}
+            className="error-message"
+            component="span"
+          />
+        )}
+        {valid && <ValidMessage name={name} />}
       </Label>
     </>
   );
@@ -48,6 +60,31 @@ const Label = styled.label`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+
+  .error-message {
+    ${CommonInfoStringStyles}
+  }
+
+  &.valid {
+    color: #3cbc81;
+  }
+
+  &.invalid {
+    color: #da1414;
+  }
+
+  .input__Wrapper {
+    position: relative;
+
+    .input__icon {
+      position: absolute;
+      top: 0;
+      right: 14px;
+      z-index: 2;
+      width: 24px;
+      transform: translateY(50%);
+    }
+  }
 `;
 
 const FieldStyled = styled(Field)`
@@ -61,12 +98,22 @@ const FieldStyled = styled(Field)`
   border: 1px solid #dce3e5;
   outline: none;
 
+  &.invalid {
+    border-color: #da1414;
+  }
+
+  &.valid {
+    border-color: #3cbc81;
+  }
+
   ${props => props.maxw && `max-width: ${props.maxw};`}
   ${props => props.minw && `min-width: ${props.minw};`}
   ${props => props.maxh && `max-height: ${props.maxh};`}
   ${props => props.minh && `min-height: ${props.minh};`}
 
-  &:hover, &:focus, &:active {
+  &:hover,
+  &:focus,
+  &:active {
     border: 1px solid #111;
   }
 
