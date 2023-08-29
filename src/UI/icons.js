@@ -266,7 +266,7 @@ export const MoonIcon = ({ size = 32, fill = '#3e85f3', ...props }) => {
   );
 };
 
-export const PencilIcon = ({ size = 32, stroke = '#000', ...props }) => {
+export const PencilIcon = ({ size = 16, stroke = '#000', ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -371,7 +371,7 @@ export const TrashIcon = ({ size = 32, stroke = '#000', ...props }) => {
   );
 };
 
-export const TrashIcon2 = ({ size = 32, stroke = '#ea3d65', ...props }) => {
+export const TrashIcon2 = ({ size = 16, stroke = '#ea3d65', ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
