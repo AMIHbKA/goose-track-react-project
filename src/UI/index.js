@@ -1,9 +1,11 @@
 export {
   CommonInfoStringStyles,
   FormContainer,
+  FormWrapper,
   FormFields,
   FormHeader,
   authButtonIcon,
+  Wrapper,
 } from './CommonStyles';
 
 export { GlobalStyle } from './GlobalStyles';

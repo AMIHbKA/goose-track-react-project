@@ -14,7 +14,7 @@ export const ArrowCircleBrokenRightIcon = ({
       <path
         fill="none"
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6"
         stroke={stroke}
@@ -23,7 +23,7 @@ export const ArrowCircleBrokenRightIcon = ({
       <path
         fill="none"
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6"
         stroke={stroke}
@@ -51,7 +51,7 @@ export const CalendarCheckIcon = ({
         d="M21 10H3M21 12.5V8.8C21 7.11984 21 6.27976 20.673 5.63803C20.3854 5.07354 19.9265 4.6146 19.362 4.32698C18.7202 4 17.8802 4 16.2 4H7.8C6.11984 4 5.27976 4 4.63803 4.32698C4.07354 4.6146 3.6146 5.07354 3.32698 5.63803C3 6.27976 3 7.11984 3 8.8V17.2C3 18.8802 3 19.7202 3.32698 20.362C3.6146 20.9265 4.07354 21.3854 4.63803 21.673C5.27976 22 6.11984 22 7.8 22H12M16 2V6M8 2V6M14.5 19L16.5 21L21 16.5"
         stroke={stroke}
         strokeWidth="2"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeLinejoin="round"
       />
     </svg>
@@ -96,7 +96,7 @@ export const ChevronLeftIcon = ({ size = 24, stroke = '#000', ...props }) => {
         fill="none"
         stroke={stroke}
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6667"
         d="M20 24l-8-8 8-8"
@@ -117,7 +117,7 @@ export const ChevronRightIcon = ({ size = 24, stroke = '#000', ...props }) => {
       <path
         fill="none"
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6667"
         stroke={stroke}
@@ -196,7 +196,7 @@ export const LogInIcon = ({ size = 32, stroke = '#fff', ...props }) => {
         fill="none"
         stroke={stroke}
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="3.2"
         d="M20 4h1.6c2.24 0 3.36 0 4.216 0.435 0.756 0.391 1.357 0.992 1.737 1.726l0.011 0.022c0.437 0.856 0.437 1.976 0.437 4.216v11.2c0 2.24 0 3.36-0.437 4.216-0.391 0.756-0.992 1.356-1.725 1.737l-0.022 0.011c-0.856 0.437-1.976 0.437-4.216 0.437h-1.6M13.333 9.333l6.667 6.667M20 16l-6.667 6.667M20 16h-16"
@@ -218,7 +218,7 @@ export const LogOutIcon = ({ size = 32, stroke = '#fff', ...props }) => {
         fill="none"
         stroke={stroke}
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="3.2"
         d="M21.333 22.667l6.667-6.667M28 16l-6.667-6.667M28 16h-16M12 4h-1.6c-2.24 0-3.36 0-4.216 0.435-0.756 0.391-1.358 0.992-1.738 1.727l-0.011 0.022c-0.435 0.856-0.435 1.976-0.435 4.216v11.2c0 2.24 0 3.36 0.435 4.216 0.391 0.756 0.992 1.357 1.726 1.737l0.022 0.011c0.856 0.437 1.976 0.437 4.216 0.437h1.6"
@@ -239,7 +239,7 @@ export const MenuIcon = ({ size = 32, stroke = '#000', ...props }) => {
       <path
         fill="none"
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.3529"
         stroke={stroke}
@@ -278,7 +278,7 @@ export const PencilIcon = ({ size = 32, stroke = '#000', ...props }) => {
       <path
         fill="none"
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6"
         stroke={stroke}
@@ -301,7 +301,7 @@ export const PlusIcon = ({ size = 32, stroke = '#fff', ...props }) => {
         fill="none"
         stroke={stroke}
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="3.5556"
         d="M16 6.667v18.667M6.667 16h18.667"
@@ -322,7 +322,7 @@ export const PlusCircleIcon = ({ size = 32, stroke = '#000', ...props }) => {
       <path
         fill="none"
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6667"
         stroke={stroke}
@@ -361,7 +361,7 @@ export const TrashIcon = ({ size = 32, stroke = '#000', ...props }) => {
       <path
         fill="none"
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6"
         stroke={stroke}
@@ -384,7 +384,7 @@ export const TrashIcon2 = ({ size = 32, stroke = '#ea3d65', ...props }) => {
         fill="none"
         stroke={stroke}
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="3"
         d="M4 8h24M25.334 8v18.666c0 1.474-1.195 2.668-2.668 2.668v0h-13.332c-0.001 0-0.001 0-0.002 0-1.472 0-2.666-1.194-2.666-2.666 0-0.001 0-0.001 0-0.002v0-18.666M10.666 8v-2.666c0-0.001 0-0.001 0-0.002 0-1.472 1.194-2.666 2.666-2.666 0.001 0 0.001 0 0.002 0h5.332c1.474 0 2.668 1.195 2.668 2.668v0 2.666M13.334 14.666v8M18.666 14.666v8"
@@ -429,7 +429,7 @@ export const UserCheckIcon = ({ size = 32, stroke = '#84828a', ...props }) => {
         fill="none"
         stroke={stroke}
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6667"
         d="M21.333 24l2.667 2.667 5.333-5.333M16 20.667h-6c-1.861 0-2.791 0-3.548 0.229-1.708 0.529-3.026 1.848-3.546 3.518l-0.010 0.038c-0.229 0.757-0.229 1.687-0.229 3.548v0M13.333 16c3.314 0 6-2.686 6-6s-2.686-6-6-6v0c-3.314 0-6 2.686-6 6s2.686 6 6 6v0z"

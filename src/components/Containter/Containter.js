@@ -2,9 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 24px;
-
   margin-inline: auto;
-
   max-width: ${props => props.theme.breakpoints.laptopL};
 
   ${props => props.flex && `display: flex;`}
@@ -30,4 +28,23 @@ export const Container = styled.div`
   `}
 
   ${props => props.outline && `outline: 1px red solid;`}
+
+${props =>
+    props.fullscreen &&
+    `
+  width: 100vw;
+  height: 100vh;
+`}
+
+${props =>
+    props.full_center &&
+    `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`}
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

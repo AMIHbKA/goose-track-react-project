@@ -1,10 +1,14 @@
+import { Container } from 'components';
 import { RegisterForm } from 'components/Forms/RegisterForm/RegisterForm';
+import { Wrapper } from 'UI';
 
 const RegisterPage = () => {
   return (
-    <>
-      <RegisterForm />
-    </>
+    <section style={{ background: '#dcebf7' }}>
+      <Container outline fullscreen>
+        <RegisterForm />
+      </Container>
+    </section>
   );
 };
 

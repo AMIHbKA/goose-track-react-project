@@ -61,6 +61,10 @@ const Label = styled.label`
   font-weight: 600;
   line-height: normal;
 
+  @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
+    font-size: 14px;
+  }
+
   .error-message {
     ${CommonInfoStringStyles}
   }
@@ -78,11 +82,11 @@ const Label = styled.label`
 
     .input__icon {
       position: absolute;
-      top: 0;
+      top: 50%;
       right: 14px;
       z-index: 2;
       width: 24px;
-      transform: translateY(50%);
+      transform: translateY(-50%);
     }
   }
 `;
@@ -97,6 +101,12 @@ const FieldStyled = styled(Field)`
   border-radius: 8px;
   border: 1px solid #dce3e5;
   outline: none;
+
+  @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
+    padding-inline: 18px;
+    font-size: 16px;
+    height: ${props => props.h || '54px'};
+  }
 
   &.invalid {
     border-color: #da1414;

@@ -14,4 +14,9 @@ export const authButtonIcon = css`
   width: 18px;
   height: 18px;
   margin-left: 11px;
+
+  @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
+    width: 20px;
+    height: 20px;
+  }
 `;

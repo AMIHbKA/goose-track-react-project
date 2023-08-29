@@ -43,12 +43,22 @@ const AuthButtonStyled = styled.button`
   padding-block: 14px;
   justify-content: center;
   align-items: center;
+  font-weight: 600;
+  letter-spacing: -0.28px;
   color: #fff;
   background-color: ${props => props.theme.colors.primary};
   border: transparent;
   border-radius: 16px;
   box-shadow: 4px 2px 16px 0 rgb(136 165 191 / 0.48);
   transition: background-color 300ms ease-in-out;
+  margin-top: 32px;
+
+  @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
+    padding-block: 16px;
+    font-size: 18px;
+    height: ${props => props.h || '56px'};
+    margin-top: 48px;
+  }
 
   ${props => props.maxw && `max-width: ${props.maxw};`}
   ${props => props.minw && `min-width: ${props.minw};`}
@@ -56,8 +66,9 @@ const AuthButtonStyled = styled.button`
     ${props => props.minh && `min-height: ${props.minh};`}
     ${props => props.mt && `margin-top: ${props.mt};`};
 
-  &:hover {
-    background-color: #2b78ef;
+  &:hover,
+  &:focus {
+    background-color: ${props => props.theme.colors.hoverState};
   }
 `;
 

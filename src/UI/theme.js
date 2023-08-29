@@ -8,6 +8,7 @@ const LIGHT_GRAYISH_BLUE = 'rgb(220 227 229 / 0.8)';
 
 const commonStyles = {
   breakpoints: {
+    s: '320px',
     preM: '374px',
     m: '375px',
     preL: '549px',

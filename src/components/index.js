@@ -6,3 +6,4 @@ export { App } from './App';
 export { Modal } from './Modal/Modal';
 export { Input } from './Forms/Input/Input';
 export { AuthButton } from './Forms/AuthButton/AuthButton';
+export { LinkButton } from './Forms/LinkButton/LinkButton';

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { Input, AuthButton } from 'components';
+import { Input, AuthButton, LinkButton } from 'components';
 import { FormFields, FormHeader, FormContainer } from 'UI/CommonStyles';
+import { FormWrapper } from 'UI/CommonStyles/FormStyled';
 
 const registerSchema = Yup.object({
   name: Yup.string()
@@ -18,56 +19,56 @@ const registerSchema = Yup.object({
 export const RegisterForm = () => {
   return (
     <FormContainer>
-      <FormHeader>Sign Up</FormHeader>
+      <FormWrapper>
+        <FormHeader>Sign Up</FormHeader>
 
-      <Formik
-        initialValues={{ name: '', email: '', password: '' }}
-        validationSchema={registerSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
-        }}
-      >
-        {({ touched, errors }) => (
-          <Form>
-            <FormFields>
-              <Input
-                name="name"
-                label="Name"
-                type="text"
-                placeholder="Enter your name"
-                maxw="450px"
-                error={errors.name}
-                touched={touched.name}
-              />
+        <Formik
+          initialValues={{ name: '', email: '', password: '' }}
+          validationSchema={registerSchema}
+          onSubmit={(values, { setSubmitting }) => {
+            setTimeout(() => {
+              alert(JSON.stringify(values, null, 2));
+              setSubmitting(false);
+            }, 400);
+          }}
+        >
+          {({ touched, errors }) => (
+            <Form>
+              <FormFields>
+                <Input
+                  name="name"
+                  label="Name"
+                  type="text"
+                  placeholder="Enter your name"
+                  error={errors.name}
+                  touched={touched.name}
+                />
 
-              <Input
-                name="email"
-                label="Email Address"
-                type="email"
-                placeholder="Enter email"
-                maxw="450px"
-                error={errors.email}
-                touched={touched.email}
-              />
-              <Input
-                name="password"
-                label="Password"
-                type="password"
-                placeholder="Enter Password"
-                maxw="450px"
-                error={errors.password}
-                touched={touched.password}
-              />
-            </FormFields>
-            <AuthButton type="submit" mt="32px">
-              Sign Up
-            </AuthButton>
-          </Form>
-        )}
-      </Formik>
+                <Input
+                  name="email"
+                  label="Email Address"
+                  type="email"
+                  placeholder="Enter email"
+                  error={errors.email}
+                  touched={touched.email}
+                />
+                <Input
+                  name="password"
+                  label="Password"
+                  type="password"
+                  placeholder="Enter Password"
+                  error={errors.password}
+                  touched={touched.password}
+                />
+              </FormFields>
+              <AuthButton type="submit" mt="32px">
+                Sign Up
+              </AuthButton>
+            </Form>
+          )}
+        </Formik>
+      </FormWrapper>
+      <LinkButton>Log In</LinkButton>
     </FormContainer>
   );
 };
