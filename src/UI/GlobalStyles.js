@@ -10,40 +10,26 @@ import CoolveticaRegular from './fonts/Coolvetica/Coolvetica-Regular.woff2';
 import CoolveticaItalic from './fonts/Coolvetica/Coolvetica-Italic.woff2';
 
 export const GlobalStyle = createGlobalStyle`
-@font-face {
-  font-family: 'Inter';
-  font-weight: 700;
-   src: url(${InterBold}) format('woff2');
-font-display: fallback;
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-weight: 600;
-    src: url(${InterSemiBold}) format('woff2');
-font-display: fallback;
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-weight: 500;
-  src: url(${InterMedium}) format('woff2');
+  @font-face {
+    font-family: 'Inter';
+    font-weight: 700;
+    src: url(${InterBold}) format('woff2');
   font-display: fallback;
-}
+  }
 
-@font-face {
-  font-family: 'Inter';
-  src: url(${InterRegular}) format('woff2');
-  font-weight: 400;
+  @font-face {
+    font-family: 'Inter';
+    font-weight: 600;
+      src: url(${InterSemiBold}) format('woff2');
   font-display: fallback;
-}
+  }
 
-@font-face {
-  font-family: 'Poppins';
-  font-weight: 500;
-  src: url(${PoppinsMedium}) format('woff2');
-  font-display: fallback;
-}
+  @font-face {
+    font-family: 'Inter';
+    font-weight: 500;
+    src: url(${InterMedium}) format('woff2');
+    font-display: fallback;
+  }
 
 @font-face {
   font-family: 'Poppins';
@@ -68,11 +54,10 @@ font-display: fallback;
 }
 
 html {
-
-  .no-scroll {
-    overflow-y: hidden;
+    .no-scroll {
+      overflow-y: hidden;
+    }
   }
-}
 
 body {
   margin: 0;
@@ -102,5 +87,13 @@ ul, ol, li, p, h1, h2, h3, h4 ,h5, h6 {
 
   a {
     text-decoration: none;
+  }
+
+  html, body {
+    height: 100vh;
+  }
+
+  body>div, main {
+    height: 100%;
   }
 `;
