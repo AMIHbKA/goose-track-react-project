@@ -4,6 +4,9 @@ const ChoosedMonthCellStyled = styled.div`
   --yellow: #ffdd00;
   --blue: #0057b7;
 
+  display: flex;
+  align-items: flex-start;
+
   position: relative;
 
   overflow: hidden;
@@ -12,33 +15,53 @@ const ChoosedMonthCellStyled = styled.div`
 
   background-color: ${({ theme }) => theme.choosedMonth.dateBackground};
 
+  ${({ isCurrentMonth }) => isCurrentMonth && ` cursor: pointer;`};
+
   @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
     :hover {
       ::before {
         content: '';
+
         position: absolute;
+
         z-index: -2;
+
         left: -50%;
         top: -50%;
+
         width: 200%;
         height: 200%;
+
         background-repeat: no-repeat;
-        background-size: 50% 100%;
-        background-position: 0 0, 100% 0;
-        background-image: linear-gradient(var(--yellow), var(--yellow)),
-          linear-gradient(var(--blue), var(--blue));
-        animation: rotate 7s linear infinite;
+        background-size: 100% 50%;
+        background-position: 0 0, 0 100%;
+        background-image: linear-gradient(
+            to bottom,
+            var(--yellow),
+            var(--yellow)
+          ),
+          linear-gradient(to bottom, var(--blue), var(--blue));
+
         opacity: 0.7;
+
+        animation: rotate 7s linear infinite;
+
+        ${({ isCurrentMonth }) => isCurrentMonth || `display: none;`};
       }
 
       ::after {
         content: '';
+
         position: absolute;
+
         z-index: -1;
+
         left: 2px;
         top: 2px;
+
         width: calc(100% - 4px);
         height: calc(100% - 4px);
+
         background: ${({ theme }) => theme.choosedMonth.dateBackground};
       }
     }

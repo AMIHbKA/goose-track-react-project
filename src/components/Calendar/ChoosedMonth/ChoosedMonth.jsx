@@ -1,13 +1,38 @@
-import React from 'react';
+import { useState } from 'react';
 import ChoosedMonthContainer from './ChoosedMonthContainer/ChoosedMonthContainer';
 import ChoosedMonthCell from './ChoosedMonthCell/ChoosedMonthCell';
+import CalendarDates from 'calendar-dates';
+import {
+  getDateFromMonthString,
+  trimCalendarDates,
+} from 'utilities/dateHelpers';
+import { useEffect } from 'react';
 
 const ChoosedMonth = () => {
+  const monthString = 'AUGUST 2023';
+
+  const [calendarDates, setCalendarDates] = useState(null);
+
+  useEffect(() => {
+    const generateCalendarDates = async () => {
+      const calendarDatesGenerator = new CalendarDates();
+
+      const dates = await calendarDatesGenerator.getDates(
+        getDateFromMonthString(monthString)
+      );
+
+      setCalendarDates(trimCalendarDates(dates));
+    };
+
+    generateCalendarDates();
+  }, [monthString]);
+
   return (
     <ChoosedMonthContainer>
-      {Array.from({ length: 35 }, (_, i) => i + 1).map(item => (
-        <ChoosedMonthCell key={item} />
-      ))}
+      {calendarDates &&
+        calendarDates.map(date => (
+          <ChoosedMonthCell key={date.iso} calendarDate={date} />
+        ))}
     </ChoosedMonthContainer>
   );
 };

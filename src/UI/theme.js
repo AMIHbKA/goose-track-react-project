@@ -63,6 +63,7 @@ export const darkTheme = {
   choosedMonth: {
     borderColor: 'rgb(255 255 255 / 0.15)',
     dateBackground: '#22232D',
+    todayBadgeTextColor: '#22232D',
   },
 };
 
@@ -95,5 +96,6 @@ export const lightTheme = {
   choosedMonth: {
     borderColor: 'rgba(220, 227, 229, 0.5)',
     dateBackground: LIGHT_COLOR,
+    todayBadgeTextColor: LIGHT_COLOR,
   },
 };
