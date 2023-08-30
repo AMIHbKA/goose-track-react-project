@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { useAuth } from 'hooks';
 import { useEffect } from 'react';
 import { refreshUser } from 'redux/auth/operations';
+import { MainPage } from 'pages/MainPage';
 
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
