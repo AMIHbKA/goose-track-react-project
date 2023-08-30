@@ -16,7 +16,8 @@ const LogoNameStyled = styled.p`
     line-height: 1.5;
   }
 
-  /* @media (min-width: ${props => props.theme.breakpoints.laptop}) {
-    font-size: 18px;
-  } */
+  @media (min-width: ${props => props.theme.breakpoints.laptop}) {
+    font-size: 24px;
+    line-break: 1;
+  }
 `;

@@ -11,8 +11,12 @@ export const MenuTitle = styled.p`
   color: ${props => props.theme.colors.userPanelLabel};
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    margin-bottom: 50px;
+    margin-bottom: 32px;
     font-size: 14px;
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints.laptop}) {
+    margin-bottom: 32px;
   }
 `;
 
@@ -20,6 +24,10 @@ export const MenuNav = styled.nav`
   display: flex;
   flex-direction: column;
   gap: 18px;
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    gaap: 16px;
+  }
 `;
 
 export const MenuNavLink = styled(NavLink)`
@@ -30,12 +38,26 @@ export const MenuNavLink = styled(NavLink)`
 
   border-radius: 8px;
   font-weight: 600;
-  color: ${props => props.theme.colors.userPanelLabel};
+  color: ${props => props.theme.colors.userPanelMainText};
+
+  & > .strokeIcon {
+    stroke: ${props => props.theme.colors.userPanelMainText};
+  }
+  & > .fillIcon {
+    fill: ${props => props.theme.colors.userPanelMainText};
+  }
 
   &.active {
-    background-color: #dcebf7;
-    color: #3e85f3;
+    background-color: ${props => props.theme.colors.userPanelActiveBack};
+    color: ${props => props.theme.colors.userPanelActiveText};
     padding: 10px 12px;
+
+    & > .strokeIcon {
+      stroke: ${props => props.theme.colors.userPanelActiveText};
+    }
+    & > .fillIcon {
+      fill: ${props => props.theme.colors.userPanelActiveText};
+    }
   }
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {

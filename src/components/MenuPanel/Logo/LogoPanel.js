@@ -1,25 +1,24 @@
 import { LogoName } from './LogoName';
-import LOGO from '../images/Goose_logo.png';
 import styled from 'styled-components';
 
-export const LogoPanel = () => {
+export const LogoPanel = ({ logoImage, logoName }) => {
   return (
     <LogoPanelStyled>
       <div>
-        <img src={LOGO} alt="Goosse logo" />
+        <img src={logoImage} alt={logoName} />
       </div>
-      <LogoName>GooseTrack</LogoName>
+      <LogoName>{logoName}</LogoName>
     </LogoPanelStyled>
   );
 };
 
 const LogoPanelStyled = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 6px;
   align-items: center;
 
-  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    gap: 6px;
+  @media (min-width: ${props => props.theme.breakpoints.laptop}) {
+    gap: 10px;
   }
 
   & > div {
@@ -37,6 +36,11 @@ const LogoPanelStyled = styled.div`
     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
       width: 60px;
       height: 58px;
+    }
+
+    @media (min-width: ${props => props.theme.breakpoints.laptop}) {
+      width: 71px;
+      height: 68px;
     }
   }
 `;

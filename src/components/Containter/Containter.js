@@ -5,7 +5,7 @@ export const Container = styled.div`
 
   margin-inline: auto;
 
-  height: 100%;
+  /* height: 100%; */
   max-width: ${props => props.theme.breakpoints.laptopL};
 
   ${props => props.flex && `display: flex;`}

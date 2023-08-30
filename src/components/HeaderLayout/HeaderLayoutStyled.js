@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
 export const Header = styled.header`
-  outline: 2px solid green;
+  /* outline: 2px solid green; */
   padding: 24px 20px;
   margin-bottom: 64px;
   display: flex;
   justify-content: flex-end;
+
+  @media (min-width: ${props => props.theme.breakpoints.laptop}) {
+    margin-bottom: 0;
+    padding: 46px 32px 32px;
+  }
 `;
 
 export const HeaderPanel = styled.div`
@@ -17,6 +22,15 @@ export const HeaderPanel = styled.div`
   @media (min-width: ${props => props.theme.breakpoints.laptop}) {
     /* justify-content: flex-end; */
   }
+`;
+
+export const PageTitle = styled.p`
+  text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
+    0px 47px 355px rgba(0, 0, 0, 0.07);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1;
 `;
 
 export const Button = styled.button`

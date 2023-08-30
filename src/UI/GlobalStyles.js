@@ -31,6 +31,20 @@ export const GlobalStyle = createGlobalStyle`
     font-display: fallback;
   }
 
+  @font-face {
+    font-family: 'Inter';
+    font-weight: 400;
+    src: url(${InterRegular}) format('woff2');
+    font-display: fallback;
+  }
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 500;
+  src: url(${PoppinsMedium}) format('woff2');
+  font-display: fallback;
+}
+
 @font-face {
   font-family: 'Poppins';
   font-weight: 400;
