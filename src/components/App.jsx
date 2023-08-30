@@ -35,7 +35,7 @@ export const App = () => {
           path="/"
           element={<Layout currentTheme={theme} switchTheme={switchTheme} />}
         >
-          <Route index element={<div>MainPage</div>} />
+          <Route index element={<MainPage />} />
           <Route
             path="/login"
             element={
