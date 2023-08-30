@@ -4,6 +4,8 @@ import * as Yup from 'yup';
 import { Input, AuthButton, LinkButton } from 'components';
 import { FormFields, FormHeader, FormContainer } from 'UI/CommonStyles';
 import { FormWrapper } from 'UI/CommonStyles/FormStyled';
+import { useDispatch } from 'react-redux';
+import { logIn, register } from 'redux/auth/operations';
 
 const registerSchema = Yup.object({
   name: Yup.string()
@@ -11,12 +13,24 @@ const registerSchema = Yup.object({
     .required('Required'),
   email: Yup.string().email('Invalid email address').required('Required'),
   password: Yup.string()
-    .min(6, 'Must be 6 characters or more')
+    .min(8, 'Must be 8 characters or more')
     .max(32, 'Must be 32 characters or less')
     .required('Required'),
 });
 
 export const RegisterForm = () => {
+  const dispatch = useDispatch();
+
+  const handleSubmit = async values => {
+    const { name, email, password } = values;
+    const registerResult = await dispatch(register({ name, email, password }));
+
+    // if registration is success, login
+    if (register.fulfilled.match(registerResult)) {
+      console.log('registration is success');
+      dispatch(logIn({ email, password }));
+    }
+  };
   return (
     <FormContainer>
       <FormWrapper>
@@ -27,7 +41,8 @@ export const RegisterForm = () => {
           validationSchema={registerSchema}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
+              handleSubmit(values);
+              console.log('after dispatch');
               setSubmitting(false);
             }, 400);
           }}

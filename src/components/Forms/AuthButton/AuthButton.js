@@ -20,8 +20,8 @@ export const AuthButton = ({
       iconComponent = <LogInIconButton />;
       break;
     }
-    case 'login': {
-      iconComponent = <LogOutIcon />;
+    case 'logout': {
+      iconComponent = <LogOutIconButton />;
       break;
     }
     default:
@@ -73,5 +73,9 @@ const AuthButtonStyled = styled.button`
 `;
 
 const LogInIconButton = styled(LogInIcon)`
+  ${authButtonIcon}
+`;
+
+const LogOutIconButton = styled(LogOutIcon)`
   ${authButtonIcon}
 `;

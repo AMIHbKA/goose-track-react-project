@@ -1,6 +1,5 @@
 import { Container } from 'components';
 import { RegisterForm } from 'components/Forms/RegisterForm/RegisterForm';
-import { Wrapper } from 'UI';
 
 const RegisterPage = () => {
   return (
