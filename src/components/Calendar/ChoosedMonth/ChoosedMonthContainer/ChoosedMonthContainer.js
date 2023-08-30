@@ -24,7 +24,18 @@ const ChoosedMonthContainer = styled.div`
   }
 
   > div {
-    background-color: ${({ theme }) => theme.choosedMonth.dateBackground};
+    :first-child::after {
+      border-top-left-radius: 6px;
+    }
+    :nth-child(7)::after {
+      border-top-right-radius: 6px;
+    }
+    :last-child::after {
+      border-bottom-right-radius: 6px;
+    }
+    :nth-last-child(7)::after {
+      border-bottom-left-radius: 6px;
+    }
   }
 `;
 

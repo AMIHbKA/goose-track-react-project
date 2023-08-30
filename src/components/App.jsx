@@ -4,7 +4,7 @@ import { GlobalStyle, lightTheme, darkTheme } from 'UI';
 import { MainPage } from 'pages/MainPage';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from 'components';
-import { ChoosedMonth } from './Calendar/ChoosedMonth/ChoosedMonth';
+import ChoosedMonth from './Calendar/ChoosedMonth/ChoosedMonth';
 
 const StatisticsPage = lazy(() => import('../pages/StatisticsPage'));
 
