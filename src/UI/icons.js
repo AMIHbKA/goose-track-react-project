@@ -33,7 +33,11 @@ export const ArrowCircleBrokenRightIcon = ({
   );
 };
 
-export const CalendarCheckIcon = ({ size = 24, stroke, ...props }) => {
+export const CalendarCheckIcon = ({
+  size = 24,
+  stroke = '#84828A',
+  ...props
+}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +58,12 @@ export const CalendarCheckIcon = ({ size = 24, stroke, ...props }) => {
   );
 };
 
-export const ChartIcon = ({ size = 32, fill, opacity = '0.5', ...props }) => {
+export const ChartIcon = ({
+  size = 32,
+  fill = '#000',
+  opacity = '0.5',
+  ...props
+}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -257,7 +266,7 @@ export const MoonIcon = ({ size = 32, fill = '#3e85f3', ...props }) => {
   );
 };
 
-export const PencilIcon = ({ size = 16, stroke = '#000', ...props }) => {
+export const PencilIcon = ({ size = 16, stroke = '#3e85f3', ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -407,7 +416,7 @@ export const UserIcon = ({
   );
 };
 
-export const UserCheckIcon = ({ size = 32, stroke, ...props }) => {
+export const UserCheckIcon = ({ size = 32, stroke = '#84828a', ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -38,8 +38,7 @@ export const CloseButton = styled(CloseIcon)`
   right: 14px;
   background-size: contain;
   background-repeat: no-repeat;
-  /* stroke: ${props => props.theme.colors.mainText}; */
-  stroke: #111111;
+  stroke: ${({ theme }) => theme.colors.closeButton};
   cursor: pointer;
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
