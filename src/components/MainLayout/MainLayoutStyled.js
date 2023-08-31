@@ -21,6 +21,6 @@ export const GridMainPanel = styled.div`
 `;
 
 export const Main = styled.main`
-  border-radius: 16px;
-  overflow: hidden;
+  /* border-radius: 16px; */
+  /* overflow: hidden; */
 `;

@@ -2,7 +2,12 @@ import { ThemeProvider } from 'styled-components';
 import { useState, lazy } from 'react';
 import { GlobalStyle, lightTheme, darkTheme } from 'UI';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Layout, ToastContainerWrapper, RestrictedRoute } from 'components';
+import {
+  MainLayout,
+  ToastContainerWrapper,
+  RestrictedRoute,
+  PrivateRoute,
+} from 'components';
 import { useDispatch } from 'react-redux';
 import { useAuth } from 'hooks';
 import { useEffect } from 'react';
@@ -23,6 +28,7 @@ export const App = () => {
   const { isRefreshing } = useAuth();
 
   useEffect(() => {
+    console.log('user refresh');
     dispatch(refreshUser());
   }, [dispatch]);
 
@@ -34,9 +40,21 @@ export const App = () => {
       <Routes>
         <Route
           path="/"
-          element={<Layout currentTheme={theme} switchTheme={switchTheme} />}
+          element={<RestrictedRoute redirectTo="/" component={<MainPage />} />}
+        />
+        <Route
+          path="/"
+          element={
+            <PrivateRoute
+              redirectTo="/"
+              component={
+                <MainLayout currentTheme={theme} switchTheme={switchTheme} />
+              }
+            />
+          }
         >
-          <Route index element={<MainPage />} />
+          {/* <Route index element={<MainPage />} /> */}
+
           <Route
             path="/login"
             element={

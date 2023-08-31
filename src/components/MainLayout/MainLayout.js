@@ -11,9 +11,9 @@ import {
   GridMenuPanel,
   GridUserPanel,
   Main,
-} from './LayoutStyled';
+} from './MainLayoutStyled';
 
-export const Layout = ({ currentTheme, switchTheme }) => {
+export const MainLayout = ({ currentTheme, switchTheme }) => {
   const windowWidth = useWindowWidth();
 
   return (

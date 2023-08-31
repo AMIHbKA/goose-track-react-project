@@ -48,7 +48,7 @@ export const RegisterForm = () => {
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
               handleSubmit(values);
-              console.log('after dispatch');
+
               setSubmitting(false);
             }, 400);
           }}
