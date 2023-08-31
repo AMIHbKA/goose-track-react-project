@@ -13,10 +13,13 @@ import { useAuth } from 'hooks';
 import { useEffect } from 'react';
 import { refreshUser } from 'redux/auth/operations';
 import { MainPage } from 'pages/MainPage';
+import LoginPage from '../pages/LoginPage';
+import RegisterPage from '../pages/RegisterPage';
+import { StatisticsPage } from 'pages';
 
-const RegisterPage = lazy(() => import('../pages/RegisterPage'));
-const LoginPage = lazy(() => import('../pages/LoginPage'));
-const StatisticsPage = lazy(() => import('../pages/StatisticsPage'));
+// const RegisterPage = lazy(() => import('../pages/RegisterPage'));
+// const LoginPage = lazy(() => import('../pages/LoginPage'));
+// const StatisticsPage = lazy(() => import('../pages/StatisticsPage'));
 
 export const App = () => {
   const [theme, setTheme] = useState('light');
@@ -40,50 +43,50 @@ export const App = () => {
       <Routes>
         <Route
           path="/"
-          element={<RestrictedRoute redirectTo="/" component={<MainPage />} />}
+          element={
+            <RestrictedRoute redirectTo="/login" component={<MainPage />} />
+          }
         />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute
+              redirectTo="/calendar/month"
+              component={<LoginPage />}
+            />
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute
+              redirectTo="/calendar/month"
+              component={<RegisterPage />}
+            />
+          }
+        />
+
         <Route
           path="/"
           element={
             <PrivateRoute
-              redirectTo="/"
+              redirectTo="/login"
               component={
                 <MainLayout currentTheme={theme} switchTheme={switchTheme} />
               }
             />
           }
         >
-          {/* <Route index element={<MainPage />} /> */}
-
-          <Route
-            path="/login"
-            element={
-              <RestrictedRoute
-                redirectTo="/calendar/month"
-                component={<LoginPage />}
-              />
-            }
-          />
-          <Route
-            path="/register"
-            element={
-              <RestrictedRoute
-                redirectTo="/calendar/month"
-                component={<RegisterPage />}
-              />
-            }
-          />
           <Route path="/account" element={<div>AccountPage</div>} />
           <Route path="/calendar" element={<div>CalendarPage</div>}>
             <Route path="day/" element={<div>ChoosedDay</div>} />
             <Route path="month/" element={<div>ChoosedMonth</div>} />
           </Route>
           <Route path="/statistics" element={<StatisticsPage />} />
-
-          <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-      <ToastContainerWrapper />
+      {/* <ToastContainerWrapper /> */}
     </ThemeProvider>
   );
 };
