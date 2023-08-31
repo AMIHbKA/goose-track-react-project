@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
+// import { Container } from 'components';
 
-import { Container } from 'components';
 import { HeaderLayout } from 'components/HeaderLayout/HeaderLayout';
 import { useWindowWidth } from 'hooks/useWindowWidth';
 import { MenuPanel } from 'components/MenuPanel/MenuPanel';
@@ -24,11 +24,11 @@ export const Layout = ({ currentTheme, switchTheme }) => {
       </GridUserPanel>
       <GridMainPanel>
         <Main>
-          <Container outline>
-            <Suspense fallback={null}>
-              <Outlet />
-            </Suspense>
-          </Container>
+          {/* <Container outline> */}
+          <Suspense fallback={null}>
+            <Outlet />
+          </Suspense>
+          {/* </Container> */}
         </Main>
       </GridMainPanel>
     </GridContainer>
