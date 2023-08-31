@@ -7,6 +7,7 @@ import {
   trimCalendarDates,
 } from 'utilities/dateHelpers';
 import { useEffect } from 'react';
+import CalendarHead from '../CalendarHead/CalendarHead';
 
 const ChoosedMonth = () => {
   const monthString = 'AUGUST 2023';
@@ -28,12 +29,18 @@ const ChoosedMonth = () => {
   }, [monthString]);
 
   return (
-    <CalendarTable>
-      {calendarDates &&
-        calendarDates.map(date => (
-          <MonthCellStyled key={date.iso} calendarDate={date} />
-        ))}
-    </CalendarTable>
+    <>
+      {calendarDates && (
+        <>
+          <CalendarHead />
+          <CalendarTable>
+            {calendarDates.map(date => (
+              <MonthCellStyled key={date.iso} calendarDate={date} />
+            ))}
+          </CalendarTable>
+        </>
+      )}
+    </>
   );
 };
 
