@@ -1,10 +1,16 @@
 import { ThemeProvider } from 'styled-components';
 import { useState, lazy } from 'react';
 import { GlobalStyle, lightTheme, darkTheme } from 'UI';
-import { MainPage } from 'pages/MainPage';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Layout } from 'components';
+import { Layout, ToastContainerWrapper, RestrictedRoute } from 'components';
+import { useDispatch } from 'react-redux';
+import { useAuth } from 'hooks';
+import { useEffect } from 'react';
+import { refreshUser } from 'redux/auth/operations';
+import { MainPage } from 'pages/MainPage';
 
+const RegisterPage = lazy(() => import('../pages/RegisterPage'));
+const LoginPage = lazy(() => import('../pages/LoginPage'));
 const StatisticsPage = lazy(() => import('../pages/StatisticsPage'));
 
 export const App = () => {
@@ -13,7 +19,16 @@ export const App = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light');
   };
 
-  return (
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyle />
       <Routes>
@@ -22,21 +37,35 @@ export const App = () => {
           element={<Layout currentTheme={theme} switchTheme={switchTheme} />}
         >
           <Route index element={<MainPage />} />
-          <Route path="/login" element={<div>LoginPage</div>} />
-          <Route path="/register" element={<div>RegisterPage</div>} />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute
+                redirectTo="/calendar/month"
+                component={<LoginPage />}
+              />
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute
+                redirectTo="/calendar/month"
+                component={<RegisterPage />}
+              />
+            }
+          />
           <Route path="/account" element={<div>AccountPage</div>} />
           <Route path="/calendar" element={<div>CalendarPage</div>}>
-            <Route path="day/:currentDay" element={<div>ChoosedDay</div>} />
-            <Route
-              path="month/:currentDate"
-              element={<div>ChoosedMonth</div>}
-            />
+            <Route path="day/" element={<div>ChoosedDay</div>} />
+            <Route path="month/" element={<div>ChoosedMonth</div>} />
           </Route>
           <Route path="/statistics" element={<StatisticsPage />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
+      <ToastContainerWrapper />
     </ThemeProvider>
   );
 };
