@@ -14,7 +14,6 @@ import {
   ReviewContainer,
   ReviewInput,
   SaveEditButton,
-  StyledRating,
   StyledReviewButton,
 } from './FeedbackModal.styled';
 import { PencilIcon, TrashIcon2 } from 'UI';
@@ -34,9 +33,9 @@ export const FeedbackModal = ({ onCancel, initialReview }) => {
   const [review, setReview] = useState(initialReview?.review || '');
   // const [buttonsVisible, setButtonsVisible] = useState(false);
   const [saveClicked, setSaveClicked] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  // const [formSubmitted, setFormSubmitted] = useState(false);
   const [cancelButtonFocused, setCancelButtonFocused] = useState(false);
-  const [currentReview, setCurrentReview] = useState(null);
+  // const [currentReview, setCurrentReview] = useState(null);
   const theme = useContext(ThemeContext);
 
   // console.log(theme.feedbackModal.starColor);
@@ -45,8 +44,8 @@ export const FeedbackModal = ({ onCancel, initialReview }) => {
     async function fetchReview() {
       try {
         const response = await instance.get('/reviews/own');
-        const reviewData = response.data.data;
-        setCurrentReview(reviewData);
+        // const reviewData = response.data.data;
+        // setCurrentReview(reviewData);
       } catch (error) {
         console.log(error);
       }
@@ -73,12 +72,12 @@ export const FeedbackModal = ({ onCancel, initialReview }) => {
     setReview('');
   };
 
-  const handleReset = () => {
-    setRating(0);
-    setReview('');
-    // setButtonsVisible(false);
-    setFormSubmitted(false);
-  };
+  // const handleReset = () => {
+  //   setRating(0);
+  //   setReview('');
+  //   // setButtonsVisible(false);
+  //   // setFormSubmitted(false);
+  // };
 
   // const handleSubmit = async e => {
   //   e.preventDefault();
