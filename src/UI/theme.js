@@ -52,6 +52,13 @@ export const darkTheme = {
     monthDayButtonBorder: 'rgb(62 133 243 / 0.2)',
     addTaskBack: commonStyles.colors.primary,
   },
+  calendarToolBar:{
+    buttonBackground: DARK_GRAYISH_BLUE,
+    activeButtonBackground: commonStyles.colors.primary,
+    iconBackground: DARK_GRAYISH_BLUE,
+    iconInactive: 'rgba(255, 255, 255, 0.15)'
+  
+  }
 };
 
 export const lightTheme = {
@@ -74,4 +81,10 @@ export const lightTheme = {
     monthDayButtonDefaultBack: LIGHT_BLUE,
     addTaskBack: LIGHT_BLUE,
   },
+  calendarToolBar:{
+    buttonBackground: LIGHT_BLUE,
+    activeButtonBackground: "#CAE8FF",
+    iconBackground: LIGHT_COLOR,
+    iconInactive: LIGHT_GRAYISH_BLUE,
+  }
 };

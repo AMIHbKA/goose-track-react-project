@@ -82,7 +82,7 @@ export const ChartIcon = ({
   );
 };
 
-export const ChevronLeftIcon = ({ size = 24, stroke = '#000', ...props }) => {
+export const ChevronLeftIcon = ({ size = 24, ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -94,9 +94,9 @@ export const ChevronLeftIcon = ({ size = 24, stroke = '#000', ...props }) => {
       <title>chevron-left</title>
       <path
         fill="none"
-        stroke={stroke}
+        // stroke={stroke}
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6667"
         d="M20 24l-8-8 8-8"
@@ -105,7 +105,7 @@ export const ChevronLeftIcon = ({ size = 24, stroke = '#000', ...props }) => {
   );
 };
 
-export const ChevronRightIcon = ({ size = 24, stroke = '#000', ...props }) => {
+export const ChevronRightIcon = ({ size = 24, ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -117,10 +117,10 @@ export const ChevronRightIcon = ({ size = 24, stroke = '#000', ...props }) => {
       <path
         fill="none"
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6667"
-        stroke={stroke}
+        // stroke={stroke}
         d="M12 24l8-8-8-8"
       ></path>
     </svg>
@@ -434,6 +434,21 @@ export const UserCheckIcon = ({ size = 32, stroke = '#84828a', ...props }) => {
         strokeWidth="2.6667"
         d="M21.333 24l2.667 2.667 5.333-5.333M16 20.667h-6c-1.861 0-2.791 0-3.548 0.229-1.708 0.529-3.026 1.848-3.546 3.518l-0.010 0.038c-0.229 0.757-0.229 1.687-0.229 3.548v0M13.333 16c3.314 0 6-2.686 6-6s-2.686-6-6-6v0c-3.314 0-6 2.686-6 6s2.686 6 6 6v0z"
       ></path>
+    </svg>
+  );
+};
+
+export const VerticalDash = ({ stroke = '#DCE3E5', ...props }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="2"
+      height="34"
+      viewBox="0 0 2 34"
+      fill="none"
+      {...props}
+    >
+      <path d="M1 0V34" stroke={stroke} strokeOpacity="0.5" />
     </svg>
   );
 };
