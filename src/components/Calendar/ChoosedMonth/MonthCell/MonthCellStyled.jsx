@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ChoosedMonthCellStyled = styled.div`
+const MonthCellStyled = styled.div`
   --yellow: #ffdd00;
   --blue: #0057b7;
 
@@ -77,4 +77,4 @@ const ChoosedMonthCellStyled = styled.div`
   }
 `;
 
-export default ChoosedMonthCellStyled;
+export default MonthCellStyled;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ChoosedMonthContainer = styled.div`
+const CalendarTable = styled.div`
   display: grid;
   grid-gap: 1px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -39,4 +39,4 @@ const ChoosedMonthContainer = styled.div`
   }
 `;
 
-export default ChoosedMonthContainer;
+export default CalendarTable;

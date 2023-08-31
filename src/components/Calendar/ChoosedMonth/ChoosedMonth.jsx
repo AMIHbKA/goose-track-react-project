@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import ChoosedMonthContainer from './ChoosedMonthContainer/ChoosedMonthContainer';
-import ChoosedMonthCell from './ChoosedMonthCell/ChoosedMonthCell';
 import CalendarDates from 'calendar-dates';
+import CalendarTable from './CalendarTable/CalendarTable';
+import MonthCellStyled from './MonthCell/MonthCell';
 import {
   getDateFromMonthString,
   trimCalendarDates,
@@ -28,12 +28,12 @@ const ChoosedMonth = () => {
   }, [monthString]);
 
   return (
-    <ChoosedMonthContainer>
+    <CalendarTable>
       {calendarDates &&
         calendarDates.map(date => (
-          <ChoosedMonthCell key={date.iso} calendarDate={date} />
+          <MonthCellStyled key={date.iso} calendarDate={date} />
         ))}
-    </ChoosedMonthContainer>
+    </CalendarTable>
   );
 };
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ChoosedMonthBadge = styled.div`
+const MonthBadge = styled.div`
   margin-top: 8px;
   margin-right: 4px;
   margin-left: auto;
@@ -36,4 +36,4 @@ const ChoosedMonthBadge = styled.div`
   }
 `;
 
-export default ChoosedMonthBadge;
+export default MonthBadge;
