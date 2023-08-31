@@ -2,11 +2,13 @@ const LIGHT_BLUE = '#e3f3ff';
 const LIGHT_COLOR = '#fff';
 const LIGHT_GREY = 'rgb(250 250 250 / 0.3)';
 const DARK_GREY = 'rgb(52 52 52 / 0.5)';
+const DARK_COLOR = '#343434';
 const DARK_GRAYISH_BLUE = '#21222c';
 const LIGHT_GRAYISH_BLUE = 'rgb(220 227 229 / 0.8)';
 
 const commonStyles = {
   breakpoints: {
+    s: '320px',
     preM: '374px',
     m: '375px',
     preL: '549px',
@@ -69,7 +71,7 @@ export const lightTheme = {
     mainBack: '#f7f6f9',
     secondBack: LIGHT_COLOR,
     border: LIGHT_GRAYISH_BLUE,
-    mainText: '#343434',
+    mainText: DARK_COLOR,
     secondText: LIGHT_GREY,
     textAreaBack: '#f6f6f6',
     emptyStar: '#cec9c1',
@@ -83,9 +85,9 @@ export const lightTheme = {
     addTaskBack: LIGHT_BLUE,
   },
   statistics: {
-    linesColor: '#e3f3ff',
+    linesColor: LIGHT_BLUE,
     linesWidth: '1px',
     backgroundColor: LIGHT_COLOR,
-    chartTextColor: '#343434',
+    chartTextColor: DARK_COLOR,
   },
 };
