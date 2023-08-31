@@ -8,10 +8,13 @@ import { useAuth } from 'hooks';
 import { useEffect } from 'react';
 import { refreshUser } from 'redux/auth/operations';
 import { MainPage } from 'pages/MainPage';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
 const StatisticsPage = lazy(() => import('../pages/StatisticsPage'));
+const CalendarPage = lazy(()=> import('../pages/CalendarPage'))
 
 export const App = () => {
   const [theme, setTheme] = useState('light');
@@ -30,6 +33,7 @@ export const App = () => {
     <b>Refreshing user...</b>
   ) : (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
       <GlobalStyle />
       <Routes>
         <Route
@@ -56,7 +60,7 @@ export const App = () => {
             }
           />
           <Route path="/account" element={<div>AccountPage</div>} />
-          <Route path="/calendar" element={<div>CalendarPage</div>}>
+          <Route path="/calendar" element={<CalendarPage/>}>
             <Route path="day/" element={<div>ChoosedDay</div>} />
             <Route path="month/" element={<div>ChoosedMonth</div>} />
           </Route>
@@ -66,6 +70,7 @@ export const App = () => {
         </Route>
       </Routes>
       <ToastContainerWrapper />
+      </LocalizationProvider>
     </ThemeProvider>
   );
 };

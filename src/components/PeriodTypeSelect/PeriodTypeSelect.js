@@ -13,7 +13,7 @@ export const PeriodTypeSelect = ({ selectPeriod }) => {
   return (
     <Navigation>
       <SelectorMonth
-        to="/"
+        to="/calendar/month"
         onClick={() => {
           selectPeriod(MONTH);
           setIsActive(MONTH);
@@ -22,7 +22,7 @@ export const PeriodTypeSelect = ({ selectPeriod }) => {
         <Text>Month</Text>
       </SelectorMonth>
       <SelectorDay
-        to="/"
+        to="/calendar/day"
         onClick={() => {
           selectPeriod(DAY);
           setIsActive(DAY);
