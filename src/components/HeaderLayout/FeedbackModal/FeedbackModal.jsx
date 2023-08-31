@@ -21,12 +21,12 @@ import { PencilIcon, TrashIcon2 } from 'UI';
 import { sendFeedbackToBackend } from '../../../UI/servisesHttp/sendFeedbackToBackend';
 import { deleteReview } from '../../../UI/servisesHttp/delereReview';
 
-import axios from 'axios';
+// import axios from 'axios';
 import { useEffect } from 'react';
 
-const instance = axios.create({
-  baseURL: 'https://goose-track-backend-odyh.onrender.com',
-});
+// const instance = axios.create({
+//   baseURL: 'https://goose-track-backend-odyh.onrender.com',
+// });
 
 export const FeedbackModal = ({ onCancel, initialReview }) => {
   const [rating, setRating] = useState(initialReview?.rating || 0);
@@ -43,7 +43,7 @@ export const FeedbackModal = ({ onCancel, initialReview }) => {
   useEffect(() => {
     async function fetchReview() {
       try {
-        const response = await instance.get('/reviews/own');
+        // const response = await instance.get('/reviews/own');
         // const reviewData = response.data.data;
         // setCurrentReview(reviewData);
       } catch (error) {
