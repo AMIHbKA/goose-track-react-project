@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { CloseButton, ModalStyled, Overlay } from './ModalStyled';
+import { createPortal } from 'react-dom';
 
 export const Modal = ({ ...props }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,12 +35,13 @@ export const Modal = ({ ...props }) => {
   }, [onActive]);
 
   const modalClassName = isOpen ? 'modal-open' : '';
-  return (
+  return createPortal(
     <Overlay onClick={handleClick} $backdrop={props.backdrop}>
       <ModalStyled className={modalClassName}>
         {children}
         <CloseButton size="24" type="button" onClick={handleClick} />
       </ModalStyled>
-    </Overlay>
+    </Overlay>,
+    document.body
   );
 };

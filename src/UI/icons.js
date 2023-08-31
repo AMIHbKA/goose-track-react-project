@@ -14,7 +14,7 @@ export const ArrowCircleBrokenRightIcon = ({
       <path
         fill="none"
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6"
         stroke={stroke}
@@ -23,7 +23,7 @@ export const ArrowCircleBrokenRightIcon = ({
       <path
         fill="none"
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6"
         stroke={stroke}
@@ -51,19 +51,14 @@ export const CalendarCheckIcon = ({
         d="M21 10H3M21 12.5V8.8C21 7.11984 21 6.27976 20.673 5.63803C20.3854 5.07354 19.9265 4.6146 19.362 4.32698C18.7202 4 17.8802 4 16.2 4H7.8C6.11984 4 5.27976 4 4.63803 4.32698C4.07354 4.6146 3.6146 5.07354 3.32698 5.63803C3 6.27976 3 7.11984 3 8.8V17.2C3 18.8802 3 19.7202 3.32698 20.362C3.6146 20.9265 4.07354 21.3854 4.63803 21.673C5.27976 22 6.11984 22 7.8 22H12M16 2V6M8 2V6M14.5 19L16.5 21L21 16.5"
         stroke={stroke}
         strokeWidth="2"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeLinejoin="round"
       />
     </svg>
   );
 };
 
-export const ChartIcon = ({
-  size = 32,
-  fill = '#000',
-  opacity = '0.5',
-  ...props
-}) => {
+export const ChartIcon = ({ size = 32, opacity = '0.5', ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +70,7 @@ export const ChartIcon = ({
       <title>chart</title>
       <path
         opacity={opacity}
-        fill={fill}
+        fill={props?.fill}
         d="M23.8 9.037c0-0.76 0-1.305 0.037-1.733 0.037-0.435 0.103-0.595 0.133-0.647 0.009-0.013 0.013-0.016 0.016-0.019 0.040-0.026 0.086-0.046 0.135-0.059l0.003-0.001c0.208-0.064 0.569-0.112 1.208-0.112s1 0.048 1.207 0.112c0.053 0.013 0.099 0.033 0.141 0.060l-0.002-0.001c0.005 0.004 0.008 0.007 0.016 0.020 0.031 0.052 0.097 0.212 0.133 0.648 0.037 0.427 0.039 0.973 0.039 1.732v13.925c0 0.896-0.051 1.504-0.135 1.916-0.084 0.413-0.183 0.531-0.2 0.547-0.008 0.009-0.017 0.015-0.027 0.020l-0 0c-0.049 0.021-0.106 0.038-0.166 0.046l-0.004 0c-0.22 0.037-0.509 0.041-1.001 0.041-0.5 0-0.793-0.004-1.015-0.041-0.063-0.009-0.119-0.024-0.172-0.047l0.004 0.002c-0.010-0.004-0.018-0.010-0.025-0.017l-0-0c-0.013-0.015-0.111-0.131-0.193-0.547-0.083-0.413-0.133-1.021-0.133-1.92v-13.925zM25.333 4.2c-1.288 0-2.613 0.136-3.305 1.291-0.303 0.504-0.403 1.085-0.449 1.621-0.045 0.533-0.045 1.177-0.045 1.883v13.968c0 0.955 0.051 1.735 0.175 2.363 0.125 0.627 0.344 1.205 0.761 1.653 0.44 0.468 0.975 0.663 1.467 0.747 0.433 0.075 0.92 0.075 1.344 0.075h0.107c0.417 0 0.9 0 1.333-0.075 0.489-0.084 1.023-0.277 1.463-0.744 0.42-0.445 0.643-1.023 0.771-1.651 0.128-0.631 0.18-1.412 0.18-2.368v-13.968c0-0.707 0-1.348-0.045-1.883-0.047-0.536-0.147-1.117-0.449-1.621-0.693-1.155-2.017-1.291-3.307-1.291zM14.505 12.667c-0.024 0.266-0.037 0.575-0.037 0.887 0 0.079 0.001 0.157 0.003 0.236l-0-0.012v9.811c-0.033 1.147 0.175 1.533 0.299 1.667 0.107 0.115 0.377 0.279 1.231 0.279 0.833 0 1.112-0.163 1.227-0.283 0.125-0.135 0.339-0.523 0.303-1.659v-9.815c0-0.46-0.003-0.811-0.036-1.111-0.032-0.296-0.088-0.448-0.136-0.529l-0.003-0.003c-0.031-0.053-0.197-0.335-1.355-0.335-1.159 0-1.325 0.283-1.356 0.335l-0.001 0.003c-0.049 0.081-0.105 0.233-0.137 0.529zM12.697 10.973c0.64-1.067 1.82-1.44 3.303-1.44 1.481 0 2.663 0.373 3.301 1.44 0.284 0.475 0.395 0.989 0.445 1.444 0.048 0.437 0.048 0.907 0.048 1.328v9.792c0.040 1.301-0.16 2.463-0.92 3.268-0.777 0.824-1.869 0.995-2.875 0.995-1.016 0-2.113-0.169-2.888-1-0.753-0.807-0.944-1.969-0.908-3.26v-9.795c0-0.42 0-0.891 0.048-1.328 0.051-0.453 0.161-0.969 0.445-1.444zM5.169 19.36c-0.035 0.351-0.036 0.776-0.036 1.344v3.688c0 0.64 0.155 0.816 0.229 0.88 0.123 0.104 0.453 0.261 1.304 0.261 0.832 0 1.167-0.156 1.296-0.264 0.080-0.068 0.237-0.248 0.237-0.877v-3.668l-0.009-0.269c-0.015-0.44-0.027-0.783-0.059-1.085-0.040-0.364-0.099-0.533-0.147-0.616v-0.001c-0.013-0.027-0.128-0.285-1.32-0.285-1.195 0-1.333 0.261-1.353 0.297l-0.001 0.003c-0.047 0.079-0.107 0.241-0.141 0.593zM3.356 17.617c0.653-1.111 1.877-1.417 3.311-1.417 1.436 0 2.648 0.307 3.288 1.431 0.276 0.484 0.379 1.020 0.431 1.495 0.043 0.395 0.057 0.841 0.072 1.28l0.008 0.259v3.727c0 0.991-0.253 1.949-1.045 2.613-0.744 0.624-1.743 0.795-2.753 0.795-1.021 0-2.024-0.169-2.768-0.797-0.789-0.669-1.032-1.631-1.032-2.611v-3.724c0-0.521 0-1.056 0.047-1.532 0.049-0.487 0.156-1.027 0.443-1.517z"
       ></path>
     </svg>
@@ -149,7 +144,7 @@ export const CloseIcon = ({ size = 24, ...props }) => {
   );
 };
 
-export const DoneIcon = ({ size = 32, fill = '#3cbc81', ...props }) => {
+export const DoneIcon = ({ size = 24, fill = '#3cbc81', ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -166,7 +161,7 @@ export const DoneIcon = ({ size = 32, fill = '#3cbc81', ...props }) => {
   );
 };
 
-export const ErrorIcon = ({ size = 32, fill = '#e74a3b', ...props }) => {
+export const ErrorIcon = ({ size = 24, fill = '#e74a3b', ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -196,7 +191,7 @@ export const LogInIcon = ({ size = 32, stroke = '#fff', ...props }) => {
         fill="none"
         stroke={stroke}
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="3.2"
         d="M20 4h1.6c2.24 0 3.36 0 4.216 0.435 0.756 0.391 1.357 0.992 1.737 1.726l0.011 0.022c0.437 0.856 0.437 1.976 0.437 4.216v11.2c0 2.24 0 3.36-0.437 4.216-0.391 0.756-0.992 1.356-1.725 1.737l-0.022 0.011c-0.856 0.437-1.976 0.437-4.216 0.437h-1.6M13.333 9.333l6.667 6.667M20 16l-6.667 6.667M20 16h-16"
@@ -218,7 +213,7 @@ export const LogOutIcon = ({ size = 32, stroke = '#fff', ...props }) => {
         fill="none"
         stroke={stroke}
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="3.2"
         d="M21.333 22.667l6.667-6.667M28 16l-6.667-6.667M28 16h-16M12 4h-1.6c-2.24 0-3.36 0-4.216 0.435-0.756 0.391-1.358 0.992-1.738 1.727l-0.011 0.022c-0.435 0.856-0.435 1.976-0.435 4.216v11.2c0 2.24 0 3.36 0.435 4.216 0.391 0.756 0.992 1.357 1.726 1.737l0.022 0.011c0.856 0.437 1.976 0.437 4.216 0.437h1.6"
@@ -239,7 +234,7 @@ export const MenuIcon = ({ size = 32, stroke = '#000', ...props }) => {
       <path
         fill="none"
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.3529"
         stroke={stroke}
@@ -266,7 +261,7 @@ export const MoonIcon = ({ size = 32, fill = '#3e85f3', ...props }) => {
   );
 };
 
-export const PencilIcon = ({ size = 32, stroke = '#000', ...props }) => {
+export const PencilIcon = ({ size = 16, stroke = '#3e85f3', ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -278,7 +273,7 @@ export const PencilIcon = ({ size = 32, stroke = '#000', ...props }) => {
       <path
         fill="none"
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6"
         stroke={stroke}
@@ -301,7 +296,7 @@ export const PlusIcon = ({ size = 32, stroke = '#fff', ...props }) => {
         fill="none"
         stroke={stroke}
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="3.5556"
         d="M16 6.667v18.667M6.667 16h18.667"
@@ -322,7 +317,7 @@ export const PlusCircleIcon = ({ size = 32, stroke = '#000', ...props }) => {
       <path
         fill="none"
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6667"
         stroke={stroke}
@@ -361,7 +356,7 @@ export const TrashIcon = ({ size = 32, stroke = '#000', ...props }) => {
       <path
         fill="none"
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6"
         stroke={stroke}
@@ -371,7 +366,7 @@ export const TrashIcon = ({ size = 32, stroke = '#000', ...props }) => {
   );
 };
 
-export const TrashIcon2 = ({ size = 32, stroke = '#ea3d65', ...props }) => {
+export const TrashIcon2 = ({ size = 16, stroke = '#ea3d65', ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -384,7 +379,7 @@ export const TrashIcon2 = ({ size = 32, stroke = '#ea3d65', ...props }) => {
         fill="none"
         stroke={stroke}
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="3"
         d="M4 8h24M25.334 8v18.666c0 1.474-1.195 2.668-2.668 2.668v0h-13.332c-0.001 0-0.001 0-0.002 0-1.472 0-2.666-1.194-2.666-2.666 0-0.001 0-0.001 0-0.002v0-18.666M10.666 8v-2.666c0-0.001 0-0.001 0-0.002 0-1.472 1.194-2.666 2.666-2.666 0.001 0 0.001 0 0.002 0h5.332c1.474 0 2.668 1.195 2.668 2.668v0 2.666M13.334 14.666v8M18.666 14.666v8"
@@ -429,7 +424,7 @@ export const UserCheckIcon = ({ size = 32, stroke = '#84828a', ...props }) => {
         fill="none"
         stroke={stroke}
         strokeLinejoin="round"
-        sstrokeLinecap="round"
+        strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6667"
         d="M21.333 24l2.667 2.667 5.333-5.333M16 20.667h-6c-1.861 0-2.791 0-3.548 0.229-1.708 0.529-3.026 1.848-3.546 3.518l-0.010 0.038c-0.229 0.757-0.229 1.687-0.229 3.548v0M13.333 16c3.314 0 6-2.686 6-6s-2.686-6-6-6v0c-3.314 0-6 2.686-6 6s2.686 6 6 6v0z"
@@ -449,6 +444,54 @@ export const VerticalDash = ({ stroke = '#DCE3E5', ...props }) => {
       {...props}
     >
       <path d="M1 0V34" stroke={stroke} strokeOpacity="0.5" />
+      </svg>
+      );
+      };
+
+export const StarIcon = ({ ...props }) => {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path d="M10.8241 14C10.6578 14 10.4922 13.9466 10.3498 13.8403L7.00009 11.3293L3.65039 13.8403C3.51161 13.9447 3.34483 14.0005 3.17386 13.9999C3.00289 13.9993 2.83648 13.9422 2.69839 13.8369C2.56018 13.7321 2.45708 13.5845 2.40378 13.4149C2.35048 13.2454 2.34969 13.0626 2.40151 12.8925L3.6508 8.67793L0.331167 6.23275C0.193589 6.12662 0.0914162 5.97796 0.0390997 5.8078C-0.0132167 5.63764 -0.0130282 5.45459 0.0396388 5.28455C0.0927213 5.11492 0.195461 4.96702 0.333337 4.86175C0.471213 4.75648 0.637253 4.69916 0.807989 4.6979L4.91945 4.69144L6.22844 0.58142C6.28246 0.412106 6.38607 0.264848 6.5246 0.160499C6.66312 0.0561503 6.82954 0 7.00029 0C7.17104 0 7.33746 0.0561503 7.47599 0.160499C7.61451 0.264848 7.71812 0.412106 7.77214 0.58142L9.0589 4.69144L13.1914 4.6979C13.3623 4.69891 13.5286 4.75619 13.6666 4.86162C13.8046 4.96705 13.9073 5.11526 13.9602 5.2852C14.013 5.45513 14.0133 5.63815 13.9609 5.80825C13.9086 5.97835 13.8063 6.12688 13.6686 6.23275L10.349 8.67793L11.5982 12.8925C11.6502 13.0625 11.6495 13.2453 11.5963 13.4149C11.543 13.5844 11.44 13.7321 11.3018 13.8369C11.1633 13.9431 10.9959 14.0002 10.8241 14Z" />
+    </svg>
+  );
+};
+
+export const RightArrow = () => {
+  return (
+    <svg
+      width="39"
+      height="6"
+      viewBox="0 0 39 6"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M33.865 1.10971L35.7445 2.38771L0 2.38871L0 3.38871L35.5205 3.38771L33.75 4.40522L34.248 5.27222L38.3225 2.93122L34.4275 0.282713L33.865 1.10971Z"
+        fill="#111111"
+      />
+    </svg>
+  );
+};
+
+export const LeftArrow = () => {
+  return (
+    <svg
+      width="39"
+      height="6"
+      viewBox="0 0 39 6"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5.03685 4.66763L3.15734 3.38963L38.9019 3.38863V2.38863L3.38134 2.38963L5.15184 1.37213L4.65384 0.505127L0.579338 2.84613L4.47435 5.49463L5.03685 4.66763Z"
+        fill="#111111"
+      />
     </svg>
   );
 };
