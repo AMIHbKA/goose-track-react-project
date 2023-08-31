@@ -40,6 +40,7 @@ export const darkTheme = {
     mainBack: '#171820',
     secondBack: DARK_GRAYISH_BLUE,
     border: 'rgb(255 255 255 / 0.15)',
+    closeButton: LIGHT_COLOR,
     mainText: LIGHT_COLOR,
     secondText: LIGHT_GREY,
     textAreaBack: LIGHT_GREY,
@@ -62,6 +63,16 @@ export const darkTheme = {
     backgroundColor: DARK_GRAYISH_BLUE,
     chartTextColor: LIGHT_COLOR,
   },
+  feedbackModal: {
+    backgroundColor: '#13151a',
+    backgroundButtonEditColor: '#353647',
+    colorTitle: 'rgb(250 250 250 / 0.3)',
+    borderColor: 'rgb(255 255 255 / 0.15)',
+    textColor: '#ffffff',
+    backgroundButton: '#21222c',
+    starColor: '#FFAC33',
+    starColorDefault: '#353647',
+  },
 };
 
 export const lightTheme = {
@@ -71,6 +82,7 @@ export const lightTheme = {
     mainBack: '#f7f6f9',
     secondBack: LIGHT_COLOR,
     border: LIGHT_GRAYISH_BLUE,
+    closeButton: '#111111',
     mainText: DARK_COLOR,
     secondText: LIGHT_GREY,
     textAreaBack: '#f6f6f6',
@@ -89,5 +101,15 @@ export const lightTheme = {
     linesWidth: '1px',
     backgroundColor: LIGHT_COLOR,
     chartTextColor: DARK_COLOR,
+  },
+  feedbackModal: {
+    backgroundColor: '#ffffff',
+    backgroundButtonEditColor: '##e3f3ff',
+    borderColor: 'ffffff',
+    colorTitle: 'rgb(52 52 52 / 0.8)',
+    textColor: '#343434',
+    backgroundButton: ' #e5edfa',
+    starColor: '#FFAC33',
+    starColorDefault: '#CEC9C1',
   },
 };

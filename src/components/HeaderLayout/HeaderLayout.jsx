@@ -17,8 +17,9 @@ import {
 import { BurgerMenu } from 'components/BurgerMenu/BurgerMenu';
 import { MenuPanel } from 'components/MenuPanel/MenuPanel';
 import { useWindowWidth } from 'hooks/useWindowWidth';
+import { FeedbackModal } from './FeedbackModal/FeedbackModal';
 
-export const HeaderLayout = ({ currentTheme, switchTheme }) => {
+export const HeaderLayout = ({ currentTheme, switchTheme, currentReview }) => {
   const [showModal, setShowModal] = useState(false);
   const [isBurgerMenuOpen, setBurgerMenuOpen] = useState(false);
   const windowWidth = useWindowWidth();
@@ -31,6 +32,11 @@ export const HeaderLayout = ({ currentTheme, switchTheme }) => {
     setBurgerMenuOpen(false);
   };
   const onShowModal = () => {
+    console.log(1);
+    setShowModal(s => !s);
+  };
+
+  const handleCancel = () => {
     setShowModal(s => !s);
   };
 
@@ -62,16 +68,20 @@ export const HeaderLayout = ({ currentTheme, switchTheme }) => {
             </FeedBackButtonStyled>
             {showModal && (
               <Modal onActive={onShowModal}>
-                <div
+                {/* <div
                   style={{
                     height: 250,
                     aspectRatio: 4 / 3,
                     border: '1px solid black',
                     borderRadius: 5,
                   }}
-                >
-                  Modalka
-                </div>
+                > */}
+                <FeedbackModal
+                  ctheme={currentTheme}
+                  onCancel={handleCancel}
+                  initialReview={currentReview}
+                />
+                {/* </div> */}
               </Modal>
             )}
             <UserInfo>
