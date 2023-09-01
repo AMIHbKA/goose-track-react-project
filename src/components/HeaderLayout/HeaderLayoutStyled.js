@@ -1,3 +1,4 @@
+import { ThemeToggler } from 'components';
 import styled from 'styled-components';
 
 export const Header = styled.header`
@@ -118,27 +119,27 @@ export const UserPhoto = styled.div`
   }
 `;
 
-export const IconsButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
+// export const IconsButton = styled.button`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   padding: 0;
+//   background-color: transparent;
+//   border: none;
+//   cursor: pointer;
 
-  & > svg {
-    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-      width: 32px;
-      height: 32px;
-    }
-  }
-`;
-export const Main = styled.main`
-  padding: 0 20px 20px;
-`;
+//   & > svg {
+//     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+//       width: 32px;
+//       height: 32px;
+//     }
+//   }
+// `;
+// export const Main = styled.main`
+//   padding: 0 20px 20px;
+// `;
 
-export const MenuIconStyled = styled(IconsButton)`
+export const MenuIconStyled = styled(ThemeToggler)`
   & > svg {
     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
       width: 34px;

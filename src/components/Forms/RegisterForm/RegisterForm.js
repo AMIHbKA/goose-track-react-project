@@ -6,6 +6,7 @@ import { FormFields, FormHeader, FormContainer } from 'UI/CommonStyles';
 import { FormWrapper } from 'UI/CommonStyles/FormStyled';
 import { useDispatch } from 'react-redux';
 import { logIn, register } from 'redux/auth/operations';
+import { useNavigate } from 'react-router';
 
 const registerSchema = Yup.object({
   name: Yup.string()
@@ -20,6 +21,7 @@ const registerSchema = Yup.object({
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = async values => {
     const { name, email, password } = values;
@@ -27,10 +29,14 @@ export const RegisterForm = () => {
 
     // if registration is success, login
     if (register.fulfilled.match(registerResult)) {
-      console.log('registration is success');
       dispatch(logIn({ email, password }));
     }
   };
+
+  const handleLogInClick = () => {
+    navigate('/login');
+  };
+
   return (
     <FormContainer>
       <FormWrapper>
@@ -42,7 +48,7 @@ export const RegisterForm = () => {
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
               handleSubmit(values);
-              console.log('after dispatch');
+
               setSubmitting(false);
             }, 400);
           }}
@@ -83,7 +89,7 @@ export const RegisterForm = () => {
           )}
         </Formik>
       </FormWrapper>
-      <LinkButton>Log In</LinkButton>
+      <LinkButton onClick={handleLogInClick}>Log In</LinkButton>
     </FormContainer>
   );
 };

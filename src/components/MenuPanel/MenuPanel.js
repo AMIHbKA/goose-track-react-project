@@ -2,15 +2,30 @@ import { NavigationPanel } from 'components/MenuPanel/NavigationPanel/Navigation
 import { MenuHeader } from './MenuHeader/MenuHeader';
 import { LogOutButtonStyled, MenuPanelStyled } from './MenuPanelStyled';
 import { LogOutIcon } from 'UI';
+// import { useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { logOut } from 'redux/auth/operations';
+import { useNavigate } from 'react-router';
 
 export const MenuPanel = ({ closeBurgerMenu }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const hangleLogOutClick = () => {
+    console.log('hangleLogOutClick');
+    dispatch(logOut());
+    navigate('/');
+  };
+
   return (
     <MenuPanelStyled>
       <div>
         <MenuHeader closeBurgerMenu={closeBurgerMenu} />
         <NavigationPanel closeBurgerMenu={closeBurgerMenu} />
       </div>
-      <LogOutButtonStyled>Log Out{<LogOutIcon size={18} />}</LogOutButtonStyled>
+      <LogOutButtonStyled onClick={hangleLogOutClick}>
+        Log Out{<LogOutIcon size={18} />}
+      </LogOutButtonStyled>
     </MenuPanelStyled>
   );
 };
