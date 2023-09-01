@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { Box, Text } from 'components/PeriodPaginator/PeriodPaginator.styled';
-import { PickersDay, pickersLayoutClasses } from '@mui/x-date-pickers';
-import { isWeekend, setDefaultOptions } from 'date-fns';
+import { pickersLayoutClasses } from '@mui/x-date-pickers';
+import { setDefaultOptions } from 'date-fns';
 import { enGB } from 'date-fns/locale';
 
 setDefaultOptions({ locale: enGB });
@@ -31,7 +31,6 @@ function ButtonField(props) {
   );
 }
 
-
 // function CustomDay( {day, props} ) {
 //   console.log(day)
 //   if (isWeekend(new Date(day).toDateString())) {
@@ -51,7 +50,6 @@ const DesktopSlotProps = {
     backgroundColor: '#3e85f3',
     borderRadius: '16px',
     color: '#fff',
-    
   },
 
   '& .MuiPickersCalendarHeader-root': {
@@ -109,7 +107,7 @@ const DesktopSlotProps = {
     fontWeight: 600,
     fontFamily: 'Inter',
     margin: '0px',
-    borderBottom: "1px solid rgb(250 250 250 / 0.3)",
+    borderBottom: '1px solid rgb(250 250 250 / 0.3)',
   },
 
   '& .MuiDayCalendar-weekContainer': {
@@ -131,7 +129,7 @@ const DesktopSlotProps = {
   },
 
   '& .MuiPickersDay-root[0]': {
-    color: "rgb(250 250 250 / 0.3)",
+    color: 'rgb(250 250 250 / 0.3)',
   },
 
   '& .Mui-selected': {
@@ -157,7 +155,6 @@ const DesktopSlotProps = {
   '& .MuiPickersArrowSwitcher-button:hover': {
     color: '#fff',
   },
-
 };
 
 const mobileSlotProps = {
@@ -186,7 +183,7 @@ const mobileSlotProps = {
     margin: '0px',
     fontWeight: 600,
     fontFamily: 'Inter',
-    borderBottom: "1px solid rgb(250 250 250 / 0.3)",
+    borderBottom: '1px solid rgb(250 250 250 / 0.3)',
   },
   '& .MuiPickersDay-root': {
     fontSize: '14px',
@@ -229,39 +226,37 @@ export function ButtonDatePicker(props) {
     },
   };
 
-// const CustomPickersDay = styled(PickersDay, {
-//   shouldForwardProp: (prop) =>
-//     isWeekend(prop),
-// })(({ isWeekend }) => ({
-//   ...(isWeekend && {
-//     color: "blue",
-//   }),
-// }));
+  // const CustomPickersDay = styled(PickersDay, {
+  //   shouldForwardProp: (prop) =>
+  //     isWeekend(prop),
+  // })(({ isWeekend }) => ({
+  //   ...(isWeekend && {
+  //     color: "blue",
+  //   }),
+  // }));
 
-// function Day(props) {
-//   const { day, ...other } = props;
+  // function Day(props) {
+  //   const { day, ...other } = props;
 
-//   if (isWeekend(day)) {
-//     return <CustomPickersDay day={day} {...other} />;
-//   }
-//   return <PickersDay day={day} {...other} />
-// }
+  //   if (isWeekend(day)) {
+  //     return <CustomPickersDay day={day} {...other} />;
+  //   }
+  //   return <PickersDay day={day} {...other} />
+  // }
 
   return (
     <DatePicker
       slots={{
         field: ButtonField,
         // day: Day,
-        
+
         ...props.slots,
       }}
-      
       slotProps={{
         field: { setOpen },
-        
+
         ...slotProps,
       }}
-      
       {...props}
       open={open}
       onClose={() => setOpen(false)}

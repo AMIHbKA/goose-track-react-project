@@ -1,4 +1,4 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 
 import {
   Navigation,
@@ -9,14 +9,17 @@ import {
 import { DAY, MONTH } from 'components/CalendarToolbar/CalendarToolbar';
 
 export const PeriodTypeSelect = ({ selectPeriod }) => {
-  // const [isActive, setIsActive] = useState(MONTH);
+  const [isActive, setIsActive] = useState(MONTH);
+
+  console.log('isActive', isActive);
+
   return (
     <Navigation>
       <SelectorMonth
         to="/calendar/month"
         onClick={() => {
           selectPeriod(MONTH);
-          // setIsActive(MONTH);
+          setIsActive(MONTH);
         }}
       >
         <Text>Month</Text>
@@ -25,7 +28,7 @@ export const PeriodTypeSelect = ({ selectPeriod }) => {
         to="/calendar/day"
         onClick={() => {
           selectPeriod(DAY);
-          // setIsActive(DAY);
+          setIsActive(DAY);
         }}
       >
         <Text>Day</Text>
