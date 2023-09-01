@@ -62,17 +62,17 @@ export const darkTheme = {
     iconBackground: DARK_GRAYISH_BLUE,
     iconInactive: 'rgba(255, 255, 255, 0.15)',
   },
+  choosedMonth: {
+    borderColor: 'rgb(255 255 255 / 0.15)',
+    dateBackground: '#22232D',
+    todayBadgeTextColor: '#22232D',
+  },
   statistics: {
     linesColor: 'rgb(227 243 255 / 0.15)',
     linesWidth: '0.8px',
     borderColor: LIGHT_BLUE,
     backgroundColor: DARK_GRAYISH_BLUE,
     chartTextColor: LIGHT_COLOR,
-  },
-  choosedMonth: {
-    borderColor: 'rgb(255 255 255 / 0.15)',
-    dateBackground: '#22232D',
-    todayBadgeTextColor: '#22232D',
   },
   feedbackModal: {
     backgroundColor: '#13151a',
@@ -113,16 +113,16 @@ export const lightTheme = {
     iconBackground: LIGHT_COLOR,
     iconInactive: LIGHT_GRAYISH_BLUE,
   },
+  choosedMonth: {
+    borderColor: 'rgba(220, 227, 229, 0.5)',
+    dateBackground: LIGHT_COLOR,
+    todayBadgeTextColor: LIGHT_COLOR,
+  },
   statistics: {
     linesColor: LIGHT_BLUE,
     linesWidth: '1px',
     backgroundColor: LIGHT_COLOR,
     chartTextColor: DARK_COLOR,
-  },
-  choosedMonth: {
-    borderColor: 'rgba(220, 227, 229, 0.5)',
-    dateBackground: LIGHT_COLOR,
-    todayBadgeTextColor: LIGHT_COLOR,
   },
   feedbackModal: {
     backgroundColor: '#ffffff',

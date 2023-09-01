@@ -6,6 +6,7 @@ const CalendarHeadStyled = styled.div`
 
   width: 100%;
 
+  margin-top: 24px;
   margin-bottom: 14px;
 
   padding: 17px 0 16px;
@@ -14,6 +15,10 @@ const CalendarHeadStyled = styled.div`
 
   border: 1px solid ${({ theme }) => theme.choosedMonth.borderColor};
   border-radius: 8px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    margin-top: 32px;
+  }
 `;
 
 export default CalendarHeadStyled;

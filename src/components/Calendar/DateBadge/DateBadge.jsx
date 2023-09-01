@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const MonthBadge = styled.div`
+const DateBadge = styled.div`
   margin-top: 8px;
   margin-right: 4px;
   margin-left: auto;
@@ -11,8 +11,8 @@ const MonthBadge = styled.div`
   font-size: 12px;
   line-height: 14px;
 
-  ${({ isToday, theme }) =>
-    isToday &&
+  ${({ isActive, theme }) =>
+    isActive &&
     `
     background-color: ${theme.colors.primary};
     color: ${theme.choosedMonth.todayBadgeTextColor};
@@ -28,12 +28,12 @@ const MonthBadge = styled.div`
     font-size: 16px;
     line-height: 18px;
 
-    ${({ isToday }) =>
-      isToday &&
+    ${({ isActive }) =>
+      isActive &&
       `
     border-radius: 8px;
   `}
   }
 `;
 
-export default MonthBadge;
+export default DateBadge;

@@ -1,6 +1,6 @@
 import React from 'react';
 import MonthCellStyled from './MonthCellStyled';
-import MonthBadge from './MonthBadge/MonthBadge';
+import DateBadge from '../../DateBadge/DateBadge';
 
 const MonthCell = ({ calendarDate }) => {
   const day = parseInt(calendarDate.iso.split('-')[2], 10).toString();
@@ -9,7 +9,7 @@ const MonthCell = ({ calendarDate }) => {
 
   return (
     <MonthCellStyled isCurrentMonth={isCurrentMonth}>
-      {isCurrentMonth && <MonthBadge isToday={isToday}>{day}</MonthBadge>}
+      {isCurrentMonth && <DateBadge isActive={isToday}>{day}</DateBadge>}
     </MonthCellStyled>
   );
 };

@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 import CalendarHead from '../CalendarHead/CalendarHead';
 
 const ChoosedMonth = () => {
-  const monthString = 'AUGUST 2023';
+  const monthString = 'SEPTEMBER 2023';
 
   const [calendarDates, setCalendarDates] = useState(null);
 

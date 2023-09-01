@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const GridContainer = styled.div`
+  height: 100%;
   display: grid;
   grid-template-columns: min-content auto;
   grid-template-rows: min-content 1fr;
@@ -17,6 +18,7 @@ export const GridUserPanel = styled.div`
   grid-area: User-Panel;
 `;
 export const GridMainPanel = styled.main`
+  height: 100%;
   grid-area: Main-Panel;
 `;
 

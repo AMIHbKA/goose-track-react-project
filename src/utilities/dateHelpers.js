@@ -1,3 +1,5 @@
+import { startOfWeek, endOfWeek, eachDayOfInterval, format } from 'date-fns';
+
 const getDayOfWeek = isoDate => {
   const date = new Date(isoDate);
   return date.getDay();
@@ -44,4 +46,15 @@ export const getDateFromMonthString = monthString => {
   const date = new Date(year, monthNumber);
 
   return date;
+};
+
+export const getWeekDatesForDate = date => {
+  const start = startOfWeek(date, { weekStartsOn: 1 });
+  const end = endOfWeek(date, { weekStartsOn: 1 });
+
+  return eachDayOfInterval({ start, end }).map(d => ({
+    date: format(d, 'yyyy-MM-dd'),
+    day: format(d, 'd'),
+    dateObject: d,
+  }));
 };

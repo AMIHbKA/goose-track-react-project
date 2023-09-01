@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Header = styled.header`
   /* outline: 2px solid green; */
   padding: 24px 20px;
-  margin-bottom: 64px;
+  margin-bottom: 40px;
   display: flex;
   justify-content: flex-end;
 
