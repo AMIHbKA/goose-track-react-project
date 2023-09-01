@@ -37,8 +37,8 @@ export const App = () => {
               <>
                 <Route path="/account" element={<div>AccountPage</div>} />
                 <Route path="/calendar" element={<CalendarPage />}>
-                  <Route path="day/" element={<div>ChoosedDay</div>} />
-                  <Route path="month/" element={<div>ChoosedMonth</div>} />
+                  <Route path="day" element={<div>ChoosedDay</div>} />
+                  <Route path="month" element={<div>ChoosedMonth</div>} />
                 </Route>
                 <Route path="/statistics" element={<StatisticsPage />} />
                 <Route
