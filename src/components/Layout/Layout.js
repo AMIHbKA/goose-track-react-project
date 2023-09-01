@@ -4,5 +4,5 @@ import { UnauthorizedLayout, MainLayout } from 'components';
 export const Layout = () => {
   const { isLoggedIn } = useAuth();
   console.log('isLoggedIn', isLoggedIn);
-  return isLoggedIn ? <UnauthorizedLayout /> : <MainLayout />;
+  return isLoggedIn ? <MainLayout /> : <UnauthorizedLayout />;
 };

@@ -104,8 +104,10 @@ ul, ol, li, p, h1, h2, h3, h4 ,h5, h6 {
     text-decoration: none;
   }
 
-  html, body {
+  ${
+    '' /* html, body {
     height: 100vh;
+  } */
   }
 
   body>div, main {
