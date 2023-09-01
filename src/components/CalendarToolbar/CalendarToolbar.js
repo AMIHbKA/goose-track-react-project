@@ -1,11 +1,10 @@
-// import { DatePicker } from '@mui/x-date-pickers';
 import { PeriodPaginator } from "components/PeriodPaginator/PeriodPaginator"
 import { Container } from "./CalendarToolbar.styled"
 import { useState } from "react"
 import { PeriodTypeSelect } from "components/PeriodTypeSelect/PeriodTypeSelect"
 import { addDays, addMonths } from "date-fns"
-import { useEffect } from "react"
-import { useDispatch } from "react-redux"
+// import { useEffect } from "react"
+// import { useDispatch } from "react-redux"
 
 export const DAY = 'day';
 export const MONTH = 'month';
