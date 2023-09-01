@@ -2,11 +2,13 @@ const LIGHT_BLUE = '#e3f3ff';
 const LIGHT_COLOR = '#fff';
 const LIGHT_GREY = 'rgb(250 250 250 / 0.3)';
 const DARK_GREY = 'rgb(52 52 52 / 0.5)';
+const DARK_COLOR = '#343434';
 const DARK_GRAYISH_BLUE = '#21222c';
 const LIGHT_GRAYISH_BLUE = 'rgb(220 227 229 / 0.8)';
 
 const commonStyles = {
   breakpoints: {
+    s: '320px',
     preM: '374px',
     m: '375px',
     preL: '549px',
@@ -38,6 +40,7 @@ export const darkTheme = {
     mainBack: '#171820',
     secondBack: DARK_GRAYISH_BLUE,
     border: 'rgb(255 255 255 / 0.15)',
+    closeButton: LIGHT_COLOR,
     mainText: LIGHT_COLOR,
     secondText: LIGHT_GREY,
     textAreaBack: LIGHT_GREY,
@@ -53,6 +56,12 @@ export const darkTheme = {
     monthDayButtonBorder: 'rgb(62 133 243 / 0.2)',
     addTaskBack: commonStyles.colors.primary,
   },
+  calendarToolBar: {
+    buttonBackground: DARK_GRAYISH_BLUE,
+    activeButtonBackground: commonStyles.colors.primary,
+    iconBackground: DARK_GRAYISH_BLUE,
+    iconInactive: 'rgba(255, 255, 255, 0.15)',
+  },
   statistics: {
     linesColor: 'rgb(227 243 255 / 0.15)',
     linesWidth: '0.8px',
@@ -65,6 +74,16 @@ export const darkTheme = {
     dateBackground: '#22232D',
     todayBadgeTextColor: '#22232D',
   },
+  feedbackModal: {
+    backgroundColor: '#13151a',
+    backgroundButtonEditColor: '#353647',
+    colorTitle: 'rgb(250 250 250 / 0.3)',
+    borderColor: 'rgb(255 255 255 / 0.15)',
+    textColor: '#ffffff',
+    backgroundButton: '#21222c',
+    starColor: '#FFAC33',
+    starColorDefault: '#353647',
+  },
 };
 
 export const lightTheme = {
@@ -74,7 +93,8 @@ export const lightTheme = {
     mainBack: '#f7f6f9',
     secondBack: LIGHT_COLOR,
     border: LIGHT_GRAYISH_BLUE,
-    mainText: '#343434',
+    closeButton: '#111111',
+    mainText: DARK_COLOR,
     secondText: LIGHT_GREY,
     textAreaBack: '#f6f6f6',
     emptyStar: '#cec9c1',
@@ -87,15 +107,31 @@ export const lightTheme = {
     monthDayButtonDefaultBack: LIGHT_BLUE,
     addTaskBack: LIGHT_BLUE,
   },
+  calendarToolBar: {
+    buttonBackground: LIGHT_BLUE,
+    activeButtonBackground: '#CAE8FF',
+    iconBackground: LIGHT_COLOR,
+    iconInactive: LIGHT_GRAYISH_BLUE,
+  },
   statistics: {
-    linesColor: '#e3f3ff',
+    linesColor: LIGHT_BLUE,
     linesWidth: '1px',
     backgroundColor: LIGHT_COLOR,
-    chartTextColor: '#343434',
+    chartTextColor: DARK_COLOR,
   },
   choosedMonth: {
     borderColor: 'rgba(220, 227, 229, 0.5)',
     dateBackground: LIGHT_COLOR,
     todayBadgeTextColor: LIGHT_COLOR,
+  },
+  feedbackModal: {
+    backgroundColor: '#ffffff',
+    backgroundButtonEditColor: '##e3f3ff',
+    borderColor: 'ffffff',
+    colorTitle: 'rgb(52 52 52 / 0.8)',
+    textColor: '#343434',
+    backgroundButton: ' #e5edfa',
+    starColor: '#FFAC33',
+    starColorDefault: '#CEC9C1',
   },
 };

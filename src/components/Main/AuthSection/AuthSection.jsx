@@ -41,7 +41,7 @@ export const AuthSection = () => {
 
           <LogInIcon stroke="#3E85F3" width="18" height="18" />
         </LoginLink>
-        <SignLink to="/signup">Sign up</SignLink>
+        <SignLink to="/register">Sign up</SignLink>
       </LinkContainer>
     </Header>
   );

@@ -1,43 +1,63 @@
-import { ThemeProvider } from 'styled-components';
-import { useState, lazy } from 'react';
-import { GlobalStyle, lightTheme, darkTheme } from 'UI';
-import { MainPage } from 'pages/MainPage';
+import { lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Layout } from 'components';
+import { Layout, ThemeProvider } from 'components';
+import { useDispatch } from 'react-redux';
+import { useAuth } from 'hooks';
+import { useEffect } from 'react';
+import { refreshUser } from 'redux/auth/operations';
+import { MainPage } from 'pages/MainPage';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { GlobalStyle } from 'UI';
 import ChoosedMonth from './Calendar/ChoosedMonth/ChoosedMonth';
 
+const LoginPage = lazy(() => import('../pages/LoginPage'));
+const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const StatisticsPage = lazy(() => import('../pages/StatisticsPage'));
+const CalendarPage = lazy(() => import('../pages/CalendarPage'));
 
 export const App = () => {
-  const [theme, setTheme] = useState('light');
-  const switchTheme = () => {
-    theme === 'light' ? setTheme('dark') : setTheme('light');
-  };
+  const dispatch = useDispatch();
+  const { isRefreshing, isLoggedIn } = useAuth();
 
-  return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-      <GlobalStyle />
-      <Routes>
-        <Route
-          path="/"
-          element={<Layout currentTheme={theme} switchTheme={switchTheme} />}
-        >
-          <Route index element={<MainPage />} />
-          <Route path="/login" element={<div>LoginPage</div>} />
-          <Route path="/register" element={<div>RegisterPage</div>} />
-          <Route path="/account" element={<div>AccountPage</div>} />
-          <Route path="/calendar" element={<ChoosedMonth />}>
-            <Route path="day/:currentDay" element={<div>ChoosedDay</div>} />
-            <Route
-              path="month/:currentDate"
-              element={<div>ChoosedMonth</div>}
-            />
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  // console.log('app isLoggedIn', isLoggedIn);
+
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
+    <ThemeProvider>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <GlobalStyle />
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            {isLoggedIn ? (
+              <>
+                <Route path="/account" element={<div>AccountPage</div>} />
+                <Route path="/calendar" element={<CalendarPage />}>
+                  <Route path="day/" element={<div>ChoosedDay</div>} />
+                  <Route path="month/" element={<ChoosedMonth />} />
+                </Route>
+                <Route path="/statistics" element={<StatisticsPage />} />
+                <Route
+                  path="*"
+                  element={<Navigate to="/calendar/month" replace />}
+                />
+              </>
+            ) : (
+              <>
+                <Route index element={<MainPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/register" element={<RegisterPage />} />
+                <Route path="*" element={<Navigate to="/login" replace />} />
+              </>
+            )}
           </Route>
-          <Route path="/statistics" element={<StatisticsPage />} />
-
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Route>
-      </Routes>
+        </Routes>
+      </LocalizationProvider>
     </ThemeProvider>
   );
 };

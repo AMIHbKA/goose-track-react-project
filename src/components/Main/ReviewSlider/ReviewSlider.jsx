@@ -22,7 +22,7 @@ import {
   TestimonialCard,
   StyledButton,
 } from './ReviewSlider.styled';
-import { getReviews } from 'utilities';
+import { getReviews } from '../../../UI/servisesHttp/getReviews';
 
 export const ReviewSlider = () => {
   const [people, setPeople] = useState([]);
