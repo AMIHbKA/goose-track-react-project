@@ -6,6 +6,7 @@ import { FormFields, FormHeader, FormContainer } from 'UI/CommonStyles';
 import { FormWrapper } from 'UI/CommonStyles/FormStyled';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
+import { useNavigate } from 'react-router';
 
 const loginSchema = Yup.object({
   email: Yup.string().email('Invalid email address').required('Required'),
@@ -17,12 +18,18 @@ const loginSchema = Yup.object({
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = async values => {
     const { email, password } = values;
 
     dispatch(logIn({ email, password }));
   };
+
+  const handleSignUpClick = () => {
+    navigate('/register');
+  };
+
   return (
     <FormContainer>
       <FormWrapper>
@@ -65,7 +72,7 @@ export const LoginForm = () => {
           )}
         </Formik>
       </FormWrapper>
-      <LinkButton>Log In</LinkButton>
+      <LinkButton onClick={handleSignUpClick}>Sign Up</LinkButton>
     </FormContainer>
   );
 };
