@@ -23,18 +23,16 @@ export const MainLayout = () => {
   };
 
   return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-      <GridContainer>
-        <GridMenuPanel> {windowWidth > 1024 && <MenuPanel />}</GridMenuPanel>
-        <GridUserPanel>
-          <HeaderLayout currentTheme={theme} switchTheme={switchTheme} />
-        </GridUserPanel>
-        <GridMainPanel>
-          <Suspense fallback={null}>
-            <Outlet />
-          </Suspense>
-        </GridMainPanel>
-      </GridContainer>
-    </ThemeProvider>
+    <GridContainer>
+      <GridMenuPanel> {windowWidth > 1024 && <MenuPanel />}</GridMenuPanel>
+      <GridUserPanel>
+        <HeaderLayout currentTheme={theme} switchTheme={switchTheme} />
+      </GridUserPanel>
+      <GridMainPanel>
+        <Suspense fallback={null}>
+          <Outlet />
+        </Suspense>
+      </GridMainPanel>
+    </GridContainer>
   );
 };
