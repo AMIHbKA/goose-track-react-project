@@ -2,7 +2,6 @@ import { NavigationPanel } from 'components/MenuPanel/NavigationPanel/Navigation
 import { MenuHeader } from './MenuHeader/MenuHeader';
 import { LogOutButtonStyled, MenuPanelStyled } from './MenuPanelStyled';
 import { LogOutIcon } from 'UI';
-// import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
 import { useNavigate } from 'react-router';
