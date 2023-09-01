@@ -5,7 +5,7 @@ import DateBadge from 'components/Calendar/DateBadge/DateBadge';
 import DayCellStyled from './DayCellStyled';
 import DayName from './DayName/DayName';
 
-const DayCell = ({ day, date, activeDate }) => {
+const DayCell = ({ day, date, activeDate, onDateClick }) => {
   const windowWidth = useWindowWidth();
 
   const theme = useContext(ThemeContext);
@@ -25,9 +25,13 @@ const DayCell = ({ day, date, activeDate }) => {
 
   if (date) {
     return (
-      <DayCellStyled>
-        <DayName isWeekend={isWeekend}>{dayName()}</DayName>
-        <DateBadge isActive={isActive}>{day}</DateBadge>
+      <DayCellStyled pointer={onDateClick && true}>
+        <div className="date-wrapper" onClick={onDateClick}>
+          <DayName isWeekend={isWeekend}>{dayName()}</DayName>
+          <div className="date-badge-wrapper">
+            <DateBadge isActive={isActive}>{date.day}</DateBadge>
+          </div>
+        </div>
       </DayCellStyled>
     );
   }

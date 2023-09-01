@@ -67,6 +67,19 @@ const MonthCellStyled = styled.div`
     }
   }
 
+  .date-badge-wrapper {
+    display: flex;
+
+    margin-top: 8px;
+    margin-right: 4px;
+    margin-left: auto;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+      margin-top: 14px;
+      margin-right: 14px;
+    }
+  }
+
   @keyframes rotate {
     0% {
       transform: rotate(0deg);

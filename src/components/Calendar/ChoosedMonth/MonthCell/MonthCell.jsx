@@ -9,7 +9,11 @@ const MonthCell = ({ calendarDate }) => {
 
   return (
     <MonthCellStyled isCurrentMonth={isCurrentMonth}>
-      {isCurrentMonth && <DateBadge isActive={isToday}>{day}</DateBadge>}
+      {isCurrentMonth && (
+        <div className="date-badge-wrapper">
+          <DateBadge isActive={isToday}>{day}</DateBadge>
+        </div>
+      )}
     </MonthCellStyled>
   );
 };

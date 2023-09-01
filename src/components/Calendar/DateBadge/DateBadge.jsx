@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
 const DateBadge = styled.div`
-  margin-top: 8px;
-  margin-right: 4px;
-  margin-left: auto;
-
   padding: 4px 6px;
 
   font-weight: 700;
@@ -20,9 +16,6 @@ const DateBadge = styled.div`
   `}
 
   @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    margin-top: 14px;
-    margin-right: 14px;
-
     padding: 4px 8px;
 
     font-size: 16px;

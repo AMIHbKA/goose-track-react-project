@@ -2,17 +2,18 @@ import React from 'react';
 import CalendarHeadStyled from './CalendarHeadStyled';
 import DayCell from './DayCell/DayCell';
 
-const CalendarHead = ({ weekDates, activeDate }) => {
+const CalendarHead = ({ weekDates, activeDate, onDateClick }) => {
   const days = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
 
   return (
-    <CalendarHeadStyled>
+    <CalendarHeadStyled condensed={weekDates}>
       {days.map((day, index) => (
         <DayCell
           key={day}
           day={day}
-          activeDate={activeDate}
           date={weekDates ? weekDates[index] : null}
+          activeDate={activeDate}
+          onDateClick={onDateClick && onDateClick}
         />
       ))}
     </CalendarHeadStyled>
