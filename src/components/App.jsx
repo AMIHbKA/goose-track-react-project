@@ -1,72 +1,44 @@
-import { ThemeProvider } from 'styled-components';
-import { useState, lazy } from 'react';
-import { GlobalStyle, lightTheme, darkTheme } from 'UI';
+import { lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import {
-  MainLayout,
-  ToastContainerWrapper,
+  // ToastContainerWrapper,
   RestrictedRoute,
   PrivateRoute,
+  Layout,
+  ThemeProvider,
 } from 'components';
 import { useDispatch } from 'react-redux';
 import { useAuth } from 'hooks';
 import { useEffect } from 'react';
 import { refreshUser } from 'redux/auth/operations';
 import { MainPage } from 'pages/MainPage';
-import LoginPage from '../pages/LoginPage';
-import RegisterPage from '../pages/RegisterPage';
-import { StatisticsPage } from 'pages';
+import { GlobalStyle } from 'UI';
 
-// const RegisterPage = lazy(() => import('../pages/RegisterPage'));
-// const LoginPage = lazy(() => import('../pages/LoginPage'));
-// const StatisticsPage = lazy(() => import('../pages/StatisticsPage'));
+const LoginPage = lazy(() => import('../pages/LoginPage'));
+const RegisterPage = lazy(() => import('../pages/RegisterPage'));
+const StatisticsPage = lazy(() => import('../pages/StatisticsPage'));
 
 export const App = () => {
-  const [theme, setTheme] = useState('light');
-  const switchTheme = () => {
-    theme === 'light' ? setTheme('dark') : setTheme('light');
-  };
-
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
 
   useEffect(() => {
-    console.log('user refresh');
     dispatch(refreshUser());
   }, [dispatch]);
 
   return isRefreshing ? (
     <b>Refreshing user...</b>
   ) : (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+    <ThemeProvider>
       <GlobalStyle />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <RestrictedRoute redirectTo="/login" component={<MainPage />} />
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <RestrictedRoute
-              redirectTo="/calendar/month"
-              component={<LoginPage />}
-            />
-          }
-        />
-        <Route
-          path="/register"
-          element={
-            <RestrictedRoute
-              redirectTo="/calendar/month"
-              component={<RegisterPage />}
-            />
-          }
-        />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<MainPage />} />
+          <Route path="\login" element={<LoginPage />} />
+          <Route path="\register" element={<RegisterPage />} />
+        </Route>
 
-        <Route
+        {/* <Route
           path="/"
           element={
             <PrivateRoute
@@ -84,8 +56,9 @@ export const App = () => {
           </Route>
           <Route path="/statistics" element={<StatisticsPage />} />
         </Route>
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} /> */}
       </Routes>
+
       {/* <ToastContainerWrapper /> */}
     </ThemeProvider>
   );

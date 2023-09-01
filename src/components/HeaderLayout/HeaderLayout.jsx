@@ -1,12 +1,11 @@
 import { useState } from 'react';
 
-import { MenuIcon, MoonIcon, SunIcon } from 'UI';
-import { Modal } from 'components';
+import { MenuIcon } from 'UI';
+import { Modal, ThemeToggler } from 'components';
 import {
   FeedBackButtonStyled,
   Header,
   HeaderPanel,
-  IconsButton,
   MenuIconStyled,
   PageTitle,
   UserInfo,
@@ -85,13 +84,7 @@ export const HeaderLayout = ({ currentTheme, switchTheme, currentReview }) => {
               </Modal>
             )}
             <UserInfo>
-              <IconsButton onClick={switchTheme} aria-label="Switch Theme">
-                {currentTheme === 'light' ? (
-                  <MoonIcon size={24} />
-                ) : (
-                  <SunIcon size={24} />
-                )}
-              </IconsButton>
+              <ThemeToggler />
               <UserName>UserName</UserName>
               <UserPhoto />
             </UserInfo>

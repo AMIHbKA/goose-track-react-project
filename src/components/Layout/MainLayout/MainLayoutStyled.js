@@ -16,11 +16,11 @@ export const GridMenuPanel = styled.div`
 export const GridUserPanel = styled.div`
   grid-area: User-Panel;
 `;
-export const GridMainPanel = styled.div`
+export const GridMainPanel = styled.main`
   grid-area: Main-Panel;
 `;
 
-export const Main = styled.main`
-  /* border-radius: 16px; */
-  /* overflow: hidden; */
-`;
+// export const Main = styled.main`
+//   /* border-radius: 16px; */
+//   /* overflow: hidden; */
+// `;
