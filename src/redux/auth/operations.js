@@ -3,24 +3,13 @@ import { toast } from 'react-toastify';
 import { checkErrors, checkSuccesfull } from 'utilities/checks';
 import { api } from 'utilities';
 
-// axios.defaults.baseURL = 'https://goose-track-backend-odyh.onrender.com/';
-// // Add JWT
-// const api.setAuthHeader = token => {
-//   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-// };
-
-// // Remove JWT
-// const api.clearAuthHeader = () => {
-//   axios.defaults.headers.common.Authorization = '';
-// };
-
 export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkApi) => {
     try {
       const response = await api.instance.post('auth/register', credentials);
+
       // After successful registration, add the token to the HTTP header
-      // api.setAuthHeader(response.data.userData.token);
       toast.success(checkSuccesfull('auth/register', response.status));
       return response.data.userData;
     } catch (error) {
@@ -50,6 +39,7 @@ export const logIn = createAsyncThunk(
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkApi) => {
   try {
     await api.instance.post('auth/logout');
+
     // After a successful logout, remove the token from the HTTP header
     api.clearAuthHeader();
 
@@ -79,6 +69,7 @@ export const refreshUser = createAsyncThunk(
       // If there is a token, add it to the HTTP header and perform the request
       api.setAuthHeader(persistedToken);
       const response = await api.instance.get('user/current');
+
       // toast.success(checkSuccesfull('users/current', response.status));
 
       return response.data;

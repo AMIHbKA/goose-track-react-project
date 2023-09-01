@@ -4,6 +4,7 @@ const instance = axios.create({
   baseURL: 'https://goose-track-backend-odyh.onrender.com/',
 });
 
+// Add JWT
 const setAuthHeader = token => {
   instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
