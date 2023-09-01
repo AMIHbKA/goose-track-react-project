@@ -1,8 +1,6 @@
 import { lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import {
-  // ToastContainerWrapper,
-
   Layout,
   ThemeProvider,
 } from 'components';
@@ -11,11 +9,15 @@ import { useAuth } from 'hooks';
 import { useEffect } from 'react';
 import { refreshUser } from 'redux/auth/operations';
 import { MainPage } from 'pages/MainPage';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { GlobalStyle } from 'UI';
+
 
 const LoginPage = lazy(() => import('../pages/LoginPage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const StatisticsPage = lazy(() => import('../pages/StatisticsPage'));
+const CalendarPage = lazy(()=> import('../pages/CalendarPage'))
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -25,19 +27,20 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  console.log('app isLoggedIn', isLoggedIn);
+  // console.log('app isLoggedIn', isLoggedIn);
 
   return isRefreshing ? (
     <b>Refreshing user...</b>
   ) : (
+
     <ThemeProvider>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<Layout />}>
           {isLoggedIn ? (
             <>
               <Route path="/account" element={<div>AccountPage</div>} />
-
               <Route path="/calendar" element={<div>CalendarPage</div>}>
                 <Route path="day/" element={<div>ChoosedDay</div>} />
                 <Route path="month/" element={<div>ChoosedMonth</div>} />
@@ -58,6 +61,7 @@ export const App = () => {
           )}
         </Route>
       </Routes>
-    </ThemeProvider>
+      </LocalizationProvider>
+   </ThemeProvider>
   );
 };

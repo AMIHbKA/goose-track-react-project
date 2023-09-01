@@ -77,7 +77,7 @@ export const ChartIcon = ({ size = 32, opacity = '0.5', ...props }) => {
   );
 };
 
-export const ChevronLeftIcon = ({ size = 24, stroke = '#000', ...props }) => {
+export const ChevronLeftIcon = ({ size = 24, ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +89,7 @@ export const ChevronLeftIcon = ({ size = 24, stroke = '#000', ...props }) => {
       <title>chevron-left</title>
       <path
         fill="none"
-        stroke={stroke}
+        // stroke={stroke}
         strokeLinejoin="round"
         strokeLinecap="round"
         strokeMiterlimit="4"
@@ -100,7 +100,7 @@ export const ChevronLeftIcon = ({ size = 24, stroke = '#000', ...props }) => {
   );
 };
 
-export const ChevronRightIcon = ({ size = 24, stroke = '#000', ...props }) => {
+export const ChevronRightIcon = ({ size = 24, ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +115,7 @@ export const ChevronRightIcon = ({ size = 24, stroke = '#000', ...props }) => {
         strokeLinecap="round"
         strokeMiterlimit="4"
         strokeWidth="2.6667"
-        stroke={stroke}
+        // stroke={stroke}
         d="M12 24l8-8-8-8"
       ></path>
     </svg>
@@ -432,6 +432,21 @@ export const UserCheckIcon = ({ size = 32, stroke = '#84828a', ...props }) => {
     </svg>
   );
 };
+
+export const VerticalDash = ({ stroke = '#DCE3E5', ...props }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="2"
+      height="34"
+      viewBox="0 0 2 34"
+      fill="none"
+      {...props}
+    >
+      <path d="M1 0V34" stroke={stroke} strokeOpacity="0.5" />
+      </svg>
+      );
+      };
 
 export const StarIcon = ({ ...props }) => {
   return (
