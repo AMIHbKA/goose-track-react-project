@@ -4,7 +4,7 @@ import { LogOutButtonStyled, MenuPanelStyled } from './MenuPanelStyled';
 import { LogOutIcon } from 'UI';
 // import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
-import { logOut, refreshUser } from 'redux/auth/operations';
+import { logOut } from 'redux/auth/operations';
 import { useNavigate } from 'react-router';
 
 export const MenuPanel = ({ closeBurgerMenu }) => {
@@ -14,7 +14,6 @@ export const MenuPanel = ({ closeBurgerMenu }) => {
   const hangleLogOutClick = () => {
     console.log('hangleLogOutClick');
     dispatch(logOut());
-    // dispatch(refreshUser());
     navigate('/');
   };
 
