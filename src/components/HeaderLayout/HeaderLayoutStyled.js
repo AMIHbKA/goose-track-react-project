@@ -119,27 +119,27 @@ export const UserPhoto = styled.div`
   }
 `;
 
-// export const IconsButton = styled.button`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   padding: 0;
-//   background-color: transparent;
-//   border: none;
-//   cursor: pointer;
+export const IconsButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 
-//   & > svg {
-//     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-//       width: 32px;
-//       height: 32px;
-//     }
-//   }
-// `;
+  & > svg {
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+`;
 // export const Main = styled.main`
 //   padding: 0 20px 20px;
 // `;
 
-export const MenuIconStyled = styled(ThemeToggler)`
+export const MenuIconStyled = styled(IconsButton)`
   & > svg {
     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
       width: 34px;
