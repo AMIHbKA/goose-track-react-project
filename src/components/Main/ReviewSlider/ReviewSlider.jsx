@@ -7,11 +7,11 @@ import 'swiper/css/pagination';
 
 import { RightArrow } from 'UI';
 import {
-  Rewiews,
+  Reviews,
   Title,
   Container,
   Thumb,
-  RewiewText,
+  ReviewText,
   PeopleName,
   Rating,
   Wrapper,
@@ -38,8 +38,8 @@ export const ReviewSlider = () => {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <Rewiews>
-        <Title>rewiews</Title>
+      <Reviews>
+        <Title>reviews</Title>
         <Container>
           <Swiper
             slidesPerView={1}
@@ -84,7 +84,7 @@ export const ReviewSlider = () => {
                         </Rating>
                       </Wrapper>
                     </Thumb>
-                    <RewiewText>{reviewText}</RewiewText>
+                    <ReviewText>{reviewText}</ReviewText>
                   </TestimonialCard>
                 </SwiperSlide>
               );
@@ -99,7 +99,7 @@ export const ReviewSlider = () => {
             <RightArrow />
           </StyledButton>
         </ArrowContainer>
-      </Rewiews>
+      </Reviews>
     </Suspense>
   );
 };

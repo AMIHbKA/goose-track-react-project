@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { StarIcon, LeftArrow } from 'UI';
 
-export const Rewiews = styled.section`
+export const Reviews = styled.section`
   background-color: #fff;
   padding: 0 20px 86px;
 
@@ -59,7 +59,7 @@ export const PepleImg = styled.img`
   height: 50px;
 `;
 
-export const RewiewText = styled.div`
+export const ReviewText = styled.div`
   color: rgba(0, 0, 0, 70%);
   line-height: calc(18 / 14);
 
