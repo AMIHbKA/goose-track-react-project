@@ -1,4 +1,3 @@
-import { ThemeToggler } from 'components';
 import styled from 'styled-components';
 
 export const Header = styled.header`
@@ -135,9 +134,9 @@ export const IconsButton = styled.button`
     }
   }
 `;
-// export const Main = styled.main`
-//   padding: 0 20px 20px;
-// `;
+export const Main = styled.main`
+  padding: 0 20px 20px;
+`;
 
 export const MenuIconStyled = styled(IconsButton)`
   & > svg {

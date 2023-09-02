@@ -1,10 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { Box, Text } from 'components/PeriodPaginator/PeriodPaginator.styled';
 import { pickersLayoutClasses } from '@mui/x-date-pickers';
 import { setDefaultOptions } from 'date-fns';
 import { enGB } from 'date-fns/locale';
-import { useTablet } from 'hooks/useWindowSize';
 
 setDefaultOptions({ locale: enGB });
 
@@ -32,6 +31,16 @@ function ButtonField(props) {
   );
 }
 
+// function CustomDay( {day, props} ) {
+//   console.log(day)
+//   if (isWeekend(new Date(day).toDateString())) {
+//     console.log("weekend")
+//     return <PickersDay {...props}/>
+//   }
+//   return <PickersDay {...props} />;
+
+// }
+
 const DesktopSlotProps = {
   '& .MuiDateCalendar-root': {
     width: '373px',
@@ -41,7 +50,6 @@ const DesktopSlotProps = {
     backgroundColor: '#3e85f3',
     borderRadius: '16px',
     color: '#fff',
-    
   },
 
   '& .MuiPickersCalendarHeader-root': {
@@ -99,12 +107,16 @@ const DesktopSlotProps = {
     fontWeight: 600,
     fontFamily: 'Inter',
     margin: '0px',
-    borderBottom: "1px solid rgb(250 250 250 / 0.3)",
+    borderBottom: '1px solid rgb(250 250 250 / 0.3)',
   },
 
   '& .MuiDayCalendar-weekContainer': {
     padding: '0px',
   },
+
+  // '& .MuiDayCalendar-weekContainer::last-child': {
+  //   color: "rgb(250 250 250 / 0.3)",
+  // },
 
   '& .MuiPickersDay-root': {
     width: '48px',
@@ -117,7 +129,7 @@ const DesktopSlotProps = {
   },
 
   '& .MuiPickersDay-root[0]': {
-    color: "rgb(250 250 250 / 0.3)",
+    color: 'rgb(250 250 250 / 0.3)',
   },
 
   '& .Mui-selected': {
@@ -143,7 +155,6 @@ const DesktopSlotProps = {
   '& .MuiPickersArrowSwitcher-button:hover': {
     color: '#fff',
   },
-
 };
 
 const mobileSlotProps = {
@@ -172,7 +183,7 @@ const mobileSlotProps = {
     margin: '0px',
     fontWeight: 600,
     fontFamily: 'Inter',
-    borderBottom: "1px solid rgb(250 250 250 / 0.3)",
+    borderBottom: '1px solid rgb(250 250 250 / 0.3)',
   },
   '& .MuiPickersDay-root': {
     fontSize: '14px',
@@ -187,28 +198,63 @@ const mobileSlotProps = {
 
 export function ButtonDatePicker(props) {
   const [open, setOpen] = useState(false);
-  const isTabletWidth = useTablet();
+  const [windowWidth, setWindowWidth] = useState(null);
+
+  function getWindowWidth() {
+    return window.innerWidth;
+  }
+
+  useEffect(() => {
+    setWindowWidth(getWindowWidth());
+
+    function handleResize() {
+      setWindowWidth(getWindowWidth());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const slotProps = {
     layout: {
       sx: {
         [`.${pickersLayoutClasses.contentWrapper}`]:
-          !isTabletWidth
+          windowWidth < 768
             ? { ...DesktopSlotProps, ...mobileSlotProps }
             : { ...DesktopSlotProps },
       },
     },
   };
 
+  // const CustomPickersDay = styled(PickersDay, {
+  //   shouldForwardProp: (prop) =>
+  //     isWeekend(prop),
+  // })(({ isWeekend }) => ({
+  //   ...(isWeekend && {
+  //     color: "blue",
+  //   }),
+  // }));
+
+  // function Day(props) {
+  //   const { day, ...other } = props;
+
+  //   if (isWeekend(day)) {
+  //     return <CustomPickersDay day={day} {...other} />;
+  //   }
+  //   return <PickersDay day={day} {...other} />
+  // }
+
   return (
     <DatePicker
       slots={{
         field: ButtonField,
+        // day: Day,
+
         ...props.slots,
       }}
-      
       slotProps={{
         field: { setOpen },
+
         ...slotProps,
       }}
       {...props}
