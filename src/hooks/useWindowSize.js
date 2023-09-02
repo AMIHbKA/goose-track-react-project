@@ -53,7 +53,7 @@ export const useMobile = () => {
 export const useUpToSize = width => {
   const windowSize = useWindowSize();
   const size = parseInt(width);
-  return windowSize.width <= size;
+  return windowSize.width < size;
 };
 
 export const useFromSize = width => {

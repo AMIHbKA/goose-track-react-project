@@ -12,12 +12,19 @@ import {
 } from './MainLayoutStyled';
 
 import { useWindowSize } from 'hooks';
+import { useTheme } from 'styled-components';
 
 export const MainLayout = () => {
   const { width, height } = useWindowSize();
   const gridMenuPanelRef = useRef(null);
   const gridUserPanelRef = useRef(null);
   const gridMainPanelRef = useRef(null);
+
+  const {
+    breakpoints: { laptop },
+  } = useTheme();
+
+  const laptopValue = parseInt(laptop);
 
   // const [dimensionsMenuPanel, setDimensionsMenuPanel] = useState({
   //   width: 0,
@@ -64,7 +71,7 @@ export const MainLayout = () => {
   return (
     <GridContainer>
       <GridMenuPanel ref={gridMenuPanelRef}>
-        {width > 1024 && <MenuPanel />}
+        {width > laptopValue && <MenuPanel />}
       </GridMenuPanel>
       <GridUserPanel ref={gridUserPanelRef}>
         <HeaderLayout />

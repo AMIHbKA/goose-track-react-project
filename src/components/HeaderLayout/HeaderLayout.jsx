@@ -1,5 +1,4 @@
-import { useContext, useState } from 'react';
-
+import { useState } from 'react';
 import { MenuIcon } from 'UI';
 import { Modal, ThemeToggler } from 'components';
 import {
@@ -16,17 +15,21 @@ import {
 import { MenuPanel } from 'components/MenuPanel/MenuPanel';
 import { FeedbackModal } from './FeedbackModal/FeedbackModal';
 import { useWindowSize } from 'hooks';
-import { ThemeContext } from 'styled-components';
 import { useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors';
 import { MobileMenu } from 'components/MobileMenu/MobileMenu';
+import { useTheme } from 'styled-components';
 
 export const HeaderLayout = ({ currentTheme, currentReview }) => {
   const userName = useSelector(selectUser).userData?.name;
   const [showModal, setShowModal] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { width } = useWindowSize();
-  const theme = useContext(ThemeContext);
+  const {
+    breakpoints: { laptop },
+    colors: { mainText },
+  } = useTheme();
+  const laptopValue = parseInt(laptop);
 
   const onShowMenu = () => {
     setIsMenuOpen(s => !s);
@@ -43,17 +46,17 @@ export const HeaderLayout = ({ currentTheme, currentReview }) => {
   return (
     <>
       <Header>
-        {width < 1024 && (
+        {width < laptopValue && (
           <MobileMenu onClose={onShowMenu} isOpen={isMenuOpen}>
             <MenuPanel closeBurgerMenu={onShowMenu} />
           </MobileMenu>
         )}
 
         <HeaderPanel>
-          {width >= 1024 && <PageTitle>Page Title</PageTitle>}
-          {width < 1024 && (
+          {width >= laptopValue && <PageTitle>Page Title</PageTitle>}
+          {width < laptopValue && (
             <MenuIconStyled onClick={onShowMenu}>
-              {<MenuIcon size={24} stroke={theme.colors.mainText} />}
+              {<MenuIcon size={24} stroke={mainText} />}
             </MenuIconStyled>
           )}
 

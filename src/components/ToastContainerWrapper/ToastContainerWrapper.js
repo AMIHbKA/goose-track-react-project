@@ -1,11 +1,11 @@
-import { useAuth, useTablet } from 'hooks';
+import { useAuth, useMobile } from 'hooks';
 import { ToastContainer, Flip } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/theme/selectors';
 
 export const ToastContainerWrapper = () => {
-  const isTablet = useTablet();
-  const toastPosition = isTablet ? 'top-right' : 'top-center';
+  const isMobile = useMobile();
+  const toastPosition = isMobile ? 'top-center' : 'top-right';
   const theme = useSelector(selectTheme);
   const { isLoggedIn } = useAuth();
   let currentTheme = '';
