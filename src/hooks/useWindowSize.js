@@ -49,3 +49,15 @@ export const useMobile = () => {
   const size = parseInt(theme.breakpoints.preTablet);
   return windowSize.width <= size;
 };
+
+export const useUpToSize = width => {
+  const windowSize = useWindowSize();
+  const size = parseInt(width);
+  return windowSize.width <= size;
+};
+
+export const useFromSize = width => {
+  const windowSize = useWindowSize();
+  const size = parseInt(width);
+  return windowSize.width >= size;
+};

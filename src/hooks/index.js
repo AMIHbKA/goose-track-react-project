@@ -4,4 +4,6 @@ export {
   useTablet,
   useLaptop,
   useMobile,
+  useUpToSize,
+  useFromSize,
 } from './useWindowSize';
