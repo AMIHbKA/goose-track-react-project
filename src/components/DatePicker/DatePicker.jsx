@@ -4,7 +4,7 @@ import { Box, Text } from 'components/PeriodPaginator/PeriodPaginator.styled';
 import { pickersLayoutClasses } from '@mui/x-date-pickers';
 import { setDefaultOptions } from 'date-fns';
 import { enGB } from 'date-fns/locale';
-import { useTablet } from 'hooks/useWindowSize';
+import { useWindowSize } from 'hooks/useWindowSize';
 
 setDefaultOptions({ locale: enGB });
 
@@ -185,13 +185,13 @@ const mobileSlotProps = {
 
 export function ButtonDatePicker(props) {
   const [open, setOpen] = useState(false);
-  const isTabletWidth = useTablet();
+  const {width} = useWindowSize();
 
   const slotProps = {
     layout: {
       sx: {
         [`.${pickersLayoutClasses.contentWrapper}`]:
-          !isTabletWidth
+          width <= 768
             ? { ...DesktopSlotProps, ...mobileSlotProps }
             : { ...DesktopSlotProps },
       },
