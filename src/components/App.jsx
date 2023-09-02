@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Layout, ThemeProvider } from 'components';
+import { Layout, ThemeProvider, ToastContainerWrapper } from 'components';
 import { useDispatch } from 'react-redux';
 import { useAuth } from 'hooks';
 import { useEffect } from 'react';
@@ -57,6 +57,7 @@ export const App = () => {
           </Route>
         </Routes>
       </LocalizationProvider>
+      <ToastContainerWrapper />
     </ThemeProvider>
   );
 };
