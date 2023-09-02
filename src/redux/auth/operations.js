@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { api } from 'utilities';
-import { notify } from 'utilities/notify';
+import { api, notify } from 'utilities';
 
 export const register = createAsyncThunk(
   'auth/register',

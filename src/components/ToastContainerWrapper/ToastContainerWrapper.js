@@ -1,5 +1,5 @@
 import { useAuth, useTablet } from 'hooks';
-import { ToastContainer, Zoom, Flip } from 'react-toastify';
+import { ToastContainer, Flip } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/theme/selectors';
 
