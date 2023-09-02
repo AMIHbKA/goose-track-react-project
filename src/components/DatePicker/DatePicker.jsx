@@ -41,7 +41,6 @@ const DesktopSlotProps = {
     backgroundColor: '#3e85f3',
     borderRadius: '16px',
     color: '#fff',
-    
   },
 
   '& .MuiPickersCalendarHeader-root': {
@@ -99,7 +98,7 @@ const DesktopSlotProps = {
     fontWeight: 600,
     fontFamily: 'Inter',
     margin: '0px',
-    borderBottom: "1px solid rgb(250 250 250 / 0.3)",
+    borderBottom: '1px solid rgb(250 250 250 / 0.3)',
   },
 
   '& .MuiDayCalendar-weekContainer': {
@@ -117,7 +116,7 @@ const DesktopSlotProps = {
   },
 
   '& .MuiPickersDay-root[0]': {
-    color: "rgb(250 250 250 / 0.3)",
+    color: 'rgb(250 250 250 / 0.3)',
   },
 
   '& .Mui-selected': {
@@ -143,7 +142,6 @@ const DesktopSlotProps = {
   '& .MuiPickersArrowSwitcher-button:hover': {
     color: '#fff',
   },
-
 };
 
 const mobileSlotProps = {
@@ -172,7 +170,7 @@ const mobileSlotProps = {
     margin: '0px',
     fontWeight: 600,
     fontFamily: 'Inter',
-    borderBottom: "1px solid rgb(250 250 250 / 0.3)",
+    borderBottom: '1px solid rgb(250 250 250 / 0.3)',
   },
   '& .MuiPickersDay-root': {
     fontSize: '14px',
@@ -206,7 +204,6 @@ export function ButtonDatePicker(props) {
         field: ButtonField,
         ...props.slots,
       }}
-      
       slotProps={{
         field: { setOpen },
         ...slotProps,

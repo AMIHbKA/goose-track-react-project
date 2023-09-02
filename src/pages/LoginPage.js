@@ -4,8 +4,8 @@ import { Helmet } from 'react-helmet';
 
 const LoginPage = () => {
   return (
-    <section style={{ background: '#dcebf7' }}>
-      <Container outline fullscreen>
+    <section style={{ background: '#dcebf7', height: '100vh' }}>
+      <Container full_center>
         <Helmet>
           <title>Login</title>
         </Helmet>

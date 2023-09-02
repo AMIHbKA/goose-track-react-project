@@ -9,7 +9,7 @@ import {
 import { DAY, MONTH } from 'components/CalendarToolbar/CalendarToolbar';
 
 export const PeriodTypeSelect = ({ selectPeriod }) => {
-  // const [isActive, setIsActive] = useState(MONTH);
+
   return (
     <Navigation>
       <SelectorMonth
