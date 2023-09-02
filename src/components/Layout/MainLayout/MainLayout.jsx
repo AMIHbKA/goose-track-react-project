@@ -1,9 +1,8 @@
-import { Suspense, useState } from 'react';
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-// import { Container } from 'components';
 
 import { HeaderLayout } from 'components/HeaderLayout/HeaderLayout';
-import { useWindowWidth } from 'hooks/useWindowWidth';
+
 import { MenuPanel } from 'components/MenuPanel/MenuPanel';
 import {
   GridContainer,
@@ -11,22 +10,17 @@ import {
   GridMenuPanel,
   GridUserPanel,
 } from './MainLayoutStyled';
-import { darkTheme, lightTheme } from 'UI';
-import { ThemeProvider } from 'styled-components';
+
+import { useWindowSize } from 'hooks';
 
 export const MainLayout = () => {
-  const windowWidth = useWindowWidth();
-  const [theme, setTheme] = useState('light');
-
-  const switchTheme = () => {
-    theme === 'light' ? setTheme('dark') : setTheme('light');
-  };
+  const { width } = useWindowSize();
 
   return (
     <GridContainer>
-      <GridMenuPanel> {windowWidth > 1024 && <MenuPanel />}</GridMenuPanel>
+      <GridMenuPanel> {width > 1024 && <MenuPanel />}</GridMenuPanel>
       <GridUserPanel>
-        <HeaderLayout currentTheme={theme} switchTheme={switchTheme} />
+        <HeaderLayout />
       </GridUserPanel>
       <GridMainPanel>
         <Suspense fallback={null}>
