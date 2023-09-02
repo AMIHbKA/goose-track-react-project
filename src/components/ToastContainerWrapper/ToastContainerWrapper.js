@@ -16,7 +16,6 @@ export const ToastContainerWrapper = () => {
     currentTheme = theme === 'dark' ? 'dark' : 'light';
   }
 
-  console.log('theme', theme);
   return (
     <ToastContainer
       role="alert"
