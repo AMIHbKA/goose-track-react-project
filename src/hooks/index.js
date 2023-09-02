@@ -1,2 +1,9 @@
 export { useAuth } from './useAuth';
-export { useWindowSize, useTablet } from './useWindowSize';
+export {
+  useWindowSize,
+  useTablet,
+  useLaptop,
+  useMobile,
+  useUpToSize,
+  useFromSize,
+} from './useWindowSize';

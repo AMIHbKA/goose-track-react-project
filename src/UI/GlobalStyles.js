@@ -25,6 +25,7 @@ export const GlobalStyle = createGlobalStyle`
 
 .Toastify__toast-theme--dark {
   background-color: ${({ theme }) => theme.colors.secondBack};
+  border-color: #000;
 }
 .Toastify__toast-theme--light {
 }
