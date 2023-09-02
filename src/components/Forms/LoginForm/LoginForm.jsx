@@ -7,6 +7,7 @@ import { FormWrapper } from 'UI/CommonStyles/FormStyled';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 import { useNavigate } from 'react-router';
+import { useLaptop, useMobile, useTablet } from 'hooks';
 
 const loginSchema = Yup.object({
   email: Yup.string().email('Invalid email address').required('Required'),
@@ -19,6 +20,10 @@ const loginSchema = Yup.object({
 export const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  console.log('useTablet()', useTablet());
+  console.log('useLaptop()', useLaptop());
+  console.log('useMobile()', useMobile());
 
   const handleSubmit = async values => {
     const { email, password } = values;
