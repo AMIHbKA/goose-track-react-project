@@ -66,20 +66,11 @@ export const HeaderLayout = ({ currentTheme, currentReview }) => {
             </FeedBackButtonStyled>
             {showModal && (
               <Modal onActive={onShowModal}>
-                {/* <div
-                  style={{
-                    height: 250,
-                    aspectRatio: 4 / 3,
-                    border: '1px solid black',
-                    borderRadius: 5,
-                  }}
-                > */}
                 <FeedbackModal
                   ctheme={currentTheme}
                   onCancel={handleCancel}
                   initialReview={currentReview}
                 />
-                {/* </div> */}
               </Modal>
             )}
             <UserInfo>
