@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import { checkErrors, checkSuccesfull } from 'utilities/checks';
 import { api } from 'utilities';
+import { notify } from 'utilities/notify';
 
 export const register = createAsyncThunk(
   'auth/register',
@@ -27,7 +28,7 @@ export const logIn = createAsyncThunk(
 
       // After successful login, add the token to the HTTP header
       api.setAuthHeader(response.data.userData.token);
-      toast.success(checkSuccesfull('auth/login', response.status));
+      notify('success', 'You have logged in successfully!');
       return response.data.userData;
     } catch (error) {
       toast.error(checkErrors('auth/login', error.response.status));

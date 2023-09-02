@@ -16,11 +16,12 @@ export const Input = ({
   w,
   h,
   error,
-  touched,
+  touched = false,
   ...props
 }) => {
   const valid = !error && touched;
   const actualClass = `${valid ? 'valid' : ''} ${error ? 'invalid' : ''}`;
+  console.log('touched', touched);
   return (
     <>
       <Label htmlFor={name} className={actualClass}>
@@ -103,7 +104,7 @@ Input.propTypes = {
   minh: PropTypes.string,
   w: PropTypes.string,
   h: PropTypes.string,
-  error: PropTypes.bool,
+  error: PropTypes.string,
   touched: PropTypes.bool,
 };
 

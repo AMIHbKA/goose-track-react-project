@@ -1,9 +1,12 @@
+import { useTablet } from 'hooks';
 import React from 'react';
-import { useTablet } from 'hooks/useWindowSize';
 import { ToastContainer } from 'react-toastify';
 
 export const ToastContainerWrapper = () => {
   const isTablet = useTablet();
+
+  console.log('isTablet', isTablet);
+
   const toastPosition = isTablet ? 'top-center' : 'bottom-center';
   return (
     <ToastContainer
