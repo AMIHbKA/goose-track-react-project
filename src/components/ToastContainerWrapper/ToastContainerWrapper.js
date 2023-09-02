@@ -1,19 +1,30 @@
-import { useTablet } from 'hooks';
-import React from 'react';
-import { ToastContainer } from 'react-toastify';
+import { useAuth, useTablet } from 'hooks';
+import { ToastContainer, Zoom, Flip } from 'react-toastify';
+import { useSelector } from 'react-redux';
+import { selectTheme } from 'redux/theme/selectors';
 
 export const ToastContainerWrapper = () => {
   const isTablet = useTablet();
+  const toastPosition = isTablet ? 'top-right' : 'top-center';
+  const theme = useSelector(selectTheme);
+  const { isLoggedIn } = useAuth();
+  let currentTheme = '';
 
-  console.log('isTablet', isTablet);
+  if (!isLoggedIn) {
+    currentTheme = 'colored';
+  } else {
+    currentTheme = theme === 'dark' ? 'dark' : 'light';
+  }
 
-  const toastPosition = isTablet ? 'top-center' : 'bottom-center';
+  console.log('theme', theme);
   return (
     <ToastContainer
-      theme="colored"
+      role="alert"
+      theme={currentTheme}
       position={toastPosition}
       autoClose={2000}
       limit={3}
+      transition={Flip}
       hideProgressBar
     />
   );

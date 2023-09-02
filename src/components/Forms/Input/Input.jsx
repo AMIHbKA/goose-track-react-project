@@ -21,7 +21,6 @@ export const Input = ({
 }) => {
   const valid = !error && touched;
   const actualClass = `${valid ? 'valid' : ''} ${error ? 'invalid' : ''}`;
-  console.log('touched', touched);
   return (
     <>
       <Label htmlFor={name} className={actualClass}>
