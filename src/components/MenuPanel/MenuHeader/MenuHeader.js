@@ -2,15 +2,15 @@ import { LogoPanel } from 'components/MenuPanel/Logo/LogoPanel';
 import { MenuHeaderStyled } from './MenuHeaderStyled';
 import { CloseButton } from 'components/BurgerMenu/BurgerMenu.styled';
 import logoImage from '../../../UI/images/Goose_logo.png';
-import { useWindowWidth } from 'hooks/useWindowWidth';
+import { useWindowSize } from 'hooks';
 
 export const MenuHeader = ({ closeBurgerMenu }) => {
-  const windowWidth = useWindowWidth();
+  const { width } = useWindowSize();
 
   return (
     <MenuHeaderStyled>
       <LogoPanel logoImage={logoImage} logoName="GooseTrack" />
-      {windowWidth < 1024 && (
+      {width < 1024 && (
         <CloseButton size="24" type="button" onClick={closeBurgerMenu} />
       )}
     </MenuHeaderStyled>

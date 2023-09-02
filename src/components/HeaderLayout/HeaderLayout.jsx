@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 import { MenuIcon } from 'UI';
 import { Modal, ThemeToggler } from 'components';
@@ -15,13 +15,15 @@ import {
 } from './HeaderLayoutStyled';
 import { BurgerMenu } from 'components/BurgerMenu/BurgerMenu';
 import { MenuPanel } from 'components/MenuPanel/MenuPanel';
-import { useWindowWidth } from 'hooks/useWindowWidth';
 import { FeedbackModal } from './FeedbackModal/FeedbackModal';
+import { useWindowSize } from 'hooks';
+import { ThemeContext } from 'styled-components';
 
-export const HeaderLayout = ({ currentTheme, switchTheme, currentReview }) => {
+export const HeaderLayout = ({ currentTheme, currentReview }) => {
   const [showModal, setShowModal] = useState(false);
   const [isBurgerMenuOpen, setBurgerMenuOpen] = useState(false);
-  const windowWidth = useWindowWidth();
+  const { width } = useWindowSize();
+  const theme = useContext(ThemeContext);
 
   const showBurgerMenu = () => {
     setBurgerMenuOpen(true);
@@ -31,7 +33,6 @@ export const HeaderLayout = ({ currentTheme, switchTheme, currentReview }) => {
     setBurgerMenuOpen(false);
   };
   const onShowModal = () => {
-    console.log(1);
     setShowModal(s => !s);
   };
 
@@ -42,22 +43,17 @@ export const HeaderLayout = ({ currentTheme, switchTheme, currentReview }) => {
   return (
     <>
       <Header>
-        {windowWidth < 1024 && isBurgerMenuOpen && (
+        {width < 1024 && isBurgerMenuOpen && (
           <BurgerMenu onActive={closeBurgerMenu}>
             <MenuPanel closeBurgerMenu={closeBurgerMenu} />
           </BurgerMenu>
         )}
 
         <HeaderPanel>
-          {windowWidth >= 1024 && <PageTitle>Page Title</PageTitle>}
-          {windowWidth < 1024 && (
+          {width >= 1024 && <PageTitle>Page Title</PageTitle>}
+          {width < 1024 && (
             <MenuIconStyled onClick={showBurgerMenu}>
-              {
-                <MenuIcon
-                  size={24}
-                  stroke={currentTheme === 'light' ? '#343434' : 'white'}
-                />
-              }
+              {<MenuIcon size={24} stroke={theme.colors.mainText} />}
             </MenuIconStyled>
           )}
 
