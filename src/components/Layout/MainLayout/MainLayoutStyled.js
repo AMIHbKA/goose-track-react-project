@@ -18,6 +18,15 @@ export const GridUserPanel = styled.div`
 `;
 export const GridMainPanel = styled.main`
   grid-area: Main-Panel;
+  padding: 0 20px 52px;
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    padding: 0 32px 42px;
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints.laptop}) {
+    padding: 0 32px 32px;
+  }
 `;
 
 // export const Main = styled.main`

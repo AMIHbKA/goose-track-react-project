@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import { MenuIcon } from 'UI';
 import { Modal, ThemeToggler } from 'components';
 import {
@@ -13,25 +12,30 @@ import {
   UserPanel,
   UserPhoto,
 } from './HeaderLayoutStyled';
-import { BurgerMenu } from 'components/BurgerMenu/BurgerMenu';
 import { MenuPanel } from 'components/MenuPanel/MenuPanel';
-import { useWindowWidth } from 'hooks/useWindowWidth';
 import { FeedbackModal } from './FeedbackModal/FeedbackModal';
+import { useWindowSize } from 'hooks';
+import { useSelector } from 'react-redux';
+import { selectUser } from 'redux/auth/selectors';
+import { MobileMenu } from 'components/MobileMenu/MobileMenu';
+import { useTheme } from 'styled-components';
 
-export const HeaderLayout = ({ currentTheme, switchTheme, currentReview }) => {
+export const HeaderLayout = ({ currentTheme, currentReview }) => {
+  const userName = useSelector(selectUser).userData?.name;
   const [showModal, setShowModal] = useState(false);
-  const [isBurgerMenuOpen, setBurgerMenuOpen] = useState(false);
-  const windowWidth = useWindowWidth();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { width } = useWindowSize();
+  const {
+    breakpoints: { laptop },
+    colors: { mainText },
+  } = useTheme();
+  const laptopValue = parseInt(laptop);
 
-  const showBurgerMenu = () => {
-    setBurgerMenuOpen(true);
+  const onShowMenu = () => {
+    setIsMenuOpen(s => !s);
   };
 
-  const closeBurgerMenu = () => {
-    setBurgerMenuOpen(false);
-  };
   const onShowModal = () => {
-    console.log(1);
     setShowModal(s => !s);
   };
 
@@ -42,22 +46,17 @@ export const HeaderLayout = ({ currentTheme, switchTheme, currentReview }) => {
   return (
     <>
       <Header>
-        {windowWidth < 1024 && isBurgerMenuOpen && (
-          <BurgerMenu onActive={closeBurgerMenu}>
-            <MenuPanel closeBurgerMenu={closeBurgerMenu} />
-          </BurgerMenu>
+        {width < laptopValue && (
+          <MobileMenu onClose={onShowMenu} isOpen={isMenuOpen}>
+            <MenuPanel closeBurgerMenu={onShowMenu} />
+          </MobileMenu>
         )}
 
         <HeaderPanel>
-          {windowWidth >= 1024 && <PageTitle>Page Title</PageTitle>}
-          {windowWidth < 1024 && (
-            <MenuIconStyled onClick={showBurgerMenu}>
-              {
-                <MenuIcon
-                  size={24}
-                  stroke={currentTheme === 'light' ? '#343434' : 'white'}
-                />
-              }
+          {width >= laptopValue && <PageTitle>Page Title</PageTitle>}
+          {width < laptopValue && (
+            <MenuIconStyled onClick={onShowMenu}>
+              {<MenuIcon size={24} stroke={mainText} />}
             </MenuIconStyled>
           )}
 
@@ -76,7 +75,7 @@ export const HeaderLayout = ({ currentTheme, switchTheme, currentReview }) => {
             )}
             <UserInfo>
               <ThemeToggler />
-              <UserName>UserName</UserName>
+              <UserName>{userName && userName}</UserName>
               <UserPhoto />
             </UserInfo>
           </UserPanel>
