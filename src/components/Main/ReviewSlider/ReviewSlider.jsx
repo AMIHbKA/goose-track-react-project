@@ -61,10 +61,9 @@ export const ReviewSlider = () => {
             }}
             className="mySwiper"
           >
-
             {people.map(person => {
               const { _id, stars, owner, name, reviewText } = person;
-`
+
               return (
                 <SwiperSlide
                   key={_id}
