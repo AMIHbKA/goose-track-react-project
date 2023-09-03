@@ -4,12 +4,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-
-import { RightArrow } from 'UI';
+import { Container } from 'components';
 import {
   Reviews,
   Title,
-  Container,
   Thumb,
   ReviewText,
   PeopleName,
@@ -21,6 +19,7 @@ import {
   StyledLeftArrow,
   TestimonialCard,
   StyledButton,
+  StyledRightArrow,
 } from './ReviewSlider.styled';
 import { getReviews } from '../../../redux/review/getReviews';
 
@@ -39,8 +38,8 @@ export const ReviewSlider = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Reviews>
-        <Title>reviews</Title>
-        <Container>
+        <Container main_page outline>
+          <Title>reviews</Title>
           <Swiper
             slidesPerView={1}
             spaceBetween={10}
@@ -56,7 +55,7 @@ export const ReviewSlider = () => {
               nextEl: '.swiper-button-next',
             }}
             autoplay={{
-              delay: 2500,
+              delay: 10000,
               disableOnInteraction: false,
             }}
             className="mySwiper"
@@ -67,11 +66,15 @@ export const ReviewSlider = () => {
               return (
                 <SwiperSlide
                   key={_id}
-                  style={{ display: 'flex', height: 'auto' }}
+                  style={{
+                    height: 'auto',
+                    display: 'flex',
+                    justifyContent: 'center',
+                  }}
                 >
                   <TestimonialCard>
                     <Thumb>
-                      <PepleImg src={owner.avatarUrl} alt={name} />
+                      <PepleImg src={owner?.avatarUrl} alt={name} />
                       <Wrapper>
                         <PeopleName>{name}</PeopleName>
                         <Rating>
@@ -89,16 +92,16 @@ export const ReviewSlider = () => {
                 </SwiperSlide>
               );
             })}
+            <ArrowContainer>
+              <StyledButton className="swiper-button-prev">
+                <StyledLeftArrow />
+              </StyledButton>
+              <StyledButton className="swiper-button-next">
+                <StyledRightArrow />
+              </StyledButton>
+            </ArrowContainer>
           </Swiper>
         </Container>
-        <ArrowContainer>
-          <StyledButton className="swiper-button-prev">
-            <StyledLeftArrow />
-          </StyledButton>
-          <StyledButton className="swiper-button-next">
-            <RightArrow />
-          </StyledButton>
-        </ArrowContainer>
       </Reviews>
     </Suspense>
   );

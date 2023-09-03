@@ -1,17 +1,8 @@
 import styled from 'styled-components';
-import { StarIcon, LeftArrow } from 'UI';
+import { StarIcon, LeftArrow, RightArrow } from 'UI';
 
 export const Reviews = styled.section`
   background-color: #fff;
-  padding: 0 20px 86px;
-
-  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    padding: 0 94px 127px;
-    min-width: 580px;
-  }
-
-  @media (min-width: ${props => props.theme.breakpoints.laptopL}) {
-  }
 `;
 
 export const Title = styled.p`
@@ -28,14 +19,6 @@ export const Title = styled.p`
   }
 `;
 
-export const Container = styled.div`
-  margin-bottom: 30px;
-
-  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    margin-bottom: 45px;
-  }
-`;
-
 export const TestimonialCard = styled.div`
   border: 1px solid rgba(0, 0, 0, 10%);
   border-radius: 8px;
@@ -44,7 +27,11 @@ export const TestimonialCard = styled.div`
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     padding: 32px;
-    width: inherit;
+    max-width: 580px;
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints.laptopL}) {
+    min-width: 580px;
   }
 `;
 
@@ -57,6 +44,7 @@ export const Thumb = styled.div`
 export const PepleImg = styled.img`
   width: 50px;
   height: 50px;
+  object-fit: cover;
 `;
 
 export const ReviewText = styled.div`
@@ -96,17 +84,38 @@ export const RatingStarIcon = styled(StarIcon)`
 
 export const ArrowContainer = styled.div`
   display: flex;
+  padding-bottom: 64px;
   justify-content: center;
   gap: 25px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding-bottom: 100px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+    padding-bottom: 118px;
+  }
 `;
 
 export const StyledButton = styled.button`
+  height: 50px;
   background-color: transparent;
   border: none;
 `;
 
 export const StyledLeftArrow = styled(LeftArrow)`
-  display: block;
-  height: 5px;
-  width: 38px;
+  /* display: block; */
+  height: 70px;
+  width: 70px;
+  .arrow-path {
+    fill: red;
+  }
+`;
+
+export const StyledRightArrow = styled(RightArrow)`
+  height: 70px;
+  width: 70px;
+  .arrow-path {
+    fill: red;
+  }
 `;
