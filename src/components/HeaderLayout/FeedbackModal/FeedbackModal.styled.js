@@ -56,7 +56,7 @@ export const EditButton = styled.button`
   height: 30px;
   border: none;
   background-color: ${({ theme }) =>
-    theme.feedbackModal.backgroundButtonEditColor};
+    theme.feedbackModal.backgroundButtonSecondaryColor};
   margin-right: 8px;
   color: #3e85f3;
   transition: all linear 0.3s;
@@ -65,6 +65,13 @@ export const EditButton = styled.button`
     color: #fff;
     background-color: #3e85f3;
   }
+
+  ${({ editMode }) =>
+    editMode &&
+    `
+    color: #fff;
+    background-color: #3e85f3;
+  `}
 `;
 
 export const DeleteButton = styled.button`
@@ -121,9 +128,10 @@ export const ButtonContainer = styled.div`
 
 export const SaveEditButton = styled.button`
   min-width: 144px;
-  background-color: ${({ theme }) => theme.feedbackModal.backgroundButton};
-  color: ${({ theme }) => theme.feedbackModal.textColor};
-  border: none;
+  background-color: ${({ theme }) =>
+    theme.feedbackModal.backgroundButtonPrimaryColor};
+  color: ${({ theme }) => theme.feedbackModal.buttonColor};
+  border: 0;
   padding: 12px;
   border-radius: 8px;
   font-weight: 600;
@@ -134,21 +142,16 @@ export const SaveEditButton = styled.button`
     padding: 15px;
   }
 
-  ${props =>
-    props.cancelButtonFocused &&
-    `
-    background-color: #e5edfa;
-    color: #343434;
-  `}
-
   &:disabled {
+    background-color: ${({ theme }) => theme.feedbackModal.backgroundButton};
+    color: ${({ theme }) => theme.feedbackModal.textColor};
     pointer-events: none;
   }
 
   &:hover,
   &:focus {
-    background-color: #3e85f3;
-    color: #fff;
+    background-color: ${({ theme }) => theme.colors.hoverState};
+    color: ${({ theme }) => theme.feedbackModal.buttonColor};
   }
 `;
 

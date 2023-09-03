@@ -69,6 +69,12 @@ ${props =>
     }
 `}
 
+${props =>
+    props.mb24 &&
+    `
+    margin-inline: 0;
+    margin-block: 24px;
+  `}
 
 
   ${props =>
