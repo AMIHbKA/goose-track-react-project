@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const MainContent = styled.main`
+export const MainContent = styled.section`
   background-color: #fff;
-  padding: 64px 20px;
+  /* padding: 64px 20px;
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     padding: 64px 32px;
-  }
+  } */
 `;
 
 export const OderedList = styled.ol`
