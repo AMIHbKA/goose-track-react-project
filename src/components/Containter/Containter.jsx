@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding: 24px;
   margin-inline: auto;
   width: 100%;
   max-width: ${props => props.theme.breakpoints.laptopL};
@@ -70,6 +69,12 @@ ${props =>
     }
 `}
 
+${props =>
+    props.mb24 &&
+    `
+    margin-inline: 0;
+    margin-block: 24px;
+  `}
 
 
   ${props =>
