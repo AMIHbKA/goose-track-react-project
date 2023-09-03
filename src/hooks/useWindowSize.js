@@ -30,6 +30,34 @@ export const useWindowSize = () => {
 export const useTablet = () => {
   const theme = useContext(ThemeContext);
   const windowSize = useWindowSize();
-  const tabletSize = parseInt(theme.breakpoints.tablet);
-  return windowSize.width >= tabletSize;
+  const size = parseInt(theme.breakpoints.tablet);
+  const nextSize = parseInt(theme.breakpoints.laptop);
+
+  return windowSize.width >= size && windowSize.width < nextSize;
+};
+
+export const useLaptop = () => {
+  const theme = useContext(ThemeContext);
+  const windowSize = useWindowSize();
+  const size = parseInt(theme.breakpoints.laptop);
+  return windowSize.width >= size;
+};
+
+export const useMobile = () => {
+  const theme = useContext(ThemeContext);
+  const windowSize = useWindowSize();
+  const size = parseInt(theme.breakpoints.preTablet);
+  return windowSize.width <= size;
+};
+
+export const useUpToSize = width => {
+  const windowSize = useWindowSize();
+  const size = parseInt(width);
+  return windowSize.width < size;
+};
+
+export const useFromSize = width => {
+  const windowSize = useWindowSize();
+  const size = parseInt(width);
+  return windowSize.width >= size;
 };

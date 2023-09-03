@@ -2,6 +2,7 @@ import { ErrorMessage, Field } from 'formik';
 import styled from 'styled-components';
 import { ValidMessage } from '../ValidMessage/ValidMessage';
 import { CommonInfoStringStyles, DoneIcon, ErrorIcon } from 'UI';
+import PropTypes from 'prop-types';
 
 export const Input = ({
   name,
@@ -15,7 +16,7 @@ export const Input = ({
   w,
   h,
   error,
-  touched,
+  touched = false,
   ...props
 }) => {
   const valid = !error && touched;
@@ -90,6 +91,21 @@ const Label = styled.label`
     }
   }
 `;
+
+Input.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  showErrors: PropTypes.bool,
+  type: PropTypes.string,
+  maxw: PropTypes.string,
+  minw: PropTypes.string,
+  maxh: PropTypes.string,
+  minh: PropTypes.string,
+  w: PropTypes.string,
+  h: PropTypes.string,
+  error: PropTypes.string,
+  touched: PropTypes.bool,
+};
 
 const FieldStyled = styled(Field)`
   display: ${props => props.display || 'block'};

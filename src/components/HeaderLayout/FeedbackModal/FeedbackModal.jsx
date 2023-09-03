@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Rating } from 'react-simple-star-rating';
 import { ThemeContext } from 'styled-components';
+import { useDispatch } from 'react-redux';
 
 import {
   ButtonContainer,
@@ -11,48 +12,46 @@ import {
   ModalContainer,
   RaitingContainer,
   RaitingLabel,
-  ReviewContainer,
   ReviewInput,
   SaveEditButton,
   StyledReviewButton,
 } from './FeedbackModal.styled';
 import { PencilIcon, TrashIcon2 } from 'UI';
 
-import { sendFeedbackToBackend } from '../../../UI/servisesHttp/sendFeedbackToBackend';
-import { deleteReview } from '../../../UI/servisesHttp/delereReview';
+import {
+  deleteReview,
+  editReview,
+  getReviewFromBackend,
+  sendFeedbackToBackend,
+} from 'redux/review/operations';
 
-// import axios from 'axios';
 import { useEffect } from 'react';
-
-// const instance = axios.create({
-//   baseURL: 'https://goose-track-backend-odyh.onrender.com',
-// });
 
 export const FeedbackModal = ({ onCancel, initialReview }) => {
   const [rating, setRating] = useState(initialReview?.rating || 0);
   const [review, setReview] = useState(initialReview?.review || '');
-  // const [buttonsVisible, setButtonsVisible] = useState(false);
   const [saveClicked, setSaveClicked] = useState(false);
-  // const [formSubmitted, setFormSubmitted] = useState(false);
+  const [editMode, setEditMode] = useState(false);
   const [cancelButtonFocused, setCancelButtonFocused] = useState(false);
-  // const [currentReview, setCurrentReview] = useState(null);
   const theme = useContext(ThemeContext);
 
-  // console.log(theme.feedbackModal.starColor);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    async function fetchReview() {
+    const fetchData = async () => {
       try {
-        // const response = await instance.get('/reviews/own');
-        // const reviewData = response.data.data;
-        // setCurrentReview(reviewData);
+        const result = await dispatch(getReviewFromBackend());
+        if (!result.payload) return;
+        setRating(result.payload.stars);
+        setReview(result.payload.reviewText);
+        setSaveClicked(true);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
-    }
+    };
 
-    fetchReview();
-  }, []);
+    fetchData();
+  }, [dispatch]);
 
   const handleRating = rate => {
     setRating(rate);
@@ -67,52 +66,53 @@ export const FeedbackModal = ({ onCancel, initialReview }) => {
     setReview(e.target.value);
   };
 
-  const handleClickClose = () => {
-    setRating(0);
-    setReview('');
-  };
-
-  // const handleReset = () => {
-  //   setRating(0);
-  //   setReview('');
-  //   // setButtonsVisible(false);
-  //   // setFormSubmitted(false);
-  // };
-
-  // const handleSubmit = async e => {
-  //   e.preventDefault();
-  //   console.log(`raiting: ${rating}, review: ${review}`);
-  //   setFormSubmitted(true);
-
-  //   try {
-  //     await sendFeedbackToBackend(rating, review);
-  //     // setFormSubmitted(true);
-  //     // setButtonsVisible(true);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
   const handleSaveClick = async e => {
     e.preventDefault();
     try {
-      await sendFeedbackToBackend(rating, review);
-      setSaveClicked(true); // Set the state to indicate Save was clicked
-      // setButtonsVisible(true); // Show the Edit and Delete buttons
+      await dispatch(
+        sendFeedbackToBackend({
+          stars: rating,
+          reviewText: review,
+        })
+      );
+      setSaveClicked(true);
     } catch (error) {
       console.error(error);
     }
   };
 
-  const handleDeleteReview = reviewId => {
-    deleteReview(reviewId);
+  const handleEditClick = async e => {
+    e.preventDefault();
+    try {
+      await dispatch(
+        editReview({
+          stars: rating,
+          reviewText: review,
+        })
+      );
+      setSaveClicked(false);
+      setEditMode(true);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleDelete = async e => {
+    e.preventDefault();
+    try {
+      await dispatch(deleteReview());
+      setRating(0);
+      setReview('');
+      setSaveClicked(false);
+      setEditMode(false);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
-    <ModalContainer
-    //  onSubmit={handleSubmit}
-    >
-      <RaitingContainer>
+    <ModalContainer>
+      <RaitingContainer saveClicked={saveClicked}>
         <RaitingLabel htmlFor="starRaiting">Raiting</RaitingLabel>
         <Rating
           name="stars"
@@ -126,18 +126,15 @@ export const FeedbackModal = ({ onCancel, initialReview }) => {
           emptyColor={theme.feedbackModal.starColorDefault}
         />
       </RaitingContainer>
-      <ReviewContainer>
+      <div>
         <StyledReviewButton>
           <LabelText>Review</LabelText>
-          {saveClicked && (
+          {saveClicked && rating !== 0 && (
             <>
-              <EditButton>
+              <EditButton onClick={handleEditClick}>
                 <PencilIcon stroke={'currentColor'} />
               </EditButton>
-              <DeleteButton
-                //  onClick={handleReset}
-                onClick={() => handleDeleteReview(initialReview._id)}
-              >
+              <DeleteButton onClick={handleDelete}>
                 <TrashIcon2 stroke={'currentColor'} />
               </DeleteButton>
             </>
@@ -146,20 +143,19 @@ export const FeedbackModal = ({ onCancel, initialReview }) => {
         <ReviewInput
           placeholder="Enter text"
           value={review}
-          // onChange={handleChange}
           onChange={handleReviewSubmit}
+          saveClicked={saveClicked}
         />
-      </ReviewContainer>
+      </div>
       {!saveClicked && (
         <ButtonContainer>
           <SaveEditButton
             type="submit"
             rating={rating}
-            disabled={rating === 0 || cancelButtonFocused}
-            // onClick={sendFeedbackToBackend}
+            disabled={!rating || !review || cancelButtonFocused}
             onClick={handleSaveClick}
           >
-            Save
+            {editMode ? 'Edit' : 'Save'}
           </SaveEditButton>
           <CancelButton
             type="reset"
@@ -167,7 +163,6 @@ export const FeedbackModal = ({ onCancel, initialReview }) => {
             onBlur={() => setCancelButtonFocused(false)}
             onClick={() => {
               onCancel();
-              handleClickClose();
             }}
           >
             Cancel

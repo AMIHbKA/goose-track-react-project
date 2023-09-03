@@ -22,7 +22,7 @@ import {
   TestimonialCard,
   StyledButton,
 } from './ReviewSlider.styled';
-import { getReviews } from '../../../UI/servisesHttp/getReviews';
+import { getReviews } from '../../../redux/review/getReviews';
 
 export const ReviewSlider = () => {
   const [people, setPeople] = useState([]);
@@ -62,7 +62,7 @@ export const ReviewSlider = () => {
             className="mySwiper"
           >
             {people.map(person => {
-              const { _id, stars, avatarUrl, name, reviewText } = person;
+              const { _id, stars, owner, name, reviewText } = person;
 
               return (
                 <SwiperSlide
@@ -71,7 +71,7 @@ export const ReviewSlider = () => {
                 >
                   <TestimonialCard>
                     <Thumb>
-                      <PepleImg src={avatarUrl} alt={name} />
+                      <PepleImg src={owner.avatarUrl} alt={name} />
                       <Wrapper>
                         <PeopleName>{name}</PeopleName>
                         <Rating>

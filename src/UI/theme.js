@@ -126,7 +126,7 @@ export const lightTheme = {
   },
   feedbackModal: {
     backgroundColor: '#ffffff',
-    backgroundButtonEditColor: '##e3f3ff',
+    backgroundButtonEditColor: '#e3f3ff',
     borderColor: 'ffffff',
     colorTitle: 'rgb(52 52 52 / 0.8)',
     textColor: '#343434',
