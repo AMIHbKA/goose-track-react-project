@@ -15,7 +15,12 @@ import {
   Wrapper,
 } from './AddOrEditTaskForm.styled';
 
-export const AddOrEditTaskForm = ({ option = 'add' }) => {
+export const AddOrEditTaskForm = ({ defaulValues = {
+  title: '',
+  start: '',
+  end: '00:00',
+  importance: 'low',
+}, option = 'add' }) => {
 
   function validateText(value) {
     let error
@@ -56,12 +61,7 @@ export const AddOrEditTaskForm = ({ option = 'add' }) => {
   };
   return (
     <Formik
-      initialValues={{
-        title: '',
-        start: '',
-        end: '00:00',
-        importance: 'low',
-      }}
+      initialValues={defaulValues}
       onSubmit={(values, { resetForm }) => {
         setTimeout(() => {
           handleSubmit(values);
@@ -69,7 +69,7 @@ export const AddOrEditTaskForm = ({ option = 'add' }) => {
         }, 400);
       }}
     >
-      {({ errors, touched, values, setFieldValue, validateOnChange, }) => (
+      {({ errors, values, setFieldValue, validateOnChange, }) => (
         <AddForm>
           <FormLabel htmlFor="title">
             Title

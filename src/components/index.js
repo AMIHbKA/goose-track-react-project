@@ -14,4 +14,4 @@ export { Input } from './Forms/Input/Input';
 export { AuthButton } from './Forms/AuthButton/AuthButton';
 export { LinkButton } from './Forms/LinkButton/LinkButton';
 export { ToastContainerWrapper } from './ToastContainerWrapper/ToastContainerWrapper';
-export {AddTaskModal} from './TaskModal/TaskModal';
+export {TaskModal} from './TaskModal/TaskModal';
