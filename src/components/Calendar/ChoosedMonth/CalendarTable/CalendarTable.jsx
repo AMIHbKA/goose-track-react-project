@@ -9,8 +9,6 @@ const CalendarTable = styled.div`
 
   width: 100%;
 
-  margin-bottom: 14px;
-
   background-color: ${({ theme }) => theme.choosedMonth.borderColor};
 
   border: 1px solid ${({ theme }) => theme.choosedMonth.borderColor};

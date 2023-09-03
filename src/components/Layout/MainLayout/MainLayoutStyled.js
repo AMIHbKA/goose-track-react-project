@@ -14,18 +14,16 @@ export const GridContainer = styled.div`
 export const GridMenuPanel = styled.div`
   grid-area: Menu-Panel;
 `;
+
 export const GridUserPanel = styled.div`
   grid-area: User-Panel;
 `;
+
 export const GridMainPanel = styled.main`
   grid-area: Main-Panel;
-  padding: 0 20px 40px;
+  padding: 0 20px 20px;
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    padding: 0 32px 42px;
-  }
-
-  @media (min-width: ${props => props.theme.breakpoints.laptop}) {
-    padding: 0 32px 32px;
+    padding: 0 32px 18px;
   }
 `;

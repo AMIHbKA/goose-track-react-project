@@ -1,5 +1,15 @@
 import styled from 'styled-components';
 
+export const StatisticsPageWrapper = styled.div`
+  height: 100%;
+
+  padding-bottom: 20px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+    padding-bottom: 14px;
+  }
+`;
+
 export const StatisticsPageContainer = styled.section`
   display: flex;
   flex-direction: column;
@@ -8,6 +18,8 @@ export const StatisticsPageContainer = styled.section`
   height: 100%;
 
   padding: 28px 14px 14px;
+
+  margin-bottom: 20px;
 
   border-radius: 16px;
 
