@@ -2,6 +2,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import { checkErrors, checkSuccesfull } from 'utilities/checks';
 import { api } from 'utilities';
+import { CommonInfoStringStyles } from 'UI';
+
+
 
 export const register = createAsyncThunk(
   'auth/register',
@@ -80,3 +83,32 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+export const fetchUser = createAsyncThunk(
+  // 'user/fetchUser',
+  '/user/current',
+  async (_, thunkAPI) => {
+    try {
+      const { data: { userData} } = await api.instance.get('/user/current');
+      console.log(1)
+      return userData;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateUser = createAsyncThunk(
+  // 'user/updateUser',
+  '/user/info',
+  async (credentials , thunkAPI) => {
+    try {
+      const { data: { userData} } = await api.instance.patch('/user/info', credentials, { headers: { "Content-Type": "multipart/form-data" } });
+       console.log('fetchUser')
+      return userData;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+

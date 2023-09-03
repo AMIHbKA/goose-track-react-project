@@ -80,6 +80,13 @@ export const darkTheme = {
     starColor: '#FFAC33',
     starColorDefault: '#353647',
   },
+  userAccount: {
+    inputText: '#ffffff',
+    border: 'rgba(255, 255, 255, 0.15)',
+    buttonTextColor: '#FFFFFF',
+    mainBackground: DARK_GRAYISH_BLUE,
+    roleColor:  'rgba(250, 250, 250, 0.30)'
+  }
 };
 
 export const lightTheme = {
@@ -125,4 +132,11 @@ export const lightTheme = {
     starColor: '#FFAC33',
     starColorDefault: '#CEC9C1',
   },
+  userAccount: {
+    inputText: '#111111',
+    border: 'rgba(17, 17, 17, 0.15)',
+    buttonTextColor: '#FFFFFF',
+    mainBackground: '#FFFFFF',
+    roleColor:  '#343434',
+  }
 };

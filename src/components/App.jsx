@@ -14,6 +14,7 @@ const LoginPage = lazy(() => import('../pages/LoginPage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const StatisticsPage = lazy(() => import('../pages/StatisticsPage'));
 const CalendarPage = lazy(() => import('../pages/CalendarPage'));
+const AccountPage = lazy(() => import('../pages/AccountPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ export const App = () => {
           <Route path="/" element={<Layout />}>
             {isLoggedIn ? (
               <>
-                <Route path="/account" element={<div>AccountPage</div>} />
+                <Route path="/account" element={<AccountPage/>} />
                 <Route path="/calendar" element={<CalendarPage />}>
                   <Route path="day" element={<div>ChoosedDay</div>} />
                   <Route path="month" element={<div>ChoosedMonth</div>} />
