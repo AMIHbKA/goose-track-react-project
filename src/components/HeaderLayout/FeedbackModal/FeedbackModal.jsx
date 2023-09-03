@@ -41,6 +41,7 @@ export const FeedbackModal = ({ onCancel, initialReview }) => {
     const fetchData = async () => {
       try {
         const result = await dispatch(getReviewFromBackend());
+        console.log(result.payload);
         if (!result.payload) return;
         setRating(result.payload.stars);
         setReview(result.payload.reviewText);
@@ -81,6 +82,12 @@ export const FeedbackModal = ({ onCancel, initialReview }) => {
     }
   };
 
+  const handleInputUnlock = e => {
+    e.preventDefault();
+    setEditMode(true);
+    setSaveClicked(false);
+  };
+
   const handleEditClick = async e => {
     e.preventDefault();
     try {
@@ -90,8 +97,8 @@ export const FeedbackModal = ({ onCancel, initialReview }) => {
           reviewText: review,
         })
       );
-      setSaveClicked(false);
-      setEditMode(true);
+      setSaveClicked(true);
+      setEditMode(false);
     } catch (error) {
       console.error(error);
     }
@@ -129,9 +136,9 @@ export const FeedbackModal = ({ onCancel, initialReview }) => {
       <div>
         <StyledReviewButton>
           <LabelText>Review</LabelText>
-          {saveClicked && rating !== 0 && (
+          {(saveClicked || editMode) && (
             <>
-              <EditButton onClick={handleEditClick}>
+              <EditButton onClick={handleInputUnlock} editMode={editMode}>
                 <PencilIcon stroke={'currentColor'} />
               </EditButton>
               <DeleteButton onClick={handleDelete}>
@@ -149,14 +156,25 @@ export const FeedbackModal = ({ onCancel, initialReview }) => {
       </div>
       {!saveClicked && (
         <ButtonContainer>
-          <SaveEditButton
-            type="submit"
-            rating={rating}
-            disabled={!rating || !review || cancelButtonFocused}
-            onClick={handleSaveClick}
-          >
-            {editMode ? 'Edit' : 'Save'}
-          </SaveEditButton>
+          {!editMode ? (
+            <SaveEditButton
+              type="submit"
+              rating={rating}
+              disabled={!rating || !review || cancelButtonFocused}
+              onClick={handleSaveClick}
+            >
+              Save
+            </SaveEditButton>
+          ) : (
+            <SaveEditButton
+              type="submit"
+              rating={rating}
+              disabled={!rating || !review || cancelButtonFocused}
+              onClick={handleEditClick}
+            >
+              Edit
+            </SaveEditButton>
+          )}
           <CancelButton
             type="reset"
             onFocus={() => setCancelButtonFocused(true)}

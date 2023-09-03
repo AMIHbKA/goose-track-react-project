@@ -39,7 +39,7 @@ export const ReviewSlider = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Rewiews>
-        <Title>rewiews</Title>
+        <Title>reviews</Title>
         <Container>
           <Swiper
             slidesPerView={1}
@@ -62,8 +62,7 @@ export const ReviewSlider = () => {
             className="mySwiper"
           >
             {reviewCards.map(item => {
-              const { _id, stars, owner, name, reviewText } = item;
-
+              const { _id, stars, owner, reviewText } = item;
               return (
                 <SwiperSlide
                   key={_id}
@@ -71,9 +70,9 @@ export const ReviewSlider = () => {
                 >
                   <TestimonialCard>
                     <Thumb>
-                      <PepleImg src={owner.avatarUrl} alt={name} />
+                      <PepleImg src={owner?.avatarUrl} alt="photo of owner" />
                       <Wrapper>
-                        <PeopleName>{owner.name}</PeopleName>
+                        <PeopleName>{owner?.name}</PeopleName>
                         <Rating>
                           {[...Array(maxStars)].map((_, index) => (
                             <RatingStarIcon

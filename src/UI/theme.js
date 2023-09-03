@@ -71,7 +71,9 @@ export const darkTheme = {
   },
   feedbackModal: {
     backgroundColor: '#13151a',
-    backgroundButtonEditColor: '#353647',
+    buttonColor: '#fff',
+    backgroundButtonSecondaryColor: '#353647',
+    backgroundButtonPrimaryColor: '#3e85f3',
     colorTitle: 'rgb(250 250 250 / 0.3)',
     borderColor: 'rgb(255 255 255 / 0.15)',
     textColor: '#ffffff',
@@ -116,7 +118,9 @@ export const lightTheme = {
   },
   feedbackModal: {
     backgroundColor: '#ffffff',
-    backgroundButtonEditColor: '#e3f3ff',
+    buttonColor: '#fff',
+    backgroundButtonSecondaryColor: '#e3f3ff',
+    backgroundButtonPrimaryColor: '#3e85f3',
     borderColor: 'ffffff',
     colorTitle: 'rgb(52 52 52 / 0.8)',
     textColor: '#343434',

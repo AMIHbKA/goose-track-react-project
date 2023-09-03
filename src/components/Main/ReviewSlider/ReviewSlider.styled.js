@@ -40,11 +40,14 @@ export const TestimonialCard = styled.div`
   border: 1px solid rgba(0, 0, 0, 10%);
   border-radius: 8px;
   padding: 24px;
-  height: 100%;
+  min-height: 194px;
+  min-width: 335px;
+  margin: 0 auto;
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     padding: 32px;
-    width: inherit;
+    width: 580px;
+    min-height: 187px;
   }
 `;
 
