@@ -5,4 +5,8 @@ export {
   FormHeader,
   FormWrapper,
 } from './FormStyled';
-export { CommonInfoStringStyles, authButtonIcon } from './baseStyle';
+export {
+  CommonInfoStringStyles,
+  authButtonIcon,
+  calendarNavLinkStyle,
+} from './baseStyle';

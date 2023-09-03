@@ -1,28 +1,24 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { calendarNavLinkStyle } from 'UI';
 
-const PeriodSelector = styled(NavLink)`
-border-right: 1px solid rgba(62, 133, 243, 0.20);
-background: ${props => props.theme.calendarToolBar.buttonBackground};
-padding: 8px 16px;
-cursor:pointer;
-
-&.active {
-    background: ${props => props.theme.calendarToolBar.ActiveButtonBackground};;
-}
+export const SelectorMonth = styled(NavLink)`
+  ${calendarNavLinkStyle}
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
 `;
 
-export const SelectorMonth = styled(PeriodSelector)`
-border-radius: 8px 0px 0px 8px;`;
+export const SelectorDay = styled(NavLink)`
+  ${calendarNavLinkStyle}
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+`;
 
-export const SelectorDay = styled(PeriodSelector)`
-border-radius: 0px 8px 8px 0px;`;
-
-export const Navigation =styled.div`
-display:flex;
-flex-direction:row;
+export const Navigation = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
 export const Text = styled.span`
-color:${props => props.theme.colors.primary};
-`
+  color: ${props => props.theme.colors.primary};
+`;
