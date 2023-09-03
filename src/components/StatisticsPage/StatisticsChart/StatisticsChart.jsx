@@ -9,7 +9,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import { ThemeContext } from 'styled-components';
-import StatisticsChartContainer from './StatisticsChartStyled';
+import StatisticsChartContainer from './StatisticsChartContainer';
 import BarWithGradient from './BarWithGradient/BarWithGradient';
 import { StatisticChartWrapper } from './StatisticChartWrapper/StatisticChartWrapper';
 
@@ -31,7 +31,7 @@ const data = [
   },
 ];
 
-const StatisticsChart = props => {
+const StatisticsChart = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {

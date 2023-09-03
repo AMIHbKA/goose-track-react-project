@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const GridContainer = styled.div`
+  height: 100%;
   display: grid;
   grid-template-columns: min-content auto;
   grid-template-rows: min-content 1fr;
@@ -13,9 +14,11 @@ export const GridContainer = styled.div`
 export const GridMenuPanel = styled.div`
   grid-area: Menu-Panel;
 `;
+
 export const GridUserPanel = styled.div`
   grid-area: User-Panel;
 `;
+
 export const GridMainPanel = styled.main`
   grid-area: Main-Panel;
   padding: 0 20px 20px;
@@ -24,8 +27,3 @@ export const GridMainPanel = styled.main`
     padding: 0 32px 18px;
   }
 `;
-
-// export const Main = styled.main`
-//   /* border-radius: 16px; */
-//   /* overflow: hidden; */
-// `;

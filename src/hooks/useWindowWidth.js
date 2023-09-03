@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 /**Хук для отримання поточної ширини екрана */
 export const useWindowWidth = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  console.log(windowWidth);
 
   useEffect(() => {
     const handleResize = () => {

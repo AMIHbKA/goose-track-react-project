@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const StatisticsChartContainer = styled.div`
-  height: 100%;
+  flex-grow: 1;
+
   max-height: 413px;
 
   padding: 40px 14px;

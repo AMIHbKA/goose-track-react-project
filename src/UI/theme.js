@@ -59,6 +59,11 @@ export const darkTheme = {
     iconBackground: DARK_GRAYISH_BLUE,
     iconInactive: 'rgb(255 255 255 / 0.15)',
   },
+  choosedMonth: {
+    borderColor: 'rgb(255 255 255 / 0.15)',
+    dateBackground: '#22232D',
+    todayBadgeTextColor: '#22232D',
+  },
   statistics: {
     linesColor: 'rgb(227 243 255 / 0.15)',
     linesWidth: '0.8px',
@@ -103,6 +108,11 @@ export const lightTheme = {
     buttonActiveText: commonStyles.colors.primary,
     iconBackground: LIGHT_COLOR,
     iconInactive: LIGHT_GRAYISH_BLUE,
+  },
+  choosedMonth: {
+    borderColor: 'rgba(220, 227, 229, 0.5)',
+    dateBackground: LIGHT_COLOR,
+    todayBadgeTextColor: LIGHT_COLOR,
   },
   statistics: {
     linesColor: LIGHT_BLUE,
