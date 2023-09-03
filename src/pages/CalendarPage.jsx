@@ -1,15 +1,15 @@
 import { Outlet } from 'react-router';
 import { CalendarToolbar } from 'components';
-import CalendarPageStyled from 'components/Calendar/CalendarPageStyled';
+import CalendarPageContainer from 'components/Calendar/CalendarPageContainer';
 
 // TODO: запит за тасками і запис в глобальний стейт
 
 function CalendarPage() {
   return (
-    <CalendarPageStyled>
+    <CalendarPageContainer>
       <CalendarToolbar />
       <Outlet />
-    </CalendarPageStyled>
+    </CalendarPageContainer>
   );
 }
 

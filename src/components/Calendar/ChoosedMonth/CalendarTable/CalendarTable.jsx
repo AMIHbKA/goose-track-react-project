@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 
 const CalendarTable = styled.div`
+  flex-grow: 1;
+
   display: grid;
   grid-gap: 1px;
   grid-template-columns: repeat(7, 1fr);
 
   width: 100%;
-  height: 470px;
+
+  margin-bottom: 14px;
 
   background-color: ${({ theme }) => theme.choosedMonth.borderColor};
 
@@ -14,14 +17,6 @@ const CalendarTable = styled.div`
   border-radius: 8px;
 
   overflow: hidden;
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    height: 720px;
-  }
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
-    height: 625px;
-  }
 
   > div {
     :first-child::after {
