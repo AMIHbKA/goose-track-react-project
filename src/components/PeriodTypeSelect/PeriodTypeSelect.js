@@ -4,12 +4,10 @@ import {
   Navigation,
   SelectorDay,
   SelectorMonth,
-  Text,
 } from './PeriodTypeSelect.styled';
 import { DAY, MONTH } from 'components/CalendarToolbar/CalendarToolbar';
 
 export const PeriodTypeSelect = ({ selectPeriod }) => {
-  // const [isActive, setIsActive] = useState(MONTH);
   return (
     <Navigation>
       <SelectorMonth
@@ -19,7 +17,7 @@ export const PeriodTypeSelect = ({ selectPeriod }) => {
           // setIsActive(MONTH);
         }}
       >
-        <Text>Month</Text>
+        Month
       </SelectorMonth>
       <SelectorDay
         to="/calendar/day"
@@ -28,7 +26,7 @@ export const PeriodTypeSelect = ({ selectPeriod }) => {
           // setIsActive(DAY);
         }}
       >
-        <Text>Day</Text>
+        Day
       </SelectorDay>
     </Navigation>
   );

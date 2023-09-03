@@ -49,19 +49,20 @@ export const darkTheme = {
     userPanelMainText: LIGHT_COLOR,
     userPanelActiveText: LIGHT_COLOR,
     userPanelActiveBack: commonStyles.colors.primary,
-    monthDayButtonActiveBack: commonStyles.colors.primary,
-    monthDayButtonActiveText: LIGHT_COLOR,
-    monthDayButtonDefaultBack: DARK_GRAYISH_BLUE,
-    monthDayButtonDefaultText: commonStyles.colors.primary,
-    monthDayButtonBorder: 'rgb(62 133 243 / 0.2)',
     addTaskBack: commonStyles.colors.primary,
   },
-  calendarToolBar:{
+  calendarToolBar: {
     buttonBackground: DARK_GRAYISH_BLUE,
     activeButtonBackground: commonStyles.colors.primary,
+    buttonDefaultText: commonStyles.colors.primary,
+    buttonActiveText: LIGHT_COLOR,
     iconBackground: DARK_GRAYISH_BLUE,
-    iconInactive: 'rgba(255, 255, 255, 0.15)'
-  
+    iconInactive: 'rgb(255 255 255 / 0.15)',
+  },
+  choosedMonth: {
+    borderColor: 'rgb(255 255 255 / 0.15)',
+    dateBackground: '#22232D',
+    todayBadgeTextColor: '#22232D',
   },
   statistics: {
     linesColor: 'rgb(227 243 255 / 0.15)',
@@ -75,9 +76,9 @@ export const darkTheme = {
     backgroundButtonEditColor: '#353647',
     colorTitle: 'rgb(250 250 250 / 0.3)',
     borderColor: 'rgb(255 255 255 / 0.15)',
-    textColor: '#ffffff',
+    textColor: '#fff',
     backgroundButton: '#21222c',
-    starColor: '#FFAC33',
+    starColor: '#ffac33',
     starColorDefault: '#353647',
   },
   addTaskModal: {
@@ -104,16 +105,20 @@ export const lightTheme = {
     userPanelMainText: DARK_GREY,
     userPanelActiveText: commonStyles.colors.primary,
     userPanelActiveBack: LIGHT_BLUE,
-    monthDayButtonActiveBack: 'rgb(62 133 243 / 0.2)',
-    monthDayButtonActiveText: commonStyles.colors.primary,
-    monthDayButtonDefaultBack: LIGHT_BLUE,
     addTaskBack: LIGHT_BLUE,
   },
-  calendarToolBar:{
+  calendarToolBar: {
     buttonBackground: LIGHT_BLUE,
-    activeButtonBackground: "#CAE8FF",
+    activeButtonBackground: '#cae8ff',
+    buttonDefaultText: commonStyles.colors.primary,
+    buttonActiveText: commonStyles.colors.primary,
     iconBackground: LIGHT_COLOR,
     iconInactive: LIGHT_GRAYISH_BLUE,
+  },
+  choosedMonth: {
+    borderColor: 'rgba(220, 227, 229, 0.5)',
+    dateBackground: LIGHT_COLOR,
+    todayBadgeTextColor: LIGHT_COLOR,
   },
   statistics: {
     linesColor: LIGHT_BLUE,
@@ -122,14 +127,14 @@ export const lightTheme = {
     chartTextColor: DARK_COLOR,
   },
   feedbackModal: {
-    backgroundColor: '#ffffff',
-    backgroundButtonEditColor: '##e3f3ff',
-    borderColor: 'ffffff',
+    backgroundColor: '#fff',
+    backgroundButtonEditColor: '#e3f3ff',
+    borderColor: 'fff',
     colorTitle: 'rgb(52 52 52 / 0.8)',
     textColor: '#343434',
     backgroundButton: ' #e5edfa',
-    starColor: '#FFAC33',
-    starColorDefault: '#CEC9C1',
+    starColor: '#ffac33',
+    starColorDefault: '#cec9c1',
   },
   addTaskModal: {
     background: "#fff",
