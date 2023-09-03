@@ -4,7 +4,6 @@ import {
   Navigation,
   SelectorDay,
   SelectorMonth,
-  Text,
 } from './PeriodTypeSelect.styled';
 import { DAY, MONTH } from 'components/CalendarToolbar/CalendarToolbar';
 
