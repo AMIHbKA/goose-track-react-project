@@ -1,38 +1,30 @@
 import styled from 'styled-components';
 
-export const StatisticsPageStyled = styled.div`
-  height: 100%;
-
-  padding: 0 20px 20px;
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    padding: 0 32px 32px;
-  }
-`;
-
 export const StatisticsPageContainer = styled.section`
-  padding: 28px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
 
   height: 100%;
+
+  padding: 28px 14px 14px;
 
   border-radius: 16px;
 
   background-color: ${({ theme }) => theme.statistics.backgroundColor};
 
   @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    padding: 132px 32px;
+    padding: 132px 32px 32px;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
-    padding: 134px 113px;
+    padding: 134px 113px 32px;
   }
 `;
 
 export const StatisticsPageHead = styled.div`
   display: flex;
   flex-direction: column;
-
-  gap: 20px;
 
   margin-bottom: 40px;
 
@@ -50,6 +42,8 @@ export const StatisticsPageHead = styled.div`
 
 export const StatisticsPageLegend = styled.ul`
   display: flex;
+
+  margin-top: 2px;
 
   font-weight: 400;
   line-height: 18px;

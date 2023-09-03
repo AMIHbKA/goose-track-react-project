@@ -3,24 +3,21 @@ import {
   StatisticsPageContainer,
   StatisticsPageHead,
   StatisticsPageLegend,
-  StatisticsPageStyled,
 } from 'components/StatisticsPage/StatisticsPageStyled';
 import StatisticsChart from 'components/StatisticsPage/StatisticsChart/StatisticsChart';
 
 const StatisticsPage = () => {
   return (
-    <StatisticsPageStyled>
-      <StatisticsPageContainer>
-        <StatisticsPageHead>
-          <CalendarToolbar />
-          <StatisticsPageLegend>
-            <li>By Day</li>
-            <li>By Month</li>
-          </StatisticsPageLegend>
-        </StatisticsPageHead>
-        <StatisticsChart />
-      </StatisticsPageContainer>
-    </StatisticsPageStyled>
+    <StatisticsPageContainer>
+      <StatisticsPageHead>
+        <CalendarToolbar periodSelector={false} />
+        <StatisticsPageLegend>
+          <li>By Day</li>
+          <li>By Month</li>
+        </StatisticsPageLegend>
+      </StatisticsPageHead>
+      <StatisticsChart />
+    </StatisticsPageContainer>
   );
 };
 

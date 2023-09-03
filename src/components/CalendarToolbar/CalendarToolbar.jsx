@@ -12,7 +12,7 @@ export const MONTH = 'month';
 export const NEXT = 'next';
 export const PREVIOUS = 'previous';
 
-export const CalendarToolbar = () => {
+export const CalendarToolbar = ({ periodSelector = true }) => {
   const [date, setDate] = useState(Date.now());
   const [activePeriod, setActivePeriod] = useState(MONTH);
   // const dispatch = useDispatch()
@@ -64,7 +64,7 @@ export const CalendarToolbar = () => {
         periodType={activePeriod}
         changeDate={changeDate}
       />
-      <PeriodTypeSelect selectPeriod={selectPeriod} />
+      {periodSelector && <PeriodTypeSelect selectPeriod={selectPeriod} />}
     </Container>
   );
 };

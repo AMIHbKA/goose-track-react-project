@@ -18,9 +18,8 @@ export const GridUserPanel = styled.div`
   grid-area: User-Panel;
 `;
 export const GridMainPanel = styled.main`
-  height: 100%;
   grid-area: Main-Panel;
-  padding: 0 20px 52px;
+  padding: 0 20px 40px;
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     padding: 0 32px 42px;
@@ -30,8 +29,3 @@ export const GridMainPanel = styled.main`
     padding: 0 32px 32px;
   }
 `;
-
-// export const Main = styled.main`
-//   /* border-radius: 16px; */
-//   /* overflow: hidden; */
-// `;
