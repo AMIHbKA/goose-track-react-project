@@ -80,6 +80,12 @@ export const darkTheme = {
     starColor: '#FFAC33',
     starColorDefault: '#353647',
   },
+  addTaskModal: {
+    background: "#171820",
+    border: '1px solid rgba(255 255 255 / 0.15)',
+    inputBorder: '1px solid rgba(255 255 255 / 0.15)',
+    inputBackground: "#171820",
+  }
 };
 
 export const lightTheme = {
@@ -125,4 +131,10 @@ export const lightTheme = {
     starColor: '#FFAC33',
     starColorDefault: '#CEC9C1',
   },
+  addTaskModal: {
+    background: "#fff",
+    border: "1px solid rgba(220 227 229 / 0.80)",
+    inputBorder: '0px',
+    inputBackground: '#F6F6F6'
+  }
 };
