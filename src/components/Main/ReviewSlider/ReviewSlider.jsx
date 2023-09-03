@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Container } from 'components';
 import {
   Reviews,
   Title,
@@ -22,6 +21,7 @@ import {
   StyledRightArrow,
 } from './ReviewSlider.styled';
 import { getReviews } from '../../../redux/review/getReviews';
+import { Container } from 'components';
 
 export const ReviewSlider = () => {
   const [reviewCards, setReviewCards] = useState([]);
@@ -38,8 +38,8 @@ export const ReviewSlider = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Reviews>
-        <Title>reviews</Title>
-        <Container>
+        <Container main_page>
+          <Title>reviews</Title>
           <Swiper
             slidesPerView={1}
             spaceBetween={10}

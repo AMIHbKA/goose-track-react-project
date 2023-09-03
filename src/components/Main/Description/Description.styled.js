@@ -2,18 +2,12 @@ import styled from 'styled-components';
 
 export const MainContent = styled.section`
   background-color: #fff;
-  /* padding: 64px 20px;
-  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    padding: 64px 32px;
-  } */
 `;
 
 export const OderedList = styled.ol`
   display: block;
   list-style: none;
   counter-reset: item;
-  max-width: 1184px;
-  margin: 0 auto;
 `;
 
 export const OderedListContent = styled.div`
@@ -45,6 +39,7 @@ export const OderedListContent = styled.div`
     justify-content: center;
   }
 `;
+
 export const OderedListItem = styled.li`
   @media (min-width: ${props => props.theme.breakpoints.laptopL}) {
     display: flex;
@@ -73,6 +68,11 @@ export const StyledImg = styled.picture`
   display: block;
   img {
     width: 100%;
+    border-radius: 40px;
+
+    @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+      border-radius: 100px;
+    }
   }
 `;
 

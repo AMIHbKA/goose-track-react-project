@@ -29,7 +29,7 @@ export const TestimonialCard = styled.div`
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     padding: 32px;
-    width: 580px;
+    width: 100%;
     min-height: 187px;
   }
 `;
@@ -44,6 +44,7 @@ export const PepleImg = styled.img`
   width: 50px;
   height: 50px;
   object-fit: cover;
+  border-radius: 50%;
 `;
 
 export const ReviewText = styled.div`
@@ -51,7 +52,7 @@ export const ReviewText = styled.div`
   line-height: calc(18 / 14);
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    padding: 0 0 18px 68px;
+    padding: 0 0 0 68px;
   }
 `;
 
