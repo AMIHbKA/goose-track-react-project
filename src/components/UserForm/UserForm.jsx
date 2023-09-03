@@ -7,11 +7,22 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
 
 import { selectUser } from 'redux/auth/selectors';
-import { Wrapper, Button, Title, RoleTitle, AccountForm, Wrap, Label} from 'components/UserForm/UserForm.styled';
+import {
+  Wrapper,
+  Button,
+  Title,
+  RoleTitle,
+  AccountForm,
+  Wrap,
+  Label,
+} from 'components/UserForm/UserForm.styled';
 import { UserInput } from 'components/UserInput/UserInput';
 import { AvatarUploader } from 'components/AvatarUploader/AvatarUploader';
 import { fetchUser, updateUser } from 'redux/auth/operations';
-import { DatePickerStyled, PopperDateStyles } from 'components/UserForm/DatePicker.styled';
+import {
+  DatePickerStyled,
+  PopperDateStyles,
+} from 'components/UserForm/DatePicker.styled';
 import { userValidation } from 'components/UserForm/accountValidationRules';
 
 const currentDate = dayjs(new Date()).format('DD/MM/YYYY');
@@ -20,19 +31,20 @@ export const UserForm = () => {
   const dispatch = useDispatch();
   const [fileImage, setFileImage] = useState(null);
   const userInfo = useSelector(selectUser);
-  // console.log(userInfo);
-  const [avatarURL, setAvatarURL] = useState(null);
+  const { avatarUrl } = userInfo;
+  console.log('avatarUrl', avatarUrl);
+  console.log('userInfo', userInfo);
+  // const [avatarURL, setAvatarURL] = useState(null);
 
   useEffect(() => {
     const getUserInfo = async () => {
-      await dispatch(fetchUser());
+      dispatch(fetchUser());
     };
+    console.log('useEffect');
     getUserInfo();
   }, [dispatch]);
 
   const handleSubmit = async values => {
-    console.log("hs")
-
     const formData = new FormData();
     formData.append('name', values.name);
     formData.append('email', values.email);
@@ -44,12 +56,18 @@ export const UserForm = () => {
     }
     formData.append('birthday', dayjs(values.birthday).format('DD/MM/YYYY'));
 
-    if (avatarURL) {
-      formData.append('avatar', avatarURL);
+    console.log('avatarURL', avatarUrl);
+    console.log('fileImage', fileImage);
+    if (fileImage) {
+      formData.append('avatar', fileImage);
     }
-    console.log("hs")
+    // else if (avatarUrl) {
+    //   console.log('formData.append(avatar, avatarUrl)', avatarUrl);
+    //   formData.append('avatar', avatarUrl);
+    // }
     try {
-      await dispatch(updateUser(formData));
+      dispatch(updateUser(formData));
+      // await dispatch(refreshUser());
       toast.success('Profile data changed successfully');
     } catch {
       toast.error('Something went wrong... Try again!');
@@ -65,53 +83,60 @@ export const UserForm = () => {
         phone: userInfo?.phone || '',
         skype: userInfo?.skype || '',
       }}
-      validationSchema={(userValidation)}
-      onSubmit={(values ) => {
+      validationSchema={userValidation}
+      onSubmit={values => {
         setTimeout(() => {
-          handleSubmit(values)
-          console.log("aaa")
-        },
-          400)
+          handleSubmit(values);
+        }, 400);
       }}
     >
       {({ values, setFieldValue, isValid, touched, isSubmitting, dirty }) => (
         <AccountForm>
-          <AvatarUploader imageUrl={avatarURL} setFileImage={setFileImage} />
+          <AvatarUploader imageUrl={avatarUrl} setFileImage={setFileImage} />
           <Title>{values.name}</Title>
           <RoleTitle>User</RoleTitle>
           <Wrap>
             <Wrapper>
-              <UserInput title="User Name" type="text" name="name" placeholder="Add your name" />
-              
+              <UserInput
+                title="User Name"
+                type="text"
+                name="name"
+                placeholder="Add your name"
+              />
+
               <Label>
-                    Birthday
-                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <DatePickerStyled
-                        name="birthday"
-                        type="date"
-                        slotProps={{
-                          popper: {
-                            sx: PopperDateStyles,
-                          },
-                          textField: {
-                            placeholder: userInfo.birthday || `${currentDate}`,
-                          },
-                        }}
-                        views={['year', 'month', 'day']}
-                        format="DD/MM/YYYY"
-                        closeOnSelect={true}
-                        disableFuture={true}
+                Birthday
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DatePickerStyled
+                    name="birthday"
+                    type="date"
+                    slotProps={{
+                      popper: {
+                        sx: PopperDateStyles,
+                      },
+                      textField: {
+                        placeholder: userInfo.birthday || `${currentDate}`,
+                      },
+                    }}
+                    views={['year', 'month', 'day']}
+                    format="DD/MM/YYYY"
+                    closeOnSelect={true}
+                    disableFuture={true}
                     onChange={date => {
-                          
-                          if (!date) setFieldValue('birthday', '');
-                          setFieldValue('birthday', date);
-                          console.log(typeof(date.$d))
-                        }}
-                      />
-                    </LocalizationProvider>
+                      if (!date) setFieldValue('birthday', '');
+                      setFieldValue('birthday', date);
+                      console.log(typeof date.$d);
+                    }}
+                  />
+                </LocalizationProvider>
               </Label>
-             
-              <UserInput title="Email" type="email" name="email" placeholder="YourEmail@mail.com" />
+
+              <UserInput
+                title="Email"
+                type="email"
+                name="email"
+                placeholder="YourEmail@mail.com"
+              />
             </Wrapper>
 
             <Wrapper>

@@ -36,7 +36,7 @@ export const App = () => {
           <Route path="/" element={<Layout />}>
             {isLoggedIn ? (
               <>
-                <Route path="/account" element={<AccountPage/>} />
+                <Route path="/account" element={<AccountPage />} />
                 <Route path="/calendar" element={<CalendarPage />}>
                   <Route path="day" element={<div>ChoosedDay</div>} />
                   <Route path="month" element={<div>ChoosedMonth</div>} />
