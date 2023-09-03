@@ -25,13 +25,13 @@ import {
 import { getReviews } from '../../../redux/review/getReviews';
 
 export const ReviewSlider = () => {
-  const [people, setPeople] = useState([]);
+  const [reviewCards, setReviewCards] = useState([]);
   const maxStars = 5;
 
   useEffect(() => {
     async function fetchReviews() {
       const reviews = await getReviews();
-      setPeople(reviews);
+      setReviewCards(reviews);
     }
     fetchReviews();
   }, []);
@@ -61,8 +61,8 @@ export const ReviewSlider = () => {
             }}
             className="mySwiper"
           >
-            {people.map(person => {
-              const { _id, stars, owner, name, reviewText } = person;
+            {reviewCards.map(item => {
+              const { _id, stars, owner, name, reviewText } = item;
 
               return (
                 <SwiperSlide
@@ -73,7 +73,7 @@ export const ReviewSlider = () => {
                     <Thumb>
                       <PepleImg src={owner.avatarUrl} alt={name} />
                       <Wrapper>
-                        <PeopleName>{name}</PeopleName>
+                        <PeopleName>{owner.name}</PeopleName>
                         <Rating>
                           {[...Array(maxStars)].map((_, index) => (
                             <RatingStarIcon
