@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Layout, ThemeProvider } from 'components';
+import { Layout, ThemeProvider, ToastContainerWrapper } from 'components';
 import { useDispatch } from 'react-redux';
 import { useAuth } from 'hooks';
 import { useEffect } from 'react';
@@ -37,8 +37,8 @@ export const App = () => {
               <>
                 <Route path="/account" element={<div>AccountPage</div>} />
                 <Route path="/calendar" element={<CalendarPage />}>
-                  <Route path="day/" element={<div>ChoosedDay</div>} />
-                  <Route path="month/" element={<div>ChoosedMonth</div>} />
+                  <Route path="day" element={<div>ChoosedDay</div>} />
+                  <Route path="month" element={<div>ChoosedMonth</div>} />
                 </Route>
                 <Route path="/statistics" element={<StatisticsPage />} />
                 <Route
@@ -57,6 +57,7 @@ export const App = () => {
           </Route>
         </Routes>
       </LocalizationProvider>
+      <ToastContainerWrapper />
     </ThemeProvider>
   );
 };

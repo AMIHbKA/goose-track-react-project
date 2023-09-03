@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { Box, Text } from 'components/PeriodPaginator/PeriodPaginator.styled';
 import { pickersLayoutClasses } from '@mui/x-date-pickers';
 import { setDefaultOptions } from 'date-fns';
 import { enGB } from 'date-fns/locale';
+import { useUpToSize } from 'hooks/useWindowSize';
+import { useTheme } from 'styled-components';
 
 setDefaultOptions({ locale: enGB });
 
@@ -30,16 +32,6 @@ function ButtonField(props) {
     </Box>
   );
 }
-
-// function CustomDay( {day, props} ) {
-//   console.log(day)
-//   if (isWeekend(new Date(day).toDateString())) {
-//     console.log("weekend")
-//     return <PickersDay {...props}/>
-//   }
-//   return <PickersDay {...props} />;
-
-// }
 
 const DesktopSlotProps = {
   '& .MuiDateCalendar-root': {
@@ -113,10 +105,6 @@ const DesktopSlotProps = {
   '& .MuiDayCalendar-weekContainer': {
     padding: '0px',
   },
-
-  // '& .MuiDayCalendar-weekContainer::last-child': {
-  //   color: "rgb(250 250 250 / 0.3)",
-  // },
 
   '& .MuiPickersDay-root': {
     width: '48px',
@@ -198,63 +186,30 @@ const mobileSlotProps = {
 
 export function ButtonDatePicker(props) {
   const [open, setOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(null);
+  const {
+    breakpoints: { tablet },
+  } = useTheme();
 
-  function getWindowWidth() {
-    return window.innerWidth;
-  }
-
-  useEffect(() => {
-    setWindowWidth(getWindowWidth());
-
-    function handleResize() {
-      setWindowWidth(getWindowWidth());
-    }
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const isTabletWidth = useUpToSize(parseInt(tablet));
 
   const slotProps = {
     layout: {
       sx: {
-        [`.${pickersLayoutClasses.contentWrapper}`]:
-          windowWidth < 768
-            ? { ...DesktopSlotProps, ...mobileSlotProps }
-            : { ...DesktopSlotProps },
+        [`.${pickersLayoutClasses.contentWrapper}`]: !isTabletWidth
+          ? { ...DesktopSlotProps, ...mobileSlotProps }
+          : { ...DesktopSlotProps },
       },
     },
   };
-
-  // const CustomPickersDay = styled(PickersDay, {
-  //   shouldForwardProp: (prop) =>
-  //     isWeekend(prop),
-  // })(({ isWeekend }) => ({
-  //   ...(isWeekend && {
-  //     color: "blue",
-  //   }),
-  // }));
-
-  // function Day(props) {
-  //   const { day, ...other } = props;
-
-  //   if (isWeekend(day)) {
-  //     return <CustomPickersDay day={day} {...other} />;
-  //   }
-  //   return <PickersDay day={day} {...other} />
-  // }
 
   return (
     <DatePicker
       slots={{
         field: ButtonField,
-        // day: Day,
-
         ...props.slots,
       }}
       slotProps={{
         field: { setOpen },
-
         ...slotProps,
       }}
       {...props}
