@@ -7,8 +7,6 @@ export const TasksColumnListContainer = styled.div`
 
   overflow-x: auto;
 
-  outline: 1px solid red;
-
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     width: calc(100vw - 64px);
   }
