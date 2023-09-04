@@ -1,7 +1,7 @@
 import { PlusIcon } from 'UI';
-import AddTaskBtn from './AddTaskBtn/AddTaskBtn';
-import ColumnHeadBar from './ColumnHeadBar/ColumnHeadBar';
-import ColumnsTasksList from './ColumnsTasksList/ColumnsTasksList';
+import AddTaskBtn from '../AddTaskBtn/AddTaskBtn';
+import ColumnHeadBar from '../ColumnHeadBar/ColumnHeadBar';
+import ColumnsTasksList from '../ColumnsTasksList/ColumnsTasksList';
 import TasksColumnStyled from './TasksColumnStyled';
 import { useTheme } from 'styled-components';
 

@@ -1,4 +1,4 @@
-import TasksColumn from './TasksColumn/TasksColumn';
+import TasksColumn from '../TasksColumn/TasksColumn';
 import {
   TasksColumnListContainer,
   TasksColumnListWrapper,

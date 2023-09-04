@@ -1,4 +1,4 @@
-import EmptyListSpaceFiller from './EmptyListSpaceFiller/EmptyListSpaceFiller';
+import EmptyListSpaceFiller from '../EmptyListSpaceFiller/EmptyListSpaceFiller';
 
 const ColumnsTasksList = ({ tasks }) => {
   if (!tasks) {

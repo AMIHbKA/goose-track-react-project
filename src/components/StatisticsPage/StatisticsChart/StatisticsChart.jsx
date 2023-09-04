@@ -9,7 +9,7 @@ import {
 } from 'recharts';
 import { ThemeContext } from 'styled-components';
 import { useWindowSize, useRect } from 'hooks';
-import BarWithGradient from './BarWithGradient/BarWithGradient';
+import BarWithGradient from '../BarWithGradient/BarWithGradient';
 import {
   StatisticsChartContainer,
   StatisticsChartWarningMessage,
