@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const CalendarPageContainer = styled.div`
+const ChoosedDayContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: stretch;
@@ -8,4 +8,4 @@ const CalendarPageContainer = styled.div`
   height: 100%;
 `;
 
-export default CalendarPageContainer;
+export default ChoosedDayContainer;
