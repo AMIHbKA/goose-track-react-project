@@ -19,9 +19,11 @@ import { useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors';
 import { MobileMenu } from 'components/MobileMenu/MobileMenu';
 import { useTheme } from 'styled-components';
+import { useLocation } from 'react-router';
 
 export const HeaderLayout = ({ currentTheme, currentReview }) => {
-  const userName = useSelector(selectUser).userData?.name;
+  const userName = useSelector(selectUser).name;
+  const currentPage = useLocation().pathname;
   const [showModal, setShowModal] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { width } = useWindowSize();
@@ -43,6 +45,22 @@ export const HeaderLayout = ({ currentTheme, currentReview }) => {
     setShowModal(s => !s);
   };
 
+  const pageTitle = currentPage => {
+    if (currentPage.startsWith('/account')) {
+      return 'User Profile';
+    }
+
+    if (currentPage.startsWith('/calendar')) {
+      return 'Calendar';
+    }
+
+    if (currentPage.startsWith('/statistics')) {
+      return 'Statistics';
+    }
+
+    return 'GooseTrack';
+  };
+
   return (
     <>
       <Header>
@@ -53,7 +71,9 @@ export const HeaderLayout = ({ currentTheme, currentReview }) => {
         )}
 
         <HeaderPanel>
-          {width >= laptopValue && <PageTitle>Page Title</PageTitle>}
+          {width >= laptopValue && (
+            <PageTitle>{pageTitle(currentPage)}</PageTitle>
+          )}
           {width < laptopValue && (
             <MenuIconStyled onClick={onShowMenu}>
               {<MenuIcon size={24} stroke={mainText} />}
@@ -75,7 +95,7 @@ export const HeaderLayout = ({ currentTheme, currentReview }) => {
             )}
             <UserInfo>
               <ThemeToggler />
-              <UserName>{userName && userName}</UserName>
+              <UserName>{userName}</UserName>
               <UserPhoto />
             </UserInfo>
           </UserPanel>
