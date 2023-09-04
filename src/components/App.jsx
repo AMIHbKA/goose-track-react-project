@@ -18,7 +18,8 @@ const AccountPage = lazy(() => import('../pages/AccountPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing, isLoggedIn } = useAuth();
+  // const { isRefreshing, isLoggedIn } = useAuth();
+  const { isLoggedIn } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -26,9 +27,10 @@ export const App = () => {
 
   // console.log('app isLoggedIn', isLoggedIn);
 
-  return isRefreshing ? (
-    <b>Refreshing user...</b>
-  ) : (
+  // return isRefreshing ? (
+  //   <b>Refreshing user...</b>
+  // ) :
+  return (
     <ThemeProvider>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <GlobalStyle />

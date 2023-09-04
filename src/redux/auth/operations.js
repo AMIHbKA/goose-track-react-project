@@ -1,7 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
-import { checkErrors, checkSuccesfull } from 'utilities/checks';
-import { api } from 'utilities';
+import { api, notify } from 'utilities';
 
 export const register = createAsyncThunk(
   'auth/register',
@@ -10,10 +8,13 @@ export const register = createAsyncThunk(
       const response = await api.instance.post('auth/register', credentials);
 
       // After successful registration, add the token to the HTTP header
-      toast.success(checkSuccesfull('auth/register', response.status));
+      notify('success', response.data.message);
       return response.data.userData;
     } catch (error) {
-      toast.error(checkErrors('auth/register', error.response.status));
+      notify(
+        'error',
+        error.response.data.message || 'Oops! Something goes wrong'
+      );
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -27,10 +28,13 @@ export const logIn = createAsyncThunk(
 
       // After successful login, add the token to the HTTP header
       api.setAuthHeader(response.data.userData.token);
-      toast.success(checkSuccesfull('auth/login', response.status));
+      notify('success', response.data.message);
       return response.data.userData;
     } catch (error) {
-      toast.error(checkErrors('auth/login', error.response.status));
+      notify(
+        'error',
+        error.response.data.message || 'Oops! Something goes wrong'
+      );
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -43,9 +47,10 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkApi) => {
     // After a successful logout, remove the token from the HTTP header
     api.clearAuthHeader();
 
-    toast.success(checkSuccesfull('auth/logout', 200));
+    notify('success', 'Successfully logged out');
   } catch (error) {
-    toast.error(checkErrors('auth/logout', error.response.status));
+    notify('error', 'Oops! Something were wrong! Please try again later');
+
     return thunkApi.rejectWithValue(error.message);
   }
 });
@@ -57,11 +62,8 @@ export const refreshUser = createAsyncThunk(
     const state = thunkApi.getState();
     const persistedToken = state.auth.token;
 
-    console.log('persistedToken refreshUser', persistedToken);
-
     if (persistedToken === null) {
       // If there is no token, exit without performing any request
-      // toast.error('Unable to fetch user');
       return thunkApi.rejectWithValue('Unable to fetch user');
     }
 
@@ -69,47 +71,30 @@ export const refreshUser = createAsyncThunk(
       // If there is a token, add it to the HTTP header and perform the request
       api.setAuthHeader(persistedToken);
       const response = await api.instance.get('user/current');
-
-      // toast.success(checkSuccesfull('users/current', response.status));
-
-      return response.data;
+      console.log('refreshUser', response);
+      return response.data.userData;
     } catch (error) {
-      toast.error(checkErrors('user/current', error.response.status));
-
       return thunkApi.rejectWithValue(error.message);
     }
   }
 );
 
-export const fetchUser = createAsyncThunk(
-  // 'user/fetchUser',
-  '/user/current',
-  async (_, thunkAPI) => {
-    try {
-      const {
-        data: { userData },
-      } = await api.instance.get('/user/current');
-      return userData;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
 export const updateUser = createAsyncThunk(
-  // 'user/updateUser',
-  '/user/info',
-  async (credentials, thunkAPI) => {
-    console.log('credentials', credentials);
+  'user/info',
+  async (credentials, thunkApi) => {
     try {
-      const {
-        data: { userData },
-      } = await api.instance.patch('/user/info', credentials);
-      // const { data: { userData} } = await api.instance.patch('/user/info', credentials, { headers: { "Content-Type": "multipart/form-data" } });
+      const response = await api.instance.patch('user/info', credentials);
 
-      return userData;
+      console.log('response', response);
+      // After successful registration, add the token to the HTTP header
+      notify('success', response.data.message);
+      return response.data.userData;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      notify(
+        'error',
+        error.response.data.message || 'Oops! Something goes wrong'
+      );
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );
