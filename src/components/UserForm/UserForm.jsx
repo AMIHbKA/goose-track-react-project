@@ -18,7 +18,7 @@ import {
 } from 'components/UserForm/UserForm.styled';
 import { UserInput } from 'components/UserInput/UserInput';
 import { AvatarUploader } from 'components/AvatarUploader/AvatarUploader';
-import { fetchUser, updateUser } from 'redux/auth/operations';
+import { updateUser } from 'redux/auth/operations';
 import {
   DatePickerStyled,
   PopperDateStyles,
@@ -36,13 +36,13 @@ export const UserForm = () => {
   console.log('userInfo', userInfo);
   // const [avatarURL, setAvatarURL] = useState(null);
 
-  useEffect(() => {
-    const getUserInfo = async () => {
-      dispatch(fetchUser());
-    };
-    console.log('useEffect');
-    getUserInfo();
-  }, [dispatch]);
+  // useEffect(() => {
+  //   const getUserInfo = async () => {
+  //     dispatch(fetchUser());
+  //   };
+  //   console.log('useEffect');
+  //   getUserInfo();
+  // }, [dispatch]);
 
   const handleSubmit = async values => {
     const formData = new FormData();
