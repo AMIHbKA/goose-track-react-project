@@ -1,7 +1,7 @@
 import { PencilIcon, PlusIcon } from 'UI';
 import { Formik } from 'formik';
 import {
-  AddButton,
+  ActionButton,
   AddForm,
   CancelButton,
   Error,
@@ -14,20 +14,28 @@ import {
   RadioLabel,
   Wrapper,
 } from './AddOrEditTaskForm.styled';
+import { useDispatch } from 'react-redux';
+import { addTask } from 'redux/tasks/operations';
+import { notify } from 'utilities';
 
-export const AddOrEditTaskForm = ({ defaulValues = {
-  title: '',
-  start: '',
-  end: '00:00',
-  importance: 'low',
-}, option = 'add' }) => {
+export const AddOrEditTaskForm = ({
+  defaulValues = {
+    title: '',
+    start: '00:00',
+    end: '00:01',
+    priority: 'low',
+  },
+  option = 'add',
+  date = "2023-09-04",
+}) => {
+  const dispatch = useDispatch();
 
   function validateText(value) {
-    let error
+    let error;
     if (value === '') {
       error = 'Field is required';
     }
-    return error
+    return error;
   }
   const hours = [
     '00:00',
@@ -58,7 +66,17 @@ export const AddOrEditTaskForm = ({ defaulValues = {
 
   const handleSubmit = values => {
     console.log(values);
+    const newTask = {
+      ...values,
+      date,
+      status: 'todo',
+    };
+    console.log(newTask)
+    dispatch(addTask(newTask))
+      // .then(() => notify('success', 'New task successfully added'))
+      // .catch(() => notify('error', 'An error occured adding new task'));
   };
+
   return (
     <Formik
       initialValues={defaulValues}
@@ -69,7 +87,7 @@ export const AddOrEditTaskForm = ({ defaulValues = {
         }, 400);
       }}
     >
-      {({ errors, values, setFieldValue, validateOnChange, }) => (
+      {({ errors, values, setFieldValue, validateOnChange }) => (
         <AddForm>
           <FormLabel htmlFor="title">
             Title
@@ -95,11 +113,11 @@ export const AddOrEditTaskForm = ({ defaulValues = {
                   setFieldValue('start', e.target.value);
                 }}
               >
-                {hours.map(hour => 
+                {hours.map(hour => (
                   <option value={hour} key={hour}>
                     {hour}
                   </option>
-                )}
+                ))}
               </Input>
             </FormLabel>
 
@@ -115,42 +133,46 @@ export const AddOrEditTaskForm = ({ defaulValues = {
                   setFieldValue('end', e.target.value);
                 }}
               >
-                {hours.filter(hour => 
-                  Number(hour.slice(0,2)) > Number(values.start.slice(0,2))
-                ).map(hour => (
-                  <option value={hour} key={hour}>
-                    {hour}
-                  </option>
-                ))}
+                {hours
+                  .filter(
+                    hour =>
+                      Number(hour.slice(0, 2)) >
+                      Number(values.start.slice(0, 2))
+                  )
+                  .map(hour => (
+                    <option value={hour} key={hour}>
+                      {hour}
+                    </option>
+                  ))}
               </Input>
             </FormLabel>
           </Wrapper>
 
-          <RadioContainer role="group" aria-labelledby="choose importance">
+          <RadioContainer role="group" aria-labelledby="choose priority">
             <RadioLabel>
-              <Low type="radio" name="importance" value="low" />
+              <Low type="radio" name="priority" value="low" />
               Low
             </RadioLabel>
             <RadioLabel>
-              <Medium type="radio" name="importance" value="medium" />
+              <Medium type="radio" name="priority" value="medium" />
               Medium
             </RadioLabel>
             <RadioLabel>
-              <High type="radio" name="importance" value="high" />
+              <High type="radio" name="priority" value="high" />
               High
             </RadioLabel>
           </RadioContainer>
           <Wrapper>
             {option === 'add' ? (
-              <AddButton type="submit">
+              <ActionButton type="submit">
                 <PlusIcon size={18} />
                 Add
-              </AddButton>
+              </ActionButton>
             ) : (
-              <AddButton type="submit">
+              <ActionButton type="submit">
                 <PencilIcon size={18} stroke="#fff" />
                 Edit
-              </AddButton>
+              </ActionButton>
             )}
 
             <CancelButton type="button">Cancel</CancelButton>

@@ -111,7 +111,7 @@ font-size: 14px;
 font-weight: 600;
 line-height: 1.28;
 `
-export const AddButton = styled(Button)`
+export const ActionButton = styled(Button)`
 display: flex;
 justify-content: center;
 gap: 8px;

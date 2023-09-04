@@ -4,8 +4,9 @@ import { Container } from './CalendarToolbar.styled';
 import { useState } from 'react';
 import { PeriodTypeSelect } from 'components/PeriodTypeSelect/PeriodTypeSelect';
 import { addDays, addMonths } from 'date-fns';
-// import { useEffect } from "react"
-// import { useDispatch } from "react-redux"
+import { useEffect } from "react"
+import { useDispatch } from "react-redux"
+import { fetchTasks } from 'redux/tasks/operations';
 
 export const DAY = 'day';
 export const MONTH = 'month';
@@ -15,11 +16,11 @@ export const PREVIOUS = 'previous';
 export const CalendarToolbar = ({ periodSelector = true }) => {
   const [date, setDate] = useState(Date.now());
   const [activePeriod, setActivePeriod] = useState(MONTH);
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
-  // useEffect(() => {
-  //     dispatch(fetchTasks());
-  //   }, [dispatch]);
+  useEffect(() => {
+      dispatch(fetchTasks());
+    }, [dispatch]);
 
   const changeDate = action => {
     if (action === NEXT) {
