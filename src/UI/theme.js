@@ -78,7 +78,9 @@ export const darkTheme = {
   },
   feedbackModal: {
     backgroundColor: '#13151a',
-    backgroundButtonEditColor: '#353647',
+    buttonColor: '#fff',
+    backgroundButtonSecondaryColor: '#353647',
+    backgroundButtonPrimaryColor: '#3e85f3',
     colorTitle: 'rgb(250 250 250 / 0.3)',
     borderColor: 'rgb(255 255 255 / 0.15)',
     textColor: '#fff',
@@ -86,6 +88,12 @@ export const darkTheme = {
     starColor: '#ffac33',
     starColorDefault: '#353647',
   },
+  addTaskModal: {
+    background: "#171820",
+    border: '1px solid rgba(255 255 255 / 0.15)',
+    inputBorder: '1px solid rgba(255 255 255 / 0.15)',
+    inputBackground: "#171820",
+  }
 };
 
 export const lightTheme = {
@@ -131,13 +139,21 @@ export const lightTheme = {
     warningMessageColor: commonStyles.colors.highPriority,
   },
   feedbackModal: {
-    backgroundColor: '#fff',
-    backgroundButtonEditColor: '#e3f3ff',
-    borderColor: 'fff',
+    backgroundColor: '#ffffff',
+    buttonColor: '#fff',
+    backgroundButtonSecondaryColor: '#e3f3ff',
+    backgroundButtonPrimaryColor: '#3e85f3',
+    borderColor: 'ffffff',
     colorTitle: 'rgb(52 52 52 / 0.8)',
     textColor: '#343434',
     backgroundButton: ' #e5edfa',
     starColor: '#ffac33',
     starColorDefault: '#cec9c1',
   },
+  addTaskModal: {
+    background: "#fff",
+    border: "1px solid rgba(220 227 229 / 0.80)",
+    inputBorder: '0px',
+    inputBackground: '#F6F6F6'
+  }
 };

@@ -9,10 +9,6 @@ export const MainSection = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  /* @media (min-width: ${props => props.theme.breakpoints.laptopL}) {
-    padding: 187px 200px 200px;
-  } */
 `;
 
 export const Logo = styled.a`
@@ -29,6 +25,7 @@ export const LogoImg = styled.picture`
   width: 142px;
   height: 142px;
   margin: 0 auto;
+  border-radius: 100px;
 
   img {
     width: 100%;

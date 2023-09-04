@@ -20,7 +20,7 @@ import {
 export const AuthSection = () => {
   return (
     <MainSection>
-      <Container outline>
+      <Container>
         <Logo href="/goose-track-react-project">
           <LogoImg>
             <source

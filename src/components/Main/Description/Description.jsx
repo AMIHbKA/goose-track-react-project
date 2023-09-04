@@ -35,7 +35,7 @@ import { Container } from 'components';
 export const Description = () => {
   return (
     <MainContent>
-      <Container outline main_page>
+      <Container main_page>
         <OderedList>
           <OderedListItem>
             <OderedListContent>

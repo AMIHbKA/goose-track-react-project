@@ -8,7 +8,7 @@ export const getReviews = async () => {
   try {
     const response = await instance.get('/reviews');
     // console.log(response.data.reviews);
-    // console.log(response.data.reviews[5].owner.avatarUrl);
+    // console.log(response.data.reviews[6].owner);
     return response.data.reviews;
   } catch (error) {
     console.log(error);

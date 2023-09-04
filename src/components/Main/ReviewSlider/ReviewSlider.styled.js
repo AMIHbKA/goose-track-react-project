@@ -23,15 +23,14 @@ export const TestimonialCard = styled.div`
   border: 1px solid rgba(0, 0, 0, 10%);
   border-radius: 8px;
   padding: 24px;
-  height: 100%;
+  min-height: 194px;
+  min-width: 335px;
+  margin: 0 auto;
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     padding: 32px;
-    max-width: 580px;
-  }
-
-  @media (min-width: ${props => props.theme.breakpoints.laptopL}) {
-    min-width: 580px;
+    width: 100%;
+    min-height: 187px;
   }
 `;
 
@@ -45,6 +44,7 @@ export const PepleImg = styled.img`
   width: 50px;
   height: 50px;
   object-fit: cover;
+  border-radius: 50%;
 `;
 
 export const ReviewText = styled.div`
@@ -52,7 +52,7 @@ export const ReviewText = styled.div`
   line-height: calc(18 / 14);
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    padding: 0 0 18px 68px;
+    padding: 0 0 0 68px;
   }
 `;
 
