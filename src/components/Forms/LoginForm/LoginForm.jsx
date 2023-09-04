@@ -38,11 +38,8 @@ export const LoginForm = () => {
         <Formik
           initialValues={{ email: '', password: '' }}
           validationSchema={loginSchema}
-          onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-              handleSubmit(values);
-              setSubmitting(false);
-            }, 400);
+          onSubmit={async values => {
+            await handleSubmit(values);
           }}
         >
           {({ touched, errors }) => (

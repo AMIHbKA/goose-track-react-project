@@ -71,9 +71,29 @@ export const refreshUser = createAsyncThunk(
       // If there is a token, add it to the HTTP header and perform the request
       api.setAuthHeader(persistedToken);
       const response = await api.instance.get('user/current');
-
-      return response.data;
+      console.log('refreshUser', response);
+      return response.data.userData;
     } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateUser = createAsyncThunk(
+  'user/info',
+  async (credentials, thunkApi) => {
+    try {
+      const response = await api.instance.patch('user/info', credentials);
+
+      console.log('response', response);
+      // After successful registration, add the token to the HTTP header
+      notify('success', response.data.message);
+      return response.data.userData;
+    } catch (error) {
+      notify(
+        'error',
+        error.response.data.message || 'Oops! Something goes wrong'
+      );
       return thunkApi.rejectWithValue(error.message);
     }
   }
