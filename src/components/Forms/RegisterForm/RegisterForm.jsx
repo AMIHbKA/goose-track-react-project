@@ -25,7 +25,7 @@ export const RegisterForm = () => {
 
   const handleSubmit = async values => {
     const { name, email, password } = values;
-    const registerResult = await dispatch(register({ name, email, password }));
+    const registerResult = dispatch(register({ name, email, password }));
 
     // if registration is success, login
     if (register.fulfilled.match(registerResult)) {
@@ -45,12 +45,8 @@ export const RegisterForm = () => {
         <Formik
           initialValues={{ name: '', email: '', password: '' }}
           validationSchema={registerSchema}
-          onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-              handleSubmit(values);
-
-              setSubmitting(false);
-            }, 400);
+          onSubmit={async values => {
+            await handleSubmit(values);
           }}
         >
           {({ touched, errors }) => (
