@@ -1,4 +1,5 @@
 export { useAuth } from './useAuth';
+export { useRect } from './useRect';
 export {
   useWindowSize,
   useTablet,
