@@ -8,10 +8,6 @@ const MonthCell = ({ calendarDate, tasks, height, width }) => {
   const isToday = calendarDate.iso === new Date().toISOString().split('T')[0];
   const isCurrentMonth = calendarDate.type === 'current';
 
-  if (tasks) {
-    console.log('tasks', tasks);
-  }
-
   return (
     <MonthCellStyled
       isCurrentMonth={isCurrentMonth}

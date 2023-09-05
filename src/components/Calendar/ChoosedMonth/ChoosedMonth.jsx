@@ -83,10 +83,6 @@ const ChoosedMonth = () => {
     return acc;
   }, {});
 
-  // console.log('tasksByDate', tasksByDate);
-  // console.log('tasks', tasks);
-  // console.log('calendarDates', calendarDates);
-
   return (
     <>
       {calendarDates && monthCellSizes && (

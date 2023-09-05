@@ -1,5 +1,7 @@
+import TaskCellStyled from './TaskCellStyled';
+
 const TaskCell = ({ task }) => {
-  return <div>{task.title}</div>;
+  return <TaskCellStyled priority={task.priority}>{task.title}</TaskCellStyled>;
 };
 
 export default TaskCell;
