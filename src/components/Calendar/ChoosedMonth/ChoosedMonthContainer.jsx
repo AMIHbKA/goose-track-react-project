@@ -7,7 +7,7 @@ const ChoosedMonthContainer = styled.div`
 
   height: 100%;
 
-  padding-bottom: 32px;
+  padding-bottom: 52px;
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     padding-bottom: 24px;

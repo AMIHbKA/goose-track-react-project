@@ -38,7 +38,7 @@ const data = [
 const StatisticsChart = () => {
   const windowSize = useWindowSize();
 
-  const [chartSizes, chartWrapperRef] = useRect('resize', 300, 1000);
+  const [chartSizes, chartWrapperRef] = useRect('resize', 100, 100);
 
   const theme = useContext(ThemeContext);
 

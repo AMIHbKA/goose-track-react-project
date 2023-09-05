@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
-const CalendarTable = styled.div`
-  position: absolute;
+const CalendarTableWrapper = styled.div`
+  flex-grow: 1;
+
+  position: relative;
 
   display: grid;
   grid-gap: 1px;
@@ -28,6 +30,12 @@ const CalendarTable = styled.div`
       border-bottom-left-radius: 6px;
     }
   }
+
+  min-height: 280px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    min-height: 375px;
+  }
 `;
 
-export default CalendarTable;
+export default CalendarTableWrapper;
