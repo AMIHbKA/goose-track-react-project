@@ -9,6 +9,8 @@ import { MainPage } from 'pages/MainPage';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { GlobalStyle } from 'UI';
+import { useSelector } from 'react-redux';
+import { selectToken } from 'redux/auth/selectors';
 
 const LoginPage = lazy(() => import('../pages/LoginPage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
@@ -19,7 +21,9 @@ const ChoosedDay = lazy(() => import('./Calendar/ChoosedDay/ChoosedDay'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing, isLoggedIn } = useAuth();
+  const token = useSelector(selectToken);
+  const { isRefreshing } = useAuth();
+  console.log('token', token);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -34,30 +38,30 @@ export const App = () => {
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <GlobalStyle />
         <Routes>
-          <Route path="/" element={<Layout />}>
-            {isLoggedIn ? (
-              <>
-                <Route path="/account" element={<div>AccountPage</div>} />
-                <Route path="/calendar" element={<CalendarPage />}>
-                  <Route path="month" element={<ChoosedMonth />} />
-                  <Route path="day" element={<ChoosedDay />} />
-                  <Route index element={<Navigate to="month" />} />
-                </Route>
-                <Route path="/statistics" element={<StatisticsPage />} />
-                <Route
-                  path="*"
-                  element={<Navigate to="/calendar/month" replace />}
-                />
-              </>
-            ) : (
-              <>
+          {token ? (
+            <>
+              <Route path="/account" element={<div>AccountPage</div>} />
+              <Route path="/calendar" element={<CalendarPage />}>
+                <Route path="month" element={<ChoosedMonth />} />
+                <Route path="day" element={<ChoosedDay />} />
+                <Route index element={<Navigate to="month" />} />
+              </Route>
+              <Route path="/statistics" element={<StatisticsPage />} />
+              <Route
+                path="*"
+                element={<Navigate to="/calendar/month" replace />}
+              />
+            </>
+          ) : (
+            <>
+              <Route path="/" element={<Layout />}>
                 <Route index element={<MainPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="*" element={<Navigate to="/login" replace />} />
-              </>
-            )}
-          </Route>
+              </Route>
+            </>
+          )}
         </Routes>
       </LocalizationProvider>
       <ToastContainerWrapper />
