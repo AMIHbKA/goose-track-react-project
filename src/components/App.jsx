@@ -9,6 +9,8 @@ import { MainPage } from 'pages/MainPage';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { GlobalStyle } from 'UI';
+import { useSelector } from 'react-redux';
+import { selectToken } from 'redux/auth/selectors';
 
 const LoginPage = lazy(() => import('../pages/LoginPage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
@@ -19,7 +21,8 @@ const ChoosedDay = lazy(() => import('./Calendar/ChoosedDay/ChoosedDay'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing, isLoggedIn } = useAuth();
+  const token = useSelector(selectToken);
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -35,8 +38,12 @@ export const App = () => {
         <GlobalStyle />
         <Routes>
           <Route path="/" element={<Layout />}>
-            {isLoggedIn ? (
+            {token ? (
               <>
+                <Route
+                  index
+                  element={<Navigate to="/calendar/month" replace />}
+                />
                 <Route path="/account" element={<div>AccountPage</div>} />
                 <Route path="/calendar" element={<CalendarPage />}>
                   <Route path="month" element={<ChoosedMonth />} />
