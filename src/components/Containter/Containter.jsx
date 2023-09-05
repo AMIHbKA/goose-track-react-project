@@ -1,4 +1,8 @@
 import styled from 'styled-components';
+import loginGoose from '../../UI/images/Auth/log-in-goose.png';
+import loginGooseWebp from '../../UI/images/Auth/log-in-goose.webp';
+import signUpGoose from '../../UI/images/Auth/sign-in-goose.png';
+import signUpGooseWebp from '../../UI/images/Auth/sign-in-goose.webp';
 
 export const Container = styled.div`
   padding: 24px;
@@ -83,4 +87,34 @@ ${props =>
   display: flext;
   justify-content: center;
 `}
+
+${props =>
+    props.login &&
+    `
+    @media screen and (min-width: ${props.theme.breakpoints.laptop}) {
+      background-repeat: no-repeat;
+      background-image: url(${loginGooseWebp});
+      background-image: image(${loginGooseWebp}) format('webp'), url(${loginGoose});
+      background-position: 100% 100%;
+  }
+
+  @media screen and (min-width: ${props.theme.breakpoints.laptopL}) {
+    background-position: 90% 70%;
+  }
+  `}
+
+  ${props =>
+    props.signin &&
+    `
+    @media screen and (min-width: ${props.theme.breakpoints.laptop}) {
+      background-repeat: no-repeat;
+      background-image: url(${signUpGooseWebp});
+      background-image: image(${signUpGooseWebp}) format('webp'), url(${signUpGoose});
+      background-position: 0 100%;
+  }
+
+  @media screen and (min-width: ${props.theme.breakpoints.laptopL}) {
+    
+  }
+  `}
 `;

@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 const RegisterPage = () => {
   return (
     <section style={{ background: '#dcebf7', height: '100vh' }}>
-      <Container full_center>
+      <Container full_center signin>
         <Helmet>
           <title>Registration</title>
         </Helmet>
