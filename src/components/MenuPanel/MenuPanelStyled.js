@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { hoverBackgroundStyle } from 'UI';
 
 export const MenuPanelStyled = styled.div`
   display: flex;
@@ -27,14 +28,9 @@ export const LogOutButtonStyled = styled.button`
   color: white;
   font-weight: 600;
   line-height: 1.286;
-  cursor: pointer;
   box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
 
-  transition: background-color 0.3s;
-
-  :hover {
-    background-color: #2b78ef;
-  }
+  ${hoverBackgroundStyle}
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     padding: 16px 23px;
