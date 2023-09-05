@@ -64,12 +64,17 @@ export const darkTheme = {
     dateBackground: '#22232D',
     todayBadgeTextColor: '#22232D',
   },
+  choosedDay: {
+    addBtnBackground: commonStyles.colors.primary,
+    addBtnBorder: null,
+  },
   statistics: {
     linesColor: 'rgb(227 243 255 / 0.15)',
     linesWidth: '0.8px',
     borderColor: LIGHT_BLUE,
     backgroundColor: DARK_GRAYISH_BLUE,
     chartTextColor: LIGHT_COLOR,
+    warningMessageColor: commonStyles.colors.highPriorityBack,
   },
   feedbackModal: {
     backgroundColor: '#13151a',
@@ -122,11 +127,16 @@ export const lightTheme = {
     dateBackground: LIGHT_COLOR,
     todayBadgeTextColor: LIGHT_COLOR,
   },
+  choosedDay: {
+    addBtnBackground: LIGHT_BLUE,
+    addBtnBorder: `1px dashed ${commonStyles.colors.primary}`,
+  },
   statistics: {
     linesColor: LIGHT_BLUE,
     linesWidth: '1px',
     backgroundColor: LIGHT_COLOR,
     chartTextColor: DARK_COLOR,
+    warningMessageColor: commonStyles.colors.highPriority,
   },
   feedbackModal: {
     backgroundColor: '#ffffff',

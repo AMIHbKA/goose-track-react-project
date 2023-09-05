@@ -1,5 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
-// import PropTypes from 'prop-types';
+import { useContext } from 'react';
 import {
   BarChart,
   Bar,
@@ -9,9 +8,14 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import { ThemeContext } from 'styled-components';
-import StatisticsChartContainer from './StatisticsChartContainer';
+import { useWindowSize, useRect } from 'hooks';
 import BarWithGradient from './BarWithGradient/BarWithGradient';
-import { StatisticChartWrapper } from './StatisticChartWrapper/StatisticChartWrapper';
+import {
+  StatisticsChartContainer,
+  StatisticsChartWarningMessage,
+  StatisticsChartWrapperExternal,
+  StatisticsChartWrapperInternal,
+} from './StatisticsChartStyled';
 
 const data = [
   {
@@ -32,19 +36,9 @@ const data = [
 ];
 
 const StatisticsChart = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const windowSize = useWindowSize();
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  const [chartSizes, chartWrapperRef] = useRect('resize', 300, 1000);
 
   const theme = useContext(ThemeContext);
 
@@ -56,68 +50,82 @@ const StatisticsChart = () => {
 
   const barLabelStyles = {
     fill: theme.statistics.chartTextColor,
-    fontSize: windowWidth < 768 ? 12 : 16,
+    fontSize: windowSize.width < 768 ? 12 : 16,
     fontWeight: '500',
   };
 
-  const barWidth = windowWidth < 768 ? 22 : 27;
+  const barWidth = windowSize.width < 768 ? 22 : 27;
 
   return (
     <StatisticsChartContainer>
       <h2>Tasks</h2>
-      <StatisticChartWrapper>
-        <ResponsiveContainer>
-          <BarChart
-            data={data}
-            margin={{
-              top: 10,
-              right: 0,
-              left: -32,
-              bottom: 0,
-            }}
-            barGap={8}
+      <StatisticsChartWrapperExternal ref={chartWrapperRef}>
+        {chartSizes.height < 100 ? (
+          <StatisticsChartWarningMessage>
+            {chartSizes.height > 21 &&
+              `Insufficient window height for chart display`}
+          </StatisticsChartWarningMessage>
+        ) : (
+          <StatisticsChartWrapperInternal
+            height={chartSizes.height}
+            width={chartSizes.width}
           >
-            <CartesianGrid
-              vertical={false}
-              stroke={theme.statistics.linesColor}
-              strokeWidth={theme.statistics.linesWidth}
-            />
-            <XAxis
-              dataKey="name"
-              axisLine={false}
-              tickLine={false}
-              tick={axisTextStyles}
-            />
-            <YAxis axisLine={false} tickLine={false} tick={axisTextStyles} />
-            <Bar
-              dataKey="day"
-              fill="#FFD2DD"
-              label={{
-                ...barLabelStyles,
-                position: 'top',
-                formatter: value => `${value}%`,
-              }}
-              shape={<BarWithGradient radius={15} />}
-              barSize={barWidth}
-            />
-            <Bar
-              dataKey="month"
-              fill="#3E85F3"
-              label={{
-                ...barLabelStyles,
-                position: 'top',
-                formatter: value => `${value}%`,
-              }}
-              shape={<BarWithGradient radius={15} />}
-              barSize={barWidth}
-            />
-          </BarChart>
-        </ResponsiveContainer>
-      </StatisticChartWrapper>
+            <ResponsiveContainer>
+              <BarChart
+                data={data}
+                margin={{
+                  top: 10,
+                  right: 0,
+                  left: -32,
+                  bottom: 0,
+                }}
+                barGap={8}
+              >
+                <CartesianGrid
+                  vertical={false}
+                  stroke={theme.statistics.linesColor}
+                  strokeWidth={theme.statistics.linesWidth}
+                />
+                <XAxis
+                  dataKey="name"
+                  axisLine={false}
+                  tickLine={false}
+                  tick={axisTextStyles}
+                />
+                <YAxis
+                  axisLine={false}
+                  tickLine={false}
+                  tick={axisTextStyles}
+                />
+                <Bar
+                  dataKey="day"
+                  fill="#FFD2DD"
+                  label={{
+                    ...barLabelStyles,
+                    position: 'top',
+                    formatter: value => `${value}%`,
+                  }}
+                  shape={<BarWithGradient radius={15} />}
+                  barSize={barWidth}
+                />
+                <Bar
+                  dataKey="month"
+                  fill="#3E85F3"
+                  label={{
+                    ...barLabelStyles,
+                    position: 'top',
+                    formatter: value => `${value}%`,
+                  }}
+                  shape={<BarWithGradient radius={15} />}
+                  barSize={barWidth}
+                />
+              </BarChart>
+            </ResponsiveContainer>
+          </StatisticsChartWrapperInternal>
+        )}
+      </StatisticsChartWrapperExternal>
     </StatisticsChartContainer>
   );
 };
-
-// StatisticsChart.propTypes = {};
 
 export default StatisticsChart;
