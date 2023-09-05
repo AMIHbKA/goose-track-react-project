@@ -14,7 +14,7 @@ return (
     <button onClick={onShowModal}>Open Modal</button>
     {showModal && (
         <Modal onActive={onShowModal}>
-          <AddOrEditTaskForm />
+          <AddOrEditTaskForm onActive={onShowModal}/>
         </Modal>
       )}
     

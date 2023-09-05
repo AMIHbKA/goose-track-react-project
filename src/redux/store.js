@@ -14,6 +14,7 @@ import { authReducer } from './auth/slice';
 import { themeReducer } from './theme/slice';
 import { reviewReducer } from './review/slice';
 import thunk from 'redux-thunk';
+import { taskReducer } from './tasks/taskSlice';
 
 // Persisting token field from auth slice to localstorage
 const authPersistConfig = {
@@ -33,11 +34,14 @@ const reviewPersistConfig = {
   whitelist: ['token'],
 };
 
+
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     theme: persistReducer(themePersistConfig, themeReducer),
     review: persistReducer(reviewPersistConfig, reviewReducer),
+    tasks: taskReducer,
   },
   middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware({
