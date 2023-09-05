@@ -32,12 +32,12 @@ export const UserForm = () => {
   const [avatarUrl, setAvatarUrl] = useState('');
   const [fileImage, setFileImage] = useState(null);
   const userInfo = useSelector(selectUser);
-  console.log('avatarUrl', avatarUrl);
+
+  console.log('userInfo', userInfo);
   // const [avatarURL, setAvatarURL] = useState(null);
 
   useEffect(() => {
     setAvatarUrl(userInfo.avatarUrl);
-    console.log('userInfo.avatarUrl', userInfo.avatarUrl);
   }, [userInfo.avatarUrl]);
 
   useEffect(() => {
@@ -70,13 +70,15 @@ export const UserForm = () => {
     //   formData.append('avatar', avatarUrl);
     // }
     try {
-      dispatch(updateUser(formData));
+      await dispatch(updateUser(formData));
       // await dispatch(refreshUser());
       toast.success('Profile data changed successfully');
     } catch {
       toast.error('Something went wrong... Try again!');
     }
   };
+
+  console.log('userInfo', userInfo);
 
   return (
     <Formik
