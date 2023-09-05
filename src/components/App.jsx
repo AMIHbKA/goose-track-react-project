@@ -23,7 +23,6 @@ export const App = () => {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const { isRefreshing } = useAuth();
-  console.log('token', token);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -38,30 +37,30 @@ export const App = () => {
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <GlobalStyle />
         <Routes>
-          {token ? (
-            <>
-              <Route path="/account" element={<div>AccountPage</div>} />
-              <Route path="/calendar" element={<CalendarPage />}>
-                <Route path="month" element={<ChoosedMonth />} />
-                <Route path="day" element={<ChoosedDay />} />
-                <Route index element={<Navigate to="month" />} />
-              </Route>
-              <Route path="/statistics" element={<StatisticsPage />} />
-              <Route
-                path="*"
-                element={<Navigate to="/calendar/month" replace />}
-              />
-            </>
-          ) : (
-            <>
-              <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Layout />}>
+            {token ? (
+              <>
+                <Route path="/account" element={<div>AccountPage</div>} />
+                <Route path="/calendar" element={<CalendarPage />}>
+                  <Route path="month" element={<ChoosedMonth />} />
+                  <Route path="day" element={<ChoosedDay />} />
+                  <Route index element={<Navigate to="month" />} />
+                </Route>
+                <Route path="/statistics" element={<StatisticsPage />} />
+                <Route
+                  path="*"
+                  element={<Navigate to="/calendar/month" replace />}
+                />
+              </>
+            ) : (
+              <>
                 <Route index element={<MainPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="*" element={<Navigate to="/login" replace />} />
-              </Route>
-            </>
-          )}
+              </>
+            )}
+          </Route>
         </Routes>
       </LocalizationProvider>
       <ToastContainerWrapper />
