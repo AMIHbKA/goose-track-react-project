@@ -18,7 +18,7 @@ import {
 } from 'components/UserForm/UserForm.styled';
 import { UserInput } from 'components/UserInput/UserInput';
 import { AvatarUploader } from 'components/AvatarUploader/AvatarUploader';
-import { updateUser } from 'redux/auth/operations';
+import { refreshUser, updateUser } from 'redux/auth/operations';
 import {
   DatePickerStyled,
   PopperDateStyles,
@@ -29,20 +29,24 @@ const currentDate = dayjs(new Date()).format('DD/MM/YYYY');
 
 export const UserForm = () => {
   const dispatch = useDispatch();
+  const [avatarUrl, setAvatarUrl] = useState('');
   const [fileImage, setFileImage] = useState(null);
   const userInfo = useSelector(selectUser);
-  const { avatarUrl } = userInfo;
   console.log('avatarUrl', avatarUrl);
-  console.log('userInfo', userInfo);
   // const [avatarURL, setAvatarURL] = useState(null);
 
-  // useEffect(() => {
-  //   const getUserInfo = async () => {
-  //     dispatch(fetchUser());
-  //   };
-  //   console.log('useEffect');
-  //   getUserInfo();
-  // }, [dispatch]);
+  useEffect(() => {
+    setAvatarUrl(userInfo.avatarUrl);
+    console.log('userInfo.avatarUrl', userInfo.avatarUrl);
+  }, [userInfo.avatarUrl]);
+
+  useEffect(() => {
+    const getUserInfo = async () => {
+      dispatch(refreshUser());
+    };
+    console.log('useEffect');
+    getUserInfo();
+  }, [dispatch]);
 
   const handleSubmit = async values => {
     const formData = new FormData();

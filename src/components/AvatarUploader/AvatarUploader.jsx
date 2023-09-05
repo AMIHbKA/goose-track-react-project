@@ -1,25 +1,30 @@
 import React, { useState } from 'react';
-import { Img, Input, Label, Wrap, MainWrapper, AddIcon } from 'components/AvatarUploader/AvatarUploader.styled';
+import {
+  Img,
+  Input,
+  Label,
+  Wrap,
+  MainWrapper,
+  AddIcon,
+} from 'components/AvatarUploader/AvatarUploader.styled';
 
 export const AvatarUploader = ({ imageUrl, setFileImage }) => {
-    const [imagePreview, setImagePreview] = useState(imageUrl || '');
-
+  const [imagePreview, setImagePreview] = useState(imageUrl || '');
+  console.log('avatarUploader imageUrl', imageUrl);
   const handleImageChange = e => {
     const selectedFile = e.target.files[0];
     if (!selectedFile) {
       return;
     }
 
-    const imageUrl = URL.createObjectURL(selectedFile);
-
-    setImagePreview(imageUrl);
+    setImagePreview(URL.createObjectURL(selectedFile));
     setFileImage(selectedFile);
   };
 
   return (
     <MainWrapper>
       <Wrap>
-        <Img src={imagePreview} alt="Avatar Preview" />
+        <Img src={imagePreview || imageUrl} alt="Avatar Preview" />
       </Wrap>
 
       <Input
