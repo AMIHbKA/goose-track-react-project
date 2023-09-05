@@ -19,8 +19,12 @@ export const Input = styled(Field)`
   font-size: 14px;
   line-height: calc((18 / 14) * 100%);
 
+  &:hover, &:focus {
+    border-color: #111111;
+  }
+
   &::placeholder {
-    color: ${({ theme }) => theme.userAccount.inputText};
+    color: ${({ theme }) => theme.userAccount.border};
   }
 
   @media (min-width: ${props => props.theme.breakpoints.tablet} {

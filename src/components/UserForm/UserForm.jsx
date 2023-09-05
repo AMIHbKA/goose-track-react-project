@@ -33,9 +33,6 @@ export const UserForm = () => {
   const [fileImage, setFileImage] = useState(null);
   const userInfo = useSelector(selectUser);
 
-  console.log('userInfo', userInfo);
-  // const [avatarURL, setAvatarURL] = useState(null);
-
   useEffect(() => {
     setAvatarUrl(userInfo.avatarUrl);
   }, [userInfo.avatarUrl]);
@@ -44,7 +41,6 @@ export const UserForm = () => {
     const getUserInfo = async () => {
       dispatch(refreshUser());
     };
-    console.log('useEffect');
     getUserInfo();
   }, [dispatch]);
 
@@ -60,25 +56,18 @@ export const UserForm = () => {
     }
     formData.append('birthday', dayjs(values.birthday).format('DD/MM/YYYY'));
 
-    console.log('avatarURL', avatarUrl);
-    console.log('fileImage', fileImage);
     if (fileImage) {
       formData.append('avatar', fileImage);
     }
-    // else if (avatarUrl) {
-    //   console.log('formData.append(avatar, avatarUrl)', avatarUrl);
-    //   formData.append('avatar', avatarUrl);
-    // }
+  
     try {
       await dispatch(updateUser(formData));
-      // await dispatch(refreshUser());
+ 
       toast.success('Profile data changed successfully');
     } catch {
       toast.error('Something went wrong... Try again!');
     }
   };
-
-  console.log('userInfo', userInfo);
 
   return (
     <Formik
@@ -162,7 +151,7 @@ export const UserForm = () => {
           </Wrap>
           <Button
             type="submit"
-            // disabled={!isValid || !touched || isSubmitting || !dirty}
+            disabled={!isValid || !touched || isSubmitting || !dirty}
           >
             Save changes
           </Button>

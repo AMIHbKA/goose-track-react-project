@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { Field, Form } from 'formik';
-import {PlusIcon} from 'UI/icons'
+import { Form } from 'formik';
 
 export const Wrap = styled.div`
   display: flex;
@@ -39,10 +38,6 @@ export const UploadImage = styled.label`
   border: 1px solid red;
 `;
 
-/* export const FieldImg = styled(Field)`
-  width: 40px;
-`; */
-
 export const Button = styled.button`
   display: flex;
   justify-content: center;
@@ -52,7 +47,6 @@ export const Button = styled.button`
   margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
-  /* margin: 40px auto; */
   border-radius: 16px;
   font-weight: 600;
   font-size: 14px;
@@ -79,7 +73,6 @@ export const Img = styled.img`
 export const Title = styled.h2`
   margin: 0;
   margin-top: 20px;
-  /* margin-bottom: 40px; */
   text-align: center;
   font-weight: 700;
   font-size: 14px;
@@ -137,7 +130,7 @@ export const Label = styled.label`
   font-size: 12px;
   line-height: calc((14 / 12) * 100%);
   
-  @media (${({ theme }) => theme.breakpoints.tablet}) {
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     width: 354px;
     font-size: 14px;
    line-height: calc((18 / 14) * 100%);

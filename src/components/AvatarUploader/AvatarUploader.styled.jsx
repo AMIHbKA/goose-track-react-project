@@ -44,10 +44,8 @@ export const Label = styled.label`
   position: absolute;
   top: 85%;
   right: 20%;
-  /* right: 15px;
-  top: 62px; */
 
-  @media (min-width: 768px) {
+  @media (min-width: (min-width: ${props => props.theme.breakpoints.tablet}) {
     width: 24px;
     height: 24px;
   }
@@ -57,10 +55,10 @@ export const AddIcon = styled(PlusIcon)`
   width: 100%;
   height: 100%;
   display: block;
-  transition: ${props => props.theme.defaultTransition};
-  fill: ${props => props.theme.buttonBackgroundColor};
+  transition: all 250ms;
+  fill: #3e85f3;
   &:hover,
   &:focus {
-    fill: ${props => props.theme.buttonBackgroundColorHover};
+    fill:#3e85f3;
   }
 `;

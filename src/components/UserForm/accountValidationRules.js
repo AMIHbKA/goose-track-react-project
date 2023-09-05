@@ -14,7 +14,6 @@ const SUPPORTED_FORMATS = [
 ];
 
 const redexName = /^[a-zA-Z0-9_]*$/;
-const redexPhone = /^\380\d{9}$/;
 const redexSkype = /^\S[\S\s]{0,28}\S$/;
 
 export const userValidation = Yup.object().shape({
@@ -28,7 +27,6 @@ export const userValidation = Yup.object().shape({
     .max(16, 'TooLong16')
     .matches(redexName, 'Only letters')
     .required('NameRequired'),
-  // phone: Yup.string().matches(redexPhone, 'InvalidPhone'),
   phone: Yup.string(),
   email: Yup.string().email('Invalid email').required('Email is required'),
   birthday: Yup.date('YYYY-MM-DD'),
