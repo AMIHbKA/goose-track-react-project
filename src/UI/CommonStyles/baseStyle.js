@@ -34,3 +34,19 @@ export const calendarNavLinkStyle = css`
       theme.calendarToolBar.activeButtonBackground};
   }
 `;
+
+export const hoverBackgroundStyle = css`
+  transition: background-color 300ms ease-in-out;
+  &:hover,
+  &:focus {
+    background-color: ${props => props.theme.colors.hoverState};
+  }
+`;
+
+export const hoverLinkStyle = css`
+  transition: background-color 300ms ease-in-out;
+  &:hover,
+  &:focus {
+    color: ${props => props.theme.colors.hoverState};
+  }
+`;
