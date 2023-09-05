@@ -15,28 +15,31 @@ import {
   Wrapper,
 } from './AddOrEditTaskForm.styled';
 import { useDispatch } from 'react-redux';
-import { addTask } from 'redux/tasks/operations';
-import { notify } from 'utilities';
+import { addTask, updateTask } from 'redux/tasks/operations';
 
 export const AddOrEditTaskForm = ({
   defaulValues = {
     title: '',
     start: '00:00',
-    end: '00:01',
+    end: '01:00',
     priority: 'low',
   },
   option = 'add',
-  date = "2023-09-04",
+  date,
+  id,
+  status,
+  onActive
 }) => {
   const dispatch = useDispatch();
 
-  function validateText(value) {
+  const validateText = (value) => {
     let error;
     if (value === '') {
       error = 'Field is required';
     }
     return error;
   }
+
   const hours = [
     '00:00',
     '01:00',
@@ -66,15 +69,26 @@ export const AddOrEditTaskForm = ({
 
   const handleSubmit = values => {
     console.log(values);
-    const newTask = {
-      ...values,
-      date,
-      status: 'todo',
-    };
-    console.log(newTask)
-    dispatch(addTask(newTask))
-      // .then(() => notify('success', 'New task successfully added'))
-      // .catch(() => notify('error', 'An error occured adding new task'));
+    if (option === 'add') {
+      const newTask = {
+        ...values,
+        date,
+        status: 'to-do',
+      };
+      dispatch(addTask(newTask))
+    } 
+      
+    if (option === 'edit') {
+      const updatedTask = {
+        ...values,
+        date,
+        status,
+      };
+      console.log(updatedTask)
+      dispatch(updateTask({id, updatedTask}))
+    }
+
+    onActive()
   };
 
   return (
@@ -89,7 +103,7 @@ export const AddOrEditTaskForm = ({
     >
       {({ errors, values, setFieldValue, validateOnChange }) => (
         <AddForm>
-          <FormLabel htmlFor="title">
+          <FormLabel >
             Title
             <Input
               name="title"
@@ -101,7 +115,7 @@ export const AddOrEditTaskForm = ({
             {errors.title && <Error>{errors.title}</Error>}
           </FormLabel>
           <Wrapper>
-            <FormLabel htmlFor="start">
+            <FormLabel >
               Start
               <Input
                 as="select"
@@ -121,7 +135,7 @@ export const AddOrEditTaskForm = ({
               </Input>
             </FormLabel>
 
-            <FormLabel htmlFor="end">
+            <FormLabel>
               End
               <Input
                 as="select"
