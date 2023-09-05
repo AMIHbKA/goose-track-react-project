@@ -9,4 +9,5 @@ export {
   CommonInfoStringStyles,
   authButtonIcon,
   calendarNavLinkStyle,
+  hoverBackgroundStyle,
 } from './baseStyle';
