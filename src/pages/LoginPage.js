@@ -1,18 +1,24 @@
 import { Container } from 'components';
 import { LoginForm } from 'components/Forms/LoginForm/LoginForm';
 import { Helmet } from 'react-helmet';
+import styled from 'styled-components';
 
 const LoginPage = () => {
   return (
-    <section style={{ background: '#dcebf7', height: '100vh' }}>
-      <Container full_center>
+    <AuthSection>
+      <Container full_center login>
         <Helmet>
           <title>Login</title>
         </Helmet>
         <LoginForm />
       </Container>
-    </section>
+    </AuthSection>
   );
 };
+
+const AuthSection = styled.section`
+  height: 100vh;
+  background-color: #dcebf7;
+`;
 
 export default LoginPage;

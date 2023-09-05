@@ -40,11 +40,14 @@ export const App = () => {
           <Route path="/" element={<Layout />}>
             {token ? (
               <>
+                <Route
+                  index
+                  element={<Navigate to="/calendar/month" replace />}
+                />
                 <Route path="/account" element={<div>AccountPage</div>} />
                 <Route path="/calendar" element={<CalendarPage />}>
                   <Route path="month" element={<ChoosedMonth />} />
                   <Route path="day" element={<ChoosedDay />} />
-                  <Route index element={<Navigate to="month" />} />
                 </Route>
                 <Route path="/statistics" element={<StatisticsPage />} />
                 <Route
