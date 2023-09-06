@@ -64,12 +64,17 @@ export const darkTheme = {
     dateBackground: '#22232D',
     todayBadgeTextColor: '#22232D',
   },
+  choosedDay: {
+    addBtnBackground: commonStyles.colors.primary,
+    addBtnBorder: null,
+  },
   statistics: {
     linesColor: 'rgb(227 243 255 / 0.15)',
     linesWidth: '0.8px',
     borderColor: LIGHT_BLUE,
     backgroundColor: DARK_GRAYISH_BLUE,
     chartTextColor: LIGHT_COLOR,
+    warningMessageColor: commonStyles.colors.highPriorityBack,
   },
   feedbackModal: {
     backgroundColor: '#13151a',
@@ -82,6 +87,19 @@ export const darkTheme = {
     backgroundButton: '#21222c',
     starColor: '#ffac33',
     starColorDefault: '#353647',
+  },
+  userAccount: {
+    inputText: '#ffffff',
+    border: 'rgba(255, 255, 255, 0.15)',
+    buttonTextColor: '#FFFFFF',
+    mainBackground: DARK_GRAYISH_BLUE,
+    roleColor: 'rgba(250, 250, 250, 0.30)',
+  },
+  addTaskModal: {
+    background: '#171820',
+    border: '1px solid rgba(255 255 255 / 0.15)',
+    inputBorder: '1px solid rgba(255 255 255 / 0.15)',
+    inputBackground: '#171820',
   },
 };
 
@@ -116,11 +134,16 @@ export const lightTheme = {
     dateBackground: LIGHT_COLOR,
     todayBadgeTextColor: LIGHT_COLOR,
   },
+  choosedDay: {
+    addBtnBackground: LIGHT_BLUE,
+    addBtnBorder: `1px dashed ${commonStyles.colors.primary}`,
+  },
   statistics: {
     linesColor: LIGHT_BLUE,
     linesWidth: '1px',
     backgroundColor: LIGHT_COLOR,
     chartTextColor: DARK_COLOR,
+    warningMessageColor: commonStyles.colors.highPriority,
   },
   feedbackModal: {
     backgroundColor: '#ffffff',
@@ -133,5 +156,18 @@ export const lightTheme = {
     backgroundButton: ' #e5edfa',
     starColor: '#ffac33',
     starColorDefault: '#cec9c1',
+  },
+  userAccount: {
+    inputText: '#111111',
+    border: 'rgba(17, 17, 17, 0.15)',
+    buttonTextColor: '#FFFFFF',
+    mainBackground: '#FFFFFF',
+    roleColor: '#343434',
+  },
+  addTaskModal: {
+    background: '#fff',
+    border: '1px solid rgba(220 227 229 / 0.80)',
+    inputBorder: '0px',
+    inputBackground: '#F6F6F6',
   },
 };

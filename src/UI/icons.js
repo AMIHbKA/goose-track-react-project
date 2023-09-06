@@ -283,7 +283,7 @@ export const PencilIcon = ({ size = 16, stroke = '#3e85f3', ...props }) => {
   );
 };
 
-export const PlusIcon = ({ size = 32, stroke = '#fff', ...props }) => {
+export const PlusIcon = ({ size = 32, fill = '#3e85f3', ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -294,7 +294,8 @@ export const PlusIcon = ({ size = 32, stroke = '#fff', ...props }) => {
     >
       <path
         fill="none"
-        stroke={stroke}
+        style={{ fill }}
+        stroke="#808080"
         strokeLinejoin="round"
         strokeLinecap="round"
         strokeMiterlimit="4"
