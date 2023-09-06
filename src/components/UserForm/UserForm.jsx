@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
 import { Formik } from 'formik';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -23,26 +21,15 @@ import {
   DatePickerStyled,
   PopperDateStyles,
 } from 'components/UserForm/DatePicker.styled';
-import { userValidation } from 'components/UserForm/accountValidationRules';
+// import { userValidation } from 'components/UserForm/accountValidationRules';
 
 const currentDate = dayjs(new Date()).format('DD/MM/YYYY');
 
 export const UserForm = () => {
   const dispatch = useDispatch();
-  const [avatarUrl, setAvatarUrl] = useState('');
-  const [fileImage, setFileImage] = useState(null);
-  const userInfo = useSelector(selectUser);
 
-  useEffect(() => {
-    setAvatarUrl(userInfo.avatarUrl);
-  }, [userInfo.avatarUrl]);
-
-  // useEffect(() => {
-  //   const getUserInfo = async () => {
-  //     await dispatch(refreshUser());
-  //   };
-  //   getUserInfo();
-  // }, [dispatch]);
+  const { name, birthday, email, skype, avatarUrl, phone } =
+    useSelector(selectUser);
 
   const handleSubmit = async values => {
     const formData = new FormData();
@@ -56,38 +43,34 @@ export const UserForm = () => {
     }
     formData.append('birthday', dayjs(values.birthday).format('DD/MM/YYYY'));
 
-    if (fileImage) {
-      formData.append('avatar', fileImage);
+    if (values.avatar) {
+      formData.append('avatar', values.avatar);
     }
 
-    try {
-      await dispatch(updateUser(formData));
-
-      toast.success('Profile data changed successfully');
-    } catch {
-      toast.error('Something went wrong... Try again!');
-    }
+    dispatch(updateUser(formData));
   };
+
+  console.log(name, birthday, email, skype, avatarUrl, phone);
 
   return (
     <Formik
       initialValues={{
-        name: userInfo?.name || '',
-        birthday: userInfo?.birthday || `${currentDate}`,
-        email: userInfo?.email || '',
-        phone: userInfo?.phone || '',
-        skype: userInfo?.skype || '',
+        name: name || '',
+        birthday: birthday || `${currentDate}`,
+        email: email || '',
+        phone: phone || '',
+        skype: skype || '',
+        avatar: null,
       }}
-      validationSchema={userValidation}
-      onSubmit={values => {
-        setTimeout(() => {
-          handleSubmit(values);
-        }, 400);
+      // validationSchema={userValidation}
+      onSubmit={async values => {
+        handleSubmit(values);
+        console.log('values', values);
       }}
     >
-      {({ values, setFieldValue, isValid, touched, isSubmitting, dirty }) => (
+      {({ values, setFieldValue }) => (
         <AccountForm>
-          <AvatarUploader imageUrl={avatarUrl} setFileImage={setFileImage} />
+          <AvatarUploader imageUrl={avatarUrl} setAvatar={setFieldValue} />
           <Title>{values.name}</Title>
           <RoleTitle>User</RoleTitle>
           <Wrap>
@@ -110,7 +93,7 @@ export const UserForm = () => {
                         sx: PopperDateStyles,
                       },
                       textField: {
-                        placeholder: userInfo.birthday || `${currentDate}`,
+                        placeholder: birthday || `${currentDate}`,
                       },
                     }}
                     views={['year', 'month', 'day']}
@@ -149,10 +132,7 @@ export const UserForm = () => {
               />
             </Wrapper>
           </Wrap>
-          <Button
-            type="submit"
-            disabled={!isValid || !touched || isSubmitting || !dirty}
-          >
+          <Button type="submit" onClick={() => console.log('click')}>
             Save changes
           </Button>
         </AccountForm>
