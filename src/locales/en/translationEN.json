@@ -28,5 +28,16 @@
     "successMessageDelete": "Your review successfully deleted.",
     "successMessageEdit": "Your review successfully edited.Thank you!",
     "errorMessage": "Oops! Something goes wrong"
-  }
+  },
+
+  "buttonLogOut": " Log Out",
+
+  "navigationPanel": {
+    "panel": "User Panel",
+    "account": "My account",
+    "calendar": "Calendar",
+    "statistics": "Statistics"
+  },
+
+  "edOrEditTasrForm": {}
 }
