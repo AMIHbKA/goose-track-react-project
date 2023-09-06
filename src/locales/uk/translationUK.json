@@ -38,5 +38,14 @@
     "FRI": "ПТ",
     "SAT": "СБ",
     "SUN": "НД"
+  },
+
+  "buttonLogOut": "Вийти",
+
+  "navigationPanel": {
+    "panel": "Панель користувача",
+    "account": "Мій кабінет",
+    "calendar": "Календар",
+    "statistics": "Статистика"
   }
 }

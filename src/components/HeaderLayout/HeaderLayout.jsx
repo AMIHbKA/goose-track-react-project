@@ -100,9 +100,9 @@ export const HeaderLayout = ({ currentTheme, currentReview }) => {
             )}
             <UserInfo>
               <ThemeToggler />
-              <UserName>{user.name}</UserName>
+              {/* <UserName>{user.name}</UserName> */}
               <UserPhoto>
-                <img src={user.avatarUrl} alt="user avatar" />
+                {/* <img src={user.avatarUrl} alt="user avatar" /> */}
               </UserPhoto>
             </UserInfo>
           </UserPanel>

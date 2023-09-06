@@ -16,6 +16,7 @@ import {
 } from './AddOrEditTaskForm.styled';
 import { useDispatch } from 'react-redux';
 import { addTask, updateTask } from 'redux/tasks/operations';
+// import { useTranslation } from 'react-i18next';
 
 export const AddOrEditTaskForm = ({
   defaulValues = {
@@ -28,17 +29,18 @@ export const AddOrEditTaskForm = ({
   date,
   id,
   status,
-  onActive
+  onActive,
 }) => {
+  // const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const validateText = (value) => {
+  const validateText = value => {
     let error;
     if (value === '') {
       error = 'Field is required';
     }
     return error;
-  }
+  };
 
   const hours = [
     '00:00',
@@ -75,20 +77,20 @@ export const AddOrEditTaskForm = ({
         date,
         status: 'to-do',
       };
-      dispatch(addTask(newTask))
-    } 
-      
+      dispatch(addTask(newTask));
+    }
+
     if (option === 'edit') {
       const updatedTask = {
         ...values,
         date,
         status,
       };
-      console.log(updatedTask)
-      dispatch(updateTask({id, updatedTask}))
+      console.log(updatedTask);
+      dispatch(updateTask({ id, updatedTask }));
     }
 
-    onActive()
+    onActive();
   };
 
   return (
@@ -103,7 +105,7 @@ export const AddOrEditTaskForm = ({
     >
       {({ errors, values, setFieldValue, validateOnChange }) => (
         <AddForm>
-          <FormLabel >
+          <FormLabel>
             Title
             <Input
               name="title"
@@ -115,7 +117,7 @@ export const AddOrEditTaskForm = ({
             {errors.title && <Error>{errors.title}</Error>}
           </FormLabel>
           <Wrapper>
-            <FormLabel >
+            <FormLabel>
               Start
               <Input
                 as="select"
