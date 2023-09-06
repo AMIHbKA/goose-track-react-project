@@ -93,13 +93,14 @@ export const darkTheme = {
     border: 'rgba(255, 255, 255, 0.15)',
     buttonTextColor: '#FFFFFF',
     mainBackground: DARK_GRAYISH_BLUE,
-    roleColor:  'rgba(250, 250, 250, 0.30)'
+    roleColor: 'rgba(250, 250, 250, 0.30)',
+  },
   addTaskModal: {
-    background: "#171820",
+    background: '#171820',
     border: '1px solid rgba(255 255 255 / 0.15)',
     inputBorder: '1px solid rgba(255 255 255 / 0.15)',
-    inputBackground: "#171820",
-  }
+    inputBackground: '#171820',
+  },
 };
 
 export const lightTheme = {
@@ -161,11 +162,12 @@ export const lightTheme = {
     border: 'rgba(17, 17, 17, 0.15)',
     buttonTextColor: '#FFFFFF',
     mainBackground: '#FFFFFF',
-    roleColor:  '#343434',
+    roleColor: '#343434',
+  },
   addTaskModal: {
-    background: "#fff",
-    border: "1px solid rgba(220 227 229 / 0.80)",
+    background: '#fff',
+    border: '1px solid rgba(220 227 229 / 0.80)',
     inputBorder: '0px',
-    inputBackground: '#F6F6F6'
-  }
+    inputBackground: '#F6F6F6',
+  },
 };
