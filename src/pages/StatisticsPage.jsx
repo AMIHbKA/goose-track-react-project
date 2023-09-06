@@ -1,4 +1,6 @@
+import { CalendarToolbar } from 'components';
 import {
+  StatisticsPageWrapper,
   StatisticsPageContainer,
   StatisticsPageHead,
   StatisticsPageLegend,
@@ -7,16 +9,18 @@ import StatisticsChart from 'components/StatisticsPage/StatisticsChart/Statistic
 
 const StatisticsPage = () => {
   return (
-    <StatisticsPageContainer>
-      <StatisticsPageHead>
-        <div>PeriodPaginator</div>
-        <StatisticsPageLegend>
-          <li>By Day</li>
-          <li>By Month</li>
-        </StatisticsPageLegend>
-      </StatisticsPageHead>
-      <StatisticsChart />
-    </StatisticsPageContainer>
+    <StatisticsPageWrapper>
+      <StatisticsPageContainer>
+        <StatisticsPageHead>
+          <CalendarToolbar periodSelector={false} />
+          <StatisticsPageLegend>
+            <li>By Day</li>
+            <li>By Month</li>
+          </StatisticsPageLegend>
+        </StatisticsPageHead>
+        <StatisticsChart />
+      </StatisticsPageContainer>
+    </StatisticsPageWrapper>
   );
 };
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const Header = styled.header`
+export const MainSection = styled.section`
   text-align: center;
   min-height: 100vh;
   background-color: ${props => props.theme.colors.primary};
@@ -9,10 +9,6 @@ export const Header = styled.header`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  @media (min-width: ${props => props.theme.breakpoints.laptopL}) {
-    padding: 187px 200px 200px;
-  }
 `;
 
 export const Logo = styled.a`
@@ -29,6 +25,7 @@ export const LogoImg = styled.picture`
   width: 142px;
   height: 142px;
   margin: 0 auto;
+  border-radius: 100px;
 
   img {
     width: 100%;
@@ -49,10 +46,13 @@ export const LogoTitle = styled.strong`
 `;
 
 export const LinkContainer = styled.nav`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    display: flex;
     flex-direction: row-reverse;
-    align-items: center;
     justify-content: center;
     gap: 24px;
   }
@@ -60,16 +60,18 @@ export const LinkContainer = styled.nav`
 
 export const LoginLink = styled(Link)`
   display: flex;
+  justify-content: center;
+  width: 131px;
+  height: 46px;
   align-items: center;
-  padding: 14px 33px;
   border-radius: 16px;
   gap: 6px;
   color: #3e85f3;
   background-color: #fff;
-  margin-bottom: 16px;
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    margin-bottom: 0;
+    width: 121px;
+    height: 49px;
   }
 `;
 

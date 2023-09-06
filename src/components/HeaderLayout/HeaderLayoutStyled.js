@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { hoverBackgroundStyle } from 'UI';
 
 export const Header = styled.header`
   /* outline: 2px solid green; */
   padding: 24px 20px;
-  margin-bottom: 64px;
+  margin-bottom: 40px;
   display: flex;
   justify-content: flex-end;
 
@@ -68,11 +69,7 @@ export const FeedBackButtonStyled = styled.button`
   font-weight: 600;
   line-height: 1.33;
   cursor: pointer;
-  transition: background-color 0.3s;
-
-  :hover {
-    background-color: #2b78ef;
-  }
+  ${hoverBackgroundStyle}
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     padding: 12px 32px;

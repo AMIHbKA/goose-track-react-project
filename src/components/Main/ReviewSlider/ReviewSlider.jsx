@@ -4,14 +4,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-
-import { RightArrow } from 'UI';
 import {
-  Rewiews,
+  Reviews,
   Title,
-  Container,
   Thumb,
-  RewiewText,
+  ReviewText,
   PeopleName,
   Rating,
   Wrapper,
@@ -21,26 +18,28 @@ import {
   StyledLeftArrow,
   TestimonialCard,
   StyledButton,
+  StyledRightArrow,
 } from './ReviewSlider.styled';
-import { getReviews } from '../../../UI/servisesHttp/getReviews';
+import { getReviews } from '../../../redux/review/getReviews';
+import { Container } from 'components';
 
 export const ReviewSlider = () => {
-  const [people, setPeople] = useState([]);
+  const [reviewCards, setReviewCards] = useState([]);
   const maxStars = 5;
 
   useEffect(() => {
     async function fetchReviews() {
       const reviews = await getReviews();
-      setPeople(reviews);
+      setReviewCards(reviews);
     }
     fetchReviews();
   }, []);
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <Rewiews>
-        <Title>rewiews</Title>
-        <Container>
+      <Reviews>
+        <Container main_page>
+          <Title>reviews</Title>
           <Swiper
             slidesPerView={1}
             spaceBetween={10}
@@ -56,24 +55,27 @@ export const ReviewSlider = () => {
               nextEl: '.swiper-button-next',
             }}
             autoplay={{
-              delay: 2500,
+              delay: 10000,
               disableOnInteraction: false,
             }}
             className="mySwiper"
           >
-            {people?.map(person => {
-              const { _id, stars, avatarUrl, name, reviewText } = person;
-
+            {reviewCards.map(item => {
+              const { _id, stars, owner, reviewText } = item;
               return (
                 <SwiperSlide
                   key={_id}
-                  style={{ display: 'flex', height: 'auto' }}
+                  style={{
+                    height: 'auto',
+                    display: 'flex',
+                    justifyContent: 'center',
+                  }}
                 >
                   <TestimonialCard>
                     <Thumb>
-                      <PepleImg src={avatarUrl} alt={name} />
+                      <PepleImg src={owner?.avatarUrl} alt="photo of owner" />
                       <Wrapper>
-                        <PeopleName>{name}</PeopleName>
+                        <PeopleName>{owner?.name}</PeopleName>
                         <Rating>
                           {[...Array(maxStars)].map((_, index) => (
                             <RatingStarIcon
@@ -84,22 +86,22 @@ export const ReviewSlider = () => {
                         </Rating>
                       </Wrapper>
                     </Thumb>
-                    <RewiewText>{reviewText}</RewiewText>
+                    <ReviewText>{reviewText}</ReviewText>
                   </TestimonialCard>
                 </SwiperSlide>
               );
             })}
+            <ArrowContainer>
+              <StyledButton className="swiper-button-prev">
+                <StyledLeftArrow />
+              </StyledButton>
+              <StyledButton className="swiper-button-next">
+                <StyledRightArrow />
+              </StyledButton>
+            </ArrowContainer>
           </Swiper>
         </Container>
-        <ArrowContainer>
-          <StyledButton className="swiper-button-prev">
-            <StyledLeftArrow />
-          </StyledButton>
-          <StyledButton className="swiper-button-next">
-            <RightArrow />
-          </StyledButton>
-        </ArrowContainer>
-      </Rewiews>
+      </Reviews>
     </Suspense>
   );
 };

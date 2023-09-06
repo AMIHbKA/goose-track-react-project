@@ -1,11 +1,7 @@
 import styled from 'styled-components';
-import { Rating } from 'react-simple-star-rating';
 
 export const ModalContainer = styled.form`
   min-width: 335px;
-  min-height: 290px;
-  /* color: rgb(52 52 52 / 0.8); */
-  /* background-color: #fff; */
   background-color: ${({ theme }) => theme.feedbackModal.backgroundColor};
   color: ${({ theme }) => theme.feedbackModal.colorTitle};
 
@@ -25,6 +21,12 @@ export const RaitingContainer = styled.div`
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     margin-bottom: 24px;
   }
+
+  ${({ saveClicked }) =>
+    saveClicked &&
+    `
+    pointer-events: none;
+  `}
 `;
 
 export const RaitingLabel = styled.label`
@@ -32,25 +34,11 @@ export const RaitingLabel = styled.label`
   font-size: 12px;
 `;
 
-export const StyledRating = styled(Rating)`
-  .star {
-    color: #ff0000;
-  }
-`;
-
 export const StyledReviewButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 8px;
-`;
-
-export const ReviewContainer = styled.div`
-  margin-bottom: 20px;
-
-  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    margin-bottom: 24px;
-  }
 `;
 
 export const LabelText = styled.label`
@@ -67,9 +55,8 @@ export const EditButton = styled.button`
   width: 30px;
   height: 30px;
   border: none;
-  /* background-color: #e3f3ff; */
   background-color: ${({ theme }) =>
-    theme.feedbackModal.backgroundButtonEditColor};
+    theme.feedbackModal.backgroundButtonSecondaryColor};
   margin-right: 8px;
   color: #3e85f3;
   transition: all linear 0.3s;
@@ -78,6 +65,13 @@ export const EditButton = styled.button`
     color: #fff;
     background-color: #3e85f3;
   }
+
+  ${({ editMode }) =>
+    editMode &&
+    `
+    color: #fff;
+    background-color: #3e85f3;
+  `}
 `;
 
 export const DeleteButton = styled.button`
@@ -112,6 +106,12 @@ export const ReviewInput = styled.textarea`
     min-width: 404px;
     min-height: 127px;
   }
+
+  ${({ saveClicked }) =>
+    saveClicked &&
+    `
+    pointer-events: none;
+  `}
 `;
 
 export const ButtonContainer = styled.div`
@@ -119,15 +119,19 @@ export const ButtonContainer = styled.div`
   gap: 10px;
   border: none;
   font-weight: 600;
+  margin-top: 20px;
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    margin-top: 24px;
+  }
 `;
 
 export const SaveEditButton = styled.button`
   min-width: 144px;
-  /* background-color: #e5edfa; */
-  background-color: ${({ theme }) => theme.feedbackModal.backgroundButton};
-  /* color: #343434; */
-  color: ${({ theme }) => theme.feedbackModal.textColor};
-  border: none;
+  background-color: ${({ theme }) =>
+    theme.feedbackModal.backgroundButtonPrimaryColor};
+  color: ${({ theme }) => theme.feedbackModal.buttonColor};
+  border: 0;
   padding: 12px;
   border-radius: 8px;
   font-weight: 600;
@@ -138,36 +142,22 @@ export const SaveEditButton = styled.button`
     padding: 15px;
   }
 
-  ${props =>
-    props.rating > 0 &&
-    !props.cancelButtonFocused &&
-    `
-    background-color: #3e85f3;
-    color: #fff;
-  `}
-
-  ${props =>
-    props.cancelButtonFocused &&
-    `
-    background-color: #e5edfa;
-    color: #343434;
-  `}
-
   &:disabled {
-    /* pointer-events: none; */
+    background-color: ${({ theme }) => theme.feedbackModal.backgroundButton};
+    color: ${({ theme }) => theme.feedbackModal.textColor};
+    pointer-events: none;
   }
 
-  &:hover {
-    background-color: #3e85f3;
-    color: #fff;
+  &:hover,
+  &:focus {
+    background-color: ${({ theme }) => theme.colors.hoverState};
+    color: ${({ theme }) => theme.feedbackModal.buttonColor};
   }
 `;
 
 export const CancelButton = styled.button`
   min-width: 144px;
-  /* background-color: #e5edfa; */
   background-color: ${({ theme }) => theme.feedbackModal.backgroundButton};
-  /* color: #343434; */
   color: ${({ theme }) => theme.feedbackModal.textColor};
   border: none;
   padding: 12px;

@@ -1,5 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
+import 'react-toastify/dist/ReactToastify.css';
+import { createGlobalStyle } from 'styled-components';
 import InterRegular from './fonts/Inter/Inter-Regular.woff2';
 import InterMedium from './fonts/Inter/Inter-Medium.woff2';
 import InterSemiBold from './fonts/Inter/Inter-SemiBold.woff2';
@@ -10,6 +11,25 @@ import CoolveticaRegular from './fonts/Coolvetica/Coolvetica-Regular.woff2';
 import CoolveticaItalic from './fonts/Coolvetica/Coolvetica-Italic.woff2';
 
 export const GlobalStyle = createGlobalStyle`
+:root {
+--toastify-toast-width: 320px;
+--toastify-text-color-light: ${({ theme }) => theme.colors.mainText};
+--toastify-text-color-dark: ${({ theme }) => theme.colors.mainText};  
+--toastify-text-color-success: ${({ theme }) => theme.colors.primary}; 
+--toastify-font-family: Inter; 
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--success {
+  background-color: #fff;
+}
+
+.Toastify__toast-theme--dark {
+  background-color: ${({ theme }) => theme.colors.secondBack};
+  border-color: #000;
+}
+.Toastify__toast-theme--light {
+}
+
   @font-face {
     font-family: Inter;
     font-weight: 700;
