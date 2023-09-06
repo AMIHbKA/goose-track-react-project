@@ -6,11 +6,19 @@ import ColumnsTasksList from '../ColumnsTasksList/ColumnsTasksList';
 import TasksColumnStyled from './TasksColumnStyled';
 import TaskColumnCard from '../TaskColumnCard/TaskColumnCard';
 import { useMobile } from 'hooks';
+import { Modal } from 'components';
+import { AddOrEditTaskForm } from 'components/Forms/AddOrEditTaskForm/AddOrEditTaskForm';
+import { useState } from 'react';
 
 const TasksColumn = ({ stage, tasks, maxHeight }) => {
   const {
     colors: { mainText },
   } = useTheme();
+  const [showModal, setShowModal] = useState(false);
+
+const onShowModal = () => {
+setShowModal(s => !s);
+};
 
   tasks.splice(9, 50);
 
@@ -26,13 +34,18 @@ const TasksColumn = ({ stage, tasks, maxHeight }) => {
           <TaskColumnCard key={task._id} task={task} />
         ))}
         {isMobile && (
-          <AddTaskBtn noTasks={noTasks}>
+          <AddTaskBtn noTasks={noTasks} onClick={onShowModal}>
             <PlusIcon size={24} stroke={mainText} /> <div>AddTask</div>
           </AddTaskBtn>
         )}
+        {showModal && (
+            <Modal onActive={onShowModal}>
+              <AddOrEditTaskForm onActive={onShowModal}/>
+            </Modal>
+          )}
       </ColumnsTasksList>
       {isMobile || (
-        <AddTaskBtn noTasks={noTasks}>
+        <AddTaskBtn noTasks={noTasks} onClick={onShowModal}>
           <PlusIcon size={24} stroke={mainText} /> <div>AddTask</div>
         </AddTaskBtn>
       )}

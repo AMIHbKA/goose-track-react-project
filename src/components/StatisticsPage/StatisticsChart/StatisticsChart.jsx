@@ -16,6 +16,10 @@ import {
   StatisticsChartWrapperExternal,
   StatisticsChartWrapperInternal,
 } from './StatisticsChartStyled';
+import { useSelector } from 'react-redux';
+import { getTasks } from 'redux/tasks/selectors';
+
+const tasks = useSelector(getTasks)
 
 const data = [
   {

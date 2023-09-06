@@ -5,37 +5,43 @@ import CalendarHead from '../CalendarHead/CalendarHead';
 import TasksColumnList from './TasksColumnList/TasksColumnList';
 import ChoosedDayContainer from './ChoosedDayContainer';
 import { api } from 'utilities';
+import { useSelector } from 'react-redux';
+import { getTasks } from 'redux/tasks/selectors';
+import { useLocation } from 'react-router';
+import { getDate } from 'redux/date/selectors';
 
 const ChoosedDay = () => {
-  const date = new Date('2023-09-01');
+  const tasks = useSelector(getTasks)
+
+  const date = useSelector(getDate);
+  console.log('date', date)
   const weekDates = getWeekDatesForDate(date);
-
-  const [tasks, setTasks] = useState([]);
-
-  const { isLoggedIn } = useAuth();
+  // const [tasks, setTasks] = useState([]);
+  
+  // const { isLoggedIn } = useAuth();
 
   if (tasks) {
     console.log('tasks', tasks);
   }
 
-  useEffect(() => {
-    if (!isLoggedIn) {
-      setTasks([]);
+  // useEffect(() => {
+  //   if (!isLoggedIn) {
+  //     setTasks([]);
 
-      return;
-    }
+  //     return;
+  //   }
 
-    const fetchTasks = async () => {
-      const response = await api.instance.get('/tasks', {
-        year: 2023,
-        month: 9,
-      });
+  //   const fetchTasks = async () => {
+  //     const response = await api.instance.get('/tasks', {
+  //       year: 2023,
+  //       month: 9,
+  //     });
 
-      setTasks(response.data.tasks);
-    };
+  //     setTasks(response.data.tasks);
+  //   };
 
-    fetchTasks();
-  }, [isLoggedIn]);
+  //   fetchTasks();
+  // }, [isLoggedIn]);
 
   return (
     <ChoosedDayContainer>

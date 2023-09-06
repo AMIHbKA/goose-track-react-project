@@ -61,13 +61,13 @@ export const updateTask = createAsyncThunk(
 
 export const deleteTask = createAsyncThunk(
     "tasks/deleteTask",
-    async (id, thunkApi) => {
+    async (_id, thunkApi) => {
         try {
             const token = getToken(thunkApi);
             api.setAuthHeader(token);
-            const response = await api.instance.delete(`tasks/${id}`); 
-            const result = response.data;
-            return result;
+            const response = await api.instance.delete(`tasks/${_id}`); 
+            // const result = response.data;
+            return _id;
         } catch (error) {
             notify('error', error.response.data.data || 'Oops! Something goes wrong');
             return thunkApi.rejectWithValue(error.message);

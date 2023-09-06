@@ -7,9 +7,11 @@ import { addDays, addMonths,
   // getDate, getMonth, getYear 
 } from 'date-fns';
 // import { useEffect } from "react"
-// import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
+import { setDate } from 'redux/date/dateSlice';
+import { getDate } from 'redux/date/selectors';
 // import { fetchTasks } from 'redux/tasks/operations';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 // import { getTasks } from 'redux/tasks/selectors';
 
 export const DAY = 'day';
@@ -18,10 +20,10 @@ export const NEXT = 'next';
 export const PREVIOUS = 'previous';
 
 export const CalendarToolbar = ({ periodSelector = true }) => {
-  const [date, setDate] = useState(Date.now());
+  // const [date, setDate] = useState(Date.now());
   const [activePeriod, setActivePeriod] = useState(MONTH);
-  // const dispatch = useDispatch()
-  // const tasks = useSelector(getTasks)
+  const dispatch = useDispatch()
+  const date = useSelector(getDate)
 
   // const year = getYear(date)
   // const month = getMonth(date)
@@ -34,11 +36,11 @@ export const CalendarToolbar = ({ periodSelector = true }) => {
         case MONTH:
           const month = addMonths(new Date(date), 1);
 
-          setDate(month);
+          dispatch(setDate(month));
           break;
         case DAY:
           const day = addDays(new Date(date), 1);
-          setDate(day);
+          dispatch(setDate(day));
           break;
         default:
           break;
@@ -48,11 +50,11 @@ export const CalendarToolbar = ({ periodSelector = true }) => {
         case MONTH:
           const month = addMonths(new Date(date), -1);
 
-          setDate(month);
+          dispatch(setDate(month));
           break;
         case DAY:
           const day = addDays(new Date(date), -1);
-          setDate(day);
+          dispatch(setDate(day));
           break;
         default:
           break;
@@ -67,11 +69,11 @@ export const CalendarToolbar = ({ periodSelector = true }) => {
   return (
     <Container>
       <PeriodPaginator
-        date={date}
+        
         periodType={activePeriod}
         changeDate={changeDate}
       />
-      {periodSelector && <PeriodTypeSelect selectPeriod={selectPeriod} />}
+      {periodSelector && <PeriodTypeSelect selectPeriod={selectPeriod} date={date}/>}
     </Container>
   );
 };

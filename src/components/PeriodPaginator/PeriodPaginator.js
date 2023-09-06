@@ -6,6 +6,10 @@ import { DAY, MONTH, NEXT, PREVIOUS } from 'components/CalendarToolbar/CalendarT
 import { ButtonDatePicker } from 'components/DatePicker/DatePicker';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { setDate } from 'redux/date/dateSlice';
+import { getDate } from 'redux/date/selectors';
 
 export const formatDate =(currDate, periodType) => {
 
@@ -24,20 +28,23 @@ export const formatDate =(currDate, periodType) => {
   
 }
 
-export const PeriodPaginator = ({date, periodType, changeDate }) => {
- const [value, setValue] = useState(date);
+export const PeriodPaginator = ({ periodType, changeDate }) => {
+//  const [value, setValue] = useState(date);
 
- useEffect(()=> {
-  setValue(date)
- }, [date])
+ const date = useSelector(getDate)
+  const dispatch = useDispatch()
+//  useEffect(()=> {
+//   setValue(date)
+//  }, [date])
+
 
 
   return (
     <Wrapper>
       <ButtonDatePicker
-          label={formatDate(value, periodType)}
-          value={value}
-          onChange={(newValue) => setValue(newValue)}
+          label={formatDate(date, periodType)}
+          value={date}
+          onChange={(newValue) => dispatch(setDate(newValue))}
           
         />
       
