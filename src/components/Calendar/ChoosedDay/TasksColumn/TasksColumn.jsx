@@ -1,11 +1,11 @@
 import { useTheme } from 'styled-components';
+import { useMobile } from 'hooks';
 import { PlusIcon } from 'UI';
 import AddTaskBtn from '../AddTaskBtn/AddTaskBtn';
 import ColumnHeadBar from '../ColumnHeadBar/ColumnHeadBar';
 import ColumnsTasksList from '../ColumnsTasksList/ColumnsTasksList';
 import TasksColumnStyled from './TasksColumnStyled';
 import TaskColumnCard from '../TaskColumnCard/TaskColumnCard';
-import { useMobile } from 'hooks';
 
 const TasksColumn = ({ stage, tasks, maxHeight }) => {
   const {
@@ -19,9 +19,13 @@ const TasksColumn = ({ stage, tasks, maxHeight }) => {
   const noTasks = !tasks || !tasks.length;
 
   return (
-    <TasksColumnStyled maxHeight={maxHeight}>
+    <TasksColumnStyled maxHeight={maxHeight} className="TasksColumnStyled">
       <ColumnHeadBar stage={stage} />
-      <ColumnsTasksList maxHeight={maxHeight} noTasks={noTasks}>
+      <ColumnsTasksList
+        maxHeight={maxHeight}
+        noTasks={noTasks}
+        className="ColumnsTasksList"
+      >
         {tasks.map(task => (
           <TaskColumnCard key={task._id} task={task} />
         ))}

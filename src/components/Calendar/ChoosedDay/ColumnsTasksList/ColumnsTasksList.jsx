@@ -9,13 +9,19 @@ const ColumnsTasksList = styled.div`
 
   overflow-y: auto;
 
-  outline: 1px solid red;
-
   ${({ noTasks }) =>
     noTasks ||
     `
     margin-top: 24px;
     `}
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    max-height: ${props => props.maxHeight - 195}px;
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints.laptop}) {
+    max-height: ${props => props.maxHeight - 199}px;
+  }
 `;
 
 export default ColumnsTasksList;

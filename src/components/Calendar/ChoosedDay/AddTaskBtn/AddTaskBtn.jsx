@@ -33,7 +33,7 @@ const AddTaskBtn = styled.button`
     position: sticky;
     bottom: 0;
 
-    width: calc(100vw - 40px - 18px - 19px);
+    width: calc(100vw - 40px - 18px - 20px);
 
     ${({ noTasks }) =>
       noTasks &&
@@ -47,6 +47,14 @@ const AddTaskBtn = styled.button`
       tasks ||
       `
       margin-top: 28px;
+      `}
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints.laptop}) {
+    ${({ tasks }) =>
+      tasks ||
+      `
+      margin-top: 32px;
       `}
   }
 `;
