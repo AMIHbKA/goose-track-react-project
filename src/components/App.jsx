@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Layout, ThemeProvider } from 'components';
+import { Layout, ThemeProvider, ToastContainerWrapper } from 'components';
 import { useDispatch } from 'react-redux';
 import { useAuth } from 'hooks';
 import { useEffect } from 'react';
@@ -9,17 +9,21 @@ import { MainPage } from 'pages/MainPage';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { GlobalStyle } from 'UI';
+import { useSelector } from 'react-redux';
+import { selectToken } from 'redux/auth/selectors';
 
 const LoginPage = lazy(() => import('../pages/LoginPage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const StatisticsPage = lazy(() => import('../pages/StatisticsPage'));
 const CalendarPage = lazy(() => import('../pages/CalendarPage'));
+const ChoosedMonth = lazy(() => import('./Calendar/ChoosedMonth/ChoosedMonth'));
+const ChoosedDay = lazy(() => import('./Calendar/ChoosedDay/ChoosedDay'));
 const AccountPage = lazy(() => import('../pages/AccountPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  // const { isRefreshing, isLoggedIn } = useAuth();
-  const { isLoggedIn } = useAuth();
+  const token = useSelector(selectToken);
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -27,21 +31,24 @@ export const App = () => {
 
   // console.log('app isLoggedIn', isLoggedIn);
 
-  // return isRefreshing ? (
-  //   <b>Refreshing user...</b>
-  // ) :
-  return (
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
     <ThemeProvider>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <GlobalStyle />
         <Routes>
           <Route path="/" element={<Layout />}>
-            {isLoggedIn ? (
+            {token ? (
               <>
+                <Route
+                  index
+                  element={<Navigate to="/calendar/month" replace />}
+                />
                 <Route path="/account" element={<AccountPage />} />
                 <Route path="/calendar" element={<CalendarPage />}>
-                  <Route path="day" element={<div>ChoosedDay</div>} />
-                  <Route path="month" element={<div>ChoosedMonth</div>} />
+                  <Route path="month" element={<ChoosedMonth />} />
+                  <Route path="day" element={<ChoosedDay />} />
                 </Route>
                 <Route path="/statistics" element={<StatisticsPage />} />
                 <Route
@@ -60,6 +67,7 @@ export const App = () => {
           </Route>
         </Routes>
       </LocalizationProvider>
+      <ToastContainerWrapper />
     </ThemeProvider>
   );
 };

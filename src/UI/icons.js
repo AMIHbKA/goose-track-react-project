@@ -294,8 +294,8 @@ export const PlusIcon = ({ size = 32, fill = '#3e85f3', ...props }) => {
     >
       <path
         fill="none"
-        style={{ fill }} // Задаємо колір заливки через стиль
-        stroke="#808080" // Змінити колір stroke на сірий
+        style={{ fill }}
+        stroke="#808080"
         strokeLinejoin="round"
         strokeLinecap="round"
         strokeMiterlimit="4"
