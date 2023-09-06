@@ -83,7 +83,6 @@ export const updateUser = createAsyncThunk(
     try {
       const response = await api.instance.patch('user/info', credentials);
 
-      console.log('response', response);
       // After successful registration, add the token to the HTTP header
       notify('success', response.data.message);
       return response.data.userData;
