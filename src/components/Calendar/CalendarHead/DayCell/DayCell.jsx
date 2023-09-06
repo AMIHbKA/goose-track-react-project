@@ -3,7 +3,7 @@ import { useWindowWidth } from 'hooks/useWindowWidth';
 import { ThemeContext } from 'styled-components';
 import DateBadge from 'components/Calendar/DateBadge/DateBadge';
 import DayCellStyled from './DayCellStyled';
-import DayName from './DayName/DayName';
+import DayName from '../DayName/DayName';
 
 const DayCell = ({ day, date, activeDate, onDateClick }) => {
   const windowWidth = useWindowWidth();

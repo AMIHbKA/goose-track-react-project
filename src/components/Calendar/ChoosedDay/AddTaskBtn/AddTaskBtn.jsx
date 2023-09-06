@@ -5,14 +5,6 @@ const AddTaskBtn = styled.button`
   align-items: center;
   justify-content: center;
 
-  /* position: absolute; */
-
-  /* bottom: 20px;
-  left: 18px;
-  right: 18px; */
-
-  /* width: calc(100vw - 40px - 18px - 18px); */
-
   width: 100%;
 
   padding: 12px;
@@ -35,6 +27,27 @@ const AddTaskBtn = styled.button`
   div {
     margin-left: 8px;
     padding-top: 2px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.preTablet}) {
+    position: sticky;
+    bottom: 0;
+
+    width: calc(100vw - 40px - 18px - 19px);
+
+    ${({ noTasks }) =>
+      noTasks &&
+      `
+      margin-top: 35px;
+      `}
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    ${({ tasks }) =>
+      tasks ||
+      `
+      margin-top: 28px;
+      `}
   }
 `;
 

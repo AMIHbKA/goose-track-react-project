@@ -59,6 +59,6 @@ export const AddIcon = styled(PlusIcon)`
   fill: #3e85f3;
   &:hover,
   &:focus {
-    fill:#3e85f3;
+    fill: #3e85f3;
   }
 `;

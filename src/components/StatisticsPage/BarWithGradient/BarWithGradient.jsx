@@ -1,4 +1,4 @@
-import uniqueNumberGenerator from '../../../../utilities/uniqueNumberGenerator';
+import uniqueNumberGenerator from '../../../utilities/uniqueNumberGenerator';
 
 const getPath = (x, y, width, height, radius) => {
   return `M ${x},${y} 

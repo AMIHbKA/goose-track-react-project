@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { Box, Text } from 'components/PeriodPaginator/PeriodPaginator.styled';
-import { pickersLayoutClasses } from '@mui/x-date-pickers';
+import { MobileDatePicker, pickersLayoutClasses } from '@mui/x-date-pickers';
 import { setDefaultOptions } from 'date-fns';
 import { enGB } from 'date-fns/locale';
 import { useWindowWidth } from 'hooks/useWindowWidth';
@@ -81,7 +81,7 @@ const DesktopSlotProps = {
     width: '290px',
   },
 
-  '.css-31ca4x-MuiPickersFadeTransitionGroup-root': {
+  '.css-1bx5ylf-MuiPickersFadeTransitionGroup-root': {
     position: 'absolute',
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -89,6 +89,8 @@ const DesktopSlotProps = {
     right: 0,
     textAlign: 'center',
   },
+
+  // css-31ca4x-MuiPickersFadeTransitionGroup-root - locally
 
   '& .MuiDayCalendar-weekDayLabel': {
     width: '48px',
@@ -144,63 +146,76 @@ const DesktopSlotProps = {
   },
 };
 
-const mobileSlotProps = {
-  '& .MuiDateCalendar-root': {
-    width: '327px',
-    height: 'auto',
-    position: 'absolute',
-    top: '16px',
-    backgroundColor: '#3e85f3',
-    borderRadius: '16px',
-    color: '#fff',
-  },
-  '& .MuiPickersCalendarHeader-labelContainer': {
-    fontSize: '20px',
-    fontWeight: 600,
-    fontFamily: 'Inter',
-  },
-  '.MuiPickersArrowSwitcher-spacer': {
-    width: '265px',
-  },
-  '& .MuiDayCalendar-weekDayLabel': {
-    fontSize: '14px',
-    width: '48px',
-    height: '44px',
-    color: '#fff',
-    margin: '0px',
-    fontWeight: 600,
-    fontFamily: 'Inter',
-    borderBottom: '1px solid rgb(250 250 250 / 0.3)',
-  },
-  '& .MuiPickersDay-root': {
-    fontSize: '14px',
-    width: '48px',
-    height: '44px',
-    color: '#fff',
-    fontFamily: 'Inter',
-    fontWeight: 400,
-    margin: '0px',
-  },
-};
+// const mobileSlotProps = {
+//   '& .MuiDateCalendar-root': {
+//     width: '327px',
+//     height: 'auto',
+//     position: 'absolute',
+//     top: '16px',
+//     backgroundColor: '#3e85f3',
+//     borderRadius: '16px',
+//     color: '#fff',
+//   },
+//   '& .MuiPickersCalendarHeader-labelContainer': {
+//     fontSize: '20px',
+//     fontWeight: 600,
+//     fontFamily: 'Inter',
+//   },
+//   '.MuiPickersArrowSwitcher-spacer': {
+//     width: '265px',
+//   },
+//   '& .MuiDayCalendar-weekDayLabel': {
+//     fontSize: '14px',
+//     width: '48px',
+//     height: '44px',
+//     color: '#fff',
+//     margin: '0px',
+//     fontWeight: 600,
+//     fontFamily: 'Inter',
+//     borderBottom: '1px solid rgb(250 250 250 / 0.3)',
+//   },
+//   '& .MuiPickersDay-root': {
+//     fontSize: '14px',
+//     width: '48px',
+//     height: '44px',
+//     color: '#fff',
+//     fontFamily: 'Inter',
+//     fontWeight: 400,
+//     margin: '0px',
+//   },
+// };
 
 export function ButtonDatePicker(props) {
   const [open, setOpen] = useState(false);
 
-  const windowWidth = useWindowWidth()
+  const windowWidth = useWindowWidth();
 
   const slotProps = {
     layout: {
       sx: {
-        
-        [`.${pickersLayoutClasses.contentWrapper}`]:
-         windowWidth < 768
-          ? { ...DesktopSlotProps, ...mobileSlotProps }
-          : { ...DesktopSlotProps },
+        [`.${pickersLayoutClasses.contentWrapper}`]: {
+          ...DesktopSlotProps,
+        },
       },
     },
   };
 
-  return (
+  return windowWidth < 768 ? (
+    <MobileDatePicker
+      slots={{
+        field: ButtonField,
+        ...props.slots,
+      }}
+      slotProps={{
+        field: { setOpen },
+        // ...slotProps,
+      }}
+      {...props}
+      open={open}
+      onClose={() => setOpen(false)}
+      onOpen={() => setOpen(true)}
+    />
+  ) : (
     <DatePicker
       slots={{
         field: ButtonField,

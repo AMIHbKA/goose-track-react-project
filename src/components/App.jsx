@@ -26,8 +26,10 @@ export const App = () => {
   const { isRefreshing } = useAuth();
 
   useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
+    if (token) {
+      dispatch(refreshUser());
+    }
+  }, [dispatch, token]);
 
   return isRefreshing ? (
     <b>Refreshing user...</b>
@@ -47,6 +49,10 @@ export const App = () => {
                 <Route path="/calendar" element={<CalendarPage />}>
                   <Route path="month" element={<ChoosedMonth />} />
                   <Route path="day" element={<ChoosedDay />} />
+                  <Route
+                    index
+                    element={<Navigate to="/calendar/month" replace />}
+                  />
                 </Route>
                 <Route path="/statistics" element={<StatisticsPage />} />
                 <Route
