@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
 import { Formik } from 'formik';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -48,13 +47,7 @@ export const UserForm = () => {
       formData.append('avatar', values.avatar);
     }
 
-    try {
-      dispatch(updateUser(formData));
-
-      toast.success('Profile data changed successfully');
-    } catch {
-      toast.error('Something went wrong... Try again!');
-    }
+    dispatch(updateUser(formData));
   };
 
   console.log(name, birthday, email, skype, avatarUrl, phone);
