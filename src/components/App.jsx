@@ -49,6 +49,10 @@ export const App = () => {
                 <Route path="/calendar" element={<CalendarPage />}>
                   <Route path="month" element={<ChoosedMonth />} />
                   <Route path="day" element={<ChoosedDay />} />
+                  <Route
+                    index
+                    element={<Navigate to="/calendar/month" replace />}
+                  />
                 </Route>
                 <Route path="/statistics" element={<StatisticsPage />} />
                 <Route

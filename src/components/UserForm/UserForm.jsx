@@ -56,8 +56,8 @@ export const UserForm = () => {
     }
     formData.append('birthday', dayjs(values.birthday).format('DD/MM/YYYY'));
 
-    if (fileImage) {
-      formData.append('avatar', fileImage);
+    if (values.avatar) {
+      formData.append('avatar', values.avatar);
     }
 
     try {
@@ -77,17 +77,23 @@ export const UserForm = () => {
         email: userInfo?.email || '',
         phone: userInfo?.phone || '',
         skype: userInfo?.skype || '',
+        avatar: null,
       }}
       validationSchema={userValidation}
       onSubmit={values => {
         setTimeout(() => {
           handleSubmit(values);
+          console.log('values', values);
         }, 400);
       }}
     >
       {({ values, setFieldValue, isValid, touched, isSubmitting, dirty }) => (
         <AccountForm>
-          <AvatarUploader imageUrl={avatarUrl} setFileImage={setFileImage} />
+          <AvatarUploader
+            imageUrl={avatarUrl}
+            // setFileImage={setFileImage}
+            setAvatar={setFieldValue}
+          />
           <Title>{values.name}</Title>
           <RoleTitle>User</RoleTitle>
           <Wrap>
@@ -151,7 +157,7 @@ export const UserForm = () => {
           </Wrap>
           <Button
             type="submit"
-            disabled={!isValid || !touched || isSubmitting || !dirty}
+            // disabled={!isValid || !touched || isSubmitting || !dirty}
           >
             Save changes
           </Button>
