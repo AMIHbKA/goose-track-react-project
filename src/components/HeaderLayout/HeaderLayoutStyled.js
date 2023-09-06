@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { hoverBackgroundStyle } from 'UI';
 
 export const Header = styled.header`
   /* outline: 2px solid green; */
@@ -68,11 +69,7 @@ export const FeedBackButtonStyled = styled.button`
   font-weight: 600;
   line-height: 1.33;
   cursor: pointer;
-  transition: background-color 0.3s;
-
-  :hover {
-    background-color: #2b78ef;
-  }
+  ${hoverBackgroundStyle}
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     padding: 12px 32px;
@@ -107,6 +104,8 @@ export const UserName = styled.p`
 export const UserPhoto = styled.div`
   width: 32px;
   height: 32px;
+
+  overflow: hidden;
   border-radius: 50%;
   border-width: 1.8px;
   border-color: #3e85f3;

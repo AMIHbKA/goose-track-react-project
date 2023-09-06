@@ -18,6 +18,7 @@ const StatisticsPage = lazy(() => import('../pages/StatisticsPage'));
 const CalendarPage = lazy(() => import('../pages/CalendarPage'));
 const ChoosedMonth = lazy(() => import('./Calendar/ChoosedMonth/ChoosedMonth'));
 const ChoosedDay = lazy(() => import('./Calendar/ChoosedDay/ChoosedDay'));
+const AccountPage = lazy(() => import('../pages/AccountPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -25,8 +26,10 @@ export const App = () => {
   const { isRefreshing } = useAuth();
 
   useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
+    if (token) {
+      dispatch(refreshUser());
+    }
+  }, [dispatch, token]);
 
   // console.log('app isLoggedIn', isLoggedIn);
 
@@ -44,10 +47,14 @@ export const App = () => {
                   index
                   element={<Navigate to="/calendar/month" replace />}
                 />
-                <Route path="/account" element={<div>AccountPage</div>} />
+                <Route path="/account" element={<AccountPage />} />
                 <Route path="/calendar" element={<CalendarPage />}>
                   <Route path="month" element={<ChoosedMonth />} />
                   <Route path="day" element={<ChoosedDay />} />
+                  <Route
+                    index
+                    element={<Navigate to="/calendar/month" replace />}
+                  />
                 </Route>
                 <Route path="/statistics" element={<StatisticsPage />} />
                 <Route

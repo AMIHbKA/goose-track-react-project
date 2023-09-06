@@ -1,5 +1,10 @@
 import styled from 'styled-components';
-import { authButtonIcon, LogInIcon, LogOutIcon } from 'UI';
+import {
+  authButtonIcon,
+  hoverBackgroundStyle,
+  LogInIcon,
+  LogOutIcon,
+} from 'UI';
 
 export const AuthButton = ({
   text,
@@ -50,8 +55,8 @@ const AuthButtonStyled = styled.button`
   border: transparent;
   border-radius: 16px;
   box-shadow: 4px 2px 16px 0 rgb(136 165 191 / 0.48);
-  transition: background-color 300ms ease-in-out;
   margin-top: 32px;
+  ${hoverBackgroundStyle}
 
   @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
     padding-block: 16px;
@@ -65,11 +70,6 @@ const AuthButtonStyled = styled.button`
     ${props => props.maxh && `max-height: ${props.maxh};`}
     ${props => props.minh && `min-height: ${props.minh};`}
     ${props => props.mt && `margin-top: ${props.mt};`};
-
-  &:hover,
-  &:focus {
-    background-color: ${props => props.theme.colors.hoverState};
-  }
 `;
 
 const LogInIconButton = styled(LogInIcon)`

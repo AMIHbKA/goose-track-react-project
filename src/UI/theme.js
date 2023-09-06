@@ -91,6 +91,13 @@ export const darkTheme = {
     starColor: '#ffac33',
     starColorDefault: '#353647',
   },
+  userAccount: {
+    inputText: '#ffffff',
+    border: 'rgba(255, 255, 255, 0.15)',
+    buttonTextColor: '#FFFFFF',
+    mainBackground: DARK_GRAYISH_BLUE,
+    roleColor: 'rgba(250, 250, 250, 0.30)',
+  },
   addTaskModal: {
     background: '#171820',
     border: '1px solid rgba(255 255 255 / 0.15)',
@@ -155,6 +162,13 @@ export const lightTheme = {
     backgroundButton: ' #e5edfa',
     starColor: '#ffac33',
     starColorDefault: '#cec9c1',
+  },
+  userAccount: {
+    inputText: '#111111',
+    border: 'rgba(17, 17, 17, 0.15)',
+    buttonTextColor: '#FFFFFF',
+    mainBackground: '#FFFFFF',
+    roleColor: '#343434',
   },
   addTaskModal: {
     background: '#fff',
