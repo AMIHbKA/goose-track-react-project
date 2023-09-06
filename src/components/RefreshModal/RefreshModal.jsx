@@ -4,9 +4,10 @@ import rocketGoose from '../../UI/images/Auth/RocketGoose_TransBG.gif';
 
 export const RefreshModal = ({ onActive }) => {
   return (
-    <Modal onActive={onActive} onEsc={false} btnClose={false}>
-      {/* <RefreshModalStyled></RefreshModalStyled> */}
-      <button>???</button>
+    <Modal onActive={() => true} onEsc={false} btnClose={false}>
+      <button>asdflkjasdf</button>
+      <button>asdflkjasdf</button>
+      <button>asdflkjasdf</button>
       <img src={rocketGoose} alt="goose on the rocket" />
     </Modal>
   );

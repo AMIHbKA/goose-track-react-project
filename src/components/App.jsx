@@ -34,7 +34,10 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <RefreshModal onActive={true} />
+    <>
+      <RefreshModal onActive={true} />
+      <button>sdfgsdafe</button>
+    </>
   ) : (
     <ThemeProvider>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
