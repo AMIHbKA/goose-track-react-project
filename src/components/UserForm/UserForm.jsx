@@ -18,7 +18,7 @@ import {
 } from 'components/UserForm/UserForm.styled';
 import { UserInput } from 'components/UserInput/UserInput';
 import { AvatarUploader } from 'components/AvatarUploader/AvatarUploader';
-import { refreshUser, updateUser } from 'redux/auth/operations';
+import { updateUser } from 'redux/auth/operations';
 import {
   DatePickerStyled,
   PopperDateStyles,
@@ -37,12 +37,12 @@ export const UserForm = () => {
     setAvatarUrl(userInfo.avatarUrl);
   }, [userInfo.avatarUrl]);
 
-  useEffect(() => {
-    const getUserInfo = async () => {
-      dispatch(refreshUser());
-    };
-    getUserInfo();
-  }, [dispatch]);
+  // useEffect(() => {
+  //   const getUserInfo = async () => {
+  //     await dispatch(refreshUser());
+  //   };
+  //   getUserInfo();
+  // }, [dispatch]);
 
   const handleSubmit = async values => {
     const formData = new FormData();
@@ -59,10 +59,10 @@ export const UserForm = () => {
     if (fileImage) {
       formData.append('avatar', fileImage);
     }
-  
+
     try {
       await dispatch(updateUser(formData));
- 
+
       toast.success('Profile data changed successfully');
     } catch {
       toast.error('Something went wrong... Try again!');
