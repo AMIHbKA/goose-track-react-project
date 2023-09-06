@@ -10,6 +10,8 @@ import {
   StyledImg,
 } from './Description.styled';
 
+import { useTranslation } from 'react-i18next';
+
 import calendarMob from '../../../UI/images/calendar-mob.jpg';
 import calendarMob2x from '../../../UI/images/calendar-mob@2x.jpg';
 import calendarTab from '../../../UI/images/calendar-tab.jpg';
@@ -33,19 +35,17 @@ import allInOneDes2x from '../../../UI/images/all-in-one-des@2x.jpg';
 import { Container } from 'components';
 
 export const Description = () => {
+  const { t } = useTranslation();
+
   return (
     <MainContent>
       <Container main_page>
         <OderedList>
           <OderedListItem>
             <OderedListContent>
-              <Title>Calendar</Title>
-              <TextName>view</TextName>
-              <TextDescription>
-                GooseTrack's Calendar view provides a comprehensive overview of
-                your schedule, displaying all your tasks, events, and
-                appointments in a visually appealing and intuitive layout.
-              </TextDescription>
+              <Title>{t('main.calendar')}</Title>
+              <TextName>{t('main.view')}</TextName>
+              <TextDescription>{t('main.textCalendar')}</TextDescription>
             </OderedListContent>
             <StyledImg>
               <source

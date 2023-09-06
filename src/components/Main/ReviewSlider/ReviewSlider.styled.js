@@ -86,7 +86,7 @@ export const ArrowContainer = styled.div`
   display: flex;
   padding-bottom: 64px;
   justify-content: center;
-  gap: 25px;
+  gap: 13px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
     padding-bottom: 100px;
@@ -94,28 +94,43 @@ export const ArrowContainer = styled.div`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
     padding-bottom: 118px;
+    gap: 11px;
   }
 `;
 
 export const StyledButton = styled.button`
   height: 50px;
+  width: 50px;
+  padding: 0;
   background-color: transparent;
   border: none;
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    height: 61px;
+    width: 61px;
+  }
 `;
 
 export const StyledLeftArrow = styled(LeftArrow)`
-  /* display: block; */
-  height: 70px;
-  width: 70px;
-  .arrow-path {
-    fill: red;
+  fill: #111111;
+  &:hover {
+    fill: ${props => props.theme.colors.hoverState};
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    height: 6px;
+    width: 47px;
   }
 `;
 
 export const StyledRightArrow = styled(RightArrow)`
-  height: 70px;
-  width: 70px;
-  .arrow-path {
-    fill: red;
+  fill: #111111;
+  &:hover {
+    fill: ${props => props.theme.colors.hoverState};
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    height: 6px;
+    width: 47px;
   }
 `;

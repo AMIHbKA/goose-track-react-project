@@ -17,10 +17,16 @@ import {
   LinkContainer,
 } from './AuthSection.styled';
 
+import { useTranslation } from 'react-i18next';
+import { LanguageButton } from 'components/LanguageButton/LanguageButton';
+
 export const AuthSection = () => {
+  const { t } = useTranslation();
+
   return (
     <MainSection>
       <Container>
+        <LanguageButton />
         <Logo href="/goose-track-react-project">
           <LogoImg>
             <source
@@ -39,11 +45,11 @@ export const AuthSection = () => {
         </Logo>
         <LinkContainer>
           <LoginLink to="/login">
-            <LoginLinkText>Log in</LoginLinkText>
-
+            <LoginLinkText>{t('main.logIn')}</LoginLinkText>
+            {console.log(t('main.logIn'))}
             <LogInIcon stroke="#3E85F3" width="18" height="18" />
           </LoginLink>
-          <SignLink to="/register">Sign up</SignLink>
+          <SignLink to="/register">{t('signUp')}</SignLink>
         </LinkContainer>
       </Container>
     </MainSection>
