@@ -3,9 +3,9 @@ import styled from 'styled-components';
 const TasksColumnStyled = styled.div`
   position: relative;
 
-  flex-grow: 1;
-
   width: calc(100vw - 40px);
+
+  ${({ maxHeight }) => maxHeight && `max-height: ${maxHeight}px;`}
 
   padding: 18px 18px 20px;
 
