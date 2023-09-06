@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { MenuIcon } from 'UI';
 import { Modal, ThemeToggler } from 'components';
 import {
