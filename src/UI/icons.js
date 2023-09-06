@@ -295,7 +295,7 @@ export const PlusIcon = ({ size = 32, fill = '#3e85f3', ...props }) => {
       <path
         fill="none"
         style={{ fill }}
-        stroke="#808080"
+        stroke="#FFFFFF"
         strokeLinejoin="round"
         strokeLinecap="round"
         strokeMiterlimit="4"

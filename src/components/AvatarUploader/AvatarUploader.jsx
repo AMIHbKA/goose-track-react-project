@@ -28,7 +28,7 @@ export const AvatarUploader = ({ imageUrl, setAvatar }) => {
       </Wrap>
 
       <Label htmlFor="add-image">
-        <AddIcon />
+        <AddIcon/>
       </Label>
       <Input
         type="file"
