@@ -32,10 +32,11 @@ export const UserForm = () => {
   const [avatarUrl, setAvatarUrl] = useState('');
   const [fileImage, setFileImage] = useState(null);
   const userInfo = useSelector(selectUser);
+  console.log('userInfo', userInfo);
 
-  useEffect(() => {
-    setAvatarUrl(userInfo.avatarUrl);
-  }, [userInfo.avatarUrl]);
+  // useEffect(() => {
+  //   setAvatarUrl(userInfo.avatarUrl);
+  // }, [userInfo.avatarUrl]);
 
   // useEffect(() => {
   //   const getUserInfo = async () => {
@@ -79,15 +80,13 @@ export const UserForm = () => {
         skype: userInfo?.skype || '',
         avatar: null,
       }}
-      validationSchema={userValidation}
-      onSubmit={values => {
-        setTimeout(() => {
-          handleSubmit(values);
-          console.log('values', values);
-        }, 400);
+      // validationSchema={userValidation}
+      onSubmit={async values => {
+        handleSubmit(values);
+        console.log('values', values);
       }}
     >
-      {({ values, setFieldValue, isValid, touched, isSubmitting, dirty }) => (
+      {({ values, setFieldValue }) => (
         <AccountForm>
           <AvatarUploader
             imageUrl={avatarUrl}
@@ -155,10 +154,7 @@ export const UserForm = () => {
               />
             </Wrapper>
           </Wrap>
-          <Button
-            type="submit"
-            // disabled={!isValid || !touched || isSubmitting || !dirty}
-          >
+          <Button type="submit" onClick={() => console.log('click')}>
             Save changes
           </Button>
         </AccountForm>

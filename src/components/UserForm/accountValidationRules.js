@@ -27,7 +27,7 @@ export const userValidation = Yup.object().shape({
     .max(16, 'TooLong16')
     .matches(redexName, 'Only letters')
     .required('NameRequired'),
-  phone: Yup.string(),
+  phone: Yup.string().max(12, '12 digits required'),
   email: Yup.string().email('Invalid email').required('Email is required'),
   birthday: Yup.date('YYYY-MM-DD'),
   skype: Yup.string()

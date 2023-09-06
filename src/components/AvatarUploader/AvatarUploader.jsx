@@ -11,7 +11,7 @@ import {
 export const AvatarUploader = ({ imageUrl, setAvatar }) => {
   const [imagePreview, setImagePreview] = useState(imageUrl || '');
 
-  console.log('imageUrl', imageUrl);
+  // console.log('imageUrl', imageUrl);
 
   const handleImageChange = e => {
     const selectedFile = e.target.files[0];
