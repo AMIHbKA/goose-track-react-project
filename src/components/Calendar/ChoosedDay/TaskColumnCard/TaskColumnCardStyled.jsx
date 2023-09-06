@@ -47,6 +47,8 @@ export const TaskColumnCardBottomAvatar = styled.div`
 
   border-radius: 50%;
   border: 1.8px solid ${({ theme }) => theme.colors.primary};
+
+  overflow: hidden;
 `;
 
 export const TaskColumnCardPriorityChips = styled.div`
