@@ -220,7 +220,7 @@ export function ButtonDatePicker(props) {
       }}
       slotProps={{
         field: { setOpen },
-        // ...mobileSlotProps,
+        ...slotProps,
       }}
       {...props}
       open={open}
