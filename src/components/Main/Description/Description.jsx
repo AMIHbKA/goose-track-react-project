@@ -65,14 +65,8 @@ export const Description = () => {
           </OderedListItem>
           <OderedListItem>
             <OderedListContent>
-              <Title>Sidebar</Title>
-              <TextDescription>
-                GooseTrack offers easy access to your account settings,
-                calendar, and filters. The "My Account" section allows you to
-                manage your profile information and preferences, while the
-                calendar provides a quick and convenient way to view your
-                upcoming events and tasks.
-              </TextDescription>
+              <TextName>{t('main.sidebar')}</TextName>
+              <TextDescription>{t('main.sidebarText')}</TextDescription>
             </OderedListContent>
             <StyledImg>
               <source
@@ -92,14 +86,9 @@ export const Description = () => {
           </OderedListItem>
           <OderedListItem>
             <OderedListContent>
-              <Title>All in</Title>
-              <TextName>one</TextName>
-              <TextDescription>
-                GooseTrack is an all-in-one productivity tool that helps you
-                stay on top of your tasks, events, and deadlines. Say goodbye to
-                scattered to-do lists and hello to streamlined productivity with
-                GooseTrack.
-              </TextDescription>
+              <Title>{t('main.thirdTitle')}</Title>
+              <TextName>{t('main.thirdSubTitle')}</TextName>
+              <TextDescription>{t('main.thirText')}</TextDescription>
             </OderedListContent>
             <StyledImg>
               <source

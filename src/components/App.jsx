@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react';
+import { lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout, ThemeProvider, ToastContainerWrapper } from 'components';
 import { useDispatch } from 'react-redux';

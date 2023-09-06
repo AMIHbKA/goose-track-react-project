@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const MainSection = styled.section`
+  position: relative;
   text-align: center;
   min-height: 100vh;
   background-color: ${props => props.theme.colors.primary};
@@ -9,6 +10,17 @@ export const MainSection = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+export const ButtonContainer = styled.div`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    top: 25px;
+    right: 25px;
+  }
 `;
 
 export const Logo = styled.a`

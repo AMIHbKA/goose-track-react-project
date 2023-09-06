@@ -1,28 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ToggleButton } from './LanguageButton.styled';
 import '../../i18n';
 
 export const LanguageButton = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState('en');
   const { i18n } = useTranslation();
 
   const changeLanguage = lng => {
     i18n.changeLanguage(lng);
-    setSelectedLanguage(lng);
+
+    localStorage.setItem('i18nextLng', lng);
   };
 
   return (
     <div>
-      {selectedLanguage === 'en' && (
+      {localStorage.getItem('i18nextLng') === 'en' && (
         <ToggleButton type="button" onClick={() => changeLanguage('uk')}>
-          Українська
+          UA
         </ToggleButton>
       )}
-      {selectedLanguage === 'uk' && (
+      {localStorage.getItem('i18nextLng') === 'uk' && (
         <ToggleButton type="button" onClick={() => changeLanguage('en')}>
-          English
+          EN
         </ToggleButton>
       )}
     </div>
