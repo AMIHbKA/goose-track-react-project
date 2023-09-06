@@ -50,8 +50,6 @@ export const UserForm = () => {
     dispatch(updateUser(formData));
   };
 
-  console.log(name, birthday, email, skype, avatarUrl, phone);
-
   return (
     <Formik
       initialValues={{
@@ -65,7 +63,6 @@ export const UserForm = () => {
       // validationSchema={userValidation}
       onSubmit={async values => {
         handleSubmit(values);
-        console.log('values', values);
       }}
     >
       {({ values, setFieldValue }) => (
@@ -132,9 +129,7 @@ export const UserForm = () => {
               />
             </Wrapper>
           </Wrap>
-          <Button type="submit" onClick={() => console.log('click')}>
-            Save changes
-          </Button>
+          <Button type="submit">Save changes</Button>
         </AccountForm>
       )}
     </Formik>
