@@ -104,6 +104,8 @@ export const UserName = styled.p`
 export const UserPhoto = styled.div`
   width: 32px;
   height: 32px;
+
+  overflow: hidden;
   border-radius: 50%;
   border-width: 1.8px;
   border-color: #3e85f3;

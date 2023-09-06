@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MenuIcon } from 'UI';
 import { Modal, ThemeToggler } from 'components';
 import {
@@ -22,7 +22,7 @@ import { useTheme } from 'styled-components';
 import { useLocation } from 'react-router';
 
 export const HeaderLayout = ({ currentTheme, currentReview }) => {
-  const userName = useSelector(selectUser).name;
+  const user = useSelector(selectUser);
   const currentPage = useLocation().pathname;
   const [showModal, setShowModal] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -95,8 +95,10 @@ export const HeaderLayout = ({ currentTheme, currentReview }) => {
             )}
             <UserInfo>
               <ThemeToggler />
-              <UserName>{userName}</UserName>
-              <UserPhoto />
+              <UserName>{user.name}</UserName>
+              <UserPhoto>
+                <img src={user.avatarUrl} alt="user avatar" />
+              </UserPhoto>
             </UserInfo>
           </UserPanel>
         </HeaderPanel>
