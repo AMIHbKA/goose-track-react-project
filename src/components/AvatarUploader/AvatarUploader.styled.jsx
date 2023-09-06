@@ -31,7 +31,7 @@ export const Img = styled.img`
 `;
 
 export const Input = styled.input`
-  /* display: none; */
+  display: none;
 `;
 
 export const Label = styled.label`

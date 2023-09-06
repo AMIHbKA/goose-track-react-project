@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import {
   Img,
   Input,
@@ -11,8 +11,6 @@ import {
 export const AvatarUploader = ({ imageUrl, setAvatar }) => {
   const [imagePreview, setImagePreview] = useState(imageUrl || '');
 
-  // console.log('imageUrl', imageUrl);
-
   const handleImageChange = e => {
     const selectedFile = e.target.files[0];
     if (!selectedFile) {
@@ -21,7 +19,6 @@ export const AvatarUploader = ({ imageUrl, setAvatar }) => {
 
     setAvatar('avatar', selectedFile);
     setImagePreview(URL.createObjectURL(selectedFile));
-    // setFileImage(selectedFile);
   };
 
   return (
@@ -39,7 +36,6 @@ export const AvatarUploader = ({ imageUrl, setAvatar }) => {
         accept="image/*"
         id="add-image"
         name="avatar"
-        // ref={avatarFileRef}
       />
     </MainWrapper>
   );

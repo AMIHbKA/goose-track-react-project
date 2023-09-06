@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { Formik } from 'formik';
@@ -23,27 +22,15 @@ import {
   DatePickerStyled,
   PopperDateStyles,
 } from 'components/UserForm/DatePicker.styled';
-import { userValidation } from 'components/UserForm/accountValidationRules';
+// import { userValidation } from 'components/UserForm/accountValidationRules';
 
 const currentDate = dayjs(new Date()).format('DD/MM/YYYY');
 
 export const UserForm = () => {
   const dispatch = useDispatch();
-  const [avatarUrl, setAvatarUrl] = useState('');
-  const [fileImage, setFileImage] = useState(null);
-  const userInfo = useSelector(selectUser);
-  console.log('userInfo', userInfo);
 
-  // useEffect(() => {
-  //   setAvatarUrl(userInfo.avatarUrl);
-  // }, [userInfo.avatarUrl]);
-
-  // useEffect(() => {
-  //   const getUserInfo = async () => {
-  //     await dispatch(refreshUser());
-  //   };
-  //   getUserInfo();
-  // }, [dispatch]);
+  const { name, birthday, email, skype, avatarUrl, phone } =
+    useSelector(selectUser);
 
   const handleSubmit = async values => {
     const formData = new FormData();
@@ -62,7 +49,7 @@ export const UserForm = () => {
     }
 
     try {
-      await dispatch(updateUser(formData));
+      dispatch(updateUser(formData));
 
       toast.success('Profile data changed successfully');
     } catch {
@@ -70,14 +57,16 @@ export const UserForm = () => {
     }
   };
 
+  console.log(name, birthday, email, skype, avatarUrl, phone);
+
   return (
     <Formik
       initialValues={{
-        name: userInfo?.name || '',
-        birthday: userInfo?.birthday || `${currentDate}`,
-        email: userInfo?.email || '',
-        phone: userInfo?.phone || '',
-        skype: userInfo?.skype || '',
+        name: name || '',
+        birthday: birthday || `${currentDate}`,
+        email: email || '',
+        phone: phone || '',
+        skype: skype || '',
         avatar: null,
       }}
       // validationSchema={userValidation}
@@ -88,11 +77,7 @@ export const UserForm = () => {
     >
       {({ values, setFieldValue }) => (
         <AccountForm>
-          <AvatarUploader
-            imageUrl={avatarUrl}
-            // setFileImage={setFileImage}
-            setAvatar={setFieldValue}
-          />
+          <AvatarUploader imageUrl={avatarUrl} setAvatar={setFieldValue} />
           <Title>{values.name}</Title>
           <RoleTitle>User</RoleTitle>
           <Wrap>
@@ -115,7 +100,7 @@ export const UserForm = () => {
                         sx: PopperDateStyles,
                       },
                       textField: {
-                        placeholder: userInfo.birthday || `${currentDate}`,
+                        placeholder: birthday || `${currentDate}`,
                       },
                     }}
                     views={['year', 'month', 'day']}
