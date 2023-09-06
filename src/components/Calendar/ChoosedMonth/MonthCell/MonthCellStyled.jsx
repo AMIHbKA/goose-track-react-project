@@ -4,14 +4,18 @@ const MonthCellStyled = styled.div`
   --yellow: #ffdd00;
   --blue: #0057b7;
 
+  height: ${({ height }) => height}px;
+  width: ${({ width }) => width}px;
+
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: stretch;
 
   position: relative;
 
   overflow: hidden;
 
-  z-index: 0;
+  z-index: 1;
 
   background-color: ${({ theme }) => theme.choosedMonth.dateBackground};
 
@@ -24,7 +28,7 @@ const MonthCellStyled = styled.div`
 
         position: absolute;
 
-        z-index: -2;
+        z-index: -220;
 
         left: -50%;
         top: -50%;
@@ -54,7 +58,7 @@ const MonthCellStyled = styled.div`
 
         position: absolute;
 
-        z-index: -1;
+        z-index: -110;
 
         left: 2px;
         top: 2px;

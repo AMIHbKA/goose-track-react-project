@@ -9,7 +9,7 @@ import {
 } from 'recharts';
 import { ThemeContext } from 'styled-components';
 import { useWindowSize, useRect } from 'hooks';
-import BarWithGradient from './BarWithGradient/BarWithGradient';
+import BarWithGradient from '../BarWithGradient/BarWithGradient';
 import {
   StatisticsChartContainer,
   StatisticsChartWarningMessage,
@@ -38,7 +38,7 @@ const data = [
 const StatisticsChart = () => {
   const windowSize = useWindowSize();
 
-  const [chartSizes, chartWrapperRef] = useRect('resize', 300, 1000);
+  const [chartSizes, chartWrapperRef] = useRect('resize', 100, 100);
 
   const theme = useContext(ThemeContext);
 

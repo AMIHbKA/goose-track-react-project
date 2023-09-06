@@ -67,6 +67,9 @@ export const darkTheme = {
   choosedDay: {
     addBtnBackground: commonStyles.colors.primary,
     addBtnBorder: null,
+    taskCardBorderColor: 'rgba(255, 255, 255, 0.15)',
+    taskCardBackground: '#171820',
+    taskIconColor: '#ffffff',
   },
   statistics: {
     linesColor: 'rgb(227 243 255 / 0.15)',
@@ -137,6 +140,9 @@ export const lightTheme = {
   choosedDay: {
     addBtnBackground: LIGHT_BLUE,
     addBtnBorder: `1px dashed ${commonStyles.colors.primary}`,
+    taskCardBorderColor: 'rgba(220, 227, 229, 0.80)',
+    taskCardBackground: '#F7F6F9',
+    taskIconColor: '#111111',
   },
   statistics: {
     linesColor: LIGHT_BLUE,

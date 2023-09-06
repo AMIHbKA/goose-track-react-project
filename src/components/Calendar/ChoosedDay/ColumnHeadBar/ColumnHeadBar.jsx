@@ -1,5 +1,8 @@
 import { PlusCircleIcon } from 'UI';
-import ColumnHeadBarStyled from './ColumnHeadBarStyled';
+import {
+  ColumnHeadBarContainer,
+  ColumnHeadBarButtons,
+} from './ColumnHeadBarStyled';
 import { useTheme } from 'styled-components';
 import { useMobile } from 'hooks';
 
@@ -11,10 +14,12 @@ const ColumnHeadBar = ({ stage }) => {
   const isMobile = useMobile();
 
   return (
-    <ColumnHeadBarStyled>
+    <ColumnHeadBarContainer>
       {stage}
-      <PlusCircleIcon size={isMobile ? 22 : 24} stroke={mainText} />
-    </ColumnHeadBarStyled>
+      <ColumnHeadBarButtons>
+        <PlusCircleIcon size={isMobile ? 22 : 24} stroke={mainText} />
+      </ColumnHeadBarButtons>
+    </ColumnHeadBarContainer>
   );
 };
 
