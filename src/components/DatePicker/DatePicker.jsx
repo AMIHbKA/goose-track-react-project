@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { Box, Text } from 'components/PeriodPaginator/PeriodPaginator.styled';
-import { pickersLayoutClasses } from '@mui/x-date-pickers';
+import { MobileDatePicker, pickersLayoutClasses } from '@mui/x-date-pickers';
 import { setDefaultOptions } from 'date-fns';
 import { enGB } from 'date-fns/locale';
 import { useWindowWidth } from 'hooks/useWindowWidth';
@@ -191,16 +191,28 @@ export function ButtonDatePicker(props) {
   const slotProps = {
     layout: {
       sx: {
-        
         [`.${pickersLayoutClasses.contentWrapper}`]:
-         windowWidth < 768
-          ? { ...DesktopSlotProps, ...mobileSlotProps }
-          : { ...DesktopSlotProps },
+           { 
+            ...DesktopSlotProps 
+          },
       },
     },
   };
 
   return (
+    windowWidth < 768 ? <MobileDatePicker
+    slots={{
+      field: ButtonField,
+      ...props.slots,
+    }}
+    slotProps={{
+      field: { setOpen },
+      // ...slotProps,
+    }}
+    {...props}
+    open={open}
+    onClose={() => setOpen(false)}
+    onOpen={() => setOpen(true)}/> :
     <DatePicker
       slots={{
         field: ButtonField,
@@ -208,7 +220,7 @@ export function ButtonDatePicker(props) {
       }}
       slotProps={{
         field: { setOpen },
-        ...slotProps,
+        // ...mobileSlotProps,
       }}
       {...props}
       open={open}
