@@ -27,8 +27,8 @@ const ChoosedDay = lazy(() => import('./Calendar/ChoosedDay/ChoosedDay'));
 export const App = () => {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
-  // const { isRefreshing } = useAuth();
-  const isRefreshing = true;
+  const { isRefreshing } = useAuth();
+
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
@@ -36,7 +36,6 @@ export const App = () => {
   return isRefreshing ? (
     <>
       <RefreshModal onActive={true} />
-      <button>sdfgsdafe</button>
     </>
   ) : (
     <ThemeProvider>
