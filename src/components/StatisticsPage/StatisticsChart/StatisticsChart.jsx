@@ -16,14 +16,13 @@ import {
   StatisticsChartWrapperExternal,
   StatisticsChartWrapperInternal,
 } from './StatisticsChartStyled';
+import { useTranslation } from 'react-i18next';
 // import { useSelector } from 'react-redux';
 // import { getTasks } from 'redux/tasks/selectors';
 
-
-
 const data = [
   {
-    name: 'To Do',
+    name: 'To do',
     day: 30,
     month: 35,
   },
@@ -40,6 +39,8 @@ const data = [
 ];
 
 const StatisticsChart = () => {
+  const { t } = useTranslation();
+
   const windowSize = useWindowSize();
 
   const [chartSizes, chartWrapperRef] = useRect('resize', 100, 100);
@@ -50,7 +51,7 @@ const StatisticsChart = () => {
 
   // const makeData = (tasks) => {
   //   tasks.map((task) => {
-      
+
   //   })
   // }
 
@@ -111,6 +112,7 @@ const StatisticsChart = () => {
                 />
                 <Bar
                   dataKey="day"
+                  // dataKey={t('statisticsChart.day')}
                   fill="#FFD2DD"
                   label={{
                     ...barLabelStyles,
@@ -122,6 +124,7 @@ const StatisticsChart = () => {
                 />
                 <Bar
                   dataKey="month"
+                  // dataKey={t('statisticsChart.month')}
                   fill="#3E85F3"
                   label={{
                     ...barLabelStyles,
