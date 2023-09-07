@@ -12,7 +12,9 @@ export const fetchTasks = createAsyncThunk(
     try {
       const token = getToken(thunkApi);
       api.setAuthHeader(token);
-      const response = await api.instance.get('tasks', credentials);
+      const response = await api.instance.get('tasks', {
+        params: { ...credentials },
+      });
       const result = response.data.tasks;
       return result;
     } catch (error) {
