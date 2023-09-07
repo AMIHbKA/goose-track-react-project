@@ -9,13 +9,20 @@ import {
 } from 'components/StatisticsPage/StatisticsPageStyled';
 import StatisticsChart from 'components/StatisticsPage/StatisticsChart/StatisticsChart';
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { getDate } from 'redux/date/selectors';
+import { getMonth, getYear } from 'date-fns';
 
 const StatisticsPage = () => {
   const dispatch = useDispatch();
 
+  const date = useSelector(getDate);
+
   useEffect(() => {
-    dispatch(fetchTasks());
-  }, [dispatch]);
+    const year = getYear(date);
+    const month = getMonth(date);
+    dispatch(fetchTasks({ year, month }));
+  }, [dispatch, date]);
 
   return (
     <StatisticsPageWrapper>
