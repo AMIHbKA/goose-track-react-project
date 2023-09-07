@@ -19,7 +19,6 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { setDate } from 'redux/date/dateSlice';
 import { getDate } from 'redux/date/selectors';
-import { getMilliseconds } from 'date-fns';
 
 export const formatDate = (currDate, periodType) => {
   if (periodType === MONTH) {
