@@ -22,11 +22,13 @@ import {
   PopperDateStyles,
 } from 'components/UserForm/DatePicker.styled';
 // import { userValidation } from 'components/UserForm/accountValidationRules';
+import { useTranslation } from 'react-i18next';
 
 const currentDate = dayjs(new Date()).format('DD/MM/YYYY');
 
 export const UserForm = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const { name, birthday, email, skype, avatarUrl, phone } =
     useSelector(selectUser);
@@ -69,18 +71,18 @@ export const UserForm = () => {
         <AccountForm>
           <AvatarUploader imageUrl={avatarUrl} setAvatar={setFieldValue} />
           <Title>{values.name}</Title>
-          <RoleTitle>User</RoleTitle>
+          <RoleTitle>{t('userForm.user')}</RoleTitle>
           <Wrap>
             <Wrapper>
               <UserInput
-                title="User Name"
+                title={t('userForm.userName')}
                 type="text"
                 name="name"
-                placeholder="Add your name"
+                placeholder={t('userForm.placeholderName')}
               />
 
               <Label>
-                Birthday
+                {t('userForm.birthday')}
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DatePickerStyled
                     name="birthday"
@@ -94,7 +96,7 @@ export const UserForm = () => {
                       },
                     }}
                     views={['year', 'month', 'day']}
-                    format="DD/MM/YYYY"
+                    format={t('userForm.format')}
                     closeOnSelect={true}
                     disableFuture={true}
                     onChange={date => {
@@ -107,29 +109,29 @@ export const UserForm = () => {
               </Label>
 
               <UserInput
-                title="Email"
+                title={t('userForm.email')}
                 type="email"
                 name="email"
-                placeholder="YourEmail@mail.com"
+                placeholder={t('userForm.placeholderEmail')}
               />
             </Wrapper>
 
             <Wrapper>
               <UserInput
-                title="Phone"
+                title={t('userForm.phone')}
                 type="tel"
                 name="phone"
-                placeholder="+380960000000"
+                placeholder={t('userForm.placeholderPhone')}
               />
               <UserInput
-                title="Skype"
+                title={t('userForm.skype')}
                 type="text"
                 name="skype"
-                placeholder="Add your skype number"
+                placeholder={t('userForm.placeholderSkype')}
               />
             </Wrapper>
           </Wrap>
-          <Button type="submit">Save changes</Button>
+          <Button type="submit">{t('userForm.saveButton')}</Button>
         </AccountForm>
       )}
     </Formik>

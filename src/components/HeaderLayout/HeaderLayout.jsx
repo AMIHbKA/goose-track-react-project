@@ -51,15 +51,15 @@ export const HeaderLayout = ({ currentTheme, currentReview }) => {
 
   const pageTitle = currentPage => {
     if (currentPage.startsWith('/account')) {
-      return 'User Profile';
+      return t('pages.titleUser');
     }
 
     if (currentPage.startsWith('/calendar')) {
-      return 'Calendar';
+      return t('pages.titleCalendar');
     }
 
     if (currentPage.startsWith('/statistics')) {
-      return 'Statistics';
+      return t('pages.titleStatistics');
     }
 
     return 'GooseTrack';
