@@ -7,6 +7,7 @@ export const tasksStatisticCalculator = data => {
   //   if (type === ' inprogress') return inprogressPercent;
   //   if (type === 'donePercent') return donePercent;
   const totalTasks = data.length;
+
   const statuses = {
     'to-do': { name: 'To Do', day: 0, month: 0 },
     'in-progress': { name: 'In Progress', day: 0, month: 0 },

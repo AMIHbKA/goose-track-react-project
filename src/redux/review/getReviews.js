@@ -9,7 +9,7 @@ export const getReviews = async () => {
     const response = await instance.get('/reviews');
     return response.data.reviews;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return [];
   }
 };

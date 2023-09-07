@@ -29,8 +29,10 @@ export const RegisterForm = () => {
   const handleSubmit = async values => {
     const { name, email, password } = values;
     const registerResult = await dispatch(register({ name, email, password }));
+
     // if registration is success, login
     if (register.fulfilled.match(registerResult)) {
+
       dispatch(logIn({ email, password }));
     }
   };

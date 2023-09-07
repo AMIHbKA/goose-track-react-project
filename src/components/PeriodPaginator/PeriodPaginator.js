@@ -45,7 +45,9 @@ export const PeriodPaginator = ({ periodType, changeDate }) => {
         value={date}
         onChange={newValue => {
           dispatch(setDate(Number(newValue)));
+
           navigate('/calendar/day');
+
         }}
       />
 
