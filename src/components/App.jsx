@@ -1,6 +1,11 @@
 import { lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Layout, ThemeProvider, ToastContainerWrapper } from 'components';
+import {
+  Layout,
+  RefreshModal,
+  ThemeProvider,
+  ToastContainerWrapper,
+} from 'components';
 import { useDispatch } from 'react-redux';
 import { useAuth } from 'hooks';
 import { useEffect } from 'react';
@@ -32,7 +37,9 @@ export const App = () => {
   }, [dispatch, token]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <>
+      <RefreshModal onActive={true} />
+    </>
   ) : (
     <ThemeProvider>
       <LocalizationProvider dateAdapter={AdapterDateFns}>

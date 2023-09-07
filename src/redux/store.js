@@ -15,6 +15,7 @@ import { themeReducer } from './theme/slice';
 import { reviewReducer } from './review/slice';
 import thunk from 'redux-thunk';
 import { taskReducer } from './tasks/taskSlice';
+import { dateReducer } from './date/dateSlice';
 
 // Persisting token field from auth slice to localstorage
 const authPersistConfig = {
@@ -42,6 +43,7 @@ export const store = configureStore({
     theme: persistReducer(themePersistConfig, themeReducer),
     review: persistReducer(reviewPersistConfig, reviewReducer),
     tasks: taskReducer,
+    date: dateReducer,
   },
   middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware({

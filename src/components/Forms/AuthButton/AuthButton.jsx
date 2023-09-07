@@ -4,6 +4,7 @@ import {
   hoverBackgroundStyle,
   LogInIcon,
   LogOutIcon,
+  shakeAnimation,
 } from 'UI';
 
 export const AuthButton = ({
@@ -57,6 +58,7 @@ const AuthButtonStyled = styled.button`
   box-shadow: 4px 2px 16px 0 rgb(136 165 191 / 0.48);
   margin-top: 32px;
   ${hoverBackgroundStyle}
+  ${shakeAnimation}
 
   @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
     padding-block: 16px;

@@ -18,6 +18,7 @@ export const Input = styled(Field)`
   font-weight: 600;
   font-size: 14px;
   line-height: calc((18 / 14) * 100%);
+  min-width: 299px;
 
   &:hover, &:focus {
     border-color: #111111;
@@ -30,6 +31,7 @@ export const Input = styled(Field)`
   @media (min-width: ${props => props.theme.breakpoints.tablet} {
     font-size: 16px;
     line-height: calc((18 / 16) * 100%);
+    width: 354px;
   }
 `;
 
@@ -38,7 +40,7 @@ export const Label = styled.label`
   display: flex;
   flex-direction: column;
   row-gap: 8px;
-  max-width: 354px;
+ max-width: 100%;
   font-family: 'InterNormal';
   font-style: normal;
   font-weight: 400;

@@ -12,7 +12,7 @@ export const handleUpdateTaskFulfilled = (state, {payload}) => {
 }
 
 export const handleDeleteTaskFulfilled = (state, {payload}) => {
-    const index = state.tasks.findIndex(item => item.id === payload.id);
+    const index = state.tasks.findIndex(item => item.id === payload);
     state.tasks.splice(index, 1);
 }
 
