@@ -16,6 +16,7 @@ export const tasksStatisticCalculator = data => {
 
   data.forEach(task => {
     const status = task.status;
+    // console.log(status);
     if (statuses[status]) {
       statuses[status].day += 1;
       statuses[status].month += 1;
@@ -23,8 +24,8 @@ export const tasksStatisticCalculator = data => {
   });
 
   Object.values(statuses).forEach(status => {
-    status.day = (status.day / totalTasks) * 100;
-    status.month = (status.month / totalTasks) * 100;
+    status.day = Math.round((status.day / totalTasks) * 100);
+    status.month = Math.round((status.month / totalTasks) * 100);
   });
 
   const resultArray = Object.values(statuses);
