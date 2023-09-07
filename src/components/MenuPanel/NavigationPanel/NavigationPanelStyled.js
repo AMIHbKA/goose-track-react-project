@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { shakeAnimation } from 'UI';
 
 const { default: styled } = require('styled-components');
 
@@ -73,5 +74,7 @@ export const MenuNavLink = styled(NavLink)`
     &.active {
       padding: 16px 20px;
     }
+
+    ${shakeAnimation}
   }
 `;

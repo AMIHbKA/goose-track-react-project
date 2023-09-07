@@ -81,7 +81,7 @@ const DesktopSlotProps = {
     width: '290px',
   },
 
-  '.css-31ca4x-MuiPickersFadeTransitionGroup-root': {
+  '.css-1bx5ylf-MuiPickersFadeTransitionGroup-root': {
     position: 'absolute',
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -89,6 +89,8 @@ const DesktopSlotProps = {
     right: 0,
     textAlign: 'center',
   },
+
+  // css-31ca4x-MuiPickersFadeTransitionGroup-root - locally
 
   '& .MuiDayCalendar-weekDayLabel': {
     width: '48px',

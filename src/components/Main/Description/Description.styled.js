@@ -20,7 +20,7 @@ export const OderedListContent = styled.div`
     display: block;
     font-size: 80px;
     color: ${props => props.theme.colors.primary};
-    margin-bottom: 14px;
+    padding: 6px 18px;
 
     @media (min-width: ${props => props.theme.breakpoints.tablet}) {
       font-size: 104px;
@@ -29,14 +29,8 @@ export const OderedListContent = styled.div`
   }
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
-    max-width: 275px;
+    max-width: 285px;
     margin-bottom: 48px;
-  }
-
-  @media (min-width: ${props => props.theme.breakpoints.laptopL}) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
   }
 `;
 
@@ -45,6 +39,7 @@ export const OderedListItem = styled.li`
     display: flex;
     justify-content: space-between;
     padding: 0 0 0 77px;
+    align-items: center;
   }
 
   &:not(:last-child) {
@@ -86,6 +81,7 @@ export const Title = styled.h3`
   font-weight: bold;
   border-radius: 44px;
   margin-bottom: 8px;
+  margin-top: 14px;
   text-transform: uppercase;
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
@@ -93,9 +89,14 @@ export const Title = styled.h3`
     line-height: calc(44 / 40);
     margin-bottom: 14px;
   }
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    margin-bottom: 24px;
+  }
 `;
 
 export const TextName = styled.p`
+  color: #171820;
   font-size: 32px;
   line-height: calc(40 / 32);
   font-weight: bold;
@@ -104,6 +105,8 @@ export const TextName = styled.p`
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     margin-bottom: 24px;
+    font-size: 40px;
+    line-height: calc(44 / 40);
   }
 `;
 

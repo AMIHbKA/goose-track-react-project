@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { backgroundButtonTransition } from 'UI';
 
 export const ModalContainer = styled.form`
   min-width: 335px;
@@ -135,7 +136,7 @@ export const SaveEditButton = styled.button`
   padding: 12px;
   border-radius: 8px;
   font-weight: 600;
-  transition: all linear 0.3s;
+  ${backgroundButtonTransition}
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     min-width: 198px;
@@ -163,7 +164,7 @@ export const CancelButton = styled.button`
   padding: 12px;
   border-radius: 8px;
   font-weight: 600;
-  transition: all linear 0.3s;
+  ${backgroundButtonTransition}
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     min-width: 198px;
@@ -171,7 +172,7 @@ export const CancelButton = styled.button`
   }
 
   &:hover {
-    background-color: #3e85f3;
+    background-color: ${({ theme }) => theme.colors.primary};
     color: #fff;
   }
 `;

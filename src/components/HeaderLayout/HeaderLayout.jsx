@@ -20,9 +20,13 @@ import { selectUser } from 'redux/auth/selectors';
 import { MobileMenu } from 'components/MobileMenu/MobileMenu';
 import { useTheme } from 'styled-components';
 import { useLocation } from 'react-router';
+import { LanguageButton } from 'components/LanguageButton/LanguageButton';
+import { useTranslation } from 'react-i18next';
 
 export const HeaderLayout = ({ currentTheme, currentReview }) => {
-  const user = useSelector(selectUser);
+  const { t } = useTranslation();
+
+  const { user, avatarUrl } = useSelector(selectUser);
   const currentPage = useLocation().pathname;
   const [showModal, setShowModal] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -82,8 +86,9 @@ export const HeaderLayout = ({ currentTheme, currentReview }) => {
 
           <UserPanel>
             <FeedBackButtonStyled onClick={onShowModal} boxShadow={false}>
-              Feedback
+              {t('headerLayout.feedbackButton')}
             </FeedBackButtonStyled>
+            <LanguageButton />
             {showModal && (
               <Modal onActive={onShowModal}>
                 <FeedbackModal
@@ -95,9 +100,9 @@ export const HeaderLayout = ({ currentTheme, currentReview }) => {
             )}
             <UserInfo>
               <ThemeToggler />
-              <UserName>{user.name}</UserName>
+              <UserName>{user}</UserName>
               <UserPhoto>
-                <img src={user.avatarUrl} alt="user avatar" />
+                <img src={avatarUrl} alt="user avatar" />
               </UserPhoto>
             </UserInfo>
           </UserPanel>

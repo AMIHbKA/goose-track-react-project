@@ -38,15 +38,15 @@ export const CloseButton = styled(CloseIcon)`
   right: 14px;
   background-size: contain;
   background-repeat: no-repeat;
-  stroke: ${({ theme }) => theme.colors.closeButton};
+  stroke: ${({ theme }) => theme?.colors?.closeButton || '#fff'};
   cursor: pointer;
 
-  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+  @media (min-width: ${({ theme }) => theme?.breakpoints?.tablet || '768px'}) {
     top: 18px;
     right: 18px;
   }
 
   &:hover {
-    stroke: ${props => props.theme.colors.primary};
+    stroke: ${({ theme }) => theme?.colors?.primary || 'red'};
   }
 `;
