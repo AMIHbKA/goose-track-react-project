@@ -47,5 +47,27 @@
     "account": "Мій кабінет",
     "calendar": "Календар",
     "statistics": "Статистика"
+  },
+
+  "registerForm": {
+    "formHeader": "Реєстрація",
+    "name": "Ім'я",
+    "placeholderName": "Введіть своє ім'я",
+    "emailAddress": "Електронна пошта",
+    "placeholderEmail": "Введіть електронну пошту",
+    "password": "Пароль",
+    "placeholderPassword": "Введіть пароль",
+    "buttonSignUp": "Зареєструватися",
+    "linkLogIn": "Увійти"
+  },
+
+  "loginForm": {
+    "formHeader": "Увійти",
+    "email": "Електронна пошта",
+    "placeholderEmail": "Введіть електронну пошту",
+    "password": "Пароль",
+    "placeholderPassword": "Введіть пароль",
+    "buttonLogIn": "Увійти",
+    "linkignUp": "Реєстрація"
   }
 }
