@@ -31,8 +31,6 @@ export const App = () => {
     }
   }, [dispatch, token]);
 
-  // console.log('app isLoggedIn', isLoggedIn);
-
   return isRefreshing ? (
     <b>Refreshing user...</b>
   ) : (

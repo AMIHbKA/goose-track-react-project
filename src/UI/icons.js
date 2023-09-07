@@ -463,36 +463,30 @@ export const StarIcon = ({ ...props }) => {
   );
 };
 
-export const RightArrow = () => {
+export const RightArrow = ({ ...props }) => {
   return (
     <svg
-      width="39"
-      height="6"
+      width="38"
+      height="5"
       viewBox="0 0 39 6"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
-      <path
-        d="M33.865 1.10971L35.7445 2.38771L0 2.38871L0 3.38871L35.5205 3.38771L33.75 4.40522L34.248 5.27222L38.3225 2.93122L34.4275 0.282713L33.865 1.10971Z"
-        fill="#111111"
-      />
+      <path d="M33.865 1.10971L35.7445 2.38771L0 2.38871L0 3.38871L35.5205 3.38771L33.75 4.40522L34.248 5.27222L38.3225 2.93122L34.4275 0.282713L33.865 1.10971Z" />
     </svg>
   );
 };
 
-export const LeftArrow = () => {
+export const LeftArrow = ({ ...props }) => {
   return (
     <svg
-      width="39"
-      height="6"
+      width="38"
+      height="5"
       viewBox="0 0 39 6"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
-      <path
-        d="M5.03685 4.66763L3.15734 3.38963L38.9019 3.38863V2.38863L3.38134 2.38963L5.15184 1.37213L4.65384 0.505127L0.579338 2.84613L4.47435 5.49463L5.03685 4.66763Z"
-        fill="#111111"
-      />
+      <path d="M5.03685 4.66763L3.15734 3.38963L38.9019 3.38863V2.38863L3.38134 2.38963L5.15184 1.37213L4.65384 0.505127L0.579338 2.84613L4.47435 5.49463L5.03685 4.66763Z" />
     </svg>
   );
 };

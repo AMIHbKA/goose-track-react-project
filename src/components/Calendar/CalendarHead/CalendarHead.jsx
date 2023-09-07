@@ -1,13 +1,20 @@
 import React from 'react';
 import CalendarHeadStyled from './CalendarHeadStyled';
 import DayCell from './DayCell/DayCell';
+import { useTranslation } from 'react-i18next';
 
 const CalendarHead = ({ weekDates, activeDate, onDateClick }) => {
-  const days = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
+  const { t } = useTranslation();
+
+  const daysOfWeekTranslations = t('daysOfWeek', { returnObjects: true });
+  const translatedDays = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'].map(
+    day => daysOfWeekTranslations[day] || day
+  );
+  // const days = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
 
   return (
     <CalendarHeadStyled condensed={weekDates}>
-      {days.map((day, index) => (
+      {translatedDays.map((day, index) => (
         <DayCell
           key={day}
           day={day}

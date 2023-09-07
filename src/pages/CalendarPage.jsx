@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { fetchTasks } from 'redux/tasks/operations';
 
 function CalendarPage() {
-  const dispatch= useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchTasks());
@@ -15,7 +15,7 @@ function CalendarPage() {
   return (
     <CalendarPageContainer>
       <CalendarToolbar />
-      <TaskModal/>
+      <TaskModal />
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>
