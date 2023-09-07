@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { shakeAnimation } from 'UI/CommonStyles/baseStyle';
+import { shakeAnimation } from 'UI';
 
 const { default: styled } = require('styled-components');
 
@@ -76,19 +76,5 @@ export const MenuNavLink = styled(NavLink)`
     }
 
     ${shakeAnimation}
-
-    &:hover {
-      /* color: ${({ theme }) => theme.colors.primary}; */
-      /* transform: ; */
-      animation: shake 0.5s;
-    }
-    /* 
-    &:hover .fillIcon {
-      fill: ${({ theme }) => theme.colors.primary};
-    }
-
-    &:hover .strokeIcon {
-      stroke: ${({ theme }) => theme.colors.primary};
-    } */
   }
 `;

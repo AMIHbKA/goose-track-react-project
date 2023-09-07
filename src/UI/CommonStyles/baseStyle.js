@@ -63,7 +63,7 @@ export const iconTransitionStyle = css`
   transition: fill 300ms ease-in-out;
 `;
 
-export const shakeAnimation = css`
+export const shakeAnimationBody = css`
   @keyframes shake {
     0% {
       transform: translate(1px, 1px) rotate(0deg);
@@ -99,4 +99,15 @@ export const shakeAnimation = css`
       transform: translate(1px, -2px) rotate(-1deg);
     }
   }
+`;
+
+export const shakeAnimationHover = css`
+  &:hover {
+    animation: shake 0.5s;
+  }
+`;
+
+export const shakeAnimation = css`
+  ${shakeAnimationBody}
+  ${shakeAnimationHover}
 `;

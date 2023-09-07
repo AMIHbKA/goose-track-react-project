@@ -27,13 +27,13 @@ const TasksColumn = ({ stage, tasks, maxHeight }) => {
         ))}
         {isMobile && (
           <AddTaskBtn noTasks={noTasks}>
-            <PlusIcon size={24} stroke={mainText} /> <div>AddTask</div>
+            <PlusIcon size={24} /> <div>AddTask</div>
           </AddTaskBtn>
         )}
       </ColumnsTasksList>
       {isMobile || (
         <AddTaskBtn noTasks={noTasks}>
-          <PlusIcon size={24} stroke={mainText} /> <div>AddTask</div>
+          <PlusIcon size={24} /> <div>AddTask</div>
         </AddTaskBtn>
       )}
     </TasksColumnStyled>

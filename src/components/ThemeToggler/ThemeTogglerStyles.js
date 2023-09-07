@@ -1,4 +1,4 @@
-import { iconTransitionStyle } from 'UI/CommonStyles/baseStyle';
+import { iconTransitionStyle, shakeAnimation } from 'UI';
 
 const { default: styled } = require('styled-components');
 
@@ -18,6 +18,8 @@ export const ThemeButton = styled.button`
     }
   }
 
+  ${shakeAnimation}
+
   .moon {
     fill: ${({ theme }) => theme.colors.primary};
     ${iconTransitionStyle};
@@ -25,6 +27,7 @@ export const ThemeButton = styled.button`
     &:hover,
     &:focus {
       fill: ${({ theme }) => theme.colors.hoverState};
+      animation: shake 0.5s;
     }
   }
 
@@ -35,6 +38,7 @@ export const ThemeButton = styled.button`
     &:hover,
     &:focus {
       fill: orange;
+      animation: shake 0.5s;
     }
     ${iconTransitionStyle};
   }

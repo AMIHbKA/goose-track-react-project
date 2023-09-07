@@ -11,5 +11,9 @@ export {
   calendarNavLinkStyle,
   hoverBackgroundStyle,
   backgroundButtonTransition,
+  iconTransitionStyle,
   buttonBoxShadow,
+  shakeAnimationBody,
+  shakeAnimation,
+  shakeAnimationHover,
 } from './baseStyle';
