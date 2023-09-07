@@ -35,7 +35,7 @@ GooseTrack - повноцінний планувальник завдань з �
 
 <div align="center">
 <b>Технології та інструменти що були використані при розробці:</b></br>
-  
+
 ![Swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white)
 ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
 ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
