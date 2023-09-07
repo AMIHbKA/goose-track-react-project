@@ -153,7 +153,7 @@ export const FeedbackModal = ({ onCancel, initialReview }) => {
           )}
         </StyledReviewButton>
         <ReviewInput
-          placeholder="Enter text"
+          placeholder={t('feedbackModal.placeholderRewiew')}
           value={review}
           onChange={handleReviewSubmit}
           saveClicked={saveClicked}

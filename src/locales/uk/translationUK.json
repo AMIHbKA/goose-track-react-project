@@ -19,6 +19,7 @@
   "feedbackModal": {
     "raiting": "Рейтинг",
     "review": "Відгук",
+    "placeholderRewiew": "Введіть текст",
     "buttonSave": "Зберегти",
     "buttonEdit": "Змінити",
     "buttonCancel": "Вийти",
@@ -66,5 +67,31 @@
     "placeholderPassword": "Введіть пароль",
     "buttonLogIn": "Увійти",
     "linkignUp": "Реєстрація"
-  }
+  },
+
+  "userForm": {
+    "user": "Користувач",
+    "userName": "Iм'я користувача",
+    "placeholderName": "Введіть своє ім'я",
+    "birthday": "День народження",
+    "format": "ДД/MM/РРРР",
+    "email": "Електронна пошта",
+    "placeholderEmail": "YourEmail@mail.com",
+    "phone": "Телефон",
+    "placeholderPhone": "+380960000000",
+    "skype": "Скайп",
+    "placeholderSkype": "Введіть свій номер скайпу",
+    "saveButton": "Зберегти зміни"
+  },
+
+  "pages": {
+    "titleCalendar": "Календар",
+    "titleUser": "Мій Профіль",
+    "titleStatistics": "Статистика"
+  },
+
+  "day_translation_key": "День",
+  "month_translation_key": "Місяць",
+  "next_translation_key": "Next",
+  "previous_translation_key": "Previous"
 }

@@ -3,22 +3,25 @@ import { Container } from './CalendarToolbar.styled';
 import { useState } from 'react';
 import { PeriodTypeSelect } from 'components/PeriodTypeSelect/PeriodTypeSelect';
 import { addDays, addMonths } from 'date-fns';
-import { useDispatch } from "react-redux"
+import { useDispatch } from 'react-redux';
 import { setDate } from 'redux/date/dateSlice';
 import { getDate } from 'redux/date/selectors';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
+// export const DAY = t('day_translation_key');
 export const DAY = 'day';
 export const MONTH = 'month';
 export const NEXT = 'next';
 export const PREVIOUS = 'previous';
 
 export const CalendarToolbar = ({ periodSelector = true }) => {
+  const { t } = useTranslation();
   const [activePeriod, setActivePeriod] = useState(MONTH);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const date = useSelector(getDate)
+  const date = useSelector(getDate);
 
   const changeDate = action => {
     if (action === NEXT) {
@@ -57,11 +60,10 @@ export const CalendarToolbar = ({ periodSelector = true }) => {
 
   return (
     <Container>
-      <PeriodPaginator
-        periodType={activePeriod}
-        changeDate={changeDate}
-      />
-      {periodSelector && <PeriodTypeSelect selectPeriod={selectPeriod} date={date}/>}
+      <PeriodPaginator periodType={activePeriod} changeDate={changeDate} />
+      {periodSelector && (
+        <PeriodTypeSelect selectPeriod={selectPeriod} date={date} />
+      )}
     </Container>
   );
 };

@@ -19,6 +19,7 @@
   "feedbackModal": {
     "raiting": "Raiting",
     "review": "Review",
+    "placeholderRewiew": "Enter text",
     "buttonSave": "Save",
     "buttonEdit": "Edit",
     "buttonCancel": "Cancel",
@@ -57,5 +58,31 @@
     "placeholderPassword": "Enter password",
     "buttonLogIn": "Log In",
     "linkignUp": "Sign Up"
-  }
+  },
+
+  "userForm": {
+    "user": "User",
+    "userName": "User Name",
+    "placeholderName": "Add your name",
+    "birthday": "Birthday",
+    "format": "DD/MM/YYYY",
+    "email": "Email",
+    "placeholderEmail": "YourEmail@mail.com",
+    "phone": "Phone",
+    "placeholderPhone": "+380960000000",
+    "skype": "Skype",
+    "placeholderSkype": "Add your skype number",
+    "saveButton": "Save changes"
+  },
+
+  "pages": {
+    "titleCalendar": "Calendar",
+    "titleUser": "User Profile",
+    "titleStatistics": "Statistics"
+  },
+
+  "day_translation_key": "Day",
+  "month_translation_key": "Month",
+  "next_translation_key": "Next",
+  "previous_translation_key": "Previous"
 }
