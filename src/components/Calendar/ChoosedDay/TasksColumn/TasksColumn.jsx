@@ -1,15 +1,14 @@
+import { useState } from 'react';
+import { useMobile } from 'hooks';
 import { PlusIcon } from 'UI';
+import { TaskModal } from 'components';
 import AddTaskBtn from '../AddTaskBtn/AddTaskBtn';
 import ColumnHeadBar from '../ColumnHeadBar/ColumnHeadBar';
 import ColumnsTasksList from '../ColumnsTasksList/ColumnsTasksList';
 import TasksColumnStyled from './TasksColumnStyled';
 import TaskColumnCard from '../TaskColumnCard/TaskColumnCard';
-import { useMobile } from 'hooks';
-import { TaskModal } from 'components';
-import { useState } from 'react';
 
 const TasksColumn = ({ stage, tasks, maxHeight }) => {
-  tasks.splice(9, 50);
   const [showModal, setShowModal] = useState(false);
   const isMobile = useMobile();
   const onShowModal = () => {
@@ -18,10 +17,17 @@ const TasksColumn = ({ stage, tasks, maxHeight }) => {
 
   const noTasks = !tasks || !tasks.length;
 
+  const tasksLength = tasks?.length || 0;
+
   return (
-    <TasksColumnStyled maxHeight={maxHeight}>
+    <TasksColumnStyled maxHeight={maxHeight} className="TasksColumnStyled">
       <ColumnHeadBar stage={stage} />
-      <ColumnsTasksList maxHeight={maxHeight} noTasks={noTasks}>
+      <ColumnsTasksList
+        maxHeight={maxHeight}
+        noTasks={noTasks}
+        tasksLength={tasksLength}
+        className="ColumnsTasksList"
+      >
         {tasks.map(task => (
           <TaskColumnCard key={task._id} task={task} />
         ))}

@@ -50,6 +50,8 @@ export const darkTheme = {
     userPanelActiveText: LIGHT_COLOR,
     userPanelActiveBack: commonStyles.colors.primary,
     addTaskBack: commonStyles.colors.primary,
+    scrollbarBackground: '#2D3037',
+    scrollbarThumbBackground: '#171820',
   },
   calendarToolBar: {
     buttonBackground: DARK_GRAYISH_BLUE,
@@ -123,6 +125,8 @@ export const lightTheme = {
     userPanelActiveText: commonStyles.colors.primary,
     userPanelActiveBack: LIGHT_BLUE,
     addTaskBack: LIGHT_BLUE,
+    scrollbarBackground: '#F2F2F2',
+    scrollbarThumbBackground: '#E7E5E5',
   },
   calendarToolBar: {
     buttonBackground: LIGHT_BLUE,
