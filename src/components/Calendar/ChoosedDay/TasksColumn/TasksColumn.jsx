@@ -1,4 +1,3 @@
-import { useTheme } from 'styled-components';
 import { PlusIcon } from 'UI';
 import AddTaskBtn from '../AddTaskBtn/AddTaskBtn';
 import ColumnHeadBar from '../ColumnHeadBar/ColumnHeadBar';
@@ -8,10 +7,6 @@ import TaskColumnCard from '../TaskColumnCard/TaskColumnCard';
 import { useMobile } from 'hooks';
 
 const TasksColumn = ({ stage, tasks, maxHeight }) => {
-  const {
-    colors: { mainText },
-  } = useTheme();
-
   tasks.splice(9, 50);
 
   const isMobile = useMobile();
