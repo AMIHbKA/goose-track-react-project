@@ -45,7 +45,7 @@ const DesktopSlotProps = {
 
   '& .MuiPickersCalendarHeader-root': {
     fontWeight: 600,
-    paddingLeft: '0px',
+    paddingLeft: '15px',
     display: 'flex',
     alignItems: 'center',
     justifyItems: 'center',
@@ -62,6 +62,10 @@ const DesktopSlotProps = {
     fontSize: '24px',
     fontWeight: 600,
     fontFamily: 'Inter',
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    justifyContent: 'center',
   },
 
   '.MuiPickersArrowSwitcher-root': {
