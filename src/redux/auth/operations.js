@@ -9,7 +9,6 @@ export const register = createAsyncThunk(
 
       // After successful registration, add the token to the HTTP header
       notify('success', response.data.message);
-      console.log(response);
       return response.data.userData;
     } catch (error) {
       notify(

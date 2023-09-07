@@ -28,11 +28,11 @@ export const CalendarToolbar = ({ periodSelector = true }) => {
       switch (activePeriod) {
         case MONTH:
           const month = addMonths(new Date(date), 1);
-          dispatch(setDate(month));
+          dispatch(setDate(Number(month)));
           break;
         case DAY:
           const day = addDays(new Date(date), 1);
-          dispatch(setDate(day));
+          dispatch(setDate(Number(day)));
           break;
         default:
           break;
@@ -42,11 +42,11 @@ export const CalendarToolbar = ({ periodSelector = true }) => {
         case MONTH:
           const month = addMonths(new Date(date), -1);
 
-          dispatch(setDate(month));
+          dispatch(setDate(Number(month)));
           break;
         case DAY:
           const day = addDays(new Date(date), -1);
-          dispatch(setDate(day));
+          dispatch(setDate(Number(day)));
           break;
         default:
           break;

@@ -7,8 +7,6 @@ const instance = axios.create({
 export const getReviews = async () => {
   try {
     const response = await instance.get('/reviews');
-    // console.log(response.data.reviews);
-    // console.log(response.data.reviews[6].owner);
     return response.data.reviews;
   } catch (error) {
     // console.log(error);

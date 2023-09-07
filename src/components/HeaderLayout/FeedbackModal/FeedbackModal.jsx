@@ -44,7 +44,7 @@ export const FeedbackModal = ({ onCancel, initialReview }) => {
     const fetchData = async () => {
       try {
         const result = await dispatch(getReviewFromBackend());
-        // console.log(result.payload);
+
         if (!result.payload) return;
         setRating(result.payload.stars);
         setReview(result.payload.reviewText);
