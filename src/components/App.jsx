@@ -16,7 +16,7 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { GlobalStyle } from 'UI';
 import { useSelector } from 'react-redux';
 import { selectToken } from 'redux/auth/selectors';
-import { NotFoundPage } from './NotFoundPage/NotFoundPage';
+// import { NotFoundPage } from './NotFoundPage/NotFoundPage';
 
 const LoginPage = lazy(() => import('../pages/LoginPage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
