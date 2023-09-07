@@ -17,7 +17,7 @@ const TasksColumn = ({ stage, tasks, maxHeight }) => {
     setShowModal(s => !s);
   };
 
-  const status = stage.split(' ').join('-').toLowerCase()
+  const status = stage.split(' ').join('-').toLowerCase();
 
   const noTasks = !tasks || !tasks.length;
 
@@ -33,19 +33,22 @@ const TasksColumn = ({ stage, tasks, maxHeight }) => {
         className="ColumnsTasksList"
       >
         {tasks.map(task => (
-          <TaskColumnCard key={task._id} task={task} stage={stage}/>
+          <TaskColumnCard key={task._id} task={task} stage={stage} />
         ))}
         {isMobile && (
           <AddTaskBtn noTasks={noTasks} onClick={onShowModal}>
             <PlusIcon size={24} /> <div>AddTask</div>
           </AddTaskBtn>
         )}
-        {showModal && <TaskModal isShow={onShowModal}>
-          <AddOrEditTaskForm
-                onActive={onShowModal}
-                option="add"
-                status={status}
-              /> </TaskModal>}
+        {showModal && (
+          <TaskModal isShow={onShowModal}>
+            <AddOrEditTaskForm
+              onActive={onShowModal}
+              option="add"
+              status={status}
+            />{' '}
+          </TaskModal>
+        )}
       </ColumnsTasksList>
       {isMobile || (
         <AddTaskBtn noTasks={noTasks} onClick={onShowModal}>

@@ -1,6 +1,9 @@
 import Drawer from '@mui/material/Drawer';
+import { useTheme } from 'styled-components';
 
 export const MobileMenu = ({ children, isOpen, onClose }) => {
+  const { colors } = useTheme();
+
   return (
     <Drawer
       anchor="left"
@@ -8,7 +11,7 @@ export const MobileMenu = ({ children, isOpen, onClose }) => {
       onClose={onClose}
       sx={{
         '& .MuiDrawer-paper': {
-          backgroundColor: 'transparent',
+          backgroundColor: colors.secondBack,
         },
       }}
       slotProps={{
