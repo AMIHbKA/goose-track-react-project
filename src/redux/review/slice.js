@@ -27,7 +27,9 @@ const reviewSlice = createSlice({
     builder
       .addCase(sendFeedbackToBackend.fulfilled, (state, action) => {
         state.stars = action.payload.stars;
+
         state.reviewText = action.payload.reviewText;
+
         state.error = null;
       })
       .addCase(sendFeedbackToBackend.rejected, (state, action) => {
@@ -35,7 +37,9 @@ const reviewSlice = createSlice({
       })
       .addCase(getReviewFromBackend.fulfilled, (state, action) => {
         state.stars = action.payload.stars;
+
         state.reviewText = action.payload.reviewText;
+
         state.error = null;
       })
       .addCase(getReviewFromBackend.rejected, (state, action) => {

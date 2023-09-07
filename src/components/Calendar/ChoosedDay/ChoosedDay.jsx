@@ -32,6 +32,7 @@ const ChoosedDay = () => {
     );
   });
 
+
   useEffect(() => {
     const year = getYear(date);
     const month = getMonth(date);

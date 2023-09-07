@@ -102,6 +102,7 @@ export const UserForm = () => {
                     onChange={date => {
                       if (!date) setFieldValue('birthday', '');
                       setFieldValue('birthday', date);
+
                     }}
                   />
                 </LocalizationProvider>
