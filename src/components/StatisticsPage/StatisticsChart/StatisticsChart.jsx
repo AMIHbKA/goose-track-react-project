@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import {
   BarChart,
   Bar,
@@ -7,6 +6,7 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from 'recharts';
+import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { useWindowSize, useRect } from 'hooks';
 import BarWithGradient from '../BarWithGradient/BarWithGradient';
@@ -16,7 +16,9 @@ import {
   StatisticsChartWrapperExternal,
   StatisticsChartWrapperInternal,
 } from './StatisticsChartStyled';
-
+import { useSelector } from 'react-redux';
+import { getTasks } from 'redux/tasks/selectors';
+import { tasksStatisticCalculator } from 'utilities/tasksStatisticCalculator';
 import { useTranslation } from 'react-i18next';
 // import { useSelector } from 'react-redux';
 // import { getTasks } from 'redux/tasks/selectors';
@@ -38,10 +40,6 @@ const data = [
     month: 40,
   },
 ];
-
-import { useSelector } from 'react-redux';
-import { getTasks } from 'redux/tasks/selectors';
-import { tasksStatisticCalculator } from 'utilities/tasksStatisticCalculator';
 
 const StatisticsChart = () => {
   const { t } = useTranslation();
