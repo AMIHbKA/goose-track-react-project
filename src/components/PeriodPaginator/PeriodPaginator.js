@@ -19,6 +19,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { setDate } from 'redux/date/dateSlice';
 import { getDate } from 'redux/date/selectors';
+import { getMilliseconds } from 'date-fns';
 
 export const formatDate = (currDate, periodType) => {
   if (periodType === MONTH) {
@@ -36,20 +37,17 @@ export const formatDate = (currDate, periodType) => {
 };
 
 export const PeriodPaginator = ({ periodType, changeDate }) => {
-  //  const [value, setValue] = useState(date);
-
   const date = useSelector(getDate);
   const dispatch = useDispatch();
-  //  useEffect(()=> {
-  //   setValue(date)
-  //  }, [date])
 
   return (
     <Wrapper>
       <ButtonDatePicker
         label={formatDate(date, periodType)}
         value={date}
-        onChange={newValue => dispatch(setDate(newValue))}
+        onChange={newValue => {
+          dispatch(setDate(Number(newValue)));
+        }}
       />
 
       <ActionBox>
