@@ -43,6 +43,10 @@ const AddTaskBtn = styled.button`
   }
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    width: calc(100% - 42px);
+
+    margin-left: 21px;
+
     ${({ tasks }) =>
       tasks ||
       `

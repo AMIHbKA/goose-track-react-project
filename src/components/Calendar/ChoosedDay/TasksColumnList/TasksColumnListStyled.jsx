@@ -12,8 +12,34 @@ export const TasksColumnListContainer = styled.div`
   overflow-x: auto;
   overflow-y: hidden;
 
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 12px;
+
+    background-color: ${({ theme }) => theme.colors.scrollbarBackground};
+  }
+
+  ::-webkit-scrollbar-thumb {
+    width: 12px;
+
+    border-radius: 12px;
+
+    background-color: ${({ theme }) => theme.colors.scrollbarThumbBackground};
+  }
+
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     width: calc(100vw - 64px);
+
+    ::-webkit-scrollbar {
+      width: 14px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      width: 14px;
+    }
   }
 
   @media (min-width: ${props => props.theme.breakpoints.laptop}) {
@@ -33,6 +59,8 @@ export const TasksColumnListWrapper = styled.div`
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     justify-content: space-between;
+
+    max-height: ${props => props.maxHeight - 12}px;
   }
 
   @media (min-width: ${props => props.theme.breakpoints.laptop}) {

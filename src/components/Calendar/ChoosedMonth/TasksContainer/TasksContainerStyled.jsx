@@ -15,6 +15,24 @@ const TasksContainerStyled = styled.div`
 
   overflow-y: auto;
 
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 6px;
+
+    background-color: ${({ theme }) => theme.colors.scrollbarBackground};
+  }
+
+  ::-webkit-scrollbar-thumb {
+    width: 3px;
+
+    border-radius: 6px;
+
+    background-color: ${({ theme }) => theme.colors.scrollbarThumbBackground};
+  }
+
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     margin-left: 4px;
     margin-right: 4px;

@@ -18,12 +18,15 @@ const TasksColumn = ({ stage, tasks, maxHeight }) => {
 
   const noTasks = !tasks || !tasks.length;
 
+  const tasksLength = tasks?.length || 0;
+
   return (
     <TasksColumnStyled maxHeight={maxHeight} className="TasksColumnStyled">
       <ColumnHeadBar stage={stage} />
       <ColumnsTasksList
         maxHeight={maxHeight}
         noTasks={noTasks}
+        tasksLength={tasksLength}
         className="ColumnsTasksList"
       >
         {tasks.map(task => (
