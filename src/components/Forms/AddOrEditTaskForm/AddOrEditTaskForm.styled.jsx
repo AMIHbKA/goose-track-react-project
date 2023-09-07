@@ -117,7 +117,6 @@ justify-content: center;
 gap: 8px;
 background: ${props => props.theme.colors.primary};
 color: #fff;
-
 `
 
 export const CancelButton = styled(Button)`

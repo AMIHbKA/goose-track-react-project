@@ -25,6 +25,7 @@ export const fetchTasks = createAsyncThunk(
 export const addTask = createAsyncThunk(
   'tasks/addTask',
   async (newTask, thunkApi) => {
+    console.log('newTask', newTask)
     try {
       const token = getToken(thunkApi);
       api.setAuthHeader(token);

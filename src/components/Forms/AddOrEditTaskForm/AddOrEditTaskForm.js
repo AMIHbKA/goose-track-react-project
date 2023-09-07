@@ -16,6 +16,9 @@ import {
 } from './AddOrEditTaskForm.styled';
 import { useDispatch } from 'react-redux';
 import { addTask, updateTask } from 'redux/tasks/operations';
+import { useSelector } from 'react-redux';
+import { getDate } from 'redux/date/selectors';
+import { format } from 'date-fns';
 // import { useTranslation } from 'react-i18next';
 
 export const AddOrEditTaskForm = ({
@@ -28,11 +31,16 @@ export const AddOrEditTaskForm = ({
   option = 'add',
   date,
   id,
-  status,
+  status = 'to-do',
   onActive,
 }) => {
   // const { t } = useTranslation();
   const dispatch = useDispatch();
+
+  const currDate = useSelector(getDate)
+
+  const formattedDate = format(new Date(currDate), 'yyyy-MM-dd')
+  console.log('formattedDate', formattedDate)
 
   const validateText = value => {
     let error;
@@ -74,8 +82,8 @@ export const AddOrEditTaskForm = ({
     if (option === 'add') {
       const newTask = {
         ...values,
-        date,
-        status: 'to-do',
+        date : formattedDate,
+        status,
       };
       dispatch(addTask(newTask));
     }
@@ -181,7 +189,7 @@ export const AddOrEditTaskForm = ({
           <Wrapper>
             {option === 'add' ? (
               <ActionButton type="submit">
-                <PlusIcon size={18} />
+                <PlusIcon stroke='#fff' size={18} />
                 Add
               </ActionButton>
             ) : (
