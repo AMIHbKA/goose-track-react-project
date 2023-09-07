@@ -136,7 +136,7 @@ export const SaveEditButton = styled.button`
   padding: 12px;
   border-radius: 8px;
   font-weight: 600;
-  transition: background-color 300ms ease-in-out;
+  ${backgroundButtonTransition}
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     min-width: 198px;
