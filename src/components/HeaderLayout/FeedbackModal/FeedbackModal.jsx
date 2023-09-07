@@ -44,13 +44,13 @@ export const FeedbackModal = ({ onCancel, initialReview }) => {
     const fetchData = async () => {
       try {
         const result = await dispatch(getReviewFromBackend());
-        console.log(result.payload);
+
         if (!result.payload) return;
         setRating(result.payload.stars);
         setReview(result.payload.reviewText);
         setSaveClicked(true);
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
 

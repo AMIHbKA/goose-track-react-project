@@ -13,10 +13,8 @@ import {
   PREVIOUS,
 } from 'components/CalendarToolbar/CalendarToolbar';
 import { ButtonDatePicker } from 'components/DatePicker/DatePicker';
-// import { useState } from 'react';
-// import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
 import { setDate } from 'redux/date/dateSlice';
 import { getDate } from 'redux/date/selectors';
 
@@ -38,6 +36,7 @@ export const formatDate = (currDate, periodType) => {
 export const PeriodPaginator = ({ periodType, changeDate }) => {
   const date = useSelector(getDate);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <Wrapper>
@@ -46,6 +45,9 @@ export const PeriodPaginator = ({ periodType, changeDate }) => {
         value={date}
         onChange={newValue => {
           dispatch(setDate(Number(newValue)));
+
+          navigate('/calendar/day');
+
         }}
       />
 
