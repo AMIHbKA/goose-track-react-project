@@ -81,8 +81,8 @@
     "titleStatistics": "Statistics"
   },
 
-  "day_translation_key": "Day",
-  "month_translation_key": "Month",
-  "next_translation_key": "Next",
-  "previous_translation_key": "Previous"
+  "dateTime": {
+    "month": "Month",
+    "day": "Day"
+  }
 }

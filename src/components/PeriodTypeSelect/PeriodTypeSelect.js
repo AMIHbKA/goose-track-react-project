@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Navigation,
   SelectorDay,
@@ -6,6 +7,8 @@ import {
 import { DAY, MONTH } from 'components/CalendarToolbar/CalendarToolbar';
 
 export const PeriodTypeSelect = ({ selectPeriod }) => {
+  const { t } = useTranslation();
+
   return (
     <Navigation>
       <SelectorMonth
@@ -14,7 +17,7 @@ export const PeriodTypeSelect = ({ selectPeriod }) => {
           selectPeriod(MONTH);
         }}
       >
-        Month
+        {t('dateTime.month')}
       </SelectorMonth>
       <SelectorDay
         to="/calendar/day"
@@ -22,7 +25,7 @@ export const PeriodTypeSelect = ({ selectPeriod }) => {
           selectPeriod(DAY);
         }}
       >
-        Day
+        {t('dateTime.day')}
       </SelectorDay>
     </Navigation>
   );
