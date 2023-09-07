@@ -5,14 +5,21 @@ import ColumnsTasksList from '../ColumnsTasksList/ColumnsTasksList';
 import TasksColumnStyled from './TasksColumnStyled';
 import TaskColumnCard from '../TaskColumnCard/TaskColumnCard';
 import { useMobile } from 'hooks';
+import { TaskModal } from 'components';
+import { useState } from 'react';
+
 // import { Modal } from 'components';
 // import { AddOrEditTaskForm } from 'components/Forms/AddOrEditTaskForm/AddOrEditTaskForm';
 // import { useState } from 'react';
 
 const TasksColumn = ({ stage, tasks, maxHeight }) => {
   tasks.splice(9, 50);
-
+  const [showModal, setShowModal] = useState(false);
   const isMobile = useMobile();
+
+  const handleClick = () => {
+    setShowModal(s => !s);
+  };
 
   const noTasks = !tasks || !tasks.length;
 
@@ -24,18 +31,14 @@ const TasksColumn = ({ stage, tasks, maxHeight }) => {
           <TaskColumnCard key={task._id} task={task} />
         ))}
         {isMobile && (
-          <AddTaskBtn noTasks={noTasks}>
+          <AddTaskBtn noTasks={noTasks} onClick={handleClick}>
             <PlusIcon size={24} /> <div>AddTask</div>
           </AddTaskBtn>
         )}
-        {/* {showModal && (
-          <Modal onActive={onShowModal}>
-            <AddOrEditTaskForm onActive={onShowModal} />
-          </Modal>
-        )} */}
+        <TaskModal onShowModal={showModal} />
       </ColumnsTasksList>
       {isMobile || (
-        <AddTaskBtn noTasks={noTasks}>
+        <AddTaskBtn noTasks={noTasks} onClick={handleClick}>
           <PlusIcon size={24} /> <div>AddTask</div>
         </AddTaskBtn>
       )}
