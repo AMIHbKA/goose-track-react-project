@@ -1,105 +1,55 @@
-# React homework template
+# GooseTrack App
 
-This project was created with
-[Create React App](https://github.com/facebook/create-react-app). To get
-acquainted and configure additional features
-[refer to documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Illustration GooseTrack App](https://img001.prntscr.com/file/img001/KlLC6GsaQ-SuXBFiQXZIAA.png)<br/>
 
-## Creating a repository by template
+<div align="center">
+GooseTrack is a full-featured task scheduler with an intuitive interface that provides a complete overview of the user's schedule, displaying all their tasks, events and appointments in a visually appealing and easy-to-understand way. It is a universal productivity tool that helps you stay on top of your tasks, events, and deadlines.</div>
 
-Use this GoIT repository as a template for creating a repository
-of your project. To use it just tap the `«Use this template»` button and choose
-`«Create a new repository»` option, as you can see on the image below.
+## Usage
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+📅 Plan things for the whole day, week, and even the whole year.</br>
+✅ Prioritize your tasks so you don't miss any of the most important events in your life.</br>
+📊 View full statistics of your planned and completed tasks for the day and month.
 
-The page for creating a new repository will open on the next step. Fill out
-the Name field and make sure the repository is public, then click
-`«Create repository from template»` button.
+## Link to the application
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+To use the application, please follow the link [GooseTrack App](https://amihbka.github.io/goose-track-react-project/).
 
-You now have a personal project repository, having a repository-template file 
-and folder structure. After that, you can work with it as you would with any 
-other private repository: clone it on your computer, write code, commit, and 
-send it to GitHub.
+<div align="center"><b>Thank you for choosing our app!</b><div>
 
-## Preparing for coding
+<div align="center"><b>Our team:</b></br>
 
-1. Make sure you have an LTS version of Node.js installed on your computer.
-   [Download and install](https://nodejs.org/en/) if needed.
-2. Install the project's base dependencies with the `npm install` command.
-3. Start development mode by running the `npm start` command.
-4. Go to [http://localhost:3000](http://localhost:3000) in your browser. This
-   page will automatically reload after saving changes to the project files.
+[![github - AMIHbKA](https://img.shields.io/badge/github-AMIHbKA-2ea44f?logo=github)](https://github.com/AMIHbKA)
+[![github - constantin351](https://img.shields.io/badge/github-constantin351-2ea44f?logo=github)](https://github.com/constantin351)
+[![github - PankivA](https://img.shields.io/badge/github-PankivA-2ea44f?logo=github)](https://github.com/PankivA)
+[![github - alinabodnar1](https://img.shields.io/badge/github-alinabodnar1-2ea44f?logo=github)](https://github.com/alinabodnar1)
+[![github - DianaShe](https://img.shields.io/badge/github-DianaShe-2ea44f?logo=github)](https://github.com/DianaShe)</br>
+[![github - InDaTim](https://img.shields.io/badge/github-InDaTim-2ea44f?logo=github)](https://github.com/indatim)
+[![github - Ivan-KLMV](https://img.shields.io/badge/github-Ivan--KLMV-2ea44f?logo=github)](https://github.com/Ivan-KLMV)
+[![github - kasyan4uk](https://img.shields.io/badge/github-kasyan4uk-2ea44f?logo=github)](https://github.com/kasyan4uk)
+[![github - makaronnik](https://img.shields.io/badge/github-makaronnik-2ea44f?logo=github)](https://github.com/makaronnik)
+[![github - svetapan](https://img.shields.io/badge/github-svetapan-2ea44f?logo=github)](https://github.com/svetapan)
 
-## Deploy
+</div>
 
-The production version of the project will automatically be linted, built, and
-deployed to GitHub Pages, in the `gh-pages` branch, every time the `main` branch
-is updated. For example, after a direct push or an accepted pull request. To do
-this, you need to edit the `homepage` field in the `package.json` file,
-replacing `your_username` and `your_repo_name` with your own, and submit the
-changes to GitHub.
+<div align="center">
+<b>Technologies and tools used in the development:</b></br>
 
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
-```
+![Swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white)
+![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)</br>
+![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Babel](https://img.shields.io/badge/Babel-F9DC3e?style=for-the-badge&logo=babel&logoColor=black)</br>
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
+![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
 
-Next, you need to go to the settings of the GitHub repository (`Settings` >
-`Pages`) and set the distribution of the production version of files from the
-`/root` folder of the `gh-pages` branch, if this was not done automatically.
-
-![GitHub Pages settings](./assets/repo-settings.png)
-
-### Deployment status
-
-The deployment status of the latest commit is displayed with an icon next to its
-ID.
-
-- **Yellow color** - the project is being built and deployed.
-- **Green color** - deployment completed successfully.
-- **Red color** - an error occurred during linting, build or deployment.
-
-More detailed information about the status can be viewed by clicking on the
-icon, and in the drop-down window, follow the link `Details`.
-
-![Deployment status](./assets/deploy-status.png)
-
-### Live page
-
-After some time, usually a couple of minutes, the live page can be viewed at the
-address specified in the edited `homepage` property. For example, here is a link
-to a live version for this repository
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
-
-If a blank page opens, make sure there are no errors in the `Console` tab
-related to incorrect paths to the CSS and JS files of the project (**404**). You
-most likely have the wrong value for the `homepage` property in the
-`package.json` file.
-
-### Routing
-
-If your application uses the `react-router-dom` library for routing, you must
-additionally configure the `<BrowserRouter>` component by passing the exact name
-of your repository in the `basename` prop. Slashes at the beginning and end of
-the line are required.
-
-```jsx
-<BrowserRouter basename="/your_repo_name/">
-  <App />
-</BrowserRouter>
-```
-
-## How it works
-
-![How it works](./assets/how-it-works.png)
-
-1. After each push to the `main` branch of the GitHub repository, a special
-   script (GitHub Action) is launched from the `.github/workflows/deploy.yml`
-   file.
-2. All repository files are copied to the server, where the project is
-   initialized and linted and built before deployment.
-3. If all steps are successful, the built production version of the project
-   files is sent to the `gh-pages` branch. Otherwise, the script execution log
-   will indicate what the problem is.
+</div>
