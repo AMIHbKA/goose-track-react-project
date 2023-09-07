@@ -9,9 +9,10 @@ import { getDate } from 'redux/date/selectors';
 import { useDispatch } from 'react-redux';
 import { fetchTasks } from 'redux/tasks/operations';
 import { getDay, getMonth, getYear } from 'date-fns';
+import { setDate } from 'redux/date/dateSlice';
 
 const ChoosedDay = () => {
-  const tasks = useSelector(getTasks)
+  const tasks = useSelector(getTasks);
 
   const date = useSelector(getDate);
 
@@ -24,20 +25,20 @@ const ChoosedDay = () => {
   }
 
   useEffect(() => {
-    const year = getYear(date)
-    const month = getMonth(date)
-    const day = getDay(date)
-    dispatch(fetchTasks({ year, month, day}))
+    const year = getYear(date);
+    const month = getMonth(date);
+    const day = getDay(date);
+    dispatch(fetchTasks({ year, month, day }));
   }, [dispatch, date]);
-
-  
 
   return (
     <ChoosedDayContainer>
       <CalendarHead
         weekDates={weekDates}
         activeDate={date}
-        onDateClick={() => {}}
+        onDateClick={date => {
+          dispatch(setDate(date.dateObject));
+        }}
       />
       <TasksColumnList tasks={tasks} />
     </ChoosedDayContainer>

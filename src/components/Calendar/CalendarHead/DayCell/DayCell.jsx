@@ -19,7 +19,6 @@ const DayCell = ({ day, date, activeDate, onDateClick }) => {
   );
 
   const isWeekend = !date && (day === 'SAT' || day === 'SUN');
-  // console.log('activeDate', activeDate)
 
   const isActive =
     date &&
@@ -29,7 +28,7 @@ const DayCell = ({ day, date, activeDate, onDateClick }) => {
   if (date) {
     return (
       <DayCellStyled pointer={onDateClick && true}>
-        <div className="date-wrapper" onClick={onDateClick}>
+        <div className="date-wrapper" onClick={() => onDateClick(date)}>
           <DayName isWeekend={isWeekend}>{dayName()}</DayName>
           <div className="date-badge-wrapper">
             <DateBadge isActive={isActive}>{date.day}</DateBadge>

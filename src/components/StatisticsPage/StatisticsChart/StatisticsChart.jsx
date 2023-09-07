@@ -16,8 +16,10 @@ import {
   StatisticsChartWrapperExternal,
   StatisticsChartWrapperInternal,
 } from './StatisticsChartStyled';
-
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { getTasks } from 'redux/tasks/selectors';
+import { tasksStatisticCalculator } from 'utilities/tasksStatisticCalculator';
 // import { useSelector } from 'react-redux';
 // import { getTasks } from 'redux/tasks/selectors';
 
@@ -39,10 +41,6 @@ const data = [
   },
 ];
 
-import { useSelector } from 'react-redux';
-import { getTasks } from 'redux/tasks/selectors';
-import { tasksStatisticCalculator } from 'utilities/tasksStatisticCalculator';
-
 // const data = [
 //   {
 //     name: 'To Do',
@@ -60,7 +58,6 @@ import { tasksStatisticCalculator } from 'utilities/tasksStatisticCalculator';
 //     month: 40,
 //   },
 // ];
-
 
 const StatisticsChart = () => {
   const { t } = useTranslation();
