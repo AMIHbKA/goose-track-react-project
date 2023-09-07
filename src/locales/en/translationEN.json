@@ -26,5 +26,36 @@
     "successMessageDelete": "Your review successfully deleted.",
     "successMessageEdit": "Your review successfully edited.Thank you!",
     "errorMessage": "Oops! Something goes wrong"
+  },
+
+  "buttonLogOut": " Log Out",
+
+  "navigationPanel": {
+    "panel": "User Panel",
+    "account": "My account",
+    "calendar": "Calendar",
+    "statistics": "Statistics"
+  },
+
+  "registerForm": {
+    "formHeader": "Sign Up",
+    "name": "name",
+    "placeholderName": "Enter your name",
+    "emailAddress": "Email",
+    "placeholderEmail": "Enter email",
+    "password": "Password",
+    "placeholderPassword": "Enter password",
+    "buttonSignUp": "Sign Up",
+    "linkLogIn": "Log In"
+  },
+
+  "loginForm": {
+    "formHeader": "Log In",
+    "email": "Email",
+    "placeholderEmail": "Enter email",
+    "password": "Password",
+    "placeholderPassword": "Enter password",
+    "buttonLogIn": "Log In",
+    "linkignUp": "Sign Up"
   }
 }

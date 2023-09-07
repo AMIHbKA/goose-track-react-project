@@ -16,6 +16,7 @@ import {
 } from './AddOrEditTaskForm.styled';
 import { useDispatch } from 'react-redux';
 import { addTask, updateTask } from 'redux/tasks/operations';
+// import { useTranslation } from 'react-i18next';
 
 export const AddOrEditTaskForm = ({
   defaulValues = {
@@ -30,6 +31,7 @@ export const AddOrEditTaskForm = ({
   status,
   onActive,
 }) => {
+  // const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const validateText = value => {

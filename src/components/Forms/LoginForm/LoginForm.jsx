@@ -7,6 +7,7 @@ import { FormWrapper } from 'UI/CommonStyles/FormStyled';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 import { useNavigate } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
 const loginSchema = Yup.object({
   email: Yup.string().email('Invalid email address').required('Required'),
@@ -17,6 +18,8 @@ const loginSchema = Yup.object({
 });
 
 export const LoginForm = () => {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -33,7 +36,7 @@ export const LoginForm = () => {
   return (
     <FormContainer>
       <FormWrapper>
-        <FormHeader>Log In</FormHeader>
+        <FormHeader>{t('loginForm.formHeader')}</FormHeader>
 
         <Formik
           initialValues={{ email: '', password: '' }}
@@ -47,29 +50,32 @@ export const LoginForm = () => {
               <FormFields>
                 <Input
                   name="email"
-                  label="Email Address"
+                  // label="Email Address"
+                  label={t('loginForm.email')}
                   type="email"
-                  placeholder="Enter email"
+                  placeholder={t('loginForm.placeholderEmail')}
                   error={errors.email}
                   touched={touched.email}
                 />
                 <Input
                   name="password"
-                  label="Password"
+                  label={t('loginForm.password')}
                   type="password"
-                  placeholder="Enter Password"
+                  placeholder={t('loginForm.placeholderPassword')}
                   error={errors.password}
                   touched={touched.password}
                 />
               </FormFields>
               <AuthButton type="submit" mt="32px">
-                Log In
+                {t('loginForm.buttonLogIn')}
               </AuthButton>
             </Form>
           )}
         </Formik>
       </FormWrapper>
-      <LinkButton onClick={handleSignUpClick}>Sign Up</LinkButton>
+      <LinkButton onClick={handleSignUpClick}>
+        {t('loginForm.linkignUp')}
+      </LinkButton>
     </FormContainer>
   );
 };

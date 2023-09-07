@@ -5,8 +5,10 @@ import { LogOutIcon } from 'UI';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
 import { useNavigate } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
 export const MenuPanel = ({ closeBurgerMenu }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -23,7 +25,8 @@ export const MenuPanel = ({ closeBurgerMenu }) => {
         <NavigationPanel closeBurgerMenu={closeBurgerMenu} />
       </div>
       <LogOutButtonStyled onClick={hangleLogOutClick}>
-        Log Out{<LogOutIcon size={18} />}
+        {t('buttonLogOut')}
+        {<LogOutIcon size={18} />}
       </LogOutButtonStyled>
     </MenuPanelStyled>
   );

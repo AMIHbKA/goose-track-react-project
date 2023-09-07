@@ -7,6 +7,7 @@ import { FormWrapper } from 'UI/CommonStyles/FormStyled';
 import { useDispatch } from 'react-redux';
 import { logIn, register } from 'redux/auth/operations';
 import { useNavigate } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
 const registerSchema = Yup.object({
   name: Yup.string()
@@ -20,6 +21,8 @@ const registerSchema = Yup.object({
 });
 
 export const RegisterForm = () => {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -41,7 +44,7 @@ export const RegisterForm = () => {
   return (
     <FormContainer>
       <FormWrapper>
-        <FormHeader>Sign Up</FormHeader>
+        <FormHeader>{t('registerForm.formHeader')}</FormHeader>
 
         <Formik
           initialValues={{ name: '', email: '', password: '' }}
@@ -55,38 +58,39 @@ export const RegisterForm = () => {
               <FormFields>
                 <Input
                   name="name"
-                  label="Name"
+                  label={t('registerForm.name')}
                   type="text"
-                  placeholder="Enter your name"
+                  placeholder={t('registerForm.placeholderName')}
                   error={errors.name}
                   touched={touched.name}
                 />
-
                 <Input
                   name="email"
-                  label="Email Address"
+                  label={t('registerForm.emailAddress')}
                   type="email"
-                  placeholder="Enter email"
+                  placeholder={t('registerForm.placeholderEmail')}
                   error={errors.email}
                   touched={touched.email}
                 />
                 <Input
                   name="password"
-                  label="Password"
+                  label={t('registerForm.password')}
                   type="password"
-                  placeholder="Enter Password"
+                  placeholder={t('registerForm.placeholderPassword')}
                   error={errors.password}
                   touched={touched.password}
                 />
               </FormFields>
               <AuthButton type="submit" mt="32px">
-                Sign Up
+                {t('registerForm.buttonSignUp')}
               </AuthButton>
             </Form>
           )}
         </Formik>
       </FormWrapper>
-      <LinkButton onClick={handleLogInClick}>Log In</LinkButton>
+      <LinkButton onClick={handleLogInClick}>
+        {t('registerForm.linkLogIn')}
+      </LinkButton>
     </FormContainer>
   );
 };
