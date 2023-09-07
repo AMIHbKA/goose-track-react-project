@@ -20,9 +20,17 @@ const ChoosedDay = () => {
 
   const weekDates = getWeekDatesForDate(date);
 
-  if (tasks) {
-    console.log('tasks', tasks);
-  }
+  const tasksForDay = tasks.filter(task => {
+    const taskDate = new Date(task.date);
+    const day = taskDate.getDate();
+    const month = taskDate.getMonth();
+    const year = taskDate.getFullYear();
+    return (
+      day === date.getDate() &&
+      month === date.getMonth() &&
+      year === date.getFullYear()
+    );
+  });
 
   useEffect(() => {
     const year = getYear(date);
@@ -40,7 +48,7 @@ const ChoosedDay = () => {
           dispatch(setDate(date.dateObject));
         }}
       />
-      <TasksColumnList tasks={tasks} />
+      <TasksColumnList tasks={tasksForDay} />
     </ChoosedDayContainer>
   );
 };
