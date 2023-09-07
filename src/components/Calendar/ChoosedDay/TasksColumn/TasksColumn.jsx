@@ -8,10 +8,6 @@ import { useMobile } from 'hooks';
 import { TaskModal } from 'components';
 import { useState } from 'react';
 
-// import { Modal } from 'components';
-// import { AddOrEditTaskForm } from 'components/Forms/AddOrEditTaskForm/AddOrEditTaskForm';
-// import { useState } from 'react';
-
 const TasksColumn = ({ stage, tasks, maxHeight }) => {
   tasks.splice(9, 50);
   const [showModal, setShowModal] = useState(false);
