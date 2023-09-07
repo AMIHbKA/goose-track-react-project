@@ -8,6 +8,8 @@ import ColumnsTasksList from '../ColumnsTasksList/ColumnsTasksList';
 import TasksColumnStyled from './TasksColumnStyled';
 import TaskColumnCard from '../TaskColumnCard/TaskColumnCard';
 
+import { AddOrEditTaskForm } from 'components/Forms/AddOrEditTaskForm/AddOrEditTaskForm';
+
 const TasksColumn = ({ stage, tasks, maxHeight }) => {
   const [showModal, setShowModal] = useState(false);
   const isMobile = useMobile();
@@ -29,14 +31,19 @@ const TasksColumn = ({ stage, tasks, maxHeight }) => {
         className="ColumnsTasksList"
       >
         {tasks.map(task => (
-          <TaskColumnCard key={task._id} task={task} />
+          <TaskColumnCard key={task._id} task={task} stage={stage}/>
         ))}
         {isMobile && (
           <AddTaskBtn noTasks={noTasks} onClick={onShowModal}>
             <PlusIcon size={24} /> <div>AddTask</div>
           </AddTaskBtn>
         )}
-        {showModal && <TaskModal isShow={onShowModal} />}
+        {showModal && <TaskModal isShow={onShowModal}>
+          <AddOrEditTaskForm
+                onActive={onShowModal}
+                option="add"
+                status={stage}
+              /> </TaskModal>}
       </ColumnsTasksList>
       {isMobile || (
         <AddTaskBtn noTasks={noTasks} onClick={onShowModal}>
