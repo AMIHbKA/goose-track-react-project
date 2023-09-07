@@ -25,12 +25,10 @@ export const fetchTasks = createAsyncThunk(
 export const addTask = createAsyncThunk(
   'tasks/addTask',
   async (newTask, thunkApi) => {
-    console.log('newTask', newTask)
     try {
       const token = getToken(thunkApi);
       api.setAuthHeader(token);
       const response = await api.instance.post('tasks', newTask);
-      console.log(response.data);
       const result = response.data.task;
       return result;
     } catch (error) {
@@ -44,13 +42,11 @@ export const updateTask = createAsyncThunk(
   'tasks/updateTask',
   async (credentials, thunkApi) => {
     const { id, updatedTask } = credentials;
-    console.log('credentials', credentials);
     try {
       const token = getToken(thunkApi);
       api.setAuthHeader(token);
       const response = await api.instance.patch(`tasks/${id}`, updatedTask);
       const result = response.data.taskData;
-      console.log(response.data);
       return result;
     } catch (error) {
       notify('error', error.response.data.data || 'Oops! Something goes wrong');

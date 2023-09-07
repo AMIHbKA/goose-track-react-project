@@ -9,7 +9,6 @@ export const register = createAsyncThunk(
 
       // After successful registration, add the token to the HTTP header
       notify('success', response.data.message);
-      console.log(response);
       return response.data.userData;
     } catch (error) {
       notify(
@@ -35,13 +34,6 @@ export const logIn = createAsyncThunk(
       const responseFromBack = await api.instance.get('user/current');
 
       notify('success', response.data.message);
-      // console.log('response', response);
-      // console.log('response2', responseFromBack.data.userData.avatarUrl);
-      // console.log({
-      //   ...response.data.userData,
-      //   avatarUrl: responseFromBack.data.userData.avatarUrl,
-      // });
-      // return response.data.userData;
       return {
         ...response.data.userData,
         avatarUrl: responseFromBack.data.userData.avatarUrl,

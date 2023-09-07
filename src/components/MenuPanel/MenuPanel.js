@@ -13,7 +13,6 @@ export const MenuPanel = ({ closeBurgerMenu }) => {
   const navigate = useNavigate();
 
   const hangleLogOutClick = () => {
-    console.log('hangleLogOutClick');
     dispatch(logOut());
     navigate('login');
   };

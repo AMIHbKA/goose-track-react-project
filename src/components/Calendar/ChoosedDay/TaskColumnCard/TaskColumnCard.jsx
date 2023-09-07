@@ -56,7 +56,6 @@ const TaskColumnCard = ({ task }) => {
   const ref = useRef();
   const openTooltip = () => {
     ref.current.open();
-    console.log('click');
   };
   //
 

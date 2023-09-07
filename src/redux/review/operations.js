@@ -7,7 +7,6 @@ export const sendFeedbackToBackend = createAsyncThunk(
   async (credentials, thunkApi) => {
     try {
       const response = await api.instance.post('/reviews/own', credentials);
-      console.log(response.data);
       notify('success', 'Your review successfully wrote.Thank you!');
       return response.data.data;
     } catch (error) {
@@ -24,7 +23,6 @@ export const getReviewFromBackend = createAsyncThunk(
     try {
       const response = await api.instance.get('/reviews/own', credentials);
       const result = response.data.review[0];
-      console.log('getReviewFromBackend.response', credentials);
       return result;
     } catch (error) {
       console.log(error);
@@ -44,7 +42,6 @@ export const deleteReview = createAsyncThunk(
       const response = await api.instance.delete('/reviews/own', credentials);
       const result = response.data.review;
       notify('success', 'Your review successfully deleted.');
-      console.log('delete', result);
       return result;
     } catch (error) {
       console.log(error);
@@ -62,7 +59,6 @@ export const editReview = createAsyncThunk(
   async (credentials, thunkApi) => {
     try {
       const response = await api.instance.patch('/reviews/own', credentials);
-      console.log(response.data);
       notify('success', 'Your review successfully edited.Thank you!');
       return response.data.data;
     } catch (error) {
