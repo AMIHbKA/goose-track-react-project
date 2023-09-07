@@ -102,8 +102,8 @@ export const UserName = styled.p`
   }
 `;
 export const UserPhoto = styled.div`
-  width: 32px;
-  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
 
   overflow: hidden;
   border-radius: 50%;
