@@ -19,7 +19,7 @@ import {
 import { useSelector } from 'react-redux';
 import { getTasks } from 'redux/tasks/selectors';
 import { tasksStatisticCalculator } from 'utilities/tasksStatisticCalculator';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 // import { useSelector } from 'react-redux';
 // import { getTasks } from 'redux/tasks/selectors';
 
