@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { setDate } from 'redux/date/dateSlice';
 import { getDate } from 'redux/date/selectors';
 import { useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 
 // export const DAY = t('day_translation_key');
 export const DAY = 'day';
@@ -16,7 +16,7 @@ export const NEXT = 'next';
 export const PREVIOUS = 'previous';
 
 export const CalendarToolbar = ({ periodSelector = true }) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const [activePeriod, setActivePeriod] = useState(MONTH);
 
   const dispatch = useDispatch();

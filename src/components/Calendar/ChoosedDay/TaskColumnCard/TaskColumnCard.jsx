@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useTheme } from 'styled-components';
 import { useMobile } from 'hooks';
