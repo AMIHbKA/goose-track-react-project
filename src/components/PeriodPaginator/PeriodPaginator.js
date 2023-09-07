@@ -46,6 +46,7 @@ export const PeriodPaginator = ({ periodType, changeDate }) => {
         value={date}
         onChange={newValue => {
           dispatch(setDate(Number(newValue)));
+          // closeBurgerMenu
         }}
       />
 

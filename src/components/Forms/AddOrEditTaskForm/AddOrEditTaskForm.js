@@ -37,10 +37,10 @@ export const AddOrEditTaskForm = ({
   // const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const currDate = useSelector(getDate)
+  const currDate = useSelector(getDate);
 
-  const formattedDate = format(new Date(currDate), 'yyyy-MM-dd')
-  console.log('formattedDate', formattedDate)
+  const formattedDate = format(new Date(currDate), 'yyyy-MM-dd');
+  // console.log('formattedDate', formattedDate)
 
   const validateText = value => {
     let error;
@@ -78,11 +78,11 @@ export const AddOrEditTaskForm = ({
   ];
 
   const handleSubmit = values => {
-    console.log(values);
+    // console.log(values);
     if (option === 'add') {
       const newTask = {
         ...values,
-        date : formattedDate,
+        date: formattedDate,
         status,
       };
       dispatch(addTask(newTask));
@@ -94,7 +94,7 @@ export const AddOrEditTaskForm = ({
         date,
         status,
       };
-      console.log(updatedTask);
+      // console.log(updatedTask);
       dispatch(updateTask({ id, updatedTask }));
     }
 
@@ -189,7 +189,7 @@ export const AddOrEditTaskForm = ({
           <Wrapper>
             {option === 'add' ? (
               <ActionButton type="submit">
-                <PlusIcon stroke='#fff' size={18} />
+                <PlusIcon stroke="#fff" size={18} />
                 Add
               </ActionButton>
             ) : (

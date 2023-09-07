@@ -11,7 +11,7 @@ import { fetchTasks } from 'redux/tasks/operations';
 import { getDay, getMonth, getYear } from 'date-fns';
 
 const ChoosedDay = () => {
-  const tasks = useSelector(getTasks)
+  const tasks = useSelector(getTasks);
 
   const date = useSelector(getDate);
 
@@ -20,17 +20,15 @@ const ChoosedDay = () => {
   const weekDates = getWeekDatesForDate(date);
 
   if (tasks) {
-    console.log('tasks', tasks);
+    // console.log('tasks', tasks);
   }
 
   useEffect(() => {
-    const year = getYear(date)
-    const month = getMonth(date)
-    const day = getDay(date)
-    dispatch(fetchTasks({ year, month, day}))
+    const year = getYear(date);
+    const month = getMonth(date);
+    const day = getDay(date);
+    dispatch(fetchTasks({ year, month, day }));
   }, [dispatch, date]);
-
-  
 
   return (
     <ChoosedDayContainer>
