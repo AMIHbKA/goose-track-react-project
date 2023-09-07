@@ -15,7 +15,7 @@ export const MenuPanel = ({ closeBurgerMenu }) => {
   const hangleLogOutClick = () => {
     console.log('hangleLogOutClick');
     dispatch(logOut());
-    navigate('Login');
+    navigate('login');
   };
 
   return (
