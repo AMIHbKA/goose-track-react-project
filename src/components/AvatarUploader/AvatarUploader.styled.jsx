@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { hoverBackgroundStyle } from 'UI';
 import { PlusIcon } from 'UI/icons';
 
 export const MainWrapper = styled.div`
@@ -10,7 +11,7 @@ export const MainWrapper = styled.div`
   @media (max-width: ${props => props.theme.breakpoints.tablet}) {
     transform: translate(0, -50%);
     margin-top: 35px;
-}
+  }
 `;
 
 export const Wrap = styled.div`
@@ -20,7 +21,7 @@ export const Wrap = styled.div`
   border: 1px solid ${props => props.theme.accentColor};
   border-radius: 50%;
   overflow: hidden;
-  border:3px solid #3e85f3;
+  border: 3px solid #3e85f3;
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     width: 124px;
@@ -45,13 +46,14 @@ export const Label = styled.label`
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background-color: #3e85f3;
+  background-color: ${({ theme }) => theme.colors.primary};
   cursor: pointer;
   position: absolute;
   top: 85%;
   right: 20%;
+  ${hoverBackgroundStyle}
 
-  @media  (min-width: ${props => props.theme.breakpoints.tablet}) {
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     width: 24px;
     height: 24px;
   }
@@ -62,9 +64,5 @@ export const AddIcon = styled(PlusIcon)`
   height: 100%;
   display: block;
   transition: all 250ms;
-  fill: #FFFFFF;
-  &:hover,
-  &:focus {
-    fill: #3e85f3;
-  }
+  stroke: #fff;
 `;

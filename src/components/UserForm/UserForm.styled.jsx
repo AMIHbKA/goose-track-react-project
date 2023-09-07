@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Form } from 'formik';
+import { hoverBackgroundStyle } from 'UI';
 
 export const Wrap = styled.div`
   display: flex;
@@ -53,13 +54,8 @@ export const Button = styled.button`
   line-height: calc((18 / 14) * 100%);
   background-color: ${props => props.theme.colors.primary};
   color: ${({ theme }) => theme.userAccount.buttonTextColor};
-  transition: all 250ms;
   border: none;
-  cursor: pointer;
-  &:hover,
-  &:focus {
-    background: ${props => props.theme.colors.hoverState};
-  }
+  ${hoverBackgroundStyle}
   @media (min-width: ${props => props.theme.breakpoints.laptop}) {
     margin-top: 88px;
   }
@@ -82,7 +78,7 @@ export const Title = styled.h2`
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     font-size: 18px;
     line-height: calc((18 / 18) * 100%);
-      margin-top: 20px;
+    margin-top: 20px;
   }
 `;
 
@@ -127,16 +123,15 @@ export const Label = styled.label`
   flex-direction: column;
   row-gap: 8px;
   max-width: 100%;
-    font-family: 'InterNormal';
+  font-family: 'InterNormal';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
   line-height: calc((14 / 12) * 100%);
-  
+
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     width: 354px;
     font-size: 14px;
-   line-height: calc((18 / 14) * 100%);
+    line-height: calc((18 / 14) * 100%);
   }
 `;
-
