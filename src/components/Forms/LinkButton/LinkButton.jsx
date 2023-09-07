@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { hoverLinkStyle } from 'UI/CommonStyles/baseStyle';
+import { hoverLinkStyle, shakeAnimation } from 'UI/CommonStyles/baseStyle';
 
 export const LinkButton = ({ children, onClick, type = 'button' }) => {
   return (
@@ -23,6 +23,7 @@ const LinkButtonStyle = styled.button`
   border: transparent;
 
   ${hoverLinkStyle}
+  ${shakeAnimation}
 
   @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
     font-size: 18px;

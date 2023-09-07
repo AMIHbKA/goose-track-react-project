@@ -1,23 +1,19 @@
 import styled from 'styled-components';
+import { hoverBackgroundStyle } from 'UI';
 
 const AddTaskBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 100%;
-
   padding: 12px;
-
   font-weight: 600;
   font-size: 14px;
   line-height: 18px;
-
   color: ${({ theme }) => theme.colors.mainText};
-
   background-color: ${({ theme }) => theme.choosedDay.addBtnBackground};
-
   border-radius: 8px;
+  stroke: ${({ theme }) => theme.colors.mainText};
 
   ${({ theme }) =>
     theme.choosedDay.addBtnBorder
@@ -27,6 +23,12 @@ const AddTaskBtn = styled.button`
   div {
     margin-left: 8px;
     padding-top: 2px;
+  }
+
+  ${hoverBackgroundStyle}
+  &:hover, &:focus {
+    color: #fff;
+    stroke: #fff;
   }
 
   @media (max-width: ${props => props.theme.breakpoints.preTablet}) {

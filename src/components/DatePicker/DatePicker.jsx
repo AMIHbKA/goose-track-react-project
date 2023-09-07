@@ -81,7 +81,7 @@ const DesktopSlotProps = {
     width: '290px',
   },
 
-  '.css-31ca4x-MuiPickersFadeTransitionGroup-root': {
+  '.css-1bx5ylf-MuiPickersFadeTransitionGroup-root': {
     position: 'absolute',
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -89,6 +89,8 @@ const DesktopSlotProps = {
     right: 0,
     textAlign: 'center',
   },
+
+  // css-31ca4x-MuiPickersFadeTransitionGroup-root - locally
 
   '& .MuiDayCalendar-weekDayLabel': {
     width: '48px',
@@ -143,45 +145,6 @@ const DesktopSlotProps = {
     color: '#fff',
   },
 };
-
-// const mobileSlotProps = {
-//   '& .MuiDateCalendar-root': {
-//     width: '327px',
-//     height: 'auto',
-//     position: 'absolute',
-//     top: '16px',
-//     backgroundColor: '#3e85f3',
-//     borderRadius: '16px',
-//     color: '#fff',
-//   },
-//   '& .MuiPickersCalendarHeader-labelContainer': {
-//     fontSize: '20px',
-//     fontWeight: 600,
-//     fontFamily: 'Inter',
-//   },
-//   '.MuiPickersArrowSwitcher-spacer': {
-//     width: '265px',
-//   },
-//   '& .MuiDayCalendar-weekDayLabel': {
-//     fontSize: '14px',
-//     width: '48px',
-//     height: '44px',
-//     color: '#fff',
-//     margin: '0px',
-//     fontWeight: 600,
-//     fontFamily: 'Inter',
-//     borderBottom: '1px solid rgb(250 250 250 / 0.3)',
-//   },
-//   '& .MuiPickersDay-root': {
-//     fontSize: '14px',
-//     width: '48px',
-//     height: '44px',
-//     color: '#fff',
-//     fontFamily: 'Inter',
-//     fontWeight: 400,
-//     margin: '0px',
-//   },
-// };
 
 export function ButtonDatePicker(props) {
   const [open, setOpen] = useState(false);

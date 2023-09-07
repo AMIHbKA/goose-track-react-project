@@ -6,20 +6,32 @@ import {
   getDateFromMonthString,
   trimCalendarDates,
 } from 'utilities/dateHelpers';
-import { api } from 'utilities';
-import { useAuth, useRect } from 'hooks';
+import { useRect } from 'hooks';
 import CalendarHead from '../CalendarHead/CalendarHead';
 import ChoosedMonthContainer from './ChoosedMonthContainer';
 import CalendarTableWrapper from './CalendarTable/CalendarTableWrapper';
+import { formatDate } from 'components/PeriodPaginator/PeriodPaginator';
+import { MONTH } from 'components/CalendarToolbar/CalendarToolbar';
+
+import { useDispatch } from 'react-redux';
+import { fetchTasks } from 'redux/tasks/operations';
+import { getMonth, getYear } from 'date-fns';
+import { useSelector } from 'react-redux';
+import { getTasks } from 'redux/tasks/selectors';
+import { getDate } from 'redux/date/selectors';
 
 const ChoosedMonth = () => {
-  const monthString = 'SEPTEMBER 2023';
-
+  const date = useSelector(getDate);
+  
+  const monthString = formatDate(date, MONTH);
+  
   const [calendarDates, setCalendarDates] = useState(null);
-  const [tasks, setTasks] = useState([]);
+  
   const [monthCellSizes, setMonthCellSizes] = useState(null);
 
-  const { isLoggedIn } = useAuth();
+  const dispatch = useDispatch()
+
+  const tasks = useSelector(getTasks)
 
   const [calendarTableWrapperRect, calendarTableWrapperRef] = useRect(
     'resize',
@@ -53,23 +65,10 @@ const ChoosedMonth = () => {
   }, [monthString]);
 
   useEffect(() => {
-    if (!isLoggedIn) {
-      setTasks([]);
-
-      return;
-    }
-
-    const fetchTasks = async () => {
-      const response = await api.instance.get('/tasks', {
-        year: 2023,
-        month: 9,
-      });
-
-      setTasks(response.data.tasks);
-    };
-
-    fetchTasks();
-  }, [isLoggedIn]);
+    const year = getYear(date)
+    const month = getMonth(date)
+    dispatch(fetchTasks({ year, month}))
+  }, [dispatch, date]);
 
   const tasksByDate = tasks.reduce((acc, task) => {
     const date = new Date(task.date).getDate();
