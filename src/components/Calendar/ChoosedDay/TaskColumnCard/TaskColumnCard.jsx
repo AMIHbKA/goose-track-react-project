@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useTheme } from 'styled-components';
 import { useMobile } from 'hooks';
@@ -20,7 +20,12 @@ import { ArrowCircleBrokenRightIcon, PencilIcon, TrashIcon } from 'UI/index';
 import { useDispatch } from 'react-redux';
 import { deleteTask } from 'redux/tasks/operations';
 import { notify } from 'utilities';
-// import { Menu, MenuItem } from '@material-ui/core';
+import Popup from 'reactjs-popup';
+import {
+  PopUpButton,
+  PopUpMenuItem,
+  PopUpWrap,
+} from 'components/PopUpStateMenu/PopUpStateMenuStyled';
 
 const TaskColumnCard = ({ task }) => {
   const user = useSelector(selectUser);
@@ -47,18 +52,13 @@ const TaskColumnCard = ({ task }) => {
 
   const iconSize = isMobile ? 14 : 16;
 
-  // popUp menu start
-  // const [anchorEl, setAnchorEl] = useState(null);
-
-  // const handleClick = event => {
-  //   setAnchorEl(event.currentTarget);
-  // };
-
-  // const handleClose = () => {
-  //   setAnchorEl(null);
-  // };
-
-  // popUp menu end
+  //
+  const ref = useRef();
+  const openTooltip = () => {
+    ref.current.open();
+    console.log('click');
+  };
+  //
 
   return (
     <TasksColumnCardContainer>
@@ -73,25 +73,23 @@ const TaskColumnCard = ({ task }) => {
           </TaskColumnCardPriorityChips>
         </TaskColumnCardBottomLeft>
         <TaskColumnCardBottomRight>
-          {/* <Menu
-            id="simple-menu"
-            anchorEl={anchorEl.current}
-            keepMounted
-            open={Boolean(anchorEl.current)}
-            onClose={handleClose}
-          >
-            <MenuItem onClick={handleClose}>In Progress</MenuItem>
-            <MenuItem onClick={handleClose}>Done</MenuItem>
-          </Menu> */}
-          <TaskColumnCardButton
-          // aria-controls="simple-menu"
-          // aria-haspopup="true"
-          // onClick={handleClick}
-          >
+          <TaskColumnCardButton onClick={openTooltip}>
             <ArrowCircleBrokenRightIcon
               size={iconSize}
               stroke={theme.choosedDay.taskIconColor}
             />
+            <Popup ref={ref} trigger={<div></div>}>
+              <PopUpMenuItem>
+                <PopUpWrap>
+                  <PopUpButton>In Progress</PopUpButton>
+                  <ArrowCircleBrokenRightIcon size={iconSize} />
+                </PopUpWrap>
+                <PopUpWrap>
+                  <PopUpButton>Done</PopUpButton>
+                  <ArrowCircleBrokenRightIcon size={iconSize} />
+                </PopUpWrap>
+              </PopUpMenuItem>
+            </Popup>
           </TaskColumnCardButton>
           <TaskColumnCardButton onClick={onShowModal}>
             <PencilIcon

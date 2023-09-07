@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import {
   BarChart,
   Bar,
@@ -7,6 +6,7 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from 'recharts';
+import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { useWindowSize, useRect } from 'hooks';
 import BarWithGradient from '../BarWithGradient/BarWithGradient';
@@ -16,52 +16,11 @@ import {
   StatisticsChartWrapperExternal,
   StatisticsChartWrapperInternal,
 } from './StatisticsChartStyled';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getTasks } from 'redux/tasks/selectors';
 import { tasksStatisticCalculator } from 'utilities/tasksStatisticCalculator';
-// import { useSelector } from 'react-redux';
-// import { getTasks } from 'redux/tasks/selectors';
-
-const data = [
-  {
-    name: 'To do',
-    day: 30,
-    month: 35,
-  },
-  {
-    name: 'In Progress',
-    day: 20,
-    month: 30,
-  },
-  {
-    name: 'Done',
-    day: 45,
-    month: 40,
-  },
-];
-
-// const data = [
-//   {
-//     name: 'To Do',
-//     day: 30,
-//     month: 35,
-//   },
-//   {
-//     name: 'In Progress',
-//     day: 20,
-//     month: 30,
-//   },
-//   {
-//     name: 'Done',
-//     day: 45,
-//     month: 40,
-//   },
-// ];
 
 const StatisticsChart = () => {
-  const { t } = useTranslation();
-
   const windowSize = useWindowSize();
 
   const [chartSizes, chartWrapperRef] = useRect('resize', 100, 100);
@@ -69,15 +28,8 @@ const StatisticsChart = () => {
   const theme = useContext(ThemeContext);
 
   const tasks = useSelector(getTasks);
-  console.log(tasks);
 
   const resultArray = tasksStatisticCalculator(tasks);
-  console.log(resultArray);
-  // const makeData = (tasks) => {
-  //   tasks.map((task) => {
-
-  //   })
-  // }
 
   const axisTextStyles = {
     fill: theme.statistics.chartTextColor,

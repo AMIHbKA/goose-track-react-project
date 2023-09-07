@@ -16,7 +16,7 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { GlobalStyle } from 'UI';
 import { useSelector } from 'react-redux';
 import { selectToken } from 'redux/auth/selectors';
-import { NotFoundPage } from './NotFoundPage/NotFoundPage';
+// import { NotFoundPage } from './NotFoundPage/NotFoundPage';
 
 const LoginPage = lazy(() => import('../pages/LoginPage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
@@ -73,8 +73,7 @@ export const App = () => {
                 <Route index element={<MainPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
-                {/* <Route path="*" element={<Navigate to="/login" replace />} /> */}
-                <Route path="*" element={<NotFoundPage/>} />
+                <Route path="*" element={<Navigate to="/login" replace />} />
               </>
             )}
           </Route>

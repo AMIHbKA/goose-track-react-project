@@ -26,9 +26,9 @@ const ChoosedDay = () => {
     const month = taskDate.getMonth();
     const year = taskDate.getFullYear();
     return (
-      day === date.getDate() &&
-      month === date.getMonth() &&
-      year === date.getFullYear()
+      day === new Date(date).getDate() &&
+      month === new Date(date).getMonth() &&
+      year === new Date(date).getFullYear()
     );
   });
 
@@ -45,7 +45,7 @@ const ChoosedDay = () => {
         weekDates={weekDates}
         activeDate={date}
         onDateClick={date => {
-          dispatch(setDate(date.dateObject));
+          dispatch(setDate(Number(date.dateObject)));
         }}
       />
       <TasksColumnList tasks={tasksForDay} />

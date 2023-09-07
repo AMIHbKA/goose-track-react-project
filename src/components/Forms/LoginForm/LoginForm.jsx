@@ -8,7 +8,6 @@ import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
-// import { PopUpStateMenu } from 'components/PopUpStateMenu/PopUpStateMenu';
 
 const loginSchema = Yup.object({
   email: Yup.string().email('Invalid email address').required('Required'),
@@ -72,7 +71,6 @@ export const LoginForm = () => {
             </Form>
           )}
         </Formik>
-        {/* <PopUpStateMenu /> */}
       </FormWrapper>
       <LinkButton onClick={handleSignUpClick}>
         {t('loginForm.linkignUp')}
