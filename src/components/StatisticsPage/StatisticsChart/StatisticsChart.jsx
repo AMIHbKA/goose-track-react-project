@@ -16,11 +16,14 @@ import {
   StatisticsChartWrapperExternal,
   StatisticsChartWrapperInternal,
 } from './StatisticsChartStyled';
+
 import { useSelector } from 'react-redux';
 import { getTasks } from 'redux/tasks/selectors';
 import { tasksStatisticCalculator } from 'utilities/tasksStatisticCalculator';
 
+
 const StatisticsChart = () => {
+
   const windowSize = useWindowSize();
 
   const [chartSizes, chartWrapperRef] = useRect('resize', 100, 100);
@@ -29,7 +32,9 @@ const StatisticsChart = () => {
 
   const tasks = useSelector(getTasks);
 
+
   const resultArray = tasksStatisticCalculator(tasks);
+
 
   const axisTextStyles = {
     fill: theme.statistics.chartTextColor,

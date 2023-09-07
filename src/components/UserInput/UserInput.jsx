@@ -1,11 +1,19 @@
-import { MessageError, Label, Input } from 'components/UserInput/UserInput.styled';
+import {
+  MessageError,
+  Label,
+  Input,
+} from 'components/UserInput/UserInput.styled';
 
-export const UserInput =
-    ({ title, type, name, placeholder = null })=> {
+export const UserInput = ({ title, type, name, placeholder = null }) => {
   return (
-    <Label>
+    <Label style={{ fontFamily: 'Inter' }}>
       {title}
-      <Input type={type} name={name} placeholder={placeholder} />
+      <Input
+        style={{ fontFamily: 'Inter' }}
+        type={type}
+        name={name}
+        placeholder={placeholder}
+      />
       <MessageError name={name} component="p" />
     </Label>
   );
