@@ -1,6 +1,5 @@
 import { Menu, MenuItem } from '@material-ui/core';
 import { useState } from 'react';
-import { PopUpMenu } from './PopUpStateMenuStyled';
 
 export const PopUpStateMenu = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -22,7 +21,7 @@ export const PopUpStateMenu = () => {
       >
         Open Menu
       </button>
-      <PopUpMenu
+      <Menu
         id="simple-menu"
         anchorEl={anchorEl}
         keepMounted
@@ -31,7 +30,7 @@ export const PopUpStateMenu = () => {
       >
         <MenuItem onClick={handleClose}>In Progress</MenuItem>
         <MenuItem onClick={handleClose}>Done</MenuItem>
-      </PopUpMenu>
+      </Menu>
     </div>
   );
 };

@@ -20,6 +20,7 @@ import { ArrowCircleBrokenRightIcon, PencilIcon, TrashIcon } from 'UI/index';
 import { useDispatch } from 'react-redux';
 import { deleteTask } from 'redux/tasks/operations';
 import { notify } from 'utilities';
+import { Menu, MenuItem } from '@material-ui/core';
 
 const TaskColumnCard = ({ task }) => {
   const user = useSelector(selectUser);
@@ -46,6 +47,19 @@ const TaskColumnCard = ({ task }) => {
 
   const iconSize = isMobile ? 14 : 16;
 
+  // popUp menu start
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  // popUp menu end
+
   return (
     <TasksColumnCardContainer>
       <TaskColumnCardDescription>{task.title}</TaskColumnCardDescription>
@@ -59,7 +73,21 @@ const TaskColumnCard = ({ task }) => {
           </TaskColumnCardPriorityChips>
         </TaskColumnCardBottomLeft>
         <TaskColumnCardBottomRight>
-          <TaskColumnCardButton>
+          <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={handleClose}>In Progress</MenuItem>
+            <MenuItem onClick={handleClose}>Done</MenuItem>
+          </Menu>
+          <TaskColumnCardButton
+            aria-controls="simple-menu"
+            aria-haspopup="true"
+            onClick={handleClick}
+          >
             <ArrowCircleBrokenRightIcon
               size={iconSize}
               stroke={theme.choosedDay.taskIconColor}
