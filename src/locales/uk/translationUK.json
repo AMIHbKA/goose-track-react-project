@@ -90,8 +90,8 @@
     "titleStatistics": "Статистика"
   },
 
-  "day_translation_key": "День",
-  "month_translation_key": "Місяць",
-  "next_translation_key": "Next",
-  "previous_translation_key": "Previous"
+  "dateTime": {
+    "month": "Місяць",
+    "day": "День"
+  }
 }
