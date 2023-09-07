@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/goose-track-react-project/static/css/main.07c58c9c.css",
-    "main.js": "/goose-track-react-project/static/js/main.09c99b68.js",
+    "main.js": "/goose-track-react-project/static/js/main.cf803715.js",
     "static/js/563.0c8bac7a.chunk.js": "/goose-track-react-project/static/js/563.0c8bac7a.chunk.js",
     "static/js/727.867b16df.chunk.js": "/goose-track-react-project/static/js/727.867b16df.chunk.js",
     "static/js/594.ef90ee1b.chunk.js": "/goose-track-react-project/static/js/594.ef90ee1b.chunk.js",
     "static/js/539.bc3d7bd6.chunk.js": "/goose-track-react-project/static/js/539.bc3d7bd6.chunk.js",
-    "static/js/205.7efcdba2.chunk.js": "/goose-track-react-project/static/js/205.7efcdba2.chunk.js",
-    "static/js/434.f6796fc8.chunk.js": "/goose-track-react-project/static/js/434.f6796fc8.chunk.js",
+    "static/js/205.ef804228.chunk.js": "/goose-track-react-project/static/js/205.ef804228.chunk.js",
+    "static/js/434.c0f09c07.chunk.js": "/goose-track-react-project/static/js/434.c0f09c07.chunk.js",
     "static/js/884.baaab3ec.chunk.js": "/goose-track-react-project/static/js/884.baaab3ec.chunk.js",
-    "static/js/143.541434de.chunk.js": "/goose-track-react-project/static/js/143.541434de.chunk.js",
-    "static/js/304.2e17d7de.chunk.js": "/goose-track-react-project/static/js/304.2e17d7de.chunk.js",
+    "static/js/143.ccffa43f.chunk.js": "/goose-track-react-project/static/js/143.ccffa43f.chunk.js",
+    "static/js/304.7cf21dac.chunk.js": "/goose-track-react-project/static/js/304.7cf21dac.chunk.js",
     "static/js/750.98782a9e.chunk.js": "/goose-track-react-project/static/js/750.98782a9e.chunk.js",
     "static/media/Inter-Bold.woff2": "/goose-track-react-project/static/media/Inter-Bold.ec64ea577b0349e055ad.woff2",
     "static/media/Inter-Medium.woff2": "/goose-track-react-project/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
@@ -45,21 +45,22 @@
     "static/media/calendar-mob.jpg": "/goose-track-react-project/static/media/calendar-mob.2df3f6c2f59c24562c85.jpg",
     "static/media/goose-tab.png": "/goose-track-react-project/static/media/goose-tab.3af22614ecbf8d6c8b03.png",
     "index.html": "/goose-track-react-project/index.html",
+    "static/media/getFetch.cjs": "/goose-track-react-project/static/media/getFetch.40f37ddea2378391108f.cjs",
     "main.07c58c9c.css.map": "/goose-track-react-project/static/css/main.07c58c9c.css.map",
-    "main.09c99b68.js.map": "/goose-track-react-project/static/js/main.09c99b68.js.map",
+    "main.cf803715.js.map": "/goose-track-react-project/static/js/main.cf803715.js.map",
     "563.0c8bac7a.chunk.js.map": "/goose-track-react-project/static/js/563.0c8bac7a.chunk.js.map",
     "727.867b16df.chunk.js.map": "/goose-track-react-project/static/js/727.867b16df.chunk.js.map",
     "594.ef90ee1b.chunk.js.map": "/goose-track-react-project/static/js/594.ef90ee1b.chunk.js.map",
     "539.bc3d7bd6.chunk.js.map": "/goose-track-react-project/static/js/539.bc3d7bd6.chunk.js.map",
-    "205.7efcdba2.chunk.js.map": "/goose-track-react-project/static/js/205.7efcdba2.chunk.js.map",
-    "434.f6796fc8.chunk.js.map": "/goose-track-react-project/static/js/434.f6796fc8.chunk.js.map",
+    "205.ef804228.chunk.js.map": "/goose-track-react-project/static/js/205.ef804228.chunk.js.map",
+    "434.c0f09c07.chunk.js.map": "/goose-track-react-project/static/js/434.c0f09c07.chunk.js.map",
     "884.baaab3ec.chunk.js.map": "/goose-track-react-project/static/js/884.baaab3ec.chunk.js.map",
-    "143.541434de.chunk.js.map": "/goose-track-react-project/static/js/143.541434de.chunk.js.map",
-    "304.2e17d7de.chunk.js.map": "/goose-track-react-project/static/js/304.2e17d7de.chunk.js.map",
+    "143.ccffa43f.chunk.js.map": "/goose-track-react-project/static/js/143.ccffa43f.chunk.js.map",
+    "304.7cf21dac.chunk.js.map": "/goose-track-react-project/static/js/304.7cf21dac.chunk.js.map",
     "750.98782a9e.chunk.js.map": "/goose-track-react-project/static/js/750.98782a9e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.07c58c9c.css",
-    "static/js/main.09c99b68.js"
+    "static/js/main.cf803715.js"
   ]
 }
