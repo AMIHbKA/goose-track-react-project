@@ -1,36 +1,46 @@
-// import { Menu, MenuItem } from '@material-ui/core';
-// import { useState } from 'react';
+import { useRef } from 'react';
+import Popup from 'reactjs-popup';
+//
 
-// export const PopUpStateMenu = () => {
-//   const [anchorEl, setAnchorEl] = useState(null);
+export const PopUpStateMenu = () => {
+  const ref = useRef();
+  const openTooltip = () => {
+    ref.current.open();
+    console.log('click');
+  };
+  const closeTooltip = () => {
+    ref.current.close();
+    console.log('click');
+  };
+  const toggleTooltip = () => {
+    ref.current.toggle();
+    console.log('click');
+  };
 
-//   const handleClick = event => {
-//     setAnchorEl(event.currentTarget);
-//   };
+  return (
+    <div>
+      <button type="button" className="button" onClick={openTooltip}>
+        open
+      </button>
+      <button type="button" className="button" onClick={closeTooltip}>
+        close
+      </button>
 
-//   const handleClose = () => {
-//     setAnchorEl(null);
-//   };
-
-//   return (
-//     <div>
-//       <button
-//         aria-controls="simple-menu"
-//         aria-haspopup="true"
-//         onClick={handleClick}
-//       >
-//         Open Menu
-//       </button>
-//       <Menu
-//         id="simple-menu"
-//         anchorEl={anchorEl}
-//         keepMounted
-//         open={Boolean(anchorEl)}
-//         onClose={handleClose}
-//       >
-//         <MenuItem onClick={handleClose}>In Progress</MenuItem>
-//         <MenuItem onClick={handleClose}>Done</MenuItem>
-//       </Menu>
-//     </div>
-//   );
-// };
+      <button type="button" className="button" onClick={toggleTooltip}>
+        toggle
+      </button>
+      <Popup
+        ref={ref}
+        trigger={
+          <button type="button" className="button">
+            I am the trigger
+          </button>
+        }
+      >
+        <div>
+          <button>Somieb</button>
+        </div>
+      </Popup>
+    </div>
+  );
+};
