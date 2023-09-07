@@ -45,7 +45,7 @@ export const PeriodPaginator = ({ periodType, changeDate }) => {
         label={formatDate(date, periodType)}
         value={date}
         onChange={newValue => {
-          dispatch(setDate(newValue));
+          dispatch(setDate(Number(newValue)));
         }}
       />
 
