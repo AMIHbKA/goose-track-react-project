@@ -17,6 +17,8 @@ const TasksColumn = ({ stage, tasks, maxHeight }) => {
     setShowModal(s => !s);
   };
 
+  const status = stage.split(' ').join('-').toLowerCase()
+
   const noTasks = !tasks || !tasks.length;
 
   const tasksLength = tasks?.length || 0;
@@ -42,7 +44,7 @@ const TasksColumn = ({ stage, tasks, maxHeight }) => {
           <AddOrEditTaskForm
                 onActive={onShowModal}
                 option="add"
-                status={stage}
+                status={status}
               /> </TaskModal>}
       </ColumnsTasksList>
       {isMobile || (
