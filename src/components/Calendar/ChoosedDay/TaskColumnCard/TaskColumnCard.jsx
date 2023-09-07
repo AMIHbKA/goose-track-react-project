@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useTheme } from 'styled-components';
 import { useMobile } from 'hooks';
@@ -20,7 +20,7 @@ import { ArrowCircleBrokenRightIcon, PencilIcon, TrashIcon } from 'UI/index';
 import { useDispatch } from 'react-redux';
 import { deleteTask } from 'redux/tasks/operations';
 import { notify } from 'utilities';
-import { Menu, MenuItem } from '@material-ui/core';
+// import { Menu, MenuItem } from '@material-ui/core';
 
 const TaskColumnCard = ({ task }) => {
   const user = useSelector(selectUser);
@@ -48,15 +48,15 @@ const TaskColumnCard = ({ task }) => {
   const iconSize = isMobile ? 14 : 16;
 
   // popUp menu start
-  const [anchorEl, setAnchorEl] = useState(null);
+  // const [anchorEl, setAnchorEl] = useState(null);
 
-  const handleClick = event => {
-    setAnchorEl(event.currentTarget);
-  };
+  // const handleClick = event => {
+  //   setAnchorEl(event.currentTarget);
+  // };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  // const handleClose = () => {
+  //   setAnchorEl(null);
+  // };
 
   // popUp menu end
 
@@ -73,20 +73,20 @@ const TaskColumnCard = ({ task }) => {
           </TaskColumnCardPriorityChips>
         </TaskColumnCardBottomLeft>
         <TaskColumnCardBottomRight>
-          <Menu
+          {/* <Menu
             id="simple-menu"
-            anchorEl={anchorEl}
+            anchorEl={anchorEl.current}
             keepMounted
-            open={Boolean(anchorEl)}
+            open={Boolean(anchorEl.current)}
             onClose={handleClose}
           >
             <MenuItem onClick={handleClose}>In Progress</MenuItem>
             <MenuItem onClick={handleClose}>Done</MenuItem>
-          </Menu>
+          </Menu> */}
           <TaskColumnCardButton
-            aria-controls="simple-menu"
-            aria-haspopup="true"
-            onClick={handleClick}
+          // aria-controls="simple-menu"
+          // aria-haspopup="true"
+          // onClick={handleClick}
           >
             <ArrowCircleBrokenRightIcon
               size={iconSize}
