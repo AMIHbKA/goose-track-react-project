@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { hoverBackgroundStyle } from 'UI';
-import { buttonBoxShadow } from 'UI/CommonStyles/baseStyle';
 import { PlusIcon } from 'UI/icons';
 
 export const MainWrapper = styled.div`
