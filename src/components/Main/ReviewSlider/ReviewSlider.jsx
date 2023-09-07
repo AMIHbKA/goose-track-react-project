@@ -22,8 +22,10 @@ import {
 } from './ReviewSlider.styled';
 import { getReviews } from '../../../redux/review/getReviews';
 import { Container } from 'components';
+import { useTranslation } from 'react-i18next';
 
 export const ReviewSlider = () => {
+  const { t } = useTranslation();
   const [reviewCards, setReviewCards] = useState([]);
   const maxStars = 5;
 
@@ -39,7 +41,7 @@ export const ReviewSlider = () => {
     <Suspense fallback={<div>Loading...</div>}>
       <Reviews>
         <Container main_page>
-          <Title>reviews</Title>
+          <Title>{t('main.reviews')}</Title>
           <Swiper
             slidesPerView={1}
             spaceBetween={10}

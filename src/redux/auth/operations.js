@@ -9,6 +9,7 @@ export const register = createAsyncThunk(
 
       // After successful registration, add the token to the HTTP header
       notify('success', response.data.message);
+      console.log(response);
       return response.data.userData;
     } catch (error) {
       notify(
@@ -27,8 +28,24 @@ export const logIn = createAsyncThunk(
       const response = await api.instance.post('auth/login', credentials);
       // After successful login, add the token to the HTTP header
       api.setAuthHeader(response.data.userData.token);
+
+      /**
+       * Запит на бек, щоб отримати посилання на аватар
+       */
+      const responseFromBack = await api.instance.get('user/current');
+
       notify('success', response.data.message);
-      return response.data.userData;
+      // console.log('response', response);
+      // console.log('response2', responseFromBack.data.userData.avatarUrl);
+      // console.log({
+      //   ...response.data.userData,
+      //   avatarUrl: responseFromBack.data.userData.avatarUrl,
+      // });
+      // return response.data.userData;
+      return {
+        ...response.data.userData,
+        avatarUrl: responseFromBack.data.userData.avatarUrl,
+      };
     } catch (error) {
       notify(
         'error',
@@ -83,9 +100,7 @@ export const updateUser = createAsyncThunk(
     try {
       const response = await api.instance.patch('user/info', credentials);
 
-      console.log('response', response);
-      // After successful registration, add the token to the HTTP header
-      notify('success', response.data.message);
+      notify('success', 'Profile data changed successfully');
       return response.data.userData;
     } catch (error) {
       notify(

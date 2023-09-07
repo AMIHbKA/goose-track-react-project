@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { shakeAnimation } from 'UI';
 
 export const MainSection = styled.section`
+  position: relative;
   text-align: center;
   min-height: 100vh;
   background-color: ${props => props.theme.colors.primary};
@@ -9,6 +11,17 @@ export const MainSection = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+export const ButtonContainer = styled.div`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    top: 25px;
+    right: 25px;
+  }
 `;
 
 export const Logo = styled.a`
@@ -65,9 +78,11 @@ export const LoginLink = styled(Link)`
   height: 46px;
   align-items: center;
   border-radius: 16px;
+  font-weight: 600;
   gap: 6px;
   color: #3e85f3;
   background-color: #fff;
+  ${shakeAnimation}
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     width: 121px;
@@ -81,6 +96,8 @@ export const LoginLinkText = styled.span`
 
 export const SignLink = styled(Link)`
   display: block;
+  font-weight: 600;
   text-decoration: underline;
   color: #fff;
+  ${shakeAnimation}
 `;

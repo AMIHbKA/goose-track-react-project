@@ -37,18 +37,17 @@ export const useRect = (
   };
 
   const set = () => {
-    const {
-      height = 0,
-      width = 0,
-      x = 0,
-      y = 0,
-    } = ref.current?.getBoundingClientRect();
+    const rect = ref.current?.getBoundingClientRect();
+
+    if (!rect) {
+      return;
+    }
 
     setRect({
-      height: parseInt(height),
-      width: parseInt(width),
-      x: parseInt(x),
-      y: parseInt(y),
+      height: rect.height,
+      width: rect.width,
+      x: rect.x,
+      y: rect.y,
     });
   };
 

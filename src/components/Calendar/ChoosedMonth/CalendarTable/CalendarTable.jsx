@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 
 const CalendarTable = styled.div`
-  flex-grow: 1;
+  position: absolute;
 
   display: grid;
   grid-gap: 1px;
   grid-template-columns: repeat(7, 1fr);
-
-  width: 100%;
 
   background-color: ${({ theme }) => theme.choosedMonth.borderColor};
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ColumnHeadBarStyled = styled.div`
+export const ColumnHeadBarContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,4 +17,6 @@ const ColumnHeadBarStyled = styled.div`
   }
 `;
 
-export default ColumnHeadBarStyled;
+export const ColumnHeadBarButtons = styled.div`
+  cursor: pointer;
+`;

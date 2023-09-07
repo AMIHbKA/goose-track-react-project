@@ -67,6 +67,9 @@ export const darkTheme = {
   choosedDay: {
     addBtnBackground: commonStyles.colors.primary,
     addBtnBorder: null,
+    taskCardBorderColor: 'rgba(255, 255, 255, 0.15)',
+    taskCardBackground: '#171820',
+    taskIconColor: '#ffffff',
   },
   statistics: {
     linesColor: 'rgb(227 243 255 / 0.15)',
@@ -88,12 +91,19 @@ export const darkTheme = {
     starColor: '#ffac33',
     starColorDefault: '#353647',
   },
+  userAccount: {
+    inputText: '#ffffff',
+    border: 'rgba(255, 255, 255, 0.15)',
+    buttonTextColor: '#FFFFFF',
+    mainBackground: DARK_GRAYISH_BLUE,
+    roleColor: 'rgba(250, 250, 250, 0.30)',
+  },
   addTaskModal: {
-    background: "#171820",
+    background: '#171820',
     border: '1px solid rgba(255 255 255 / 0.15)',
     inputBorder: '1px solid rgba(255 255 255 / 0.15)',
-    inputBackground: "#171820",
-  }
+    inputBackground: '#171820',
+  },
 };
 
 export const lightTheme = {
@@ -130,6 +140,9 @@ export const lightTheme = {
   choosedDay: {
     addBtnBackground: LIGHT_BLUE,
     addBtnBorder: `1px dashed ${commonStyles.colors.primary}`,
+    taskCardBorderColor: 'rgba(220, 227, 229, 0.80)',
+    taskCardBackground: '#F7F6F9',
+    taskIconColor: '#111111',
   },
   statistics: {
     linesColor: LIGHT_BLUE,
@@ -150,10 +163,17 @@ export const lightTheme = {
     starColor: '#ffac33',
     starColorDefault: '#cec9c1',
   },
+  userAccount: {
+    inputText: '#111111',
+    border: 'rgba(17, 17, 17, 0.15)',
+    buttonTextColor: '#FFFFFF',
+    mainBackground: '#FFFFFF',
+    roleColor: '#343434',
+  },
   addTaskModal: {
-    background: "#fff",
-    border: "1px solid rgba(220 227 229 / 0.80)",
+    background: '#fff',
+    border: '1px solid rgba(220 227 229 / 0.80)',
     inputBorder: '0px',
-    inputBackground: '#F6F6F6'
-  }
+    inputBackground: '#F6F6F6',
+  },
 };

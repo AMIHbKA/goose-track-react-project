@@ -17,6 +17,7 @@ import {
   StyledReviewButton,
 } from './FeedbackModal.styled';
 import { PencilIcon, TrashIcon2 } from 'UI';
+import { useTranslation } from 'react-i18next';
 
 import {
   deleteReview,
@@ -28,6 +29,8 @@ import {
 import { useEffect } from 'react';
 
 export const FeedbackModal = ({ onCancel, initialReview }) => {
+  const { t } = useTranslation();
+
   const [rating, setRating] = useState(initialReview?.rating || 0);
   const [review, setReview] = useState(initialReview?.review || '');
   const [saveClicked, setSaveClicked] = useState(false);
@@ -120,7 +123,9 @@ export const FeedbackModal = ({ onCancel, initialReview }) => {
   return (
     <ModalContainer>
       <RaitingContainer saveClicked={saveClicked}>
-        <RaitingLabel htmlFor="starRaiting">Raiting</RaitingLabel>
+        <RaitingLabel htmlFor="starRaiting">
+          {t('feedbackModal.raiting')}
+        </RaitingLabel>
         <Rating
           name="stars"
           value={rating}
@@ -135,7 +140,7 @@ export const FeedbackModal = ({ onCancel, initialReview }) => {
       </RaitingContainer>
       <div>
         <StyledReviewButton>
-          <LabelText>Review</LabelText>
+          <LabelText>{t('feedbackModal.review')}</LabelText>
           {(saveClicked || editMode) && (
             <>
               <EditButton onClick={handleInputUnlock} editMode={editMode}>
@@ -163,7 +168,7 @@ export const FeedbackModal = ({ onCancel, initialReview }) => {
               disabled={!rating || !review || cancelButtonFocused}
               onClick={handleSaveClick}
             >
-              Save
+              {t('feedbackModal.buttonSave')}
             </SaveEditButton>
           ) : (
             <SaveEditButton
@@ -172,7 +177,7 @@ export const FeedbackModal = ({ onCancel, initialReview }) => {
               disabled={!rating || !review || cancelButtonFocused}
               onClick={handleEditClick}
             >
-              Edit
+              {t('feedbackModal.buttonEdit')}
             </SaveEditButton>
           )}
           <CancelButton
@@ -183,7 +188,7 @@ export const FeedbackModal = ({ onCancel, initialReview }) => {
               onCancel();
             }}
           >
-            Cancel
+            {t('feedbackModal.buttonCancel')}
           </CancelButton>
         </ButtonContainer>
       )}

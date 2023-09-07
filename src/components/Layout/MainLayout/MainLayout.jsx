@@ -1,8 +1,6 @@
 import { Suspense, useEffect, useRef, useState } from 'react';
 import { Outlet } from 'react-router-dom';
-
 import { HeaderLayout } from 'components/HeaderLayout/HeaderLayout';
-
 import { MenuPanel } from 'components/MenuPanel/MenuPanel';
 import {
   GridContainer,
@@ -26,32 +24,10 @@ export const MainLayout = () => {
 
   const laptopValue = parseInt(laptop);
 
-  // const [dimensionsMenuPanel, setDimensionsMenuPanel] = useState({
-  //   width: 0,
-  //   height: 0,
-  // });
-
   const [dimensionsUserPanel, setDimensionsUserPanel] = useState({
     width: 0,
     height: 0,
   });
-  // const [dimensionsMainPanel, setDimensionsMainPanel] = useState({
-  //   width: 0,
-  //   height: 0,
-  // });
-
-  // useEffect(() => {
-  //   const element = gridUserPanelRef.current;
-  //   if (element) {
-  //     const gridUserPanelWidth = element.offsetWidth;
-  //     // const gridUserPanelHeight = element.offsetHeight;
-  //     setGridUserPanelHeight(element.offsetHeight);
-  //     console.log(
-  //       `Розмір компонента: ширина - ${gridUserPanelWidth}px, висота - ${gridUserPanelHeight}px`
-  //     );
-  //     setGridMainPanelHeight(height - gridUserPanelHeight);
-  //   }
-  // }, [gridUserPanelHeight, height]);
 
   useEffect(() => {
     const getDimensions = (ref, setDimensions) => {
@@ -63,9 +39,7 @@ export const MainLayout = () => {
       }
     };
 
-    // getDimensions(gridMenuPanelRef, setDimensionsMenuPanel);
     getDimensions(gridUserPanelRef, setDimensionsUserPanel);
-    // getDimensions(gridMainPanelRef, setDimensionsMainPanel);
   }, []);
 
   return (
@@ -79,7 +53,6 @@ export const MainLayout = () => {
       <GridMainPanel
         ref={gridMainPanelRef}
         style={{
-          // width: width,
           height: height ? height - dimensionsUserPanel.height : '',
         }}
       >
