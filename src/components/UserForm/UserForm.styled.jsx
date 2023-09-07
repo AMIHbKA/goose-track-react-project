@@ -72,7 +72,6 @@ export const Img = styled.img`
 
 export const Title = styled.h2`
   margin: 0;
-  margin-top: 20px;
   text-align: center;
   font-weight: 700;
   font-size: 14px;
@@ -83,6 +82,7 @@ export const Title = styled.h2`
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     font-size: 18px;
     line-height: calc((18 / 18) * 100%);
+      margin-top: 20px;
   }
 `;
 
@@ -111,12 +111,13 @@ export const RoleTitle = styled.p`
 
 export const AccountForm = styled(Form)`
   padding: 40px 18px;
+  padding-top: 0px;
   transition: all 250ms;
   background-color: ${({ theme }) => theme.userAccount.mainBackground};
   border-radius: 16px;
   height: 100%;
 
-  @media (min-width: ${props => props.theme.breakpoints.laptop}) {
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     padding: 60px 18px;
   }
 `;
@@ -126,6 +127,8 @@ export const Label = styled.label`
   flex-direction: column;
   row-gap: 8px;
   max-width: 100%;
+    font-family: 'InterNormal';
+  font-style: normal;
   font-weight: 400;
   font-size: 12px;
   line-height: calc((14 / 12) * 100%);
