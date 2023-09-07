@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { CloseButton, ModalStyled, Overlay } from './ModalStyled';
 import { createPortal } from 'react-dom';
 
-export const Modal = ({ ...props }) => {
+export const Modal = ({ onEsc = true, btnClose = true, ...props }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { onActive, children } = props;
 
@@ -14,6 +14,12 @@ export const Modal = ({ ...props }) => {
   };
 
   useEffect(() => {
+    console.log('useEffect');
+    if (!onEsc) {
+      setIsOpen(true);
+      return;
+    }
+
     const onEscKey = event => {
       if (event.code !== 'Escape') {
         return;
@@ -32,14 +38,16 @@ export const Modal = ({ ...props }) => {
       document.removeEventListener('keydown', onEscKey);
       document.documentElement.style.overflowY = 'auto';
     };
-  }, [onActive]);
+  }, [onActive, onEsc]);
 
   const modalClassName = isOpen ? 'modal-open' : '';
   return createPortal(
     <Overlay onClick={handleClick} $backdrop={props.backdrop}>
       <ModalStyled className={modalClassName}>
         {children}
-        <CloseButton size="24" type="button" onClick={handleClick} />
+        {btnClose && (
+          <CloseButton size="24" type="button" onClick={handleClick} />
+        )}
       </ModalStyled>
     </Overlay>,
     document.body
