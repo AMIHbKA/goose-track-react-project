@@ -7,7 +7,7 @@ const TasksColumnStyled = styled.div`
 
   ${({ maxHeight }) => maxHeight && `max-height: ${maxHeight}px;`}
 
-  padding: 18px 18px 20px;
+  padding: 18px 0 20px;
 
   background-color: ${({ theme }) => theme.choosedMonth.dateBackground};
 
@@ -17,7 +17,7 @@ const TasksColumnStyled = styled.div`
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     width: calc((100vw - 64px - 16px) / 2);
 
-    padding: 20px;
+    padding: 20px 0;
   }
 
   @media (min-width: ${props => props.theme.breakpoints.laptop}) {

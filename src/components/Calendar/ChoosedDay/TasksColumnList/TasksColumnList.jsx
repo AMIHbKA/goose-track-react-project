@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useRect } from 'hooks';
+import { useLaptop, useRect } from 'hooks';
 import TasksColumn from '../TasksColumn/TasksColumn';
 import {
   TasksColumnListContainer,
@@ -29,13 +29,19 @@ const TasksColumnList = ({ tasks }) => {
     100
   );
 
+  const isLaptop = useLaptop();
+
   useEffect(() => {
     if (!tasksColumnListContainerRect) {
       return;
     }
 
-    setTasksColumnListWrapperHeight(tasksColumnListContainerRect.height - 46);
-  }, [tasksColumnListContainerRect]);
+    const containerHeight = tasksColumnListContainerRect.height;
+
+    const wrapperHeight = isLaptop ? containerHeight : containerHeight - 46;
+
+    setTasksColumnListWrapperHeight(wrapperHeight);
+  }, [isLaptop, tasksColumnListContainerRect]);
 
   const tasksByStatus = tasks.reduce(
     (acc, task) => {

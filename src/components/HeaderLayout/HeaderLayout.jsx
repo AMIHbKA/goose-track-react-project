@@ -26,7 +26,7 @@ import { useTranslation } from 'react-i18next';
 export const HeaderLayout = ({ currentTheme, currentReview }) => {
   const { t } = useTranslation();
 
-  const { user, avatarUrl } = useSelector(selectUser);
+  const { name, avatarUrl } = useSelector(selectUser);
   const currentPage = useLocation().pathname;
   const [showModal, setShowModal] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -100,7 +100,7 @@ export const HeaderLayout = ({ currentTheme, currentReview }) => {
             )}
             <UserInfo>
               <ThemeToggler />
-              <UserName>{user}</UserName>
+              <UserName>{name}</UserName>
               <UserPhoto>
                 <img src={avatarUrl} alt="user avatar" />
               </UserPhoto>

@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router';
-import { CalendarToolbar, TaskModal } from 'components';
+import { CalendarToolbar } from 'components';
 import CalendarPageContainer from 'components/Calendar/CalendarPageContainer';
 import { Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
