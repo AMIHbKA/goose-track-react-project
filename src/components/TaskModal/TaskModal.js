@@ -1,10 +1,14 @@
 import { Modal } from 'components';
 import { AddOrEditTaskForm } from 'components/Forms/AddOrEditTaskForm/AddOrEditTaskForm';
 
-export const TaskModal = onShowModal => {
+export const TaskModal = ({ isShow }) => {
   return (
-    <Modal onActive={onShowModal}>
-      <AddOrEditTaskForm onActive={onShowModal} />
-    </Modal>
+    <>
+      {isShow && (
+        <Modal onActive={isShow}>
+          <AddOrEditTaskForm onActive={isShow} />
+        </Modal>
+      )}
+    </>
   );
 };

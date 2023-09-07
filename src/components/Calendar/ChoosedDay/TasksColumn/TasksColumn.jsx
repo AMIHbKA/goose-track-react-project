@@ -11,8 +11,7 @@ import TaskColumnCard from '../TaskColumnCard/TaskColumnCard';
 const TasksColumn = ({ stage, tasks, maxHeight }) => {
   const [showModal, setShowModal] = useState(false);
   const isMobile = useMobile();
-
-  const handleClick = () => {
+  const onShowModal = () => {
     setShowModal(s => !s);
   };
 
@@ -33,14 +32,14 @@ const TasksColumn = ({ stage, tasks, maxHeight }) => {
           <TaskColumnCard key={task._id} task={task} />
         ))}
         {isMobile && (
-          <AddTaskBtn noTasks={noTasks} onClick={handleClick}>
+          <AddTaskBtn noTasks={noTasks} onClick={onShowModal}>
             <PlusIcon size={24} /> <div>AddTask</div>
           </AddTaskBtn>
         )}
-        <TaskModal onShowModal={showModal} />
+        {showModal && <TaskModal isShow={onShowModal} />}
       </ColumnsTasksList>
       {isMobile || (
-        <AddTaskBtn noTasks={noTasks} onClick={handleClick}>
+        <AddTaskBtn noTasks={noTasks} onClick={onShowModal}>
           <PlusIcon size={24} /> <div>AddTask</div>
         </AddTaskBtn>
       )}
