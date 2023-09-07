@@ -29,19 +29,10 @@ export const logIn = createAsyncThunk(
       // After successful login, add the token to the HTTP header
       api.setAuthHeader(response.data.userData.token);
 
-      /**
-       * Запит на бек, щоб отримати посилання на аватар
-       */
       const responseFromBack = await api.instance.get('user/current');
 
       notify('success', response.data.message);
-      // console.log('response', response);
-      // console.log('response2', responseFromBack.data.userData.avatarUrl);
-      // console.log({
-      //   ...response.data.userData,
-      //   avatarUrl: responseFromBack.data.userData.avatarUrl,
-      // });
-      // return response.data.userData;
+
       return {
         ...response.data.userData,
         avatarUrl: responseFromBack.data.userData.avatarUrl,

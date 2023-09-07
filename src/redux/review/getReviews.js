@@ -11,7 +11,7 @@ export const getReviews = async () => {
     // console.log(response.data.reviews[6].owner);
     return response.data.reviews;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return [];
   }
 };

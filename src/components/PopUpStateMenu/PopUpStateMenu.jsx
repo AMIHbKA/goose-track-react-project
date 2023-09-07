@@ -6,15 +6,12 @@ export const PopUpStateMenu = () => {
   const ref = useRef();
   const openTooltip = () => {
     ref.current.open();
-    console.log('click');
   };
   const closeTooltip = () => {
     ref.current.close();
-    console.log('click');
   };
   const toggleTooltip = () => {
     ref.current.toggle();
-    console.log('click');
   };
 
   return (
