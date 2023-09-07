@@ -14,12 +14,10 @@ export const Modal = ({ onEsc = true, btnClose = true, ...props }) => {
   };
 
   useEffect(() => {
-    console.log('useEffect');
     if (!onEsc) {
       setIsOpen(true);
       return;
     }
-
     const onEscKey = event => {
       if (event.code !== 'Escape') {
         return;
