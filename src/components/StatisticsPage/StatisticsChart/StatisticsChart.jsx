@@ -16,28 +16,27 @@ import {
   StatisticsChartWrapperExternal,
   StatisticsChartWrapperInternal,
 } from './StatisticsChartStyled';
-// import { useSelector } from 'react-redux';
-// import { getTasks } from 'redux/tasks/selectors';
+import { useSelector } from 'react-redux';
+import { getTasks } from 'redux/tasks/selectors';
+import { tasksStatisticCalculator } from 'utilities/tasksStatisticCalculator';
 
-
-
-const data = [
-  {
-    name: 'To Do',
-    day: 30,
-    month: 35,
-  },
-  {
-    name: 'In Progress',
-    day: 20,
-    month: 30,
-  },
-  {
-    name: 'Done',
-    day: 45,
-    month: 40,
-  },
-];
+// const data = [
+//   {
+//     name: 'To Do',
+//     day: 30,
+//     month: 35,
+//   },
+//   {
+//     name: 'In Progress',
+//     day: 20,
+//     month: 30,
+//   },
+//   {
+//     name: 'Done',
+//     day: 45,
+//     month: 40,
+//   },
+// ];
 
 const StatisticsChart = () => {
   const windowSize = useWindowSize();
@@ -46,11 +45,14 @@ const StatisticsChart = () => {
 
   const theme = useContext(ThemeContext);
 
-  // const tasks = useSelector(getTasks);
+  const tasks = useSelector(getTasks);
+  console.log(tasks);
 
+  const resultArray = tasksStatisticCalculator(tasks);
+  console.log(resultArray);
   // const makeData = (tasks) => {
   //   tasks.map((task) => {
-      
+
   //   })
   // }
 
@@ -84,7 +86,7 @@ const StatisticsChart = () => {
           >
             <ResponsiveContainer>
               <BarChart
-                data={data}
+                data={resultArray}
                 margin={{
                   top: 10,
                   right: 0,

@@ -93,6 +93,14 @@ export const UserName = styled.p`
   font-weight: 700;
   line-height: 1.29;
 
+  @media (max-width: ${props => props.theme.breakpoints.preM}) {
+    max-width: 50px;
+    min-width: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     font-size: 18px;
     line-height: 1;
@@ -102,8 +110,8 @@ export const UserName = styled.p`
   }
 `;
 export const UserPhoto = styled.div`
-  width: 32px;
-  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
 
   overflow: hidden;
   border-radius: 50%;
