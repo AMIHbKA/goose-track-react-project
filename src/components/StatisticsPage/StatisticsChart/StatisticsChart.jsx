@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import {
   BarChart,
   Bar,
@@ -7,6 +6,7 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from 'recharts';
+import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { useWindowSize, useRect } from 'hooks';
 import BarWithGradient from '../BarWithGradient/BarWithGradient';
