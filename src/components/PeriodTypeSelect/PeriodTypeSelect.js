@@ -1,5 +1,3 @@
-// import { useState } from 'react';
-
 import {
   Navigation,
   SelectorDay,
@@ -14,7 +12,6 @@ export const PeriodTypeSelect = ({ selectPeriod }) => {
         to="/calendar/month"
         onClick={() => {
           selectPeriod(MONTH);
-          // setIsActive(MONTH);
         }}
       >
         Month
@@ -23,7 +20,6 @@ export const PeriodTypeSelect = ({ selectPeriod }) => {
         to="/calendar/day"
         onClick={() => {
           selectPeriod(DAY);
-          // setIsActive(DAY);
         }}
       >
         Day
