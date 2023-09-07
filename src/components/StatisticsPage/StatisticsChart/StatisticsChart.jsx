@@ -23,27 +23,25 @@ import { useTranslation } from 'react-i18next';
 // import { useSelector } from 'react-redux';
 // import { getTasks } from 'redux/tasks/selectors';
 
-const data = [
-  {
-    name: 'To do',
-    day: 30,
-    month: 35,
-  },
-  {
-    name: 'In Progress',
-    day: 20,
-    month: 30,
-  },
-  {
-    name: 'Done',
-    day: 45,
-    month: 40,
-  },
-];
+// const data = [
+//   {
+//     name: 'To do',
+//     day: 30,
+//     month: 35,
+//   },
+//   {
+//     name: 'In Progress',
+//     day: 20,
+//     month: 30,
+//   },
+//   {
+//     name: 'Done',
+//     day: 45,
+//     month: 40,
+//   },
+// ];
 
 const StatisticsChart = () => {
-  const { t } = useTranslation();
-
   const windowSize = useWindowSize();
 
   const [chartSizes, chartWrapperRef] = useRect('resize', 100, 100);
