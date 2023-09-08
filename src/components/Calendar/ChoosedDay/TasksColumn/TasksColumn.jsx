@@ -8,16 +8,17 @@ import ColumnsTasksList from '../ColumnsTasksList/ColumnsTasksList';
 import TasksColumnStyled from './TasksColumnStyled';
 import TaskColumnCard from '../TaskColumnCard/TaskColumnCard';
 
-import { AddOrEditTaskForm } from 'components/Forms/AddOrEditTaskForm/AddOrEditTaskForm';
-
 const TasksColumn = ({ stage, tasks, maxHeight }) => {
-  const [showModal, setShowModal] = useState(false);
+  const [isShow, setIsShow] = useState(false);
   const isMobile = useMobile();
+
   const onShowModal = () => {
-    setShowModal(s => !s);
+    setIsShow(!isShow);
   };
 
   const status = stage.split(' ').join('-').toLowerCase();
+
+  console.log('status', status)
 
   const noTasks = !tasks || !tasks.length;
 
@@ -25,7 +26,7 @@ const TasksColumn = ({ stage, tasks, maxHeight }) => {
 
   return (
     <TasksColumnStyled maxHeight={maxHeight} className="TasksColumnStyled">
-      <ColumnHeadBar stage={stage} />
+      <ColumnHeadBar stage={stage} status={status}/>
       <ColumnsTasksList
         maxHeight={maxHeight}
         noTasks={noTasks}
@@ -33,21 +34,18 @@ const TasksColumn = ({ stage, tasks, maxHeight }) => {
         className="ColumnsTasksList"
       >
         {tasks.map(task => (
-          <TaskColumnCard key={task._id} task={task} stage={stage} />
+          <TaskColumnCard key={task._id} task={task} />
         ))}
         {isMobile && (
           <AddTaskBtn noTasks={noTasks} onClick={onShowModal}>
             <PlusIcon size={24} /> <div>AddTask</div>
           </AddTaskBtn>
         )}
-        {showModal && (
-          <TaskModal isShow={onShowModal}>
-            <AddOrEditTaskForm
-              onActive={onShowModal}
+        {isShow && (
+          <TaskModal isShow={onShowModal} 
               option="add"
               status={status}
-            />{' '}
-          </TaskModal>
+            />
         )}
       </ColumnsTasksList>
       {isMobile || (

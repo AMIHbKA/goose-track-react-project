@@ -6,23 +6,22 @@ import {
 import { useTheme } from 'styled-components';
 import { useMobile } from 'hooks';
 import { useState } from 'react';
-import { Modal } from 'components';
-import { AddOrEditTaskForm } from 'components/Forms/AddOrEditTaskForm/AddOrEditTaskForm';
+import { TaskModal } from 'components';
 
-const ColumnHeadBar = ({ stage }) => {
+const ColumnHeadBar = ({ stage, status }) => {
   const {
     colors: { mainText },
   } = useTheme();
 
-  const [showModal, setShowModal] = useState(false);
+  const [isShow, setIsShow] = useState(false);
 
   const isMobile = useMobile();
 
   const onShowModal = () => {
-    setShowModal(s => !s);
+    setIsShow(!isShow);
   };
 
-  const status = stage.split(' ').join('-').toLowerCase()
+  // const status = stage.split(' ').join('-').toLowerCase()
 
   return (
     <ColumnHeadBarContainer>
@@ -30,16 +29,10 @@ const ColumnHeadBar = ({ stage }) => {
       <ColumnHeadBarButtons onClick={onShowModal}>
         <PlusCircleIcon size={isMobile ? 22 : 24} stroke={mainText} />
       </ColumnHeadBarButtons>
-      {showModal && (
-            <Modal onActive={onShowModal} >
-              <AddOrEditTaskForm
-                onActive={onShowModal}
-                option="add"
-                // date={date}
-                status={status}
-                
-              />
-            </Modal>
+      {isShow && (
+            <TaskModal isShow={onShowModal} 
+            option="add"
+            status={status} />
           )}
     </ColumnHeadBarContainer>
   );
