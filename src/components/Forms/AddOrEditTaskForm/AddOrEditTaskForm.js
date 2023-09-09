@@ -22,20 +22,27 @@ import { format } from 'date-fns';
 // import { useTranslation } from 'react-i18next';
 
 export const AddOrEditTaskForm = ({
-  defaulValues = {
-    title: '',
-    start: '00:00',
-    end: '01:00',
-    priority: 'low',
-  },
-  option = 'add',
-  date,
-  id,
-  status = 'to-do',
+  // defaulValues = {
+  //   title: '',
+  //   start: '00:00',
+  //   end: '01:00',
+  //   priority: 'low',
+  // },
+  // option = 'add',
+  // date,
+  // id,
+  // status
   onActive,
+  ...props
 }) => {
   // const { t } = useTranslation();
+
+  const {option, date,defaulValues = {title: '',
+  start: '00:00',
+  end: '00:00',
+  priority: 'low',}, id, status}  = props;
   const dispatch = useDispatch();
+  console.log('status', status)
 
   const currDate = useSelector(getDate);
 
@@ -159,7 +166,7 @@ export const AddOrEditTaskForm = ({
                 {hours
                   .filter(
                     hour =>
-                      Number(hour.slice(0, 2)) >
+                      Number(hour.slice(0, 2)) >=
                       Number(values.start.slice(0, 2))
                   )
                   .map(hour => (
@@ -198,7 +205,7 @@ export const AddOrEditTaskForm = ({
               </ActionButton>
             )}
 
-            <CancelButton type="button">Cancel</CancelButton>
+            <CancelButton type="button" onClick={()=> onActive()}>Cancel</CancelButton>
           </Wrapper>
         </AddForm>
       )}

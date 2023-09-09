@@ -9,7 +9,7 @@ export const Modal = ({ onEsc = true, btnClose = true, ...props }) => {
   const handleClick = event => {
     const { target, currentTarget } = event;
     if (target === currentTarget) {
-      props.onActive();
+      onActive();
     }
   };
 

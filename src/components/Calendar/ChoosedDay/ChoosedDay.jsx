@@ -8,7 +8,7 @@ import { getTasks } from 'redux/tasks/selectors';
 import { getDate } from 'redux/date/selectors';
 import { useDispatch } from 'react-redux';
 import { fetchTasks } from 'redux/tasks/operations';
-import { getDay, getMonth, getYear } from 'date-fns';
+import { getMonth, getYear } from 'date-fns';
 import { setDate } from 'redux/date/dateSlice';
 
 const ChoosedDay = () => {
@@ -32,11 +32,12 @@ const ChoosedDay = () => {
     );
   });
 
-
+// console.log('tasksForDay', tasksForDay)
   useEffect(() => {
     const year = getYear(date);
-    const month = getMonth(date);
-    const day = getDay(date);
+    const month = getMonth(date) + 1;
+    const day = getDate(date);
+    console.log('month', month)
     dispatch(fetchTasks({ year, month, day }));
   }, [dispatch, date]);
 

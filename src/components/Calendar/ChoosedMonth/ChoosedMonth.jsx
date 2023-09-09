@@ -66,7 +66,7 @@ const ChoosedMonth = () => {
 
   useEffect(() => {
     const year = getYear(date)
-    const month = getMonth(date)
+    const month = getMonth(date) + 1
     dispatch(fetchTasks({ year, month}))
   }, [dispatch, date]);
 
