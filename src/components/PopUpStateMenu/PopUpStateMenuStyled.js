@@ -16,6 +16,7 @@ export const PopUpMenuItem = styled.div`
 `;
 
 export const PopUpButton = styled.button`
+  display: flex;
   background: none;
   outline: none;
   border: none;
@@ -24,7 +25,7 @@ export const PopUpButton = styled.button`
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
-  vertical-align: baseline;
+  align-items: center;
   padding: 0;
   margin: 0;
 `;

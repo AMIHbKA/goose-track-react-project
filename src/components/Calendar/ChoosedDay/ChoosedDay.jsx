@@ -37,7 +37,7 @@ const ChoosedDay = () => {
     const year = getYear(date);
     const month = getMonth(date) + 1;
     const day = getDate(date);
-    console.log('month', month)
+    // console.log('month', month)
     dispatch(fetchTasks({ year, month, day }));
   }, [dispatch, date]);
 
