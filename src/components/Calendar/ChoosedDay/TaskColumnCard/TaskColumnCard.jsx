@@ -17,7 +17,7 @@ import {
 
 import { ArrowCircleBrokenRightIcon, PencilIcon, TrashIcon } from 'UI/index';
 import { useDispatch } from 'react-redux';
-import { deleteTask, updateTask } from 'redux/tasks/operations';
+import { deleteTask, fetchTasks, updateTask } from 'redux/tasks/operations';
 import { notify } from 'utilities';
 import Popup from 'reactjs-popup';
 import {
@@ -25,6 +25,7 @@ import {
   PopUpMenuItem,
   PopUpWrap,
 } from 'components/PopUpStateMenu/PopUpStateMenuStyled';
+
 
 const TaskColumnCard = ({ task }) => {
   const user = useSelector(selectUser);
@@ -37,6 +38,12 @@ const TaskColumnCard = ({ task }) => {
 
   const { title, start, end, date, priority, status, _id } = task;
 
+  const year = new Date(date).getFullYear();
+        console.log('year', year)
+        const month = new Date(date).getMonth() + 1;
+        console.log('month', month)
+        const day = new Date(date).getDate();
+
   const dispatch = useDispatch();
 
   const onShowModal = () => {
@@ -45,6 +52,7 @@ const TaskColumnCard = ({ task }) => {
 
   const deleteCurrentTask = () => {
     dispatch(deleteTask(_id))
+      // .then(()=> dispatch(fetchTasks({ year, month, day })))
       .then(() => notify('success', 'The task was deleted successfully'))
       .catch(e => notify('error', 'An error occurred deleting this task'));
   };
@@ -53,6 +61,7 @@ const TaskColumnCard = ({ task }) => {
     const updatedTask = {title, start, end, date, priority, status: update}
     const id = _id
     dispatch(updateTask({id, updatedTask}))
+      // .then(()=> dispatch(fetchTasks({ year, month, day })))
       .then(() => notify('success', 'The task status was updated'))
       .catch(e => notify('error', 'An error occurred updating this task'));
   }

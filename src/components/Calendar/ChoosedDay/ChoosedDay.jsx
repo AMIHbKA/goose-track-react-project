@@ -15,6 +15,7 @@ const ChoosedDay = () => {
   const tasks = useSelector(getTasks);
 
   const date = useSelector(getDate);
+  console.log('date', date)
 
   const dispatch = useDispatch();
 
@@ -33,13 +34,13 @@ const ChoosedDay = () => {
   });
 
 // console.log('tasksForDay', tasksForDay)
-  useEffect(() => {
-    const year = getYear(date);
-    const month = getMonth(date) + 1;
-    const day = getDate(date);
-    // console.log('month', month)
-    dispatch(fetchTasks({ year, month, day }));
-  }, [dispatch, date]);
+  // useEffect(() => {
+  //   const year = getYear(date);
+  //   const month = getMonth(date) + 1;
+  //   const day = new Date(date).getDate();
+  //   // console.log('month', month)
+  //   dispatch(fetchTasks({ year, month, day })); returns an empty array!!!!
+  // }, [dispatch, date]); 
 
   return (
     <ChoosedDayContainer>
