@@ -3,6 +3,8 @@ import MonthCellStyled from './MonthCellStyled';
 import DateBadge from '../../DateBadge/DateBadge';
 import TasksContainer from '../TasksContainer/TasksContainer';
 import { useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { setDate } from 'redux/date/dateSlice';
 
 const MonthCell = ({ calendarDate, tasks, height, width }) => {
   const isToday = calendarDate.iso === new Date().toISOString().split('T')[0];
@@ -12,6 +14,10 @@ const MonthCell = ({ calendarDate, tasks, height, width }) => {
  
   const isCurrentMonth = calendarDate.type === 'current';
 
+  const dispatch = useDispatch()
+
+  console.log('calendarDate', calendarDate)
+
   return (
     <MonthCellStyled
       isCurrentMonth={isCurrentMonth}
@@ -19,6 +25,7 @@ const MonthCell = ({ calendarDate, tasks, height, width }) => {
       width={width}
       onClick={() => {
         setIsActive(true)
+        dispatch(setDate(Number(new Date(calendarDate.iso))))
         navigate('/calendar/day')}}
     >
       {isCurrentMonth && (

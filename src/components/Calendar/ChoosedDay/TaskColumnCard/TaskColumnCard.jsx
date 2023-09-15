@@ -3,8 +3,7 @@ import { useSelector } from 'react-redux';
 import { useTheme } from 'styled-components';
 import { useMobile } from 'hooks';
 import { selectUser } from 'redux/auth/selectors';
-import { Modal } from 'components';
-import { AddOrEditTaskForm } from 'components/Forms/AddOrEditTaskForm/AddOrEditTaskForm';
+import { TaskModal } from 'components';
 import {
   TasksColumnCardContainer,
   TaskColumnCardDescription,
@@ -18,7 +17,7 @@ import {
 
 import { ArrowCircleBrokenRightIcon, PencilIcon, TrashIcon } from 'UI/index';
 import { useDispatch } from 'react-redux';
-import { deleteTask } from 'redux/tasks/operations';
+import { deleteTask, fetchTasks, updateTask } from 'redux/tasks/operations';
 import { notify } from 'utilities';
 import Popup from 'reactjs-popup';
 import {
@@ -27,6 +26,7 @@ import {
   PopUpWrap,
 } from 'components/PopUpStateMenu/PopUpStateMenuStyled';
 
+
 const TaskColumnCard = ({ task }) => {
   const user = useSelector(selectUser);
 
@@ -34,31 +34,51 @@ const TaskColumnCard = ({ task }) => {
 
   const isMobile = useMobile();
 
-  const [showModal, setShowModal] = useState(false);
+  const [isShow, setIsShow] = useState(false);
 
   const { title, start, end, date, priority, status, _id } = task;
+
+  const year = new Date(date).getFullYear();
+  const month = new Date(date).getMonth() + 1;
 
   const dispatch = useDispatch();
 
   const onShowModal = () => {
-    setShowModal(s => !s);
+    setIsShow(!isShow);
   };
 
-  const deleteCurrentTask = () => {
-    dispatch(deleteTask(_id))
-      .then(() => notify('success', 'The task was deleted successfully'))
-      .catch(e => notify('error', 'An error occurred deleting this task'));
-  };
-
-  const iconSize = isMobile ? 14 : 16;
-
-  //
   const ref = useRef();
   const openTooltip = () => {
     ref.current.open();
 
   };
-  //
+
+  const closeTooltip = () => {
+    ref.current.close()
+  }
+
+  const deleteCurrentTask = () => {
+    dispatch(deleteTask(_id))
+      .then(()=> dispatch(fetchTasks({ year, month })))
+      .then(() => notify('success', 'The task was deleted successfully'))
+      .catch(e => notify('error', 'An error occurred deleting this task'));
+  };
+
+  const updateTaskStatus = (update) => {
+    if (update === status) {
+      notify('error', `The task is already ${update}`)
+      return
+    }
+    const updatedTask = {title, start, end, date, priority, status: update}
+    const id = _id
+    dispatch(updateTask({id, updatedTask}))
+      .then(()=> dispatch(fetchTasks({ year, month })))
+      .then(() => notify('success', 'The task status was updated'))
+      .catch(e => notify('error', 'An error occurred updating this task'));
+    closeTooltip()
+  }
+
+  const iconSize = isMobile ? 14 : 16;
 
   return (
     <TasksColumnCardContainer>
@@ -81,12 +101,16 @@ const TaskColumnCard = ({ task }) => {
             <Popup ref={ref} trigger={<div></div>}>
               <PopUpMenuItem>
                 <PopUpWrap>
-                  <PopUpButton>In Progress</PopUpButton>
-                  <ArrowCircleBrokenRightIcon size={iconSize} />
+                  <PopUpButton onClick={() => updateTaskStatus("in-progress")}>In Progress
+                  <ArrowCircleBrokenRightIcon size={iconSize}/>
+                  </PopUpButton>
+                  
                 </PopUpWrap>
                 <PopUpWrap>
-                  <PopUpButton>Done</PopUpButton>
-                  <ArrowCircleBrokenRightIcon size={iconSize} />
+                  <PopUpButton onClick={() => updateTaskStatus("done")}>Done
+                    <ArrowCircleBrokenRightIcon size={iconSize} />
+                  </PopUpButton>
+                  
                 </PopUpWrap>
               </PopUpMenuItem>
             </Popup>
@@ -97,17 +121,14 @@ const TaskColumnCard = ({ task }) => {
               stroke={theme.choosedDay.taskIconColor}
             />
           </TaskColumnCardButton>
-          {showModal && (
-            <Modal onActive={onShowModal}>
-              <AddOrEditTaskForm
-                onActive={onShowModal}
-                defaulValues={{ title, start, end, priority }}
-                option="edit"
-                date={date}
-                status={status}
-                id={_id}
-              />
-            </Modal>
+          {isShow && (
+            <TaskModal isShow={onShowModal} 
+            defaulValues={{ title, start, end, priority }}
+            option="edit"
+            date={date}
+            status={status}
+            id={_id}>
+            </TaskModal>
           )}
           <TaskColumnCardButton onClick={deleteCurrentTask}>
             <TrashIcon

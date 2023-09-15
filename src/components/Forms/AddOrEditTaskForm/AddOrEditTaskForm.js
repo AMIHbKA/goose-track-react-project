@@ -19,6 +19,7 @@ import { addTask, updateTask } from 'redux/tasks/operations';
 import { useSelector } from 'react-redux';
 import { getDate } from 'redux/date/selectors';
 import { format } from 'date-fns';
+import { notify } from 'utilities';
 // import { useTranslation } from 'react-i18next';
 
 export const AddOrEditTaskForm = ({
@@ -91,7 +92,9 @@ export const AddOrEditTaskForm = ({
         date: formattedDate,
         status,
       };
-      dispatch(addTask(newTask));
+      dispatch(addTask(newTask))
+      .then(() => notify('success', 'The task was added successfully'))
+      .catch(e => notify('error', 'An error occurred adding this task'));
     }
 
     if (option === 'edit') {
@@ -101,7 +104,9 @@ export const AddOrEditTaskForm = ({
         status,
       };
 
-      dispatch(updateTask({ id, updatedTask }));
+      dispatch(updateTask({ id, updatedTask }))
+      .then(() => notify('success', 'The task was updated successfully'))
+      .catch(e => notify('error', 'An error occurred updating this task'));;
     }
 
     onActive();
