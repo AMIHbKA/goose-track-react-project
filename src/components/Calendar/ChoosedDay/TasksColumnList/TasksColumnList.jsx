@@ -49,7 +49,7 @@ const TasksColumnList = ({ tasks }) => {
 
       return acc;
     },
-    { 'To do': [], 'In progress': [], Done: [] }
+    { 'To do': [], 'In progress': [], 'Done': [] }
   );
 
   return (

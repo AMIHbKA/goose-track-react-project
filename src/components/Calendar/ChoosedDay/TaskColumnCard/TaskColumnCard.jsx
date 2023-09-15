@@ -39,10 +39,7 @@ const TaskColumnCard = ({ task }) => {
   const { title, start, end, date, priority, status, _id } = task;
 
   const year = new Date(date).getFullYear();
-        console.log('year', year)
-        const month = new Date(date).getMonth() + 1;
-        console.log('month', month)
-        const day = new Date(date).getDate();
+  const month = new Date(date).getMonth() + 1;
 
   const dispatch = useDispatch();
 
@@ -50,31 +47,38 @@ const TaskColumnCard = ({ task }) => {
     setIsShow(!isShow);
   };
 
-  const deleteCurrentTask = () => {
-    dispatch(deleteTask(_id))
-      // .then(()=> dispatch(fetchTasks({ year, month, day })))
-      .then(() => notify('success', 'The task was deleted successfully'))
-      .catch(e => notify('error', 'An error occurred deleting this task'));
-  };
-
-  const updateTaskStatus = (update) => {
-    const updatedTask = {title, start, end, date, priority, status: update}
-    const id = _id
-    dispatch(updateTask({id, updatedTask}))
-      // .then(()=> dispatch(fetchTasks({ year, month, day })))
-      .then(() => notify('success', 'The task status was updated'))
-      .catch(e => notify('error', 'An error occurred updating this task'));
-  }
-
-  const iconSize = isMobile ? 14 : 16;
-
-  //
   const ref = useRef();
   const openTooltip = () => {
     ref.current.open();
 
   };
-  //
+
+  const closeTooltip = () => {
+    ref.current.close()
+  }
+
+  const deleteCurrentTask = () => {
+    dispatch(deleteTask(_id))
+      .then(()=> dispatch(fetchTasks({ year, month })))
+      .then(() => notify('success', 'The task was deleted successfully'))
+      .catch(e => notify('error', 'An error occurred deleting this task'));
+  };
+
+  const updateTaskStatus = (update) => {
+    if (update === status) {
+      notify('error', `The task is already ${update}`)
+      return
+    }
+    const updatedTask = {title, start, end, date, priority, status: update}
+    const id = _id
+    dispatch(updateTask({id, updatedTask}))
+      .then(()=> dispatch(fetchTasks({ year, month })))
+      .then(() => notify('success', 'The task status was updated'))
+      .catch(e => notify('error', 'An error occurred updating this task'));
+    closeTooltip()
+  }
+
+  const iconSize = isMobile ? 14 : 16;
 
   return (
     <TasksColumnCardContainer>
@@ -124,14 +128,6 @@ const TaskColumnCard = ({ task }) => {
             date={date}
             status={status}
             id={_id}>
-              {/* <AddOrEditTaskForm
-                onActive={onShowModal}
-                defaulValues={{ title, start, end, priority }}
-                option="edit"
-                date={date}
-                status={status}
-                id={_id}
-              /> */}
             </TaskModal>
           )}
           <TaskColumnCardButton onClick={deleteCurrentTask}>
